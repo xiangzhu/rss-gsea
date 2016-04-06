@@ -1,0 +1,73 @@
+--- 
+title: "Integrated Enrichment Analysis of Genetic Variants and Biological Pathways"
+author: "Xiang Zhu"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [~/Dropbox/rss/Writing/rss_shared/rss.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: xiangzhu/rss-gsea
+---
+
+# Basic Information
+
+**Who**
+
+[Xiang Zhu][xzhu] is a graduate student in the Department of Statistics at the University of Chicago.
+
+[xzhu]: https://github.com/xiangzhu
+
+**What**
+
+The aim of this project is to develop statistical methods for integrated enrichment analysis of genome-wide association studies (GWAS) summary data and biological pathways.
+Specifically, I combine the likelihood function from @rss_2016 with the prior distribution from @integrated_plos_2013, and then perform Bayesian analysis. 
+
+To learn more about other research projects, visit the [lab website](http://stephenslab.uchicago.edu).
+
+**How**
+
+I made this notebook using many wonderful publicly available tools.
+I write the analyses using [R Markdown][rmarkdown], [knitr][], [bookdown][] and [pandoc][].
+This notebook is motivated by the idea from [singleCellseq][scs].
+To host the notebook, I use [GitHub Pages][gh-pages].
+
+[rmarkdown]: http://rmarkdown.rstudio.com/
+[knitr]: http://yihui.name/knitr/
+[bookdown]: https://bookdown.org/
+[pandoc]: http://pandoc.org/
+[rmd-site]: https://github.com/rstudio/rmarkdown/tree/gh-pages
+[gh-pages]: https://pages.github.com/
+[scs]: https://github.com/jdblischak/singleCellSeq
+
+## License 
+
+Currently the notebook is licensed under the [Creative Commons Attribution-NoDerivatives 4.0 International License][site-license].
+This means you are free to include content from this site in your presentation, blog, or social media posts, as long you cite it.
+The "no derivatives" clause means you cannot modify the results and distribute them.
+Once the results are published, I will remove "no derivatives" clause.
+
+The source code in the notebook is licensed under the [GPLv3][code-license].
+
+## Cite
+
+If you use any results from this notebook, please cite it by including the following (or something similar):
+
+```{block, note-text, type='rmdimportant'}
+From the Stephens Lab: http://xiangzhu.github.io/rss-gsea
+```
+
+[code-license]: https://www.gnu.org/licenses/gpl-3.0.txt
+[site-license]: https://creativecommons.org/licenses/by-nd/4.0/
+
+## Contact
+
+If you have any question about this notebook, please feel free to contact me.
+
+- Create a new [issue](https://github.com/xiangzhu/rss-gsea/issues) in GitHub.
+- Send an email to `xiangzhu@uchicago.edu`.
+
+## News
+
+- **03/04/2016**: Xiang presented this work at the 2016 Novembre-He-Stephens meeting. [[Slides]](http://www.stat.uchicago.edu/~xiangzhu/NHS_20160304.pdf)
