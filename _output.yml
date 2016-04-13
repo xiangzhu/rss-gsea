@@ -11,6 +11,14 @@ bookdown::gitbook:
     edit:
       link: https://github.com/xiangzhu/rss-gsea/edit/master/%s
       text: "Edit"
+  sharing:
+      facebook: yes
+      twitter: yes
+      google: no
+      weibo: no
+      instapper: no
+      vk: no
+      all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper']
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
