@@ -27,7 +27,7 @@ To learn more about other research projects, please visit the [Stephens Lab webs
 **How**
 
 I make this notebook using many wonderful publicly available tools,
-including [`rarkdown`][rmarkdown], [`knitr`][knitr], [`bookdown`][bookdown] and [`pandoc`][pandoc].
+including [`rmarkdown`][rmarkdown], [`knitr`][knitr], [`bookdown`][bookdown] and [`pandoc`][pandoc].
 This notebook is largely motivated by the idea from the [singleCellseq][scs] project at the [Gilad Lab](http://giladlab.uchicago.edu/).
 To host the notebook, I use [GitHub Pages][gh-pages].
 
