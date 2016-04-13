@@ -5,6 +5,7 @@
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
 Four types of data are used in our analysis.
+
 - GWAS summary statistics
 - Phased haplotype database 
 - Gene database

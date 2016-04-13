@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="analysis-of-height-2014-data.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="height2014-2.html">
+<link rel="next" href="section-title.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,6 +49,11 @@
 
 
 
+<script src="libs/htmlwidgets-0.6/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.1/datatables.js"></script>
+<script src="libs/datatables-1.10.7/jquery.dataTables.min.js"></script>
+<link href="libs/datatables-default-1.10.7/dataTables.extra.css" rel="stylesheet" />
+<link href="libs/datatables-default-1.10.7/jquery.dataTables.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -105,26 +110,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Basic Information</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i><b>1.1</b> License</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i><b>1.2</b> Cite</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.3</b> Contact</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#news"><i class="fa fa-check"></i><b>1.4</b> News</a></li>
+<li class="chapter" data-level="1.1" data-path="license-cite.html"><a href="license-cite.html"><i class="fa fa-check"></i><b>1.1</b> License &amp; Cite</a></li>
+<li class="chapter" data-level="1.2" data-path="news.html"><a href="news.html"><i class="fa fa-check"></i><b>1.2</b> News</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="method-overview.html"><a href="method-overview.html"><i class="fa fa-check"></i><b>2</b> Method Overview</a><ul>
-<li class="chapter" data-level="2.1" data-path="method-overview.html"><a href="method-overview.html#statistical-models"><i class="fa fa-check"></i><b>2.1</b> Statistical Models</a></li>
-<li class="chapter" data-level="2.2" data-path="method-overview.html"><a href="method-overview.html#software"><i class="fa fa-check"></i><b>2.2</b> Software</a></li>
+<li class="chapter" data-level="2.1" data-path="statistical-models.html"><a href="statistical-models.html"><i class="fa fa-check"></i><b>2.1</b> Statistical Models</a></li>
+<li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2.2</b> Software</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>3</b> Data Overview</a></li>
 <li class="chapter" data-level="4" data-path="analysis-of-height-2014-data.html"><a href="analysis-of-height-2014-data.html"><i class="fa fa-check"></i><b>4</b> Analysis of Height 2014 Data</a><ul>
-<li class="chapter" data-level="4.1" data-path="analysis-of-height-2014-data.html"><a href="analysis-of-height-2014-data.html#analysis-1"><i class="fa fa-check"></i><b>4.1</b> Analysis 1</a></li>
+<li class="chapter" data-level="4.1" data-path="height2014-1.html"><a href="height2014-1.html"><i class="fa fa-check"></i><b>4.1</b> Pilot Analysis</a></li>
+<li class="chapter" data-level="4.2" data-path="height2014-2.html"><a href="height2014-2.html"><i class="fa fa-check"></i><b>4.2</b> Full Analysis 1</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="height2014-2.html"><a href="height2014-2.html#fit-the-null-model"><i class="fa fa-check"></i><b>4.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="height2014-2.html"><a href="height2014-2.html#fit-the-enrichment-model"><i class="fa fa-check"></i><b>4.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html"><i class="fa fa-check"></i><b>5</b> Add a new chapter</a><ul>
-<li class="chapter" data-level="5.1" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html#section-title"><i class="fa fa-check"></i><b>5.1</b> Section title</a></li>
-<li class="chapter" data-level="5.2" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html#session-information"><i class="fa fa-check"></i><b>5.2</b> Session information</a></li>
+<li class="chapter" data-level="5.1" data-path="section-title.html"><a href="section-title.html"><i class="fa fa-check"></i><b>5.1</b> Section title</a></li>
+<li class="chapter" data-level="5.2" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>5.2</b> Session information</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/xiangzhu/rss-gsea" target="blank">GitHub</a></li>
+<li><a href="https://github.com/xiangzhu/rss-gsea" target="blank">GitHub Repository</a></li>
 
 </ul>
 
@@ -146,48 +153,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="add-a-new-chapter" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Add a new chapter</h1>
 <p><strong>Last updated:</strong> 2016-04-13</p>
-<p><strong>Code version:</strong> dfb7930e353a2d9eab95d96a67af4a50fc5e1ade</p>
-<p>This is a template for writing reports with R Markdown.</p>
-<div id="section-title" class="section level2">
-<h2><span class="header-section-number">5.1</span> Section title</h2>
-<p>You can create a new file from the template using the command <code>cp</code>.</p>
-</div>
-<div id="session-information" class="section level2">
-<h2><span class="header-section-number">5.2</span> Session information</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
-<pre><code>## R version 3.2.4 Revised (2016-03-16 r70336)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 14.04.4 LTS
-## 
-## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.4       bookdown_0.0.62   digest_0.6.9     
-##  [4] mime_0.4          R6_2.1.2          xtable_1.8-2     
-##  [7] formatR_1.3       magrittr_1.5      evaluate_0.8.3   
-## [10] stringi_1.0-1     miniUI_0.1.1      rmarkdown_0.9.5.9
-## [13] tools_3.2.4       stringr_1.0.0     shiny_0.13.2     
-## [16] httpuv_1.3.3      yaml_2.1.13       rsconnect_0.4.2.2
-## [19] htmltools_0.3.5   knitr_1.12.3</code></pre>
-
-</div>
+<p><strong>Code version:</strong> 730fefd136fd7bf6efee02db84d7b90f82fa7411</p>
+<p>This is a template for writing reports with R Markdown.</p> 
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="analysis-of-height-2014-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="height2014-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-title.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -215,7 +190,7 @@ gitbook.start({
 },
 "edit": {
 "link": "https://github.com/xiangzhu/rss-gsea/edit/master/98-template.Rmd",
-"text": null
+"text": "Edit"
 },
 "download": null,
 "toc": {

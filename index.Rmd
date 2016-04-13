@@ -2,7 +2,7 @@
 title: "Integrated Enrichment Analysis of Genetic Variants and Biological Pathways"
 author: "Xiang Zhu"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+knit: bookdown::render_book
 output: bookdown::gitbook
 documentclass: book
 bibliography: [~/Dropbox/rss/Writing/rss_shared/rss.bib]
@@ -10,6 +10,20 @@ biblio-style: apalike
 link-citations: yes
 github-repo: xiangzhu/rss-gsea
 ---
+
+```{r,include=FALSE}
+# load packages
+suppressPackageStartupMessages(library(R.matlab))
+suppressPackageStartupMessages(library(DT))
+
+# load sources
+sourceDir <- function(path, trace = TRUE, ...) {
+    for (nm in list.files(path, pattern = "[.][RrSsQq]$")) {
+       source(file.path(path, nm), ...)
+    }
+}
+sourceDir("src/")
+```
 
 # Basic Information
 
@@ -19,10 +33,8 @@ github-repo: xiangzhu/rss-gsea
 
 **What**
 
-This is my notebook for a research project. The aim of this project is to develop statistical methods for integrated enrichment analysis of genome-wide association studies (GWAS) summary data and biological pathways.
+This is my notebook for a research project, the aim of which is to develop statistical methods for integrated enrichment analysis of genome-wide association studies (GWAS) summary data and biological pathways.
 Specifically, I combine the likelihood function from @rss_2016 with the prior distribution from @integrated_plos_2013, and then perform Bayesian analysis. 
-
-To learn more about other research projects, please visit the [Stephens Lab website](http://stephenslab.uchicago.edu).
 
 **How**
 
@@ -39,7 +51,14 @@ To host the notebook, I use [GitHub Pages][gh-pages].
 [gh-pages]: https://pages.github.com/
 [scs]: https://github.com/jdblischak/singleCellSeq
 
-## License 
+**Contact**
+
+If you have any question about this notebook, please feel free to contact me.
+
+- Create a new [issue](https://github.com/xiangzhu/rss-gsea/issues) in GitHub.
+- Send an email to `xiangzhu@uchicago.edu`.
+
+## License & Cite 
 
 Currently the notebook is licensed under the [Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)][site-license].
 This means you are free to include content from this site in your presentation, blog, or social media posts, as long you cite it.
@@ -48,9 +67,7 @@ Once the results are published, I will remove "no derivatives" clause.
 
 The source code in the notebook is licensed under the [GNU General Public License, version 3.0 (GPLv3)][code-license].
 
-## Cite
-
-If you use any results from this notebook, please cite it by including the following (or something similar):
+If you use any results from this notebook, please cite it by including the following text:
 
 ```{block, note-text, type='rmdimportant'}
 Zhu, X. (2016). Gene set enrichment analysis of summary data from genome-wide association studies. *Stephens Laboratory Notebook at the University of Chicago*. Retrieved from https://github.com/xiangzhu/rss-gsea
@@ -59,13 +76,7 @@ Zhu, X. (2016). Gene set enrichment analysis of summary data from genome-wide as
 [code-license]: https://www.gnu.org/licenses/gpl-3.0.txt
 [site-license]: https://creativecommons.org/licenses/by-nd/4.0/
 
-## Contact
-
-If you have any question about this notebook, please feel free to contact me.
-
-- Create a new [issue](https://github.com/xiangzhu/rss-gsea/issues) in GitHub.
-- Send an email to `xiangzhu@uchicago.edu`.
-
 ## News
 
 - **03/04/2016**: Xiang presented this work at the 2016 Novembre-He-Stephens meeting. [[Slides]](http://www.stat.uchicago.edu/~xiangzhu/NHS_20160304.pdf)
+- **10/15/2015**: Xiang presented this work at the 2015 Probabilistic Modeling in Genomics Conference (ProbGen15), Cold Spring Harbor Laboratory, NY. [[Poster]](http://www.stat.uchicago.edu/~xiangzhu/CSHL_2015.pdf) 

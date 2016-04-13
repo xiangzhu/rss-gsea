@@ -1,4 +1,4 @@
-# Analysis of Height 2014 Data (Pilot)
+# Analysis of Height 2014 Data
 
 **Last updated:** `r Sys.Date()`
 
@@ -6,4 +6,5 @@
 
 The following analyses have been performed on Height 2014 dataset.
 
-
+- Pilot Analysis (Section \@ref(height2014-1))
+- Full Analysis 1 (Section \@ref(height2014-2))
