@@ -1,0 +1,9 @@
+## Analysis 1
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+TBA.
+
+

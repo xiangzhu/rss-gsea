@@ -1,0 +1,9 @@
+# Analysis of Height 2014 Data
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+The following analyses have been performed on Height 2014 dataset.
+
+
