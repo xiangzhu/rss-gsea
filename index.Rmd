@@ -14,6 +14,7 @@ github-repo: xiangzhu/rss-gsea
 ```{r,include=FALSE}
 # load packages
 suppressPackageStartupMessages(library(R.matlab))
+suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(DT))
 
 # load sources
