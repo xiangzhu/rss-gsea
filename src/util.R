@@ -35,12 +35,9 @@ gsea.mat2df <- function(gsea.path){
   names(gsea.df) <- c("id","name","source","database","numgene","numsnps",
                       "log10.bf","theta.mean","theta.95lb","theta.95ub")
   
-  # convert all factor columns to characters
-  i <- sapply(gsea.df, is.factor)
-  gsea.df[i] <- lapply(gsea.df[i], as.character)
-  
   # convert the names of pathways to ASCII
-  gsea.df$name <- iconv(gsea.df$name, 'UTF-8', 'ASCII')
+  gsea.df$name <- as.character(gsea.df$name)
+  gsea.df$name <- iconv(gsea.df$name, from = "latin1", to = "UTF-8")
   
   return(gsea.df)
 }
