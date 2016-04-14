@@ -45,7 +45,7 @@ gsea.df <- gsea.mat2df(gsea.path)
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(gsea.df,rownames=FALSE,class="hover") %>% DT::formatRound(c("log10.bf","theta.95lb","theta.95ub"), 2) %>% DT::formatRound(c("theta.mean"), 3) %>% DT::formatStyle("name",fontSize='9ptx')
+DT::datatable(gsea.df,rownames=FALSE,class="hover") %>% DT::formatRound(c("log10.bf","theta.95lb","theta.95ub"), 2) %>% DT::formatRound(c("theta.mean"), 3) %>% DT::formatStyle("name",fontSize='5ptx')
 ```
 
 
