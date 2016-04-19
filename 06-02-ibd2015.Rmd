@@ -36,13 +36,13 @@ DT::datatable(null.df,rownames=FALSE,class="display",extensions="KeyTable",optio
 
 ### Fit the enrichment model
 
-To perform GSEA, I set `(h=0.3, theta0=-3)`, since the null analysis suggests that almost 99.4% posterior mass is placed on this setting. For the log-fold enrichment parameter, I use the grid `theta=(0:0.015:3)'`. The following table lists the GSEA results. 
-```{r, eval=FALSE}
-gsea.path <- "~/Dropbox/rss/Data/bmi_2015/pathway/bmi2015_pathway_201604.mat"
+To perform GSEA, I set `(h=0.3, theta0=-3)`, since the null analysis suggests that almost 99.9% posterior mass is placed on this setting. For the log-fold enrichment parameter, I use the grid `theta=(0:0.015:3)'`. The following table lists the GSEA results. 
+```{r, include=FALSE}
+gsea.path <- "~/Dropbox/rss/Data/ibd_2015/pathway/ibd2015_pathway_201604.mat"
 gsea.df <- gsea.mat2df(gsea.path) 
 ```
 
-```{r, eval=FALSE}
+```{r, echo=FALSE}
 DT::datatable(gsea.df,rownames=FALSE,class="display",filter="bottom",colnames = c("gene"="numgene","snp"="numsnps"),extensions="FixedColumns",options=list(dom='lftp',scrollX=TRUE,fixedColumns=TRUE)) %>% DT::formatRound(c("log10.bf","theta.95lb","theta.95ub"), 2) %>% DT::formatRound(c("theta.mean"), 3)
 ```
 
