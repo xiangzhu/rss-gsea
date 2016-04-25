@@ -12,9 +12,32 @@ normalize.logw <- function(logw){
   return(w)
 }
 
+#' convert null results in the mat file to a data frame
+#' 
+#' @param null.path a string that indicates the path of mat file
+#' @return null.df a data frame that contains the results in the mat file
+#'  
+null.mat2df <- function(null.path){
+  null.results <- R.matlab::readMat(null.path)
+  
+  null.df <- data.frame(
+    theta0 <- c(null.results$theta0.vec),
+    h <- c(null.results$h.vec),
+    logw.step1 <- c(null.results$logw.step1.vec),
+    logw.step2 <- c(null.results$logw.step2.vec)
+  )
+  names(null.df) <- c("theta0","h","logw.step1","logw.step2")
+  
+  # normalize the log importance weights
+  null.df$posp.step1 <- normalize.logw(null.df$logw.step1)
+  null.df$posp.step2 <- normalize.logw(null.df$logw.step2)
+  
+  return(null.df)
+}
+
 #' convert gsea results in the mat file to a data frame
 #' 
-#' @param gsea.path a string the indicates the path of mat file 
+#' @param gsea.path a string that indicates the path of mat file 
 #' @return gsea.df a data frame that contains the results in the mat file 
 #' 
 gsea.mat2df <- function(gsea.path){
