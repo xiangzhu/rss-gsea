@@ -1,5 +1,5 @@
 --- 
-title: "Integrated Enrichment Analysis of Genetic Variants and Biological Pathways"
+title: "Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data"
 author: "Xiang Zhu"
 date: "`r Sys.Date()`"
 knit: bookdown::render_book
@@ -17,13 +17,8 @@ suppressPackageStartupMessages(library(R.matlab))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(DT))
 
-# load sources
-sourceDir <- function(path, trace = TRUE, ...) {
-    for (nm in list.files(path, pattern = "[.][RrSsQq]$")) {
-       source(file.path(path, nm), ...)
-    }
-}
-sourceDir("src/")
+# load self-defined subroutines
+source("src/util.R")
 ```
 
 # Basic Information
@@ -70,8 +65,8 @@ The source code in the notebook is licensed under the [GNU General Public Licens
 
 If you use any results from this notebook, please cite it by including the following text:
 
-```{block, note-text, type='rmdimportant'}
-Zhu, X. (2016). Gene set enrichment analysis of summary data from genome-wide association studies. *Stephens Laboratory Notebook at the University of Chicago*. Retrieved from https://github.com/xiangzhu/rss-gsea
+```{block, note-text, type='rmdcite'}
+Zhu, X. (2016). Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data. *Stephens Laboratory Notebook at the University of Chicago*. Retrieved from https://github.com/xiangzhu/rss-gsea
 ```
 
 [code-license]: https://www.gnu.org/licenses/gpl-3.0.txt

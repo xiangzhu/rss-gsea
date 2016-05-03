@@ -1,3 +1,8 @@
+.rmdcite {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f5f5f5 url("images/notebook.jpg") left center/3em no-repeat;
+}
 .rmdcaution {
   padding: 1em 1em 1em 4em;
   margin-bottom: 10px;

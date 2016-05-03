@@ -6,4 +6,4 @@
 
 The following analyses have been performed on Schizophrenia 2014 dataset.
 
-- GSEA Round 1 (Section \@ref(height2014-1))
+- GSEA Round 1 (Section \@ref(scz2014-1))

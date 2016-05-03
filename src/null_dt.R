@@ -1,0 +1,1 @@
+null.dt <- DT::datatable(null.df,rownames=FALSE,class="display",extensions="KeyTable",options=list(keys=TRUE)) %>% DT::formatRound(c("logw.step1","logw.step2"), 2) %>% DT::formatRound(c("posp.step1","posp.step2"), 4)

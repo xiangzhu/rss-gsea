@@ -13,25 +13,13 @@ knitr::include_graphics("images/cad2015_null_round1.png")
 
 After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 99.8 % posterior mass is concentrated on the setting `(h=0.3, theta0=-4)`.
 ```{r, include=FALSE}
-# load the results
 null.path <- "~/Dropbox/rss/Data/cad_2015/pathway/cad2015_null_201604.mat"
-null.results <- R.matlab::readMat(null.path)
-
-null.df <- data.frame(
-  theta0 <- c(null.results$theta0.vec),
-  h <- c(null.results$h.vec),
-  logw.step1 <- c(null.results$logw.step1.vec),
-  logw.step2 <- c(null.results$logw.step2.vec)
-)
-names(null.df) <- c("theta0","h","logw.step1","logw.step2")
-
-# normalize the log importance weights
-null.df$posp.step1 <- normalize.logw(null.df$logw.step1)
-null.df$posp.step2 <- normalize.logw(null.df$logw.step2)
+null.df <- null.mat2df(null.path)
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(null.df,rownames=FALSE,class="display",extensions="KeyTable",options=list(keys=TRUE)) %>% DT::formatRound(c("logw.step1","logw.step2"), 2) %>% DT::formatRound(c("posp.step1","posp.step2"), 4)
+source("src/null_dt.R")
+null.dt
 ```
 
 ### Fit the enrichment model
@@ -43,7 +31,8 @@ gsea.df <- gsea.mat2df(gsea.path)
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(gsea.df,rownames=FALSE,class="display",filter="bottom",colnames = c("gene"="numgene","snp"="numsnps"),extensions="FixedColumns",options=list(dom='lftp',scrollX=TRUE,fixedColumns=TRUE)) %>% DT::formatRound(c("log10.bf","theta.95lb","theta.95ub"), 2) %>% DT::formatRound(c("theta.mean"), 3)
+source("src/gsea_dt.R")
+gsea.dt
 ```
 
 

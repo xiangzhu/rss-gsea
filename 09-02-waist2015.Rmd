@@ -13,25 +13,26 @@ knitr::include_graphics("images/waist2015_null_round1.png")
 
 After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the setting `(h=0.3, theta0=-3)`.
 ```{r, include=FALSE}
-# load the results
 null.path <- "~/Dropbox/rss/Data/waist_2015/pathway/waist2015_null_201604.mat"
 null.df <- null.mat2df(null.path)
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(null.df,rownames=FALSE,class="display",extensions="KeyTable",options=list(keys=TRUE)) %>% DT::formatRound(c("logw.step1","logw.step2"), 2) %>% DT::formatRound(c("posp.step1","posp.step2"), 4)
+source("src/null_dt.R")
+null.dt
 ```
 
 ### Fit the enrichment model
 
 To perform GSEA, I set `(h=0.3, theta0=-3)`, since the null analysis suggests that almost 100% posterior mass is placed on this setting. For the log-fold enrichment parameter, I use the grid `theta=(0:0.015:3)'`. The following table lists the GSEA results. 
-```{r, eval=FALSE}
+```{r, include=FALSE}
 gsea.path <- "~/Dropbox/rss/Data/waist_2015/pathway/waist2015_pathway_201604.mat"
 gsea.df <- gsea.mat2df(gsea.path) 
 ```
 
-```{r, eval=FALSE}
-DT::datatable(gsea.df,rownames=FALSE,class="display",filter="bottom",colnames = c("gene"="numgene","snp"="numsnps"),extensions="FixedColumns",options=list(dom='lftp',scrollX=TRUE,fixedColumns=TRUE)) %>% DT::formatRound(c("log10.bf","theta.95lb","theta.95ub"), 2) %>% DT::formatRound(c("theta.mean"), 3)
+```{r, echo=FALSE}
+source("src/gsea_dt.R")
+gsea.dt
 ```
 
 
