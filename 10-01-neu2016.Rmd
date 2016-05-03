@@ -1,0 +1,9 @@
+# Neuroticism 2016
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+The following analyses have been performed on Neuroticism 2016 dataset.
+
+- GSEA Round 1 (Section \@ref(neu2016-1))
