@@ -8,7 +8,7 @@
   <title>Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data">
-  <meta name="generator" content="bookdown 0.0.62 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.70 and GitBook 2.6.7">
 
   <meta property="og:title" content="Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Xiang Zhu">
 
-<meta name="date" content="2016-05-03">
+<meta name="date" content="2016-05-05">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -175,11 +175,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.1.2" data-path="neu2016-1.html"><a href="neu2016-1.html#fit-the-enrichment-model-7"><i class="fa fa-check"></i><b>11.1.2</b> Fit the enrichment model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html"><i class="fa fa-check"></i><b>12</b> Add a new chapter</a><ul>
-<li class="chapter" data-level="12.1" data-path="section-title.html"><a href="section-title.html"><i class="fa fa-check"></i><b>12.1</b> Section title</a></li>
-<li class="chapter" data-level="12.2" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>12.2</b> Session information</a></li>
+<li class="chapter" data-level="12" data-path="rheumatoid-arthritis-2014.html"><a href="rheumatoid-arthritis-2014.html"><i class="fa fa-check"></i><b>12</b> Rheumatoid Arthritis 2014</a><ul>
+<li class="chapter" data-level="12.1" data-path="ra2014-1.html"><a href="ra2014-1.html"><i class="fa fa-check"></i><b>12.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="ra2014-1.html"><a href="ra2014-1.html#fit-the-null-model-8"><i class="fa fa-check"></i><b>12.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="ra2014-1.html"><a href="ra2014-1.html#fit-the-enrichment-model-8"><i class="fa fa-check"></i><b>12.1.2</b> Fit the enrichment model</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html"><i class="fa fa-check"></i><b>13</b> Add a new chapter</a><ul>
+<li class="chapter" data-level="13.1" data-path="section-title.html"><a href="section-title.html"><i class="fa fa-check"></i><b>13.1</b> Section title</a></li>
+<li class="chapter" data-level="13.2" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>13.2</b> Session information</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/xiangzhu/rss-gsea" target="blank">GitHub Repository</a></li>
 
@@ -201,9 +207,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="session-information" class="section level2">
-<h2><span class="header-section-number">12.2</span> Session information</h2>
+<h2><span class="header-section-number">13.2</span> Session information</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
-<pre><code>## R version 3.2.5 (2016-04-14)
+<pre><code>## R version 3.3.0 (2016-05-03)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 14.04.4 LTS
 ## 
@@ -219,16 +225,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] DT_0.1         knitr_1.12.3   R.matlab_3.5.0
+## [1] DT_0.1         knitr_1.12.3   R.matlab_3.5.1
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.12.4       magrittr_1.5      xtable_1.8-2     
-##  [4] R6_2.1.2          stringr_1.0.0     tools_3.2.5      
+##  [4] R6_2.1.2          stringr_1.0.0     tools_3.3.0      
 ##  [7] R.oo_1.20.0       miniUI_0.1.1      htmltools_0.3.5  
-## [10] yaml_2.1.13       digest_0.6.9      bookdown_0.0.62  
+## [10] yaml_2.1.13       digest_0.6.9      bookdown_0.0.70  
 ## [13] shiny_0.13.2      formatR_1.3       htmlwidgets_0.6  
-## [16] R.utils_2.2.0     evaluate_0.8.3    mime_0.4         
-## [19] rmarkdown_0.9.5.9 stringi_1.0-1     R.methodsS3_1.7.1
+## [16] R.utils_2.3.0     evaluate_0.9      mime_0.4         
+## [19] rmarkdown_0.9.6   stringi_1.0-1     R.methodsS3_1.7.1
 ## [22] jsonlite_0.9.19   httpuv_1.3.3</code></pre>
 
 </div>
@@ -241,7 +247,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="section-title.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>

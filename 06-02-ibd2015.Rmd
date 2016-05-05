@@ -7,6 +7,7 @@
 ### Fit the null model
 
 I used the grids `theta0=(-4:0.25:-2)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 36 sets of `(h,theta0)` under null. 
+
 ```{r,echo=FALSE}
 knitr::include_graphics("images/ibd2015_null_round1.png")
 ```
