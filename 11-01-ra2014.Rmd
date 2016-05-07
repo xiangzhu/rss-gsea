@@ -4,6 +4,6 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
-The following analyses have been performed on Rheumatoid Arthritis 2016 dataset.
+The following analyses have been performed on Rheumatoid Arthritis 2014 dataset.
 
 - GSEA Round 1 (Section \@ref(ra2014-1))
