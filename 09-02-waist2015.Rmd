@@ -9,7 +9,7 @@
 I used the grids `theta0=(-5.25:0.25:-2)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 56 sets of `(h,theta0)` under null. 
 
 ```{r,echo=FALSE}
-knitr::include_graphics("images/waist2015_null_round1.png")
+knitr::include_graphics("images/waist2015_null_round1.png", dpi=NA)
 ```
 
 After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the setting `(h=0.3, theta0=-3)`.
