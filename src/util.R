@@ -43,6 +43,15 @@ null.mat2df <- function(null.path){
 gsea.mat2df <- function(gsea.path){
   gsea.data <- R.matlab::readMat(gsea.path)
   
+  # extract log 10 BFs of gene set enrichment
+  if ("path.bf" %in% names(gsea.data)) {
+    log10.bf <- log10(c(gsea.data$path.bf))
+  }
+  if ("path.lbf" %in% names(gsea.data)) {
+    log10.bf <- c(gsea.data$path.lbf) / log(10) 
+  }
+  
+  # create output data frame
   gsea.df <- data.frame(
     id <- c(gsea.data$path.id),
     name <- unlist(gsea.data$path.name),
@@ -50,7 +59,7 @@ gsea.mat2df <- function(gsea.path){
     database <- unlist(gsea.data$path.base),
     numgene <- c(gsea.data$path.numg),
     numsnps <- c(gsea.data$path.nums),
-    log10.bf <- log10(c(gsea.data$path.bf)),
+    log10.bf <- log10.bf,
     theta.mean <- gsea.data$theta.est[, 1],
     theta.95lb <- gsea.data$theta.est[, 3],
     theta.95ub <- gsea.data$theta.est[, 4]
