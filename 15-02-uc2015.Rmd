@@ -26,12 +26,12 @@ null.dt
 ### Fit the enrichment model
 
 To perform GSEA, I set `(h=0.3, theta0=-3)`, since the null analysis suggests that almost 99.8% posterior mass is placed on this setting. For the log-fold enrichment parameter, I use the grid `theta=(0:0.015:3)'`. The following table lists the GSEA results. 
-```{r, eval=FALSE}
+```{r, include=FALSE}
 gsea.path <- "~/Dropbox/rss/Data/uc_2015/pathway/uc2015_pathway_201604.mat"
 gsea.df <- gsea.mat2df(gsea.path) 
 ```
 
-```{r, eval=FALSE}
+```{r, echo=FALSE}
 source("src/gsea_dt.R")
 gsea.dt
 ```
