@@ -4,6 +4,53 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
-TBA.
+### Fit the null model
+
+### Fit the enrichment model
+
+#### Biological pathways
+
+##### Example 1: Top enrichments
+
+##### Example 2: Hedgehog signaling pathway
+
+#### GTEx database
+
+```{r,include=FALSE}
+results.path <- "~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_gtex_tissue_specific.mat"
+results <- R.matlab::readMat(results.path)
+
+num.genes <- c(3,2,4,3,2,3,2,2,58,136,87,48,48,101,79,4,2,6,31,2,36,3,207,162,176) - 1
+
+df <- data.frame(
+  tissue.name <- unlist(results$tissue),
+  bayes.factor <- c(results$tissue.bf),
+  num.snps <- c(results$num.snps),
+  num.genes <- num.genes
+)
+names(df) <- c("tissue.name","bayes.factor","num.snps","num.genes")
+
+theta.est <- results$theta.est
+theta0.est <- results$theta0.est
+
+df$theta.mean <- theta.est[, 1]
+df$theta.sd <- theta.est[, 2]
+df$theta0.mean <- theta0.est[, 1]
+df$theta0.sd <- theta0.est[, 2]
+```
+
+```{r,echo=FALSE,fig.width=11,fig.height=7,fig.cap="Enrichment of height associations in GTEx tissues"}
+bp <- ggplot(df, aes(x=reorder(tissue.name, bayes.factor), y=log10(bayes.factor))) 
+bp <- bp + geom_bar(position=position_dodge(), stat="identity", fill="#D6D6CE")
+bp <- bp + geom_text(aes(label=tissue.name, y=1.5), vjust=0.5, angle=0)
+bp <- bp + geom_text(aes(label=num.genes, y=-0.7), vjust=0, angle=0)
+bp <- bp + xlab("Number of Genes & Tissue Name") + ylab("Log 10 Bayes Factor") + ggtitle("") 
+bp <- bp + scale_y_continuous(breaks=seq(0:5)*2)
+bp <- bp + geom_hline(yintercept=2, color="#800000", size=2, alpha=0.5)
+bp <- bp + theme_classic() + scale_x_discrete(breaks=NULL) + coord_flip()
+print(bp)
+```
+
+#### Association informed by enrichment
 
 
