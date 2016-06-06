@@ -1,4 +1,4 @@
-## GSEA Round 1 {#hdl2010-1}
+## GSEA Round 1 {#ldl2010-1}
 
 **Last updated:** `r Sys.Date()`
 
@@ -9,12 +9,12 @@
 I used the grids `theta0=(-5:0.25:-2)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 52 sets of `(h,theta0)` under null.
 
 ```{r,echo=FALSE}
-knitr::include_graphics("images/hdl2010_null_round1.png", dpi=NA)
+knitr::include_graphics("images/ldl2010_null_round1.png", dpi=NA)
 ```
 
-After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the combinations of `h=0.3` and `theta0=-3.5`.
+After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the combinations of `h=0.3` and `theta0=-3.75`.
 ```{r, include=FALSE}
-null.path <- "~/Dropbox/rss/Data/hdl_2010/pathway/hdl2010_null_201604.mat"
+null.path <- "~/Dropbox/rss/Data/ldl_2010/pathway/ldl2010_null_201604.mat"
 null.df <- null.mat2df(null.path)
 ```
 
@@ -25,13 +25,13 @@ null.dt
 
 ### Fit the enrichment model
 
-To perform GSEA, I set `h=0.3` and `theta0=-3.5`, since the null analysis suggests that almost 100% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid `theta  = (0:(3.5/200):3.5)'`. The following table lists the GSEA results. 
-```{r, include=FALSE}
-gsea.path <- "~/Dropbox/rss/Data/hdl_2010/pathway/hdl2010_pathway_201604.mat"
+To perform GSEA, I set `h=0.3` and `theta0=-3.75`, since the null analysis suggests that almost 100% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid `theta  = (0:(3.75/200):3.75)'`. The following table lists the GSEA results. 
+```{r, eval=FALSE}
+gsea.path <- "~/Dropbox/rss/Data/ldl_2010/pathway/ldl2010_pathway_201604.mat"
 gsea.df <- gsea.mat2df(gsea.path) 
 ```
 
-```{r, echo=FALSE}
+```{r, eval=FALSE}
 source("src/gsea_dt.R")
 gsea.dt
 ```
