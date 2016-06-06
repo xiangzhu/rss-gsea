@@ -1,0 +1,9 @@
+# High-density Lipoprotein 2010
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+The following analyses have been performed on High-density Lipoprotein Cholesterol (HDL-C) 2010 dataset.
+
+- GSEA Round 1 (Section \@ref(hdl2010-1))
