@@ -1,0 +1,9 @@
+# Mean Cell Haemoglobin Concentration 2012
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+The following analyses have been performed on Mean Cell Haemoglobin Concentration (MCHC) 2012 dataset.
+
+- GSEA Round 1 (Section \@ref(mchc2012-1))
