@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="anm2015-1.html">
-<link rel="next" href="tc2010-1.html">
+<link rel="prev" href="gout-2013.html">
+<link rel="next" href="add-a-new-chapter.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -323,22 +323,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="total-cholesterol-2010" class="section level1">
-<h1><span class="header-section-number">24</span> Total Cholesterol 2010</h1>
+<div id="gout2013-1" class="section level2">
+<h2><span class="header-section-number">31.1</span> GSEA Round 1</h2>
 <p><strong>Last updated:</strong> 2016-07-06</p>
 <p><strong>Code version:</strong> 9a2e0597ce7d5765756636bb1e604c4b5298cf6d</p>
-<p>The following analyses have been performed on Total Cholesterol (TC) 2010 dataset.</p>
-<ul>
-<li>GSEA Round 1 (Section <a href="tc2010-1.html#tc2010-1">24.1</a>)</li>
-</ul>
+<div id="fit-the-null-model-28" class="section level3">
+<h3><span class="header-section-number">31.1.1</span> Fit the null model</h3>
+<p>I used the grids <code>theta0=(-5.5:0.25:-2)'</code> and <code>h=(0.3:0.1:0.6)'</code> when fitting the null model. I estimated the (unnormalized) log importance weights (“pseudo-likelihoods”) for all 52 sets of <code>(h,theta0)</code> under null.</p>
+<p><img src="images/gout2013_null_round1.png" /><!-- --></p>
+<p>After normalizing the log “pseudo-likelihoods” (<code>logw.step*</code>) to posterior probabilities (<code>posp.step*</code>), we can see that almost 100% posterior mass is concentrated on the combinations of <code>h=0.5</code> and <code>theta0=-5.25</code>.</p>
+<div id="htmlwidget-7245" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7245">{"x":{"data":[[-5.5,-5.25,-5,-4.75,-4.5,-4.25,-4,-3.75,-3.5,-3.25,-3,-2.75,-2.5,-2.25,-2,-5.5,-5.25,-5,-4.75,-4.5,-4.25,-4,-3.75,-3.5,-3.25,-3,-2.75,-2.5,-2.25,-2,-5.5,-5.25,-5,-4.75,-4.5,-4.25,-4,-3.75,-3.5,-3.25,-3,-2.75,-2.5,-2.25,-2,-5.5,-5.25,-5,-4.75,-4.5,-4.25,-4,-3.75,-3.5,-3.25,-3,-2.75,-2.5,-2.25,-2],[0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6],[89.6243499955373,90.336050283842,89.9904158381001,89.411051598285,85.7178501400485,79.6714862853326,70.9956188275515,59.9466807007233,47.1209010932315,34.9161641465053,22.7345280532579,13.046768340338,3.21462944187061,-10.7926529294585,-31.4361225859847,89.260760279412,89.7855294136791,89.2569339007139,88.3053664585381,83.8928807262265,76.5431273045032,65.6577453475018,51.0814126344954,33.1483515325186,13.8465181080211,-5.58317341381729,-24.7671496781513,-39.1952165954231,-56.0902093364937,-79.1300493582235,88.9811640082806,88.8706767155052,88.6989920336351,87.4662876844734,82.4980859838424,74.1101783612496,61.4041678562979,43.796560241889,21.1756500771573,-5.08031787981653,-32.9085554881342,-61.8672626204782,-86.1861233560168,-110.402356475945,-138.683101923392,88.7546284927594,88.5936975899027,88.2520086362333,86.7972079531417,81.3833987067261,72.144829426048,57.9106581844328,37.6889133340738,10.8793646933622,-21.8989406135958,-58.2519368056274,-97.8278684396551,-133.878275784529,-168.882850786704,-205.994341946405],[89.715644741735,90.3360502838422,89.9904158381017,88.2062879956798,84.5093480425374,78.4632764623592,69.7898384695603,58.7438039544921,45.9190537084214,33.7224868274245,22.2260481145331,13.0467683404707,3.21462944187039,-10.7926529294589,-31.436122585994,89.2792150946267,89.7855294136805,89.2569339007148,87.1008116908781,82.6829737538023,75.3320138401919,64.4473579103032,49.8723303004971,31.9390511639775,12.6378230371759,-6.75426757875493,-24.7671496782001,-39.1952165954021,-56.0902093365216,-79.1300493582312,88.9631488048713,89.3643263789679,88.6989920336351,86.2622924368524,81.2875265140466,72.897404855725,60.190974339286,42.5834356440809,19.9612663653448,-6.29727272989158,-34.1077367276802,-61.8672626204635,-86.186123356037,-110.402356475971,-138.683101923345,88.7546284927754,89.0249018240505,88.2520086362337,85.5939117424654,80.1725493999068,70.9310252903594,56.6956181240586,36.4730008061047,9.66131411761212,-23.1213177962719,-59.4673136237695,-97.295496807905,-133.878275784835,-168.882850786707,-205.994341946417],[0.0931218915626636,0.189731437471718,0.134286441217056,0.0752345750352984,0.00187275281402456,4.43177803452117e-06,7.56304419110428e-10,1.20282869065606e-14,3.23622321515553e-20,1.62027436138892e-25,8.30178007357482e-31,5.15027760733571e-35,2.7655847379221e-39,2.28297696500291e-45,2.47261540319237e-54,0.0647361372300512,0.10940851439766,0.0644889055562064,0.0249014431581705,0.000301930031458918,1.94065778083334e-07,3.63485960038293e-12,1.69850479351352e-18,2.76590523722277e-26,1.14592857657987e-34,4.17782011683467e-43,1.94739793071887e-51,1.05541887671382e-57,4.85313908958694e-65,4.78572074157338e-75,0.0489462770396603,0.0438263842831487,0.0369125401599904,0.0107601229999005,7.48435971087267e-05,1.703462812172e-08,5.16633314526874e-14,1.16491860449933e-21,1.74646192171719e-31,6.90775809349022e-43,5.67135830473996e-55,1.50342017996095e-67,4.12603921905441e-78,1.25474922256793e-88,6.55217130353513e-101,0.0390244274204395,0.0332234812108496,0.0236075821422201,0.00551111661208151,2.45500351772327e-05,2.38667046891681e-09,1.57025590324261e-15,2.59285500817335e-24,5.89575183486598e-36,3.42848358024852e-50,5.58722842320263e-66,3.62733529893275e-83,8.00008722153129e-99,5.0211241206273e-114,3.83252618943122e-130],[0.104961048835459,0.195194180391981,0.138152813157613,0.0232018628755011,0.000575389899821336,1.36203011379984e-06,2.33002429985447e-10,3.71645273149032e-15,1.0009453119729e-20,5.0525271427024e-26,5.13651736560578e-31,5.29856427529651e-35,2.84521138624438e-39,2.34870838209745e-45,2.54380688555142e-54,0.0678405209636638,0.112558601675927,0.0663456685521856,0.00768105008019287,9.2635608512903e-05,5.94698210291338e-08,1.11468106471059e-12,5.21550731941011e-19,8.491264863419e-27,3.52010419178927e-35,1.3325317672796e-43,2.00346736434628e-51,1.08580647129373e-57,4.9928705517493e-65,4.92351109640533e-75,0.0494564943452723,0.0738673528091684,0.0379753251159992,0.00332090392680098,2.29478986255031e-05,5.21145970285114e-09,1.57988954812795e-14,3.56262269995574e-22,5.33441186758343e-32,2.10449506867502e-43,1.75880162831955e-55,1.5467066171373e-67,4.24483603953146e-78,1.29087593154823e-88,6.74082126021955e-101,0.0401480177835818,0.052606853197214,0.0242872910714905,0.00170208899725328,7.52513879524486e-06,7.29409792303019e-10,4.79305938051154e-16,7.90754548330224e-25,1.79421349673959e-36,1.03886227768631e-50,1.70487502850077e-66,6.35508454178762e-83,8.23042553517749e-99,5.16569220383097e-114,3.94287218995593e-130]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>theta0\u003c/th>\n      <th>h\u003c/th>\n      <th>logw.step1\u003c/th>\n      <th>logw.step2\u003c/th>\n      <th>posp.step1\u003c/th>\n      <th>posp.step2\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"keys":true,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nvar d = parseFloat(data[4]); $(this.api().cell(row, 4).node()).html(isNaN(d) ? '' : d.toFixed(4));\nvar d = parseFloat(data[5]); $(this.api().cell(row, 5).node()).html(isNaN(d) ? '' : d.toFixed(4));\nvar d = parseFloat(data[2]); $(this.api().cell(row, 2).node()).html(isNaN(d) ? '' : d.toFixed(2));\nvar d = parseFloat(data[3]); $(this.api().cell(row, 3).node()).html(isNaN(d) ? '' : d.toFixed(2));\n}"},"callback":null,"filter":"none","extensions":["KeyTable"],"extOptions":{"KeyTable":null},"selection":"multiple"},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="fit-the-enrichment-model-28" class="section level3">
+<h3><span class="header-section-number">31.1.2</span> Fit the enrichment model</h3>
+<p>To perform GSEA, I set <code>h=0.5</code> and <code>theta0=-5.25</code>, since the null analysis suggests that almost 100% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid <code>theta  = (0:(5.25/200):5.25)'</code>. The following table lists the GSEA results.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gsea.path &lt;-<span class="st"> &quot;~/Dropbox/rss/Data/gout_2013/pathway/gout2013_pathway_201604.mat&quot;</span>
+gsea.df &lt;-<span class="st"> </span><span class="kw">gsea.mat2df</span>(gsea.path) </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;src/gsea_dt.R&quot;</span>)
+gsea.dt</code></pre></div>
 
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="anm2015-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tc2010-1.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="gout-2013.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="add-a-new-chapter.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -365,7 +379,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xiangzhu/rss-gsea/edit/master/23-01-tc2010.Rmd",
+"link": "https://github.com/xiangzhu/rss-gsea/edit/master/30-02-gout2013.Rmd",
 "text": "Edit"
 },
 "download": null,
