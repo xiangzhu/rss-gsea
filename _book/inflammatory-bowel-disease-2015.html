@@ -25,7 +25,7 @@
 
 <meta name="author" content="Xiang Zhu">
 
-<meta name="date" content="2016-08-16">
+<meta name="date" content="2016-08-18">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -125,7 +125,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1" data-path="statistical-models.html"><a href="statistical-models.html"><i class="fa fa-check"></i><b>2.1</b> Statistical Models</a></li>
 <li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2.2</b> Software</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>3</b> Data Overview</a></li>
+<li class="chapter" data-level="3" data-path="data-analysis-overview.html"><a href="data-analysis-overview.html"><i class="fa fa-check"></i><b>3</b> Data Analysis Overview</a></li>
 <li class="chapter" data-level="4" data-path="height-2014.html"><a href="height-2014.html"><i class="fa fa-check"></i><b>4</b> Height 2014</a><ul>
 <li class="chapter" data-level="4.1" data-path="height2014-1.html"><a href="height2014-1.html"><i class="fa fa-check"></i><b>4.1</b> Pilot Analysis</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-null-model"><i class="fa fa-check"></i><b>4.1.1</b> Fit the null model</a></li>
@@ -337,13 +337,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="inflammatory-bowel-disease-2015" class="section level1">
 <h1><span class="header-section-number">7</span> Inflammatory Bowel Disease 2015</h1>
-<p><strong>Last updated:</strong> 2016-08-16</p>
-<p><strong>Code version:</strong> 0e637f0adb92ac31c6f69e47365acda24c3657f4</p>
+<p><strong>Last updated:</strong> 2016-08-18</p>
+<p><strong>Code version:</strong> 15bfed34f002ef72c99e139372773397814b6a06</p>
+<p>The GWAS summary statistics corresponding to <span class="citation">Liu et al. (<a href="#ref-ibd_ng_2015">2015</a>)</span> are provided by the <a href="http://www.ibdgenetics.org/downloads.html">International Inflammatory Bowel Disease Genetics Consortium (IIBDGC)</a>.</p>
+<p>Below is the basic information about these datasets (excerpt from <code>README</code> by IIBDGC).</p>
+<pre><code>Group 1 files:
+These files have been filtered to only include variants with INFO&gt;0.3 and with more than 2 studies/datasets inlcuded in the analysis. 
+EUR.CD.gwas_info03_filtered.assoc.gz - European CD 1KGP imputed GWAS meta-analysis
+EUR.IBD.gwas_info03_filtered.assoc.gz - European IBD 1KGP imputed GWAS meta-analysis
+EUR.UC.gwas_info03_filtered.assoc.gz - European UC 1KGP imputed GWAS meta-analysis
+
+Columns:
+CHR - chromosome
+SNP - rsid
+BP - position in b37
+A1 - effect allele 
+A2 - other allele
+FRQ_A_XXXX - effect allele frequency in XXXX cases
+FRQ_U_XXXXX - effect allele frequency in XXXXX controls
+INFO - IMPUTE2 info score
+OR - odds ratio
+SE - standard error
+P - P value
+Direction - direction of effect in each study included int he meta-analysis
+HetISqt - Between study Heterogenity score - I squared 
+HetPVa - P value for heterogeneity test
+nstudies - the maximum number of datasets/studies that could be included 
+studies_included - the number of datasets/studies actually included in the analysis for this variant</code></pre>
 <p>The following analyses have been performed on Inflammatory Bowel Disease (IBD) 2015 dataset.</p>
 <ul>
 <li>GSEA Round 1 (Section <a href="ibd2015-1.html#ibd2015-1">7.1</a>)</li>
 </ul>
 
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-ibd_ng_2015">
+<p>Liu, Jimmy Z, Suzanne van Sommeren, Hailiang Huang, Siew C Ng, Rudi Alberts, Atsushi Takahashi, Stephan Ripke, et al. 2015. “Association Analyses Identify 38 Susceptibility Loci for Inflammatory Bowel Disease and Highlight Shared Genetic Risk Across Populations.” <em>Nature Genetics</em> 47 (9). Nature Publishing Group: 979–86.</p>
+</div>
+</div>
             </section>
 
           </div>
