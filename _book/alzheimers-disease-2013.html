@@ -25,7 +25,7 @@
 
 <meta name="author" content="Xiang Zhu">
 
-<meta name="date" content="2016-08-18">
+<meta name="date" content="2016-08-19">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -125,7 +125,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1" data-path="statistical-models.html"><a href="statistical-models.html"><i class="fa fa-check"></i><b>2.1</b> Statistical Models</a></li>
 <li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2.2</b> Software</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-analysis-overview.html"><a href="data-analysis-overview.html"><i class="fa fa-check"></i><b>3</b> Data Analysis Overview</a></li>
+<li class="chapter" data-level="3" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>3</b> Data Overview</a></li>
 <li class="chapter" data-level="4" data-path="height-2014.html"><a href="height-2014.html"><i class="fa fa-check"></i><b>4</b> Height 2014</a><ul>
 <li class="chapter" data-level="4.1" data-path="height2014-1.html"><a href="height2014-1.html"><i class="fa fa-check"></i><b>4.1</b> Pilot Analysis</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-null-model"><i class="fa fa-check"></i><b>4.1.1</b> Fit the null model</a></li>
@@ -310,9 +310,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="33.1.2" data-path="pcv2012-1.html"><a href="pcv2012-1.html#fit-the-enrichment-model-30"><i class="fa fa-check"></i><b>33.1.2</b> Fit the enrichment model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="34" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html"><i class="fa fa-check"></i><b>34</b> Add a new chapter</a><ul>
-<li class="chapter" data-level="34.1" data-path="section-title.html"><a href="section-title.html"><i class="fa fa-check"></i><b>34.1</b> Section title</a></li>
-<li class="chapter" data-level="34.2" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>34.2</b> Session information</a></li>
+<li class="chapter" data-level="34" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>34</b> Acknowledgement</a></li>
+<li class="chapter" data-level="35" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html"><i class="fa fa-check"></i><b>35</b> Add a new chapter</a><ul>
+<li class="chapter" data-level="35.1" data-path="section-title.html"><a href="section-title.html"><i class="fa fa-check"></i><b>35.1</b> Section title</a></li>
+<li class="chapter" data-level="35.2" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>35.2</b> Session information</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -337,13 +338,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="alzheimers-disease-2013" class="section level1">
 <h1><span class="header-section-number">9</span> Alzheimer’s Disease 2013</h1>
-<p><strong>Last updated:</strong> 2016-08-18</p>
-<p><strong>Code version:</strong> 15bfed34f002ef72c99e139372773397814b6a06</p>
+<p><strong>Last updated:</strong> 2016-08-19</p>
+<p><strong>Code version:</strong> 6c0dcf3f4fdf655e7864c599e2c4755050469d43</p>
+<p>The GWAS summary statistics corresponding to <span class="citation">Lambert et al. (<a href="#ref-azh_ng_2013">2013</a>)</span> are provided by the <a href="http://web.pasteur-lille.fr/en/recherche/u744/igap/igap_download.php">International Genomics of Alzheimer’s Project (IGAP)</a>.</p>
+<p>Below is the basic information about these datasets (excerpt from the download page of IGAP).</p>
+<pre><code>Two dataset are provided. The first one corresponds to the meta-analysis results obtained in stage 1 including genotyped and imputed data (7,055,881 single nucleotide polymorphisms, 1000G phase 1 alpha imputation, Build 37, Assembly Hg19) of 17,008 Alzheimer&#39;s disease cases and 37,154 controls. The second one corresponds to the meta-analysis results of the 11,632 SNPs that were genotyped and tested for association in an independent set of 8,572 Alzheimer&#39;s disease cases and 11,312 controls with the combined stage1/stage2 P-values.
+
+Each file consists of the following information for each SNP and its association to Alzheimer&#39;s disease based on meta-analysis in the publication mentioned below. Although the individual datasets examined excluded any SNPs with call rates &lt;95%, IGAP meta-analysis only analyzed SNPs either genotyped or successfully imputed in at least 40% of the AD cases and 40 % of the control samples across all datasets.
+
+    Chromosome: Chromosome of the SNP (Build 37, Assembly Hg19)
+    Position: Position of the SNP (Build 37, Assembly Hg19)
+    MarkerName: SNP rsID or chromosome:position if rsID not available
+    Effect_allele: Reference allele (coded allele)
+    Non_Effect_allele: Non reference allele (non coded allele)
+    Beta: Overall estimated effect size for the effect allele
+    SE: Overall standard error for effect size estimate
+    Pvalue: Meta-analysis Pvalue using regression coefficients (beta and standard error)</code></pre>
+<p>We only use the data from stage 1 in our analyses.</p>
 <p>The following analyses have been performed on Alzheimer’s Disease 2013 dataset.</p>
 <ul>
 <li>GSEA Round 1 (Section <a href="load2013-1.html#load2013-1">9.1</a>)</li>
 </ul>
 
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-azh_ng_2013">
+<p>Lambert, Jean-Charles, Carla A Ibrahim-Verbaas, Denise Harold, Adam C Naj, Rebecca Sims, Céline Bellenguez, Gyungah Jun, et al. 2013. “Meta-Analysis of 74,046 Individuals Identifies 11 New Susceptibility Loci for Alzheimer’s Disease.” <em>Nature Genetics</em> 45 (12). Nature Publishing Group: 1452–8.</p>
+</div>
+</div>
             </section>
 
           </div>
