@@ -4,6 +4,10 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
-The following analyses have been performed on Rheumatoid Arthritis 2014 dataset.
+The GWAS summary statistics corresponding to @ra_nature_2014 are provided by [Dr. Yukinori Okada](http://plaza.umin.ac.jp/yokada/datasource/software.htm).
+
+We only use the [Eurpean GWAS meta-analysis results](http://plaza.umin.ac.jp/yokada/datasource/files/GWASMetaResults/RA_GWASmeta_European_v2.txt.gz) in this section. 
+
+The following analyses have been performed on Rheumatoid Arthritis (RA) 2014 dataset.
 
 - GSEA Round 1 (Section \@ref(ra2014-1))

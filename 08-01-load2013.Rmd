@@ -4,6 +4,27 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
+The GWAS summary statistics corresponding to @azh_ng_2013 are provided by the [International Genomics of Alzheimer's Project (IGAP)](http://web.pasteur-lille.fr/en/recherche/u744/igap/igap_download.php).
+
+Below is the basic information about these datasets (excerpt from the download page of IGAP).
+
+```
+Two dataset are provided. The first one corresponds to the meta-analysis results obtained in stage 1 including genotyped and imputed data (7,055,881 single nucleotide polymorphisms, 1000G phase 1 alpha imputation, Build 37, Assembly Hg19) of 17,008 Alzheimer's disease cases and 37,154 controls. The second one corresponds to the meta-analysis results of the 11,632 SNPs that were genotyped and tested for association in an independent set of 8,572 Alzheimer's disease cases and 11,312 controls with the combined stage1/stage2 P-values.
+
+Each file consists of the following information for each SNP and its association to Alzheimer's disease based on meta-analysis in the publication mentioned below. Although the individual datasets examined excluded any SNPs with call rates <95%, IGAP meta-analysis only analyzed SNPs either genotyped or successfully imputed in at least 40% of the AD cases and 40 % of the control samples across all datasets.
+
+    Chromosome: Chromosome of the SNP (Build 37, Assembly Hg19)
+    Position: Position of the SNP (Build 37, Assembly Hg19)
+    MarkerName: SNP rsID or chromosome:position if rsID not available
+    Effect_allele: Reference allele (coded allele)
+    Non_Effect_allele: Non reference allele (non coded allele)
+    Beta: Overall estimated effect size for the effect allele
+    SE: Overall standard error for effect size estimate
+    Pvalue: Meta-analysis Pvalue using regression coefficients (beta and standard error)
+```
+
+We only use the data from stage 1 in our analyses.
+
 The following analyses have been performed on Alzheimer's Disease 2013 dataset.
 
 - GSEA Round 1 (Section \@ref(load2013-1))
