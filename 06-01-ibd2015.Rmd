@@ -1,4 +1,4 @@
-# Inflammatory Bowel Disease 2015
+# Inflammatory Bowel Disease 2015 {#ibd2015}
 
 **Last updated:** `r Sys.Date()`
 

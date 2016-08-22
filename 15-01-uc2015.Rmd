@@ -4,7 +4,7 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
-For the basic information about the data used here, please see Section \@ref(ibd2015-1).
+For the basic information about the data used here, please see Section \@ref(ibd2015).
 
 The following analyses have been performed on Ulcerative Colitis (UC) 2015 dataset.
 

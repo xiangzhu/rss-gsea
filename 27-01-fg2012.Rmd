@@ -1,8 +1,12 @@
-# Fasting Glucose 2012
+# Fasting Glucose 2012 {#fg2012}
 
 **Last updated:** `r Sys.Date()`
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+The GWAS summary statistics corresponding to @fgfi_ng_2012 are provided by the [Meta-Analyses of Glucose and Insulin-related traits Consortium (MAGIC)](http://www.magicinvestigators.org/downloads/).
+
+The basic information about these datasets is available [here](ftp://ftp.sanger.ac.uk/pub/magic/MAGIC_Manning_et_al_README.pdf).  
 
 The following analyses have been performed on BMI-adjusted Fasting Glucose (FGadjBMI) 2012 dataset.
 

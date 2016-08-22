@@ -21,4 +21,12 @@ We thank the International Genomics of Alzheimer's Project (IGAP) for providing 
 
 Data on rheumatoid arthritis have been contributed by authors of Okada et al. (Nature, 2014) and have been downloaded from http://plaza.umin.ac.jp/yokada/datasource/software.htm.
 
+**The Reproductive Genetics (ReproGen) Consortium**<br>
+
+Data on age at natural menopause have been contributed by ReproGen investigators and have been downloaded from http://www.reprogen.org.
+
+**The Meta-Analyses of Glucose and Insulin-related traits Consortium (MAGIC)**<br>
+
+Data on glycaemic traits have been contributed by MAGIC investigators and have been downloaded from www.magicinvestigators.org.
+
 

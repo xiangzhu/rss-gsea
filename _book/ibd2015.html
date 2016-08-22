@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="lfi2012-1.html">
-<link rel="next" href="mchc2012-1.html">
+<link rel="prev" href="bmi2015-1.html">
+<link rel="next" href="ibd2015-1.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -336,22 +336,55 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="mean-cell-haemoglobin-concentration-2012" class="section level1">
-<h1><span class="header-section-number">30</span> Mean Cell Haemoglobin Concentration 2012</h1>
+<div id="ibd2015" class="section level1">
+<h1><span class="header-section-number">7</span> Inflammatory Bowel Disease 2015</h1>
 <p><strong>Last updated:</strong> 2016-08-22</p>
 <p><strong>Code version:</strong> 451200a3ee4b373623ca35d5c846b6b260293944</p>
-<p>The following analyses have been performed on Mean Cell Haemoglobin Concentration (MCHC) 2012 dataset.</p>
+<p>The GWAS summary statistics corresponding to <span class="citation">J. Z. Liu et al. (<a href="#ref-ibd_ng_2015">2015</a>)</span> are provided by the <a href="http://www.ibdgenetics.org/downloads.html">International Inflammatory Bowel Disease Genetics Consortium (IIBDGC)</a>.</p>
+<p>Below is the basic information about these datasets (excerpt from the <code>README</code> of IIBDGC data).</p>
+<pre><code>These files are the summary association statistics corresponding to Liu, van Sommeren et al, Nature Genetics, 2015. There are two groups of files: (1) GWAS meta-analyses, and (2) GWAS plus Immunochip trans-ancestry MANTRA meta-analyses. Each group has outputs for Crohn&#39;s disease (CD), ulcerative colitis (UC), and both inflammatory bowel diseases (IBD) together.
+
+Group 1 files:
+These files have been filtered to only include variants with INFO&gt;0.3 and with more than 2 studies/datasets inlcuded in the analysis. 
+EUR.CD.gwas_info03_filtered.assoc.gz - European CD 1KGP imputed GWAS meta-analysis
+EUR.IBD.gwas_info03_filtered.assoc.gz - European IBD 1KGP imputed GWAS meta-analysis
+EUR.UC.gwas_info03_filtered.assoc.gz - European UC 1KGP imputed GWAS meta-analysis
+
+Columns:
+CHR - chromosome
+SNP - rsid
+BP - position in b37
+A1 - effect allele 
+A2 - other allele
+FRQ_A_XXXX - effect allele frequency in XXXX cases
+FRQ_U_XXXXX - effect allele frequency in XXXXX controls
+INFO - IMPUTE2 info score
+OR - odds ratio
+SE - standard error
+P - P value
+Direction - direction of effect in each study included int he meta-analysis
+HetISqt - Between study Heterogenity score - I squared 
+HetPVa - P value for heterogeneity test
+nstudies - the maximum number of datasets/studies that could be included 
+studies_included - the number of datasets/studies actually included in the analysis for this variant</code></pre>
+<p>The following analyses have been performed on Inflammatory Bowel Disease (IBD) 2015 dataset.</p>
 <ul>
-<li>GSEA Round 1 (Section <a href="mchc2012-1.html#mchc2012-1">30.1</a>)</li>
+<li>GSEA Round 1 (Section <a href="ibd2015-1.html#ibd2015-1">7.1</a>)</li>
 </ul>
 
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-ibd_ng_2015">
+<p>Liu, Jimmy Z, Suzanne van Sommeren, Hailiang Huang, Siew C Ng, Rudi Alberts, Atsushi Takahashi, Stephan Ripke, et al. 2015. “Association Analyses Identify 38 Susceptibility Loci for Inflammatory Bowel Disease and Highlight Shared Genetic Risk Across Populations.” <em>Nature Genetics</em> 47 (9). Nature Publishing Group: 979–86.</p>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="lfi2012-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="mchc2012-1.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="bmi2015-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ibd2015-1.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -378,7 +411,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xiangzhu/rss-gsea/edit/master/29-01-mchc2012.Rmd",
+"link": "https://github.com/xiangzhu/rss-gsea/edit/master/06-01-ibd2015.Rmd",
 "text": "Edit"
 },
 "download": null,
