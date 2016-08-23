@@ -4,6 +4,10 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
-The following analyses have been performed on Schizophrenia 2014 dataset.
+The GWAS summary statistics corresponding to @scz_nature_2014 are provided by the [Psychiatric Genomics Consortium (PGC)](http://www.med.unc.edu/pgc/results-and-downloads).
+
+The basic information about these datasets is available [here](http://www.med.unc.edu/pgc/files/resultfiles/scz2.readme.pdf).
+
+The following analyses have been performed on Schizophrenia (SCZ) 2014 dataset.
 
 - GSEA Round 1 (Section \@ref(scz2014-1))

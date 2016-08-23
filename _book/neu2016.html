@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="pcv2012-1.html">
-<link rel="next" href="add-a-new-chapter.html">
+<link rel="prev" href="waist2015-1.html">
+<link rel="next" href="neu2016-1.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -336,35 +336,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="acknowledgement" class="section level1">
-<h1><span class="header-section-number">34</span> Acknowledgement</h1>
+<div id="neu2016" class="section level1">
+<h1><span class="header-section-number">11</span> Neuroticism 2016</h1>
 <p><strong>Last updated:</strong> 2016-08-23</p>
 <p><strong>Code version:</strong> e8977f6984daae490cde3d1d25b7539f1a62cb52</p>
-<p><strong>Psychiatric Genomics Consortium (PGC)</strong><br></p>
-<p>Data on schizophrenia have been contributed by PGC investigators and have been downloaded from www.med.unc.edu/pgc/.</p>
-<p><strong>International Inflammatory Bowel Disease Genetics Consortium (IIBDGC)</strong><br></p>
-<p>Data on inflammatory bowel disease, Crohn’s disease and ulcerative colitis have been contributed by IIBDGC investigators and have been downloaded from www.ibdgenetics.org.</p>
-<p><strong>Coronary ARtery DIsease Genome wide Replication and Meta-analysis (CARDIoGRAM) plus The Coronary Artery Disease (C4D) Genetics (CARDIoGRAMplusC4D) Consortium</strong><br></p>
-<p>Data on coronary artery disease and myocardial infarction have been contributed by CARDIoGRAMplusC4D investigators and have been downloaded from www.cardiogramplusc4d.org.</p>
-<p><strong>International Genomics of Alzheimer’s Project (IGAP)</strong><br></p>
-<p>We thank the International Genomics of Alzheimer’s Project (IGAP) for providing summary results data for these analyses. The investigators within IGAP contributed to the design and implementation of IGAP and/or provided data but did not participate in analysis or writing of this report. IGAP was made possible by the generous participation of the control subjects, the patients, and their families. The i–Select chips was funded by the French National Foundation on Alzheimer’s disease and related disorders. EADI was supported by the LABEX (laboratory of excellence program investment for the future) DISTALZ grant, Inserm, Institut Pasteur de Lille, Université de Lille 2 and the Lille University Hospital. GERAD was supported by the Medical Research Council (Grant no. 503480), Alzheimer’s Research UK (Grant no. 503176), the Wellcome Trust (Grant no. 082604/2/07/Z) and German Federal Ministry of Education and Research (BMBF): Competence Network Dementia (CND) grant no. 01GI0102, 01GI0711, 01GI0420. CHARGE was partly supported by the NIH/NIA grant R01 AG033193 and the NIA AG081220 and AGES contract N01–AG–12100, the NHLBI grant R01 HL105756, the Icelandic Heart Association, and the Erasmus Medical Center and Erasmus University. ADGC was supported by the NIH/NIA grants: U01 AG032984, U24 AG021886, U01 AG016976, and the Alzheimer’s Association grant ADGC–10–196728.</p>
-<p><strong>Social Science Genetic Association Consortium (SSGAC)</strong><br></p>
-<p>Data on neuroticism and depressive symptoms have been contributed by SSGAC investigators and have been downloaded from www.thessgac.org.</p>
-<p><strong>Eurpean GWAS meta-analysis summary statistics from Okada et al. (Nature, 2014)</strong><br></p>
-<p>Data on rheumatoid arthritis have been contributed by authors of Okada et al. (Nature, 2014) and have been downloaded from <a href="http://plaza.umin.ac.jp/yokada/datasource/software.htm" class="uri">http://plaza.umin.ac.jp/yokada/datasource/software.htm</a>.</p>
-<p><strong>Reproductive Genetics (ReproGen) Consortium</strong><br></p>
-<p>Data on age at natural menopause have been contributed by ReproGen investigators and have been downloaded from <a href="http://www.reprogen.org" class="uri">http://www.reprogen.org</a>.</p>
-<p><strong>Meta-Analyses of Glucose and Insulin-related traits Consortium (MAGIC)</strong><br></p>
-<p>Data on glycaemic traits have been contributed by MAGIC investigators and have been downloaded from www.magicinvestigators.org.</p>
+<p>The GWAS summary statistics corresponding to <span class="citation">Okbay et al. (<a href="#ref-dsneu_ng_2016">2016</a>)</span> are provided by the <a href="http://www.thessgac.org/data">Social Science Genetic Association Consortium (SSGAC)</a>.</p>
+<p>Below is the basic information about these datasets (excerpt from the <a href="http://ssgac.org/documents/ReadMe_genetic_variants_associated_with_swb.txt"><code>README</code></a> of SSGAC data).</p>
+<pre><code>To limit the possibilities of identifiability, significant digits for betas and standard errors are restrcted to three decimal places, and no sample allele frequencies are provided (the reported allele frequencies are from the CEU, GBR and TSI populations in the 1000G sample).
 
+For SNPs passing quality control, we provide results from these four meta-analyses:
+
+1. SWB_Full.txt --- subjective well-being meta-analysis of all cohorts except 23andMe. All SNPs.
+2. SWB_10K.txt --- subjective well-being meta-analysis of all cohorts. Pruned set of 10,000 SNPs. 
+3. Neuroticism_Full.txt --- neuroticism meta-analysis of all cohorts. All SNPs.
+4. DS_Full.txt --- depressive symptoms meta-analysis of all cohorts. All SNPs.
+
+Each file consists of the following columns:
+
+MarkerName: SNP rs number.
+CHR: chromosome number.
+POS: base pair position.
+A1: effect allele.
+A2: other allele.
+EAF: A1 frequency in 1000G sample (CEU, GBR and TSI individuals).
+Beta: Standardized regression coefficient. 
+SE: standard error of beta.
+Pval: Nominal p-value of the null hypothesis that the coefficient is equal to zero.</code></pre>
+<p>The following analyses have been performed on Neuroticism (NEU) 2016 dataset.</p>
+<ul>
+<li>GSEA Round 1 (Section <a href="neu2016-1.html#neu2016-1">11.1</a>)</li>
+</ul>
+
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-dsneu_ng_2016">
+<p>Okbay, A, BM Baselmans, JE De Neve, P Turley, MG Nivard, MA Fontana, SF Meddens, et al. 2016. “Genetic Variants Associated with Subjective Well-Being, Depressive Symptoms, and Neuroticism Identified Through Genome-Wide Analyses.” <em>Nature Genetics</em> 48 (6): 624.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pcv2012-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="add-a-new-chapter.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="waist2015-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="neu2016-1.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -391,7 +406,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xiangzhu/rss-gsea/edit/master/97-acknowledge.Rmd",
+"link": "https://github.com/xiangzhu/rss-gsea/edit/master/10-01-neu2016.Rmd",
 "text": "Edit"
 },
 "download": null,

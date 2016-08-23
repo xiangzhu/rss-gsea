@@ -4,6 +4,10 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
+**Psychiatric Genomics Consortium (PGC)**<br>
+
+Data on schizophrenia have been contributed by PGC investigators and have been downloaded from www.med.unc.edu/pgc/.
+
 **International Inflammatory Bowel Disease Genetics Consortium (IIBDGC)**<br>
 
 Data on inflammatory bowel disease, Crohn's disease and ulcerative colitis have been contributed by IIBDGC investigators and have been downloaded from www.ibdgenetics.org.
@@ -13,19 +17,23 @@ Data on inflammatory bowel disease, Crohn's disease and ulcerative colitis have 
 
 Data on coronary artery disease and myocardial infarction have been contributed by CARDIoGRAMplusC4D investigators and have been downloaded from www.cardiogramplusc4d.org.
 
-**The International Genomics of Alzheimer's Project (IGAP)**<br>
+**International Genomics of Alzheimer's Project (IGAP)**<br>
 
 We thank the International Genomics of Alzheimer's Project (IGAP) for providing summary results data for these analyses. The investigators within IGAP contributed to the design and implementation of IGAP and/or provided data but did not participate in analysis or writing of this report. IGAP was made possible by the generous participation of the control subjects, the patients, and their families. The i–Select chips was funded by the French National Foundation on Alzheimer's disease and related disorders. EADI was supported by the LABEX (laboratory of excellence program investment for the future) DISTALZ grant, Inserm, Institut Pasteur de Lille, Université de Lille 2 and the Lille University Hospital. GERAD was supported by the Medical Research Council (Grant no. 503480), Alzheimer's Research UK (Grant no. 503176), the Wellcome Trust (Grant no. 082604/2/07/Z) and German Federal Ministry of Education and Research (BMBF): Competence Network Dementia (CND) grant no. 01GI0102, 01GI0711, 01GI0420. CHARGE was partly supported by the NIH/NIA grant R01 AG033193 and the NIA AG081220 and AGES contract N01–AG–12100, the NHLBI grant R01 HL105756, the Icelandic Heart Association, and the Erasmus Medical Center and Erasmus University. ADGC was supported by the NIH/NIA grants: U01 AG032984, U24 AG021886, U01 AG016976, and the Alzheimer's Association grant ADGC–10–196728.
+
+**Social Science Genetic Association Consortium (SSGAC)**<br>
+
+Data on neuroticism and depressive symptoms have been contributed by SSGAC investigators and have been downloaded from www.thessgac.org.
 
 **Eurpean GWAS meta-analysis summary statistics from Okada et al. (Nature, 2014)**<br>
 
 Data on rheumatoid arthritis have been contributed by authors of Okada et al. (Nature, 2014) and have been downloaded from http://plaza.umin.ac.jp/yokada/datasource/software.htm.
 
-**The Reproductive Genetics (ReproGen) Consortium**<br>
+**Reproductive Genetics (ReproGen) Consortium**<br>
 
 Data on age at natural menopause have been contributed by ReproGen investigators and have been downloaded from http://www.reprogen.org.
 
-**The Meta-Analyses of Glucose and Insulin-related traits Consortium (MAGIC)**<br>
+**Meta-Analyses of Glucose and Insulin-related traits Consortium (MAGIC)**<br>
 
 Data on glycaemic traits have been contributed by MAGIC investigators and have been downloaded from www.magicinvestigators.org.
 
