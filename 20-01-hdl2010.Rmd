@@ -1,8 +1,12 @@
-# High-density Lipoprotein 2010
+# High-density Lipoprotein 2010 {#hdl2010}
 
 **Last updated:** `r Sys.Date()`
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+The GWAS summary statistics corresponding to @glipid_nature_2010 are provided by the [Global Lipids Genetics Consortium (GLGC)](http://csg.sph.umich.edu//abecasis/public/lipids2010/). 
+
+The basic information about these datasets is available [here](http://csg.sph.umich.edu//abecasis/public/lipids2010/).
 
 The following analyses have been performed on High-density Lipoprotein Cholesterol (HDL-C) 2010 dataset.
 

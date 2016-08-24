@@ -4,6 +4,10 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
+**Genetic Investigation of ANthropometric Traits (GIANT) Consortium**<br>
+
+Data on adult human height, body mass index and body fat distribution have been contributed by GIANT investigators and have been downloaded from portals.broadinstitute.org/collaboration/giant/.
+
 **Psychiatric Genomics Consortium (PGC)**<br>
 
 Data on schizophrenia have been contributed by PGC investigators and have been downloaded from www.med.unc.edu/pgc/.
@@ -32,6 +36,10 @@ Data on rheumatoid arthritis have been contributed by authors of Okada et al. (N
 **Reproductive Genetics (ReproGen) Consortium**<br>
 
 Data on age at natural menopause have been contributed by ReproGen investigators and have been downloaded from http://www.reprogen.org.
+
+**Global Lipids Genetics Consortium (GLGC)**<br>
+
+Data on total cholesterol, low-density lipoprotein cholesterol, high-density lipoprotein cholesterol and triglycerides have been contributed by GLGC investigators and have been downloaded from csg.sph.umich.edu//abecasis/public/lipids2010/.
 
 **Meta-Analyses of Glucose and Insulin-related traits Consortium (MAGIC)**<br>
 
