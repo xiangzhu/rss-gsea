@@ -1,0 +1,13 @@
+# Amyotrophic Lateral Sclerosis 2016
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+The GWAS summary statistics corresponding to @als_ng_2016 are provided by the [Project MinE](http://databrowser.projectmine.com/).
+
+The data-sharing policy of Project MinE data is available [here](http://databrowser.projectmine.com/session/cdf7ca9680d9d2e67f7e3cc3788221c3/download/DataSharingPolicy2?w=). 
+
+The following analyses have been performed on Amyotrophic Lateral Sclerosis (ALS) 2016 dataset.
+
+- GSEA Round 1 (Section \@ref(als2016-1))
