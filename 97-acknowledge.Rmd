@@ -45,4 +45,7 @@ Data on total cholesterol, low-density lipoprotein cholesterol, high-density lip
 
 Data on glycaemic traits have been contributed by MAGIC investigators and have been downloaded from www.magicinvestigators.org.
 
+**Project MinE**<br>
+
+Data on amyotrophic lateral sclerosis have been contributed by Project MinE investigators and have been downloaded from databrowser.projectmine.com.
 
