@@ -25,7 +25,7 @@
 
 <meta name="author" content="Xiang Zhu">
 
-<meta name="date" content="2016-09-04">
+<meta name="date" content="2016-09-07">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -344,33 +344,238 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="height2014-1" class="section level2">
 <h2><span class="header-section-number">4.1</span> Pilot Analysis</h2>
-<p><strong>Last updated:</strong> 2016-09-04</p>
-<p><strong>Code version:</strong> 32ab1af7d0897c2c513f53231d423b96ac384429</p>
+<p><strong>Last updated:</strong> 2016-09-07</p>
+<p><strong>Code version:</strong> 754c15d1ce872c7de25f2e00bb4b1fe3efbfeefa</p>
 <div id="fit-the-null-model" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Fit the null model</h3>
 </div>
 <div id="fit-the-enrichment-model" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Fit the enrichment model</h3>
-<div id="biological-pathways" class="section level4">
-<h4><span class="header-section-number">4.1.2.1</span> Biological pathways</h4>
-<div id="example-1-top-enrichments" class="section level5">
-<h5><span class="header-section-number">4.1.2.1.1</span> Example 1: Top enrichments</h5>
-</div>
-<div id="example-2-hedgehog-signaling-pathway" class="section level5">
-<h5><span class="header-section-number">4.1.2.1.2</span> Example 2: Hedgehog signaling pathway</h5>
-</div>
-</div>
-<div id="gtex-database" class="section level4">
-<h4><span class="header-section-number">4.1.2.2</span> GTEx database</h4>
-<div class="figure"><span id="fig:unnamed-chunk-3"></span>
-<img src="_main_files/figure-html/unnamed-chunk-3-1.png" alt="Enrichment of height associations in GTEx tissues" width="1056" />
+<div id="example-1-top-enrichments" class="section level4">
+<h4><span class="header-section-number">4.1.2.1</span> Example 1: Top enrichments</h4>
+<p>Tabulate the top six enriched pathways for height.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">bf</th>
+<th align="left">name</th>
+<th align="left">source</th>
+<th align="left">database</th>
+<th align="right">numgene</th>
+<th align="right">numsnps</th>
+<th align="right">theta.mean</th>
+<th align="right">theta.sd</th>
+<th align="right">theta0.mean</th>
+<th align="right">theta0.sd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">3208</td>
+<td align="right">3.278166e+64</td>
+<td align="left">Endochondral Ossification</td>
+<td align="left">wiki</td>
+<td align="left">BioSystems</td>
+<td align="right">65</td>
+<td align="right">7573</td>
+<td align="right">0.7500000</td>
+<td align="right">0.0000008</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">3859</td>
+<td align="right">1.494140e+47</td>
+<td align="left">Cellular responses to stress</td>
+<td align="left">reactome</td>
+<td align="left">PC</td>
+<td align="right">258</td>
+<td align="right">16444</td>
+<td align="right">0.5000000</td>
+<td align="right">0.0000022</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">3856</td>
+<td align="right">7.837627e+44</td>
+<td align="left">Metabolism of RNA</td>
+<td align="left">reactome</td>
+<td align="left">PC</td>
+<td align="right">257</td>
+<td align="right">17586</td>
+<td align="right">0.5000000</td>
+<td align="right">0.0000000</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">3725</td>
+<td align="right">5.458711e+44</td>
+<td align="left">TGF-beta Receptor Signaling Pathway</td>
+<td align="left">wiki</td>
+<td align="left">BioSystems</td>
+<td align="right">149</td>
+<td align="right">13241</td>
+<td align="right">0.5059478</td>
+<td align="right">0.0380995</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">3783</td>
+<td align="right">1.223700e+44</td>
+<td align="left">Cellular Senescence</td>
+<td align="left">reactome</td>
+<td align="left">PC</td>
+<td align="right">183</td>
+<td align="right">10005</td>
+<td align="right">0.7471961</td>
+<td align="right">0.0263271</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">3839</td>
+<td align="right">7.048442e+42</td>
+<td align="left">Chromatin modifying enzymes</td>
+<td align="left">reactome</td>
+<td align="left">BioSystems</td>
+<td align="right">241</td>
+<td align="right">15037</td>
+<td align="right">0.5000000</td>
+<td align="right">0.0000077</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+Plot the gene sharing pattern among these six top pathways.
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="_main_files/figure-html/unnamed-chunk-5-1.png" alt="Gene sharing of the top enriched pathways" width="1056" />
 <p class="caption">
-Figure 4.1: Enrichment of height associations in GTEx tissues
+Figure 4.1: Gene sharing of the top enriched pathways
 </p>
 </div>
 </div>
-<div id="association-informed-by-enrichment" class="section level4">
-<h4><span class="header-section-number">4.1.2.3</span> Association informed by enrichment</h4>
+<div id="example-2-hedgehog-signaling-pathway" class="section level4">
+<h4><span class="header-section-number">4.1.2.2</span> Example 2: Hedgehog signaling pathway</h4>
+<p>Retrieve all the pathways whose names contain the word “Hedgehog”.</p>
+<p>Tabulate the ones with the largest BFs.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">bf</th>
+<th align="left">name</th>
+<th align="left">source</th>
+<th align="left">database</th>
+<th align="right">numgene</th>
+<th align="right">numsnps</th>
+<th align="right">theta.mean</th>
+<th align="right">theta.sd</th>
+<th align="right">theta0.mean</th>
+<th align="right">theta0.sd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">3398</td>
+<td align="right">3.406931e+34</td>
+<td align="left">Hedgehog ‘on’ state</td>
+<td align="left">reactome</td>
+<td align="left">BioSystems</td>
+<td align="right">83</td>
+<td align="right">6283</td>
+<td align="right">0.7497261</td>
+<td align="right">0.0082701</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">3677</td>
+<td align="right">1.914504e+32</td>
+<td align="left">Signaling by Hedgehog</td>
+<td align="left">reactome</td>
+<td align="left">BioSystems</td>
+<td align="right">132</td>
+<td align="right">11887</td>
+<td align="right">0.5000000</td>
+<td align="right">0.0000100</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">2978</td>
+<td align="right">3.984276e+30</td>
+<td align="left">Hedgehog signaling pathway</td>
+<td align="left">kegg</td>
+<td align="left">BioSystems</td>
+<td align="right">50</td>
+<td align="right">4377</td>
+<td align="right">0.7499489</td>
+<td align="right">0.0035759</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">2067</td>
+<td align="right">6.256309e+23</td>
+<td align="left">Signaling events mediated by the Hedgehog family</td>
+<td align="left">pid</td>
+<td align="left">PC</td>
+<td align="right">23</td>
+<td align="right">2495</td>
+<td align="right">0.7540134</td>
+<td align="right">0.0314299</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">2045</td>
+<td align="right">4.661006e+23</td>
+<td align="left">Signaling events mediated by the Hedgehog family</td>
+<td align="left">pid</td>
+<td align="left">BioSystems</td>
+<td align="right">22</td>
+<td align="right">2490</td>
+<td align="right">0.7532245</td>
+<td align="right">0.0282210</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">3598</td>
+<td align="right">2.061373e+22</td>
+<td align="left">Signaling by Hedgehog</td>
+<td align="left">reactome</td>
+<td align="left">PC</td>
+<td align="right">110</td>
+<td align="right">9840</td>
+<td align="right">0.5000000</td>
+<td align="right">0.0000175</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+Plot the gene sharing pattern.
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="_main_files/figure-html/unnamed-chunk-8-1.png" alt="Gene sharing of Hedgehog pathways" width="1056" />
+<p class="caption">
+Figure 4.2: Gene sharing of Hedgehog pathways
+</p>
+</div>
+</div>
+<div id="example-3-gtex-tissue-specific-eqtl" class="section level4">
+<h4><span class="header-section-number">4.1.2.3</span> Example 3: GTEx tissue specific eQTL</h4>
+<div class="figure"><span id="fig:unnamed-chunk-10"></span>
+<img src="_main_files/figure-html/unnamed-chunk-10-1.png" alt="Enrichment of height associations in GTEx tissues" width="1056" />
+<p class="caption">
+Figure 4.3: Enrichment of height associations in GTEx tissues
+</p>
+</div>
 
 </div>
 </div>

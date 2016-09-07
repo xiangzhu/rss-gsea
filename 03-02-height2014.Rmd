@@ -8,13 +8,93 @@
 
 ### Fit the enrichment model
 
-#### Biological pathways
+```{r, include=FALSE}
+gsea.path <- "~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_pathway_201602.mat"
+gsea.data <- R.matlab::readMat(gsea.path)
 
-##### Example 1: Top enrichments
+gsea.df <- data.frame(
+  id <- c(gsea.data$path.id),
+  bf <- c(gsea.data$path.bf),
+  name <- unlist(gsea.data$path.name),
+  source <- unlist(gsea.data$path.sr),
+  database <- unlist(gsea.data$path.base),
+  numgene <- c(gsea.data$path.numg),
+  numsnps <- c(gsea.data$path.nums)
+)
+names(gsea.df) <- c("id","bf","name","source","database","numgene","numsnps")
 
-##### Example 2: Hedgehog signaling pathway
+theta.est <- gsea.data$theta.est
+gsea.df$theta.mean <- theta.est[, 1]
+gsea.df$theta.sd <- theta.est[, 2]
 
-#### GTEx database
+theta0.est <- gsea.data$theta0.est
+gsea.df$theta0.mean <- theta0.est[, 1]
+gsea.df$theta0.sd <- theta0.est[, 2]
+```
+
+```{r,include=FALSE}
+gene.path.data <- R.matlab::readMat("~/Dropbox/rss/Data/pathway_database/gene_path.mat",sparseMatrixClass="matrix")
+
+entrezid <- c(gene.path.data$entrezid)
+label <- unlist(gene.path.data$label)
+database <- unlist(gene.path.data$database)
+source <- unlist(gene.path.data$source)
+genes <- as.data.frame(gene.path.data$genes)
+
+rm(gene.path.data)
+
+names(genes) <- paste0("Path",1:dim(genes)[2])
+genes$entrezid <- entrezid
+genes <- genes[,c(dim(genes)[2], 1:dim(genes)[2]-1)]
+```
+
+#### Example 1: Top enrichments
+
+Tabulate the top six enriched pathways for height.
+```{r, echo=FALSE}
+knitr::kable(head(plyr::arrange(gsea.df, -bf)))
+```
+
+Plot the gene sharing pattern among these six top pathways.
+```{r,echo=FALSE,fig.width=11,fig.height=6,fig.cap="Gene sharing of the top enriched pathways"}
+UpSetR::upset(genes, sets=paste0("Path",head(plyr::arrange(gsea.df, -bf))$id), 
+              number.angles=0, point.size=5, name.size=12, line.size=2, 
+              mainbar.y.label="Genes Intersections", sets.x.label="Genes Per Pathway", 
+              queries=list(list(query=intersects, params=list("Path3208"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path3725"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path3856"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path3859"), color="orange", active=T)))
+```
+
+#### Example 2: Hedgehog signaling pathway
+
+Retrieve all the pathways whose names contain the word "Hedgehog".
+```{r, include=FALSE}
+hedgehog.pathway <- grep('Hedgehog', as.character(gsea.df$name), value=TRUE)
+hedgehog.index <- as.character(gsea.df$name) %in% hedgehog.pathway
+hedgehog.df <- gsea.df[hedgehog.index, ]
+```
+
+Tabulate the ones with the largest BFs.
+```{r, echo=FALSE}
+knitr::kable(head(plyr::arrange(hedgehog.df, -bf)))
+```
+
+Plot the gene sharing pattern.
+```{r,echo=FALSE,fig.width=11,fig.height=6,fig.cap="Gene sharing of Hedgehog pathways"}
+UpSetR::upset(genes, sets=c("Path3208", paste0("Path",head(plyr::arrange(hedgehog.df, -bf))$id)), 
+              number.angles=0, point.size=5, name.size=12, line.size=2, 
+              mainbar.y.label="Genes Intersections", sets.x.label="Genes Per Pathway",
+              queries=list(list(query=intersects, params=list("Path3208"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path2067","Path2045"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path3598","Path3677"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path3598","Path3677","Path2978"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path3598","Path3677","Path3398"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path3598","Path3677","Path3398","Path2978"), color="orange", active=T),
+                           list(query=intersects, params=list("Path3208","Path3598","Path3677","Path3398","Path2978","Path2045","Path2067"), color="orange", active=T)))
+```
+
+#### Example 3: GTEx tissue specific eQTL
 
 ```{r,include=FALSE}
 results.path <- "~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_gtex_tissue_specific.mat"
@@ -51,6 +131,6 @@ bp <- bp + theme_classic() + scale_x_discrete(breaks=NULL) + coord_flip()
 print(bp)
 ```
 
-#### Association informed by enrichment
+
 
 
