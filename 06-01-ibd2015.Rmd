@@ -39,3 +39,4 @@ studies_included - the number of datasets/studies actually included in the analy
 The following analyses have been performed on Inflammatory Bowel Disease (IBD) 2015 dataset.
 
 - GSEA Round 1 (Section \@ref(ibd2015-1))
+- GSEA Round 2 (Section \@ref(ibd2015-2))
