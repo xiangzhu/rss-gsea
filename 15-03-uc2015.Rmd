@@ -6,7 +6,7 @@
 
 ### Fit the null model
 
-From the Round 1 null analysis (Section \@ref(ibd2015-1)), I found that almost 99.8% posterior mass is concentrated on the setting `(h=0.3, theta0=-3)`. In Round 2, I used a finer grid. Specifically, I used the grids `theta0=(-3.25:0.025:-2.75)'` and `h=0.3` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 21 sets of `(h,theta0)` under null. 
+From the Round 1 null analysis (Section \@ref(uc2015-1)), I found that almost 99.8% posterior mass is concentrated on the setting `(h=0.3, theta0=-3)`. In Round 2, I used a finer grid. Specifically, I used the grids `theta0=(-3.25:0.025:-2.75)'` and `h=0.3` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 21 sets of `(h,theta0)` under null. 
 
 ```{r,echo=FALSE}
 knitr::include_graphics("images/uc2015_null_round2.png", dpi=NA)
