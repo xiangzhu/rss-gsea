@@ -24,7 +24,7 @@ null.dt
 ```
 
 ```{r}
-theta0.index <- null.df$theta0 %in% seq(-3,-2.8,by=0.025) 
+theta0.index <- as.character(null.df$theta0) %in% as.character(seq(-3,-2.8,by=0.025)) 
 sum(null.df$posp.step2[theta0.index]) 
 ```
 
