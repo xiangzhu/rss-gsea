@@ -28,3 +28,4 @@ The input dataset for this section is [`CARDIoGRAMplusC4D 1000 Genomes-based GWA
 The following analyses have been performed on Coronary Artery Disease (CAD) 2015 dataset.
 
 - GSEA Round 1 (Section \@ref(cad2015-1))
+- GSEA Round 2 (Section \@ref(cad2015-2))
