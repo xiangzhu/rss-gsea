@@ -11,3 +11,4 @@ We only use the [Eurpean GWAS meta-analysis results](http://plaza.umin.ac.jp/yok
 The following analyses have been performed on Rheumatoid Arthritis (RA) 2014 dataset.
 
 - GSEA Round 1 (Section \@ref(ra2014-1))
+- GSEA Round 2 (Section \@ref(ra2014-2))
