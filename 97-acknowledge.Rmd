@@ -37,9 +37,13 @@ Data on rheumatoid arthritis have been contributed by authors of Okada et al. (N
 
 Data on age at natural menopause have been contributed by ReproGen investigators and have been downloaded from http://www.reprogen.org.
 
+**Global Urate Genetics Consortium (GUGC)**<br>
+
+Data on serum urate concentrations and gout have been contributed by GUGC investigators and have been downloaded from http://metabolomics.helmholtz-muenchen.de/gugc/.
+
 **Global Lipids Genetics Consortium (GLGC)**<br>
 
-Data on total cholesterol, low-density lipoprotein cholesterol, high-density lipoprotein cholesterol and triglycerides have been contributed by GLGC investigators and have been downloaded from csg.sph.umich.edu//abecasis/public/lipids2010/.
+Data on total cholesterol, low-density lipoprotein cholesterol, high-density lipoprotein cholesterol and triglycerides have been contributed by GLGC investigators and have been downloaded from http://csg.sph.umich.edu//abecasis/public/lipids2010/.
 
 **Meta-Analyses of Glucose and Insulin-related traits Consortium (MAGIC)**<br>
 
