@@ -6,7 +6,7 @@
 
 ### Fit the null model
 
-From the Round 1 null analysis (Section \@ref(load2013-1)), I found that almost 92.5% posterior mass is concentrated on the setting `(h=0.6, theta0=-5)`. In Round 2, I used a finer grid. Specifically, I used the grids `theta0=(-5.25:0.25:-4.75)'` and `h=0.3` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 21 sets of `(h,theta0)` under null. 
+From the Round 1 null analysis (Section \@ref(load2013-1)), I found that almost 92.5% posterior mass is concentrated on the setting `(h=0.6, theta0=-5)`. In Round 2, I used a finer grid. Specifically, I used the grids `theta0=(-5.25:0.025:-4.75)'` and `h=0.3` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 21 sets of `(h,theta0)` under null. 
 
 ```{r,echo=FALSE}
 knitr::include_graphics("images/load2013_null_round2.png", dpi=NA)
@@ -30,7 +30,7 @@ sum(null.df$posp.step2[theta0.index])
 
 ### Fit the enrichment model
 
-To perform GSEA, I set `h=0.6` and `theta0=(-5.150:0.025:-5.075)'`, since the null analysis suggests that almost 100% posterior mass is placed on this setting. For the log-fold enrichment parameter, I use the grid `theta=(0:(4/400):4)'`. The following table lists the GSEA results. 
+To perform GSEA, I set `h=0.6` and `theta0=(-5.150:0.025:-5.075)'`, since the null analysis suggests that almost 100% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid `theta=(0:(4/400):4)'`. The following table lists the GSEA results. 
 ```{r, eval=FALSE}
 gsea.path <- "~/Dropbox/rss/Data/load_2013/pathway/load2013_pathway_201609.mat"
 gsea.df <- gsea.mat2df(gsea.path) 
