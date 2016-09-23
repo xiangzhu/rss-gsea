@@ -6,21 +6,26 @@
 
 ### Fit the null model
 
-I used the grids `theta0=(-6:0.25:-3)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 52 sets of `(h,theta0)` under null.
+From the Round 1 null analysis (Section \@ref(fg2012-1)), I found that almost 100% posterior mass is concentrated on the setting `(h=0.6, theta0=-5.25)`. In Round 2, I used a finer grid. Specifically, I used the grids `theta0=(-6:0.05:-5)'` and `h=0.6` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 52 sets of `(h,theta0)` under null.
 
 ```{r,echo=FALSE}
-knitr::include_graphics("images/fg2012_null_round1.png", dpi=NA)
+knitr::include_graphics("images/fg2012_null_round2.png", dpi=NA)
 ```
 
-After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the setting `h=0.6` and `theta0=-5.25`.
+After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the settings `h=0.6` and `theta0=(-6:0.05:-5.75)'`.
 ```{r, include=FALSE}
-null.path <- "~/Dropbox/rss/Data/fg_2012/pathway/fg2012_null_201604.mat"
+null.path <- "~/Dropbox/rss/Data/fg_2012/pathway/fg2012_null_201609.mat"
 null.df <- null.mat2df(null.path)
 ```
 
 ```{r, echo=FALSE}
 source("src/null_dt.R")
 null.dt
+```
+
+```{r}
+theta0.index <- as.character(null.df$theta0) %in% as.character(seq(-6,-5.75,by=0.05)) 
+sum(null.df$posp.step2[theta0.index]) 
 ```
 
 ### Fit the enrichment model
