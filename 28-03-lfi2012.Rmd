@@ -30,7 +30,7 @@ sum(null.df$posp.step2[theta0.index])
 
 ### Fit the enrichment model
 
-To perform GSEA, I set `h=0.6` and `theta0=(-6.25:0.025:-6)'`, since the null analysis suggests that almost 99.99% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid `theta = (0:(4/200):4)'`, based on the Round 1 enrichment analysis (Section \@ref(lfi2012-1)). The following table lists the GSEA results. 
+To perform GSEA, I set `h=0.6` and `theta0=(-6.25:0.025:-6)'`, since the null analysis suggests that almost 99.99% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid `theta = (0:(3.8/200):3.8)'`, based on the Round 1 enrichment analysis (Section \@ref(lfi2012-1)). The following table lists the GSEA results. 
 ```{r, eval=FALSE}
 gsea.path <- "~/Dropbox/rss/Data/lfi_2012/pathway/lfi2012_pathway_201609.mat"
 gsea.df <- gsea.mat2df(gsea.path) 
