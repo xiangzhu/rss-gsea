@@ -1,0 +1,1 @@
+gsea.dt <- DT::datatable(gsea.df,rownames=FALSE,class="display",filter="bottom",colnames = c("gene"="numgene","snp"="numsnps"),extensions="FixedColumns",options=list(dom='lftp',scrollX=TRUE,fixedColumns=TRUE))%>% DT::formatRound(c("log10.bf"), 3) 
