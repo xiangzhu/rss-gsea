@@ -1,0 +1,39 @@
+## GSEA Round 2 {#urate2013-2}
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+### Fit the null model
+
+I used the grids `theta0=(-5.5:0.25:-2)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 52 sets of `(h,theta0)` under null.
+
+```{r,echo=FALSE}
+knitr::include_graphics("images/urate2013_null_round1.png", dpi=NA)
+```
+
+After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the combinations of `h=0.5` and `theta0=-5.25`.
+```{r, include=FALSE}
+null.path <- "~/Dropbox/rss/Data/urate_2013/pathway/urate2013_null_201604.mat"
+null.df <- null.mat2df(null.path)
+```
+
+```{r, echo=FALSE}
+source("src/null_dt.R")
+null.dt
+```
+
+### Fit the enrichment model
+
+To perform GSEA, I set `h=0.5` and `theta0=-5.25`, since the null analysis suggests that almost 100% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid `theta  = (0:(5.25/200):5.25)'`. The following table lists the GSEA results. 
+```{r, include=FALSE}
+gsea.path <- "~/Dropbox/rss/Data/urate_2013/pathway/urate2013_pathway_201604.mat"
+gsea.df <- gsea.mat2df(gsea.path) 
+```
+
+```{r, echo=FALSE}
+source("src/gsea_dt.R")
+gsea.dt
+```
+
+

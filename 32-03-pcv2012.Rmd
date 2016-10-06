@@ -1,0 +1,39 @@
+## GSEA Round 2 {#pcv2012-2}
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+### Fit the null model
+
+I used the grids `theta0=(-5:0.25:-2)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 52 sets of `(h,theta0)` under null.
+
+```{r,echo=FALSE}
+knitr::include_graphics("images/pcv2012_null_round1.png", dpi=NA)
+```
+
+After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the setting `h=0.6` and `theta0=-5`.
+```{r, include=FALSE}
+null.path <- "~/Dropbox/rss/Data/pcv_2012/pathway/pcv2012_null_201604.mat"
+null.df <- null.mat2df(null.path)
+```
+
+```{r, echo=FALSE}
+source("src/null_dt.R")
+null.dt
+```
+
+### Fit the enrichment model
+
+To perform GSEA, I set `h=0.6` and `theta0=-5`, since the null analysis suggests that almost 100% posterior mass is placed on this setting. For the log-fold enrichment parameter, I use the grid `theta = (0:(5/200):5)'`. The following table lists the GSEA results. 
+```{r, include=FALSE}
+gsea.path <- "~/Dropbox/rss/Data/pcv_2012/pathway/pcv2012_pathway_201604.mat"
+gsea.df <- gsea.mat2df(gsea.path) 
+```
+
+```{r, echo=FALSE}
+source("src/gsea_dt.R")
+gsea.dt
+```
+
+
