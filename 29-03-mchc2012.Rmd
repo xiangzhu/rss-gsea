@@ -6,15 +6,15 @@
 
 ### Fit the null model
 
-I used the grids `theta0=(-6:0.25:-3)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 52 sets of `(h,theta0)` under null.
+From the Round 1 null analysis (Section \@ref(mchc2012-1)), I found that almost 98.8% of the posterior mass is concentrated on the settings `h=(0.3:0.1:0.6)'` and `theta0 = (-6:0.25:-5.25)`. In Round 2, I used a finer grid. Specifically, I used the grids `theta0=(-6:0.05:-5)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 84 sets of `(h,theta0)` under null.
 
 ```{r,echo=FALSE}
-knitr::include_graphics("images/mchc2012_null_round1.png", dpi=NA)
+knitr::include_graphics("images/mchc2012_null_round2.png", dpi=NA)
 ```
 
-After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 98.8% posterior mass is concentrated on the settings `h=[0.3 0.4 0.5 0.6]` and `theta0 = (-6:0.25:-5.25)`.
+After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that the posterior mass is almost uniformly concentrated on the settings `h=(0.3:0.1:0.6)'` and `theta0 = (-6:0.05:-5)`.
 ```{r, include=FALSE}
-null.path <- "~/Dropbox/rss/Data/mchc_2012/pathway/mchc2012_null_201604.mat"
+null.path <- "~/Dropbox/rss/Data/mchc_2012/pathway/mchc2012_null_201609.mat"
 null.df <- null.mat2df(null.path)
 ```
 
@@ -30,13 +30,13 @@ sum(null.df$posp.step2[theta0.index])
 
 ### Fit the enrichment model
 
-To perform GSEA, I set `h=[0.3 0.4 0.5 0.6]` and `theta0 = (-6:0.25:-5.25)`, since the null analysis suggests that almost 98.8% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid `theta = (0:(6/12):6)'`. The following table lists the GSEA results. 
-```{r, include=FALSE}
-gsea.path <- "~/Dropbox/rss/Data/mchc_2012/pathway/mchc2012_pathway_201604.mat"
+To perform GSEA, I set `h=(0.3:0.1:0.6)'` and `theta0 = (-6:0.05:-5)`, since the null analysis suggests that the posterior mass is uniformly placed on these settings. For the log-fold enrichment parameter, I use the grid `theta = (0:(5/50):5)'`, based on the Round 1 enrichment analysis (Section \@ref(mchc2012-1)). The following table lists the GSEA results. 
+```{r, eval=FALSE}
+gsea.path <- "~/Dropbox/rss/Data/mchc_2012/pathway/mchc2012_pathway_201609.mat"
 gsea.df <- gsea.mat2df(gsea.path) 
 ```
 
-```{r, echo=FALSE}
+```{r, eval=FALSE}
 source("src/gsea_dt.R")
 gsea.dt
 ```
