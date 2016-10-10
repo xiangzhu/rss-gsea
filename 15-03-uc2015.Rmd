@@ -12,7 +12,7 @@ From the Round 1 null analysis (Section \@ref(uc2015-1)), I found that almost 99
 knitr::include_graphics("images/uc2015_null_round2.png", dpi=NA)
 ```
 
-After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 99.8% posterior mass is concentrated on the setting `(h=0.3, theta0=-3)`.
+After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 99.8% posterior mass is concentrated on the settings `h=0.3` and `theta0=(-3.175:0.025:-2.775)'`.
 ```{r, include=FALSE}
 null.path <- "~/Dropbox/rss/Data/uc_2015/pathway/uc2015_null_201609.mat"
 null.df <- null.mat2df(null.path)
