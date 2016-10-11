@@ -52,4 +52,17 @@ plot.df <- reshape2::melt(gsea.df.top100, id.vars=c("id", "name"), measure.vars=
 plot_ly(plot.df, x=estimate, color=parameter, type="box")
 ```
 
+### Enrichment analysis in GTEx
+
+I also ran the GSEA using the clustering results of GTEx gene expression V6 data (20 clusters, each with 100 genes).
+```{r, include=FALSE}
+gtex.path <- "~/Dropbox/rss/Data/hdl_2010/pathway/hdl2010_gtexclust_201604.mat"
+gtex.df <- gtex.mat2df(gtex.path) 
+```
+
+```{r, echo=FALSE}
+source("src/gtex_dt.R")
+gtex.dt
+```
+
 
