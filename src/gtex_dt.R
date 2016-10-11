@@ -1,1 +1,1 @@
-gtex.dt <- DT::datatable(gtex.df,rownames=FALSE,class="display",filter="bottom",extensions="FixedColumns",options=list(dom='lftp',scrollX=TRUE,fixedColumns=TRUE)) %>% DT::formatRound(c("log10.bf","theta.mean","theta.95lb","theta.95ub"), 3)
+gtex.dt <- DT::datatable(gtex.df,rownames=FALSE,class="display",extensions="KeyTable",options=list(keys=TRUE)) %>% DT::formatRound(c("log10.bf","theta.mean","theta.95lb","theta.95ub"), 3)
