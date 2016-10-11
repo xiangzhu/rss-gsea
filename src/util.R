@@ -74,6 +74,31 @@ gsea.mat2df <- function(gsea.path){
   return(gsea.df)
 }
 
+gtex.mat2df <- function(gtex.path){
+  gtex.data <- R.matlab::readMat(gtex.path)
+  
+  # extract log 10 BFs of gene set enrichment
+  if ("path.bf" %in% names(gtex.data)) {
+    log10.bf <- log10(c(gtex.data$path.bf))
+  }
+  if ("path.lbf" %in% names(gtex.data)) {
+    log10.bf <- c(gtex.data$path.lbf) / log(10) 
+  }
+  
+  # create output data frame
+  gtex.df <- data.frame(
+    id <- c(gtex.data$path.id),
+    numsnps <- c(gtex.data$path.nums),
+    log10.bf <- log10.bf,
+    theta.mean <- gtex.data$theta.est[, 1],
+    theta.95lb <- gtex.data$theta.est[, 3],
+    theta.95ub <- gtex.data$theta.est[, 4]
+  )
+  names(gtex.df) <- c("id","numsnps","log10.bf","theta.mean","theta.95lb","theta.95ub")
+  
+  return(gtex.df)
+}
+
 gsea.mat2df.round2 <- function(gsea.path){
   gsea.data <- R.matlab::readMat(gsea.path)
   
