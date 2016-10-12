@@ -44,6 +44,7 @@ gsea.mat2df <- function(gsea.path){
   gsea.data <- R.matlab::readMat(gsea.path)
   
   # extract log 10 BFs of gene set enrichment
+  # the following order ensures that log(bf), if exisiting, will be used
   if ("path.bf" %in% names(gsea.data)) {
     log10.bf <- log10(c(gsea.data$path.bf))
   }
