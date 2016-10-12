@@ -6,7 +6,7 @@
 
 ### Fit the null model
 
-From the Round 1 null analysis (Section \@ref(ibd2015-1)), I found that almost 99.9% posterior mass is concentrated on the settings `h=(0.3:0.1:0.6)'` and `theta0 = (-6:0.25:-5)'`. In Round 2, I used a finer grid. Specifically, I used the grids `theta0=(-6:0.05:-5)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 84 sets of `(h,theta0)` under null. 
+From the Round 1 null analysis (Section \@ref(ds2016-1)), I found that almost 99.9% posterior mass is concentrated on the settings `h=(0.3:0.1:0.6)'` and `theta0 = (-6:0.25:-5)'`. In Round 2, I used a finer grid. Specifically, I used the grids `theta0=(-6:0.05:-5)'` and `h=(0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 84 sets of `(h,theta0)` under null. 
 
 ```{r,echo=FALSE}
 knitr::include_graphics("images/ds2016_null_round2.png", dpi=NA)
@@ -26,14 +26,32 @@ null.dt
 ### Fit the enrichment model
 
 To perform GSEA, I use a smaller grid that includes `h=(0.3:0.1:0.6)'` and `theta0 = (-6:0.05:-5)'`, since the null analysis suggests that almost 100% posterior mass is placed on thses settings. For the log-fold enrichment parameter, I use the grid `theta=(0:(6/20):6)'`. The following table lists the GSEA results. 
-```{r, eval=FALSE}
+```{r, include=FALSE}
 gsea.path <- "~/Dropbox/rss/Data/ds_2016/pathway/ds2016_pathway_201609.mat"
-gsea.df <- gsea.mat2df(gsea.path) 
+gsea.df <- gsea.mat2df.round2(gsea.path) 
 ```
 
-```{r, eval=FALSE}
-source("src/gsea_dt.R")
+```{r, echo=FALSE}
+source("src/gsea_dt_round2.R")
 gsea.dt
 ```
 
+Now we compare the enrichment Bayes factors from Round 1 and 2 analyses.
+
+```{r, include=FALSE}
+gsea.path <- "~/Dropbox/rss/Data/ds_2016/pathway/ds2016_pathway_201604.mat"
+gsea.df.round1 <- gsea.mat2df(gsea.path) 
+
+bf.round1 <- gsea.df.round1[, c("id","name","source","database","numgene","numsnps","log10.bf")]
+bf.round2 <- gsea.df[, c("id","name","source","database","numgene","numsnps","log10.bf")]
+bf.df <- merge(bf.round1, bf.round2, by=c("id","name","source","database","numgene","numsnps"))
+names(bf.df)[7:8] <- c("round1.log10.bf", "round2.log10.bf")
+```
+
+```{r, echo=FALSE}
+fit <- lm(round2.log10.bf~round1.log10.bf-1, data=bf.df)
+
+plotly::plot_ly(data=bf.df, x=round1.log10.bf, y=round2.log10.bf, mode="markers",
+                text=paste0("ID: ",id,"; Name: ",name), color=numsnps, size=numgene) %>% add_trace(x=c(0,400), y=c(0,400), mode="lines") %>% add_trace(x=round1.log10.bf, y=fitted(fit), mode="lines") %>% layout(showlegend = F) 
+```
 
