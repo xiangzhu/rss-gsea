@@ -57,6 +57,6 @@ names(bf.df)[7:8] <- c("round1.log10.bf", "round2.log10.bf")
 fit <- lm(round2.log10.bf~round1.log10.bf-1, data=bf.df)
 
 plotly::plot_ly(data=bf.df, x=round1.log10.bf, y=round2.log10.bf, mode="markers",
-                text=paste0("ID: ",id,"; Name: ",name), color=numsnps, size=numgene) %>% add_trace(x=c(0,30), y=c(0,30), mode="lines") %>% add_trace(x=round1.log10.bf, y=fitted(fit), mode="lines") %>% layout(showlegend = F) 
+                text=paste0("ID: ",id,"; Name: ",name), color=numsnps, size=numgene) %>% add_trace(x=c(0,12), y=c(0,12), mode="lines") %>% add_trace(x=round1.log10.bf, y=fitted(fit), mode="lines") %>% layout(showlegend = F) 
 ```
 
