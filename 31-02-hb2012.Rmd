@@ -52,5 +52,3 @@ plot.df <- reshape2::melt(gsea.df.top100, id.vars=c("id", "name"), measure.vars=
 plot_ly(plot.df, x=estimate, color=parameter, type="box")
 ```
 
-
-
