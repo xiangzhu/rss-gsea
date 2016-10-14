@@ -251,7 +251,7 @@ eo.df <- eo.df.all[(eo.df.all$p1.gsea>eo.df.all$p1.null) & (eo.df.all$p1.gsea>=0
 ```
 
 Find and annotate closest genes to genomic regions.
-```{r,message=FALSE,warning=FALSE,echo=FALSE}
+```{r,message=FALSE,warning=FALSE}
 # minor re-format the data frame eo.df for the makeGRangesFromDataFrame function
 names(eo.df)[1:3] <- c("chr","start","end")
 eo.df$chr <- paste0("chr",eo.df$chr)
