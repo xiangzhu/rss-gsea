@@ -25,7 +25,7 @@
 
 <meta name="author" content="Xiang Zhu">
 
-<meta name="date" content="2016-10-13">
+<meta name="date" content="2016-10-14">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,6 +50,9 @@
 
 
 <script src="libs/htmlwidgets-0.6/htmlwidgets.js"></script>
+<link href="libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
+<script src="libs/plotly-binding-3.6.0/plotly.js"></script>
 <script src="libs/datatables-binding-0.1/datatables.js"></script>
 <script src="libs/datatables-1.10.7/jquery.dataTables.min.js"></script>
 <link href="libs/datatables-default-1.10.7/dataTables.extra.css" rel="stylesheet" />
@@ -62,9 +65,6 @@
 <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
 <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
 <script src="libs/selectize-0.12.0/selectize.min.js"></script>
-<link href="libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
-<script src="libs/plotly-binding-3.6.0/plotly.js"></script>
 
 
 <style type="text/css">
@@ -133,6 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="height2014-1.html"><a href="height2014-1.html"><i class="fa fa-check"></i><b>4.1</b> Pilot Analysis</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-null-model"><i class="fa fa-check"></i><b>4.1.1</b> Fit the null model</a></li>
 <li class="chapter" data-level="4.1.2" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-enrichment-model"><i class="fa fa-check"></i><b>4.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="4.1.3" data-path="height2014-1.html"><a href="height2014-1.html#prioritize-variants-in-the-enriched-pathway"><i class="fa fa-check"></i><b>4.1.3</b> Prioritize variants in the enriched pathway</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="height2014-2.html"><a href="height2014-2.html"><i class="fa fa-check"></i><b>4.2</b> GSEA Round 1</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="height2014-2.html"><a href="height2014-2.html#fit-the-null-model-1"><i class="fa fa-check"></i><b>4.2.1</b> Fit the null model</a></li>
@@ -501,7 +502,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data</h1>
 <h4 class="author"><em>Xiang Zhu</em></h4>
-<h4 class="date"><em>2016-10-13</em></h4>
+<h4 class="date"><em>2016-10-14</em></h4>
 </div>
 <div id="basic-information" class="section level1">
 <h1><span class="header-section-number">1</span> Basic Information</h1>
@@ -510,7 +511,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>What</strong></p>
 <p>This is my notebook for a research project, the aim of which is to develop statistical methods for integrated enrichment analysis of genome-wide association studies (GWAS) summary data and biological pathways. Specifically, I combine the likelihood function from <span class="citation">Zhu and Stephens (<a href="#ref-rss_2016">2016</a>)</span> with the prior distribution from <span class="citation">Carbonetto and Stephens (<a href="#ref-integrated_plos_2013">2013</a>)</span>, and then perform Bayesian analysis.</p>
 <p><strong>How</strong></p>
-<p>I make this notebook using many wonderful publicly available tools, including <a href="http://rmarkdown.rstudio.com/"><code>rmarkdown</code></a>, <a href="http://yihui.name/knitr/"><code>knitr</code></a>, <a href="https://bookdown.org/"><code>bookdown</code></a> and <a href="http://pandoc.org/"><code>pandoc</code></a>. This notebook is largely motivated by the idea from the <a href="https://github.com/jdblischak/singleCellSeq">singleCellseq</a> project at the <a href="http://giladlab.uchicago.edu/">Gilad Lab</a>. To host the notebook, I use <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>I make this notebook using many wonderful publicly available tools, including <a href="http://rmarkdown.rstudio.com/"><code>rmarkdown</code></a>, <a href="http://yihui.name/knitr/"><code>knitr</code></a>, <a href="https://bookdown.org/"><code>bookdown</code></a>, <a href="http://pandoc.org/"><code>pandoc</code></a> and <a href="https://plot.ly/"><code>plotly</code></a>. This notebook is largely motivated by the idea from the <a href="https://github.com/jdblischak/singleCellSeq">singleCellseq</a> project at the <a href="http://giladlab.uchicago.edu/">Gilad Lab</a>. To host the notebook, I use <a href="https://pages.github.com/">GitHub Pages</a>.</p>
 <p><strong>Contact</strong></p>
 <p>If you have any question about this notebook, please feel free to contact me.</p>
 <ul>

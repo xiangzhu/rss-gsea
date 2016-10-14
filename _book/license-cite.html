@@ -25,7 +25,7 @@
 
 <meta name="author" content="Xiang Zhu">
 
-<meta name="date" content="2016-10-13">
+<meta name="date" content="2016-10-14">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,6 +50,9 @@
 
 
 <script src="libs/htmlwidgets-0.6/htmlwidgets.js"></script>
+<link href="libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
+<script src="libs/plotly-binding-3.6.0/plotly.js"></script>
 <script src="libs/datatables-binding-0.1/datatables.js"></script>
 <script src="libs/datatables-1.10.7/jquery.dataTables.min.js"></script>
 <link href="libs/datatables-default-1.10.7/dataTables.extra.css" rel="stylesheet" />
@@ -62,9 +65,6 @@
 <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
 <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
 <script src="libs/selectize-0.12.0/selectize.min.js"></script>
-<link href="libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
-<script src="libs/plotly-binding-3.6.0/plotly.js"></script>
 
 
 <style type="text/css">
@@ -133,6 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="height2014-1.html"><a href="height2014-1.html"><i class="fa fa-check"></i><b>4.1</b> Pilot Analysis</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-null-model"><i class="fa fa-check"></i><b>4.1.1</b> Fit the null model</a></li>
 <li class="chapter" data-level="4.1.2" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-enrichment-model"><i class="fa fa-check"></i><b>4.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="4.1.3" data-path="height2014-1.html"><a href="height2014-1.html#prioritize-variants-in-the-enriched-pathway"><i class="fa fa-check"></i><b>4.1.3</b> Prioritize variants in the enriched pathway</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="height2014-2.html"><a href="height2014-2.html"><i class="fa fa-check"></i><b>4.2</b> GSEA Round 1</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="height2014-2.html"><a href="height2014-2.html#fit-the-null-model-1"><i class="fa fa-check"></i><b>4.2.1</b> Fit the null model</a></li>
@@ -500,7 +501,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="license-cite" class="section level2">
 <h2><span class="header-section-number">1.1</span> License &amp; Cite</h2>
-<p>Currently the notebook is licensed under the <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)</a>. This means you are free to include content from this site in your presentation, blog, or social media posts, as long you cite it. The “no derivatives” clause means you cannot modify the results and distribute them. Once the results are published, I will remove “no derivatives” clause.</p>
+<p>Currently the notebook is licensed under the <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)</a>. This means you are free to include content from this site in your presentation, blog, or social media posts, as long you cite it. The “no derivatives” clause means you cannot modify the results and distribute them. Once the results are published (manuscript in preparation), I will remove “no derivatives” clause.</p>
 <p>The source code in the notebook is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.txt">GNU General Public License, version 3.0 (GPLv3)</a>.</p>
 <p>If you use any results from this notebook, please cite it by including the following text:</p>
 <div class="rmdcite">
