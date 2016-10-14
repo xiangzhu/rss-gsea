@@ -40,7 +40,7 @@ Specifically, I combine the likelihood function from @rss_2016 with the prior di
 **How**
 
 I make this notebook using many wonderful publicly available tools,
-including [`rmarkdown`][rmarkdown], [`knitr`][knitr], [`bookdown`][bookdown] and [`pandoc`][pandoc].
+including [`rmarkdown`][rmarkdown], [`knitr`][knitr], [`bookdown`][bookdown], [`pandoc`][pandoc] and [`plotly`][plotly].
 This notebook is largely motivated by the idea from the [singleCellseq][scs] project at the [Gilad Lab](http://giladlab.uchicago.edu/).
 To host the notebook, I use [GitHub Pages][gh-pages].
 
@@ -51,6 +51,7 @@ To host the notebook, I use [GitHub Pages][gh-pages].
 [rmd-site]: https://github.com/rstudio/rmarkdown/tree/gh-pages
 [gh-pages]: https://pages.github.com/
 [scs]: https://github.com/jdblischak/singleCellSeq
+[plotly]: https://plot.ly/
 
 **Contact**
 
@@ -64,7 +65,7 @@ If you have any question about this notebook, please feel free to contact me.
 Currently the notebook is licensed under the [Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)][site-license].
 This means you are free to include content from this site in your presentation, blog, or social media posts, as long you cite it.
 The "no derivatives" clause means you cannot modify the results and distribute them.
-Once the results are published, I will remove "no derivatives" clause.
+Once the results are published (manuscript in preparation), I will remove "no derivatives" clause.
 
 The source code in the notebook is licensed under the [GNU General Public License, version 3.0 (GPLv3)][code-license].
 
