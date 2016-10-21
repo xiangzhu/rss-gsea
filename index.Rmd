@@ -80,5 +80,6 @@ Zhu, X. (2016). Integrated Enrichment Analysis of Genetic Variants and Biologica
 
 ## News
 
-- **03/04/2016**: Xiang presented this work at the 2016 Novembre-He-Stephens meeting. [[Slides]](http://www.stat.uchicago.edu/~xiangzhu/NHS_20160304.pdf)
+- **10/20/2016**: Xiang presented this work at the 2016 American Society of Human Genetics Annual Meeting (ASHG2016), Vancouver, BC, Canada. [[Poster]](http://www.stat.uchicago.edu/~xiangzhu/ASHG_2016.pdf) 
+- **03/04/2016**: Xiang presented this work at the 2016 Novembre-He-Stephens meeting, Chicago. IL. [[Slides]](http://www.stat.uchicago.edu/~xiangzhu/NHS_20160304.pdf)
 - **10/15/2015**: Xiang presented this work at the 2015 Probabilistic Modeling in Genomics Conference (ProbGen15), Cold Spring Harbor Laboratory, NY. [[Poster]](http://www.stat.uchicago.edu/~xiangzhu/CSHL_2015.pdf) 
