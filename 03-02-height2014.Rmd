@@ -290,10 +290,9 @@ intersect(as.character(cojo.results$nearest.gene), "PTH1R")
 ```
 
 Visualize the association results informed by the enrichment.
-```{r, eval=FALSE}
-# plotly update?
-plotly::plot_ly(data=eo.df.gsea, x=~p1.null, y=~p1.gsea, type="scatter", mode="markers",
-                text=~paste0("Locus: ",chr,": ",start,"-",end,"; Nearest gene:",nearest.gene), color=~p1.null, size=~hit.distance) %>% add_trace(x=c(0.5,1), y=c(0.5,1), mode="lines") %>% layout(showlegend=F) 
+```{r, echo=FALSE}
+plotly::plot_ly(data=eo.df.gsea, x=p1.null, y=p1.gsea, type="scatter", mode="markers",
+                text=paste0("Locus: ",chr,": ",start,"-",end,"; Nearest gene:",nearest.gene), color=p1.null, size=hit.distance) %>% add_trace(x=c(0.5,1), y=c(0.5,1), mode="lines") %>% layout(showlegend=F) 
 ```
 
 Validate the findings via literature review.
