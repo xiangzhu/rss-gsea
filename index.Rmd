@@ -12,6 +12,13 @@ github-repo: xiangzhu/rss-gsea
 ---
 
 ```{r,include=FALSE}
+# DO NOT RUN  
+#suppressPackageStartupMessages(library(devtools))
+#install_version("plotly", version = "3.6.0", repos = "http://cran.us.r-project.org")
+#packageVersion('plotly')
+#install_version("UpSetR", version = "1.2.0", repos = "http://cran.us.r-project.org")
+#packageVersion('UpSetR')
+
 # load packages
 suppressPackageStartupMessages(library(R.matlab))
 suppressPackageStartupMessages(library(DT))
@@ -19,7 +26,7 @@ suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(plyr))
 suppressPackageStartupMessages(library(UpSetR))
-suppressPackageStartupMessages(library(plotly))
+suppressPackageStartupMessages(library(plotly)) # plotly_3.6.0
 suppressPackageStartupMessages(library(reshape2))
 
 # load self-defined subroutines
