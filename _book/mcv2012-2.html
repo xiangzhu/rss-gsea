@@ -8,7 +8,7 @@
   <title>Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data">
-  <meta name="generator" content="bookdown 0.0.71 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Xiang Zhu">
 
-<meta name="date" content="2016-10-24">
+<meta name="date" content="2016-10-27">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,18 +49,18 @@
 
 
 
-<script src="libs/htmlwidgets-0.6/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-0.7/htmlwidgets.js"></script>
 <link href="libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
 <script src="libs/plotly-binding-3.6.0/plotly.js"></script>
-<script src="libs/datatables-binding-0.1/datatables.js"></script>
-<script src="libs/datatables-1.10.7/jquery.dataTables.min.js"></script>
-<link href="libs/datatables-default-1.10.7/dataTables.extra.css" rel="stylesheet" />
-<link href="libs/datatables-default-1.10.7/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/datatables-keyTable-1.10.7/dataTables.keyTable.min.css" rel="stylesheet" />
-<script src="libs/datatables-keyTable-1.10.7/dataTables.keyTable.min.js"></script>
-<link href="libs/datatables-fixedColumns-1.10.7/dataTables.fixedColumns.min.css" rel="stylesheet" />
-<script src="libs/datatables-fixedColumns-1.10.7/dataTables.fixedColumns.min.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-keytable-1.10.12/css/keyTable.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-keytable-1.10.12/js/dataTables.keyTable.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.10.12/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.10.12/js/dataTables.fixedColumns.min.js"></script>
 <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
 <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
 <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
@@ -502,15 +502,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="mcv2012-2" class="section level2">
 <h2><span class="header-section-number">27.2</span> GSEA Round 2</h2>
-<p><strong>Last updated:</strong> 2016-10-24</p>
-<p><strong>Code version:</strong> 1edda49587ef2802591e88e686d28c3a884d121a</p>
+<p><strong>Last updated:</strong> 2016-10-27</p>
+<p><strong>Code version:</strong> f0e623b4e24c5ed4f84b10ea60695720eb916e47</p>
 <div id="fit-the-null-model-48" class="section level3">
 <h3><span class="header-section-number">27.2.1</span> Fit the null model</h3>
 <p>From the Round 1 null analysis (Section <a href="mcv2012-1.html#mcv2012-1">27.1</a>), I found that almost 100% posterior mass is concentrated on the setting <code>(h=0.6, theta0=-4)</code>. In Round 2, I used a finer grid. Specifically, I used the grids <code>theta0=(-4.25:0.025:-3.75)'</code> and <code>h=0.6</code> when fitting the null model. I estimated the (unnormalized) log importance weights (“pseudo-likelihoods”) for all 21 sets of <code>(h,theta0)</code> under null.</p>
 <p><img src="images/mcv2012_null_round2.png" /><!-- --></p>
 <p>After normalizing the log “pseudo-likelihoods” (<code>logw.step*</code>) to posterior probabilities (<code>posp.step*</code>), we can see that almost 100% posterior mass is concentrated on the settings <code>h=0.6</code> and <code>theta0=(-4.225:0.025:-4.125)'</code>.</p>
-<div id="htmlwidget-9985" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9985">{"x":{"data":[[-4.25,-4.225,-4.2,-4.175,-4.15,-4.125,-4.1,-4.075,-4.05,-4.025,-4,-3.975,-3.95,-3.925,-3.9,-3.875,-3.85,-3.825,-3.8,-3.775,-3.75],[0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6],[5220.52899467707,5141.12145701748,5199.4244095828,5122.23118603025,5028.49469125987,5274.02247287523,5161.63057587907,5031.68605608229,4935.8050182387,4804.77841202087,4757.00697109404,4597.25177133231,4533.96453470475,4414.66786122889,4493.38755132621,4448.58569481472,4516.36394964625,3905.38298365837,4175.53083497981,4082.74986276791,4905.7947717908],[5642.88734471854,5693.30527284996,5580.31505429191,5476.51478198811,5373.79487219569,5260.26589482799,5170.31009401727,5049.92014624129,4914.7174224329,4854.10372044809,4911.84411744516,4455.84719602682,4635.43706898073,4252.15986382336,5032.30963659205,5067.13753227526,4882.73486694169,4322.10222156091,4348.58387059701,4274.50349444053,4177.81556985212],[5.86242906372102e-24,1.91347227360818e-58,4.00380346813897e-33,1.19641464983192e-66,2.33689549039773e-107,1,1.54461171335301e-49,5.68370361093872e-106,1.30024672326369e-147,1.62141320286927e-204,2.90415985654259e-225,1.2084225088242e-294,3.95252516672997e-322,0,0,0,0,0,0,0,1.20431843716101e-160],[1.26990731113638e-22,1,8.491248897306e-50,7.06457580505692e-95,1.7313947055686e-139,8.57803232034111e-189,7.34648795635554e-228,3.81407979921383e-280,0,0,0,0,0,0,8.57516748276616e-288,1.14500009466978e-272,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>theta0\u003c/th>\n      <th>h\u003c/th>\n      <th>logw.step1\u003c/th>\n      <th>logw.step2\u003c/th>\n      <th>posp.step1\u003c/th>\n      <th>posp.step2\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"keys":true,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nvar d = parseFloat(data[4]); $(this.api().cell(row, 4).node()).html(isNaN(d) ? '' : d.toFixed(4));\nvar d = parseFloat(data[5]); $(this.api().cell(row, 5).node()).html(isNaN(d) ? '' : d.toFixed(4));\nvar d = parseFloat(data[2]); $(this.api().cell(row, 2).node()).html(isNaN(d) ? '' : d.toFixed(2));\nvar d = parseFloat(data[3]); $(this.api().cell(row, 3).node()).html(isNaN(d) ? '' : d.toFixed(2));\n}"},"callback":null,"filter":"none","extensions":["KeyTable"],"extOptions":{"KeyTable":null},"selection":"multiple"},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-0d24fbe879267ff4ab03" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0d24fbe879267ff4ab03">{"x":{"filter":"none","extensions":["KeyTable"],"data":[[-4.25,-4.225,-4.2,-4.175,-4.15,-4.125,-4.1,-4.075,-4.05,-4.025,-4,-3.975,-3.95,-3.925,-3.9,-3.875,-3.85,-3.825,-3.8,-3.775,-3.75],[0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6],[5220.52899467707,5141.12145701748,5199.4244095828,5122.23118603025,5028.49469125987,5274.02247287523,5161.63057587907,5031.68605608229,4935.8050182387,4804.77841202087,4757.00697109404,4597.25177133231,4533.96453470475,4414.66786122889,4493.38755132621,4448.58569481472,4516.36394964625,3905.38298365837,4175.53083497981,4082.74986276791,4905.7947717908],[5642.88734471854,5693.30527284996,5580.31505429191,5476.51478198811,5373.79487219569,5260.26589482799,5170.31009401727,5049.92014624129,4914.7174224329,4854.10372044809,4911.84411744516,4455.84719602682,4635.43706898073,4252.15986382336,5032.30963659205,5067.13753227526,4882.73486694169,4322.10222156091,4348.58387059701,4274.50349444053,4177.81556985212],[5.86242906372102e-24,1.91347227360818e-58,4.00380346813897e-33,1.19641464983192e-66,2.33689549039773e-107,1,1.54461171335301e-49,5.68370361093872e-106,1.30024672326369e-147,1.62141320286927e-204,2.90415985654259e-225,1.2084225088242e-294,3.95252516672997e-322,0,0,0,0,0,0,0,1.20431843716101e-160],[1.26990731113638e-22,1,8.491248897306e-50,7.06457580505692e-95,1.7313947055686e-139,8.57803232034111e-189,7.34648795635554e-228,3.81407979921383e-280,0,0,0,0,0,0,8.57516748276616e-288,1.14500009466978e-272,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>theta0\u003c/th>\n      <th>h\u003c/th>\n      <th>logw.step1\u003c/th>\n      <th>logw.step2\u003c/th>\n      <th>posp.step1\u003c/th>\n      <th>posp.step2\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"keys":true,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 4, 4);\nDTWidget.formatRound(this, row, data, 5, 4);\nDTWidget.formatRound(this, row, data, 2, 2);\nDTWidget.formatRound(this, row, data, 3, 2);\n}"},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">theta0.index &lt;-<span class="st"> </span><span class="kw">as.character</span>(null.df$theta0) %in%<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">seq</span>(-<span class="fl">4.225</span>,-<span class="fl">4.125</span>,<span class="dt">by=</span><span class="fl">0.025</span>)) 
 <span class="kw">sum</span>(null.df$posp.step1[theta0.index]) </code></pre></div>
 <pre><code>## [1] 1</code></pre>
