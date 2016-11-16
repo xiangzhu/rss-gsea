@@ -31,14 +31,33 @@ sum(null.df$posp.step2[theta0.index])
 ### Fit the enrichment model
 
 To perform GSEA, I set `(h=0.4, theta0=-5.5)`, since the null analysis suggests that almost 100% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid `theta  = (0:(5.5/200):5.5)'`. The following table lists the GSEA results. 
-```{r, eval=FALSE}
+```{r, include=FALSE}
 gsea.path <- "~/Dropbox/rss/Data/anm_2015/pathway/anm2015_pathway_201609.mat"
-gsea.df <- gsea.mat2df(gsea.path) 
+gsea.df <- gsea.mat2df.round2(gsea.path) 
 ```
 
-```{r, eval=FALSE}
-source("src/gsea_dt.R")
+```{r, echo=FALSE}
+source("src/gsea_dt_round2.R")
 gsea.dt
+```
+
+Now we compare the enrichment Bayes factors from Round 1 and 2 analyses.
+
+```{r, include=FALSE}
+gsea.path <- "~/Dropbox/rss/Data/anm_2015/pathway/anm2015_pathway_201604.mat"
+gsea.df.round1 <- gsea.mat2df(gsea.path) 
+
+bf.round1 <- gsea.df.round1[, c("id","name","source","database","numgene","numsnps","log10.bf")]
+bf.round2 <- gsea.df[, c("id","name","source","database","numgene","numsnps","log10.bf")]
+bf.df <- merge(bf.round1, bf.round2, by=c("id","name","source","database","numgene","numsnps"))
+names(bf.df)[7:8] <- c("round1.log10.bf", "round2.log10.bf")
+```
+
+```{r, echo=FALSE}
+fit <- lm(round2.log10.bf~round1.log10.bf-1, data=bf.df)
+
+plotly::plot_ly(data=bf.df, x=round1.log10.bf, y=round2.log10.bf, mode="markers",
+                text=paste0("ID: ",id,"; Name: ",name), color=numsnps, size=numgene) %>% add_trace(x=c(0,1100), y=c(0,1100), mode="lines") %>% add_trace(x=round1.log10.bf, y=fitted(fit), mode="lines") %>% layout(showlegend=F) 
 ```
 
 
