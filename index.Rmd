@@ -25,7 +25,7 @@ suppressPackageStartupMessages(library(DT))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(plyr))
-suppressPackageStartupMessages(library(UpSetR))
+suppressPackageStartupMessages(library(UpSetR)) # UpSetR_1.2.0
 suppressPackageStartupMessages(library(plotly)) # plotly_3.6.0
 suppressPackageStartupMessages(library(reshape2))
 
