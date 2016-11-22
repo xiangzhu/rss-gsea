@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="xiangzhu/rss-gsea" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data" />
+  
+  
+  
+
+<meta name="author" content="Xiang Zhu">
+
+<meta name="date" content="2016-11-22">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="height2014-2.html">
+<link rel="next" href="schizophrenia-2014.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
+<script src="libs/plotly-binding-3.6.0/plotly.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-keytable-1.10.12/css/keyTable.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-keytable-1.10.12/js/dataTables.keyTable.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.10.12/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.10.12/js/dataTables.fixedColumns.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">RSS-GSEA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Basic Information</a><ul>
+<li class="chapter" data-level="1.1" data-path="license-cite.html"><a href="license-cite.html"><i class="fa fa-check"></i><b>1.1</b> License &amp; Cite</a></li>
+<li class="chapter" data-level="1.2" data-path="news.html"><a href="news.html"><i class="fa fa-check"></i><b>1.2</b> News</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="method-overview.html"><a href="method-overview.html"><i class="fa fa-check"></i><b>2</b> Method Overview</a><ul>
+<li class="chapter" data-level="2.1" data-path="statistical-models.html"><a href="statistical-models.html"><i class="fa fa-check"></i><b>2.1</b> Statistical Models</a></li>
+<li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2.2</b> Software</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>3</b> Data Overview</a></li>
+<li class="chapter" data-level="4" data-path="height-2014.html"><a href="height-2014.html"><i class="fa fa-check"></i><b>4</b> Height 2014</a><ul>
+<li class="chapter" data-level="4.1" data-path="height2014-1.html"><a href="height2014-1.html"><i class="fa fa-check"></i><b>4.1</b> Pilot Analysis</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-null-model"><i class="fa fa-check"></i><b>4.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="4.1.2" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-enrichment-model"><i class="fa fa-check"></i><b>4.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="4.1.3" data-path="height2014-1.html"><a href="height2014-1.html#prioritize-variants-in-the-enriched-pathway"><i class="fa fa-check"></i><b>4.1.3</b> Prioritize variants in the enriched pathway</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="height2014-2.html"><a href="height2014-2.html"><i class="fa fa-check"></i><b>4.2</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="height2014-2.html"><a href="height2014-2.html#fit-the-null-model-1"><i class="fa fa-check"></i><b>4.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="height2014-2.html"><a href="height2014-2.html#fit-the-enrichment-model-1"><i class="fa fa-check"></i><b>4.2.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="4.2.3" data-path="height2014-2.html"><a href="height2014-2.html#enrichment-analysis-in-gtex"><i class="fa fa-check"></i><b>4.2.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="height2014-3.html"><a href="height2014-3.html"><i class="fa fa-check"></i><b>4.3</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="height2014-3.html"><a href="height2014-3.html#fit-the-null-model-2"><i class="fa fa-check"></i><b>4.3.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="4.3.2" data-path="height2014-3.html"><a href="height2014-3.html#fit-the-enrichment-model-2"><i class="fa fa-check"></i><b>4.3.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="schizophrenia-2014.html"><a href="schizophrenia-2014.html"><i class="fa fa-check"></i><b>5</b> Schizophrenia 2014</a><ul>
+<li class="chapter" data-level="5.1" data-path="scz2014-1.html"><a href="scz2014-1.html"><i class="fa fa-check"></i><b>5.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="scz2014-1.html"><a href="scz2014-1.html#fit-the-null-model-3"><i class="fa fa-check"></i><b>5.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="5.1.2" data-path="scz2014-1.html"><a href="scz2014-1.html#fit-the-enrichment-model-3"><i class="fa fa-check"></i><b>5.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="5.1.3" data-path="scz2014-1.html"><a href="scz2014-1.html#enrichment-analysis-in-gtex-1"><i class="fa fa-check"></i><b>5.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="scz2014-2.html"><a href="scz2014-2.html"><i class="fa fa-check"></i><b>5.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="scz2014-2.html"><a href="scz2014-2.html#fit-the-null-model-4"><i class="fa fa-check"></i><b>5.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="5.2.2" data-path="scz2014-2.html"><a href="scz2014-2.html#fit-the-enrichment-model-4"><i class="fa fa-check"></i><b>5.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="bmi2015.html"><a href="bmi2015.html"><i class="fa fa-check"></i><b>6</b> Body Mass Index 2015</a><ul>
+<li class="chapter" data-level="6.1" data-path="bmi2015-1.html"><a href="bmi2015-1.html"><i class="fa fa-check"></i><b>6.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="bmi2015-1.html"><a href="bmi2015-1.html#fit-the-null-model-5"><i class="fa fa-check"></i><b>6.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="6.1.2" data-path="bmi2015-1.html"><a href="bmi2015-1.html#fit-the-enrichment-model-5"><i class="fa fa-check"></i><b>6.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="6.1.3" data-path="bmi2015-1.html"><a href="bmi2015-1.html#enrichment-analysis-in-gtex-2"><i class="fa fa-check"></i><b>6.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="bmi2015-2.html"><a href="bmi2015-2.html"><i class="fa fa-check"></i><b>6.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="bmi2015-2.html"><a href="bmi2015-2.html#fit-the-null-model-6"><i class="fa fa-check"></i><b>6.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="6.2.2" data-path="bmi2015-2.html"><a href="bmi2015-2.html#fit-the-enrichment-model-6"><i class="fa fa-check"></i><b>6.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ibd2015.html"><a href="ibd2015.html"><i class="fa fa-check"></i><b>7</b> Inflammatory Bowel Disease 2015</a><ul>
+<li class="chapter" data-level="7.1" data-path="ibd2015-1.html"><a href="ibd2015-1.html"><i class="fa fa-check"></i><b>7.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ibd2015-1.html"><a href="ibd2015-1.html#fit-the-null-model-7"><i class="fa fa-check"></i><b>7.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ibd2015-1.html"><a href="ibd2015-1.html#fit-the-enrichment-model-7"><i class="fa fa-check"></i><b>7.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ibd2015-1.html"><a href="ibd2015-1.html#enrichment-analysis-in-gtex-3"><i class="fa fa-check"></i><b>7.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ibd2015-2.html"><a href="ibd2015-2.html"><i class="fa fa-check"></i><b>7.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ibd2015-2.html"><a href="ibd2015-2.html#fit-the-null-model-8"><i class="fa fa-check"></i><b>7.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ibd2015-2.html"><a href="ibd2015-2.html#fit-the-enrichment-model-8"><i class="fa fa-check"></i><b>7.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="cad2015.html"><a href="cad2015.html"><i class="fa fa-check"></i><b>8</b> Coronary Artery Disease 2015</a><ul>
+<li class="chapter" data-level="8.1" data-path="cad2015-1.html"><a href="cad2015-1.html"><i class="fa fa-check"></i><b>8.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="cad2015-1.html"><a href="cad2015-1.html#fit-the-null-model-9"><i class="fa fa-check"></i><b>8.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="8.1.2" data-path="cad2015-1.html"><a href="cad2015-1.html#fit-the-enrichment-model-9"><i class="fa fa-check"></i><b>8.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="8.1.3" data-path="cad2015-1.html"><a href="cad2015-1.html#enrichment-analysis-in-gtex-4"><i class="fa fa-check"></i><b>8.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="cad2015-2.html"><a href="cad2015-2.html"><i class="fa fa-check"></i><b>8.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="cad2015-2.html"><a href="cad2015-2.html#fit-the-null-model-10"><i class="fa fa-check"></i><b>8.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="8.2.2" data-path="cad2015-2.html"><a href="cad2015-2.html#fit-the-enrichment-model-10"><i class="fa fa-check"></i><b>8.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="alzheimers-disease-2013.html"><a href="alzheimers-disease-2013.html"><i class="fa fa-check"></i><b>9</b> Alzheimer’s Disease 2013</a><ul>
+<li class="chapter" data-level="9.1" data-path="load2013-1.html"><a href="load2013-1.html"><i class="fa fa-check"></i><b>9.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="load2013-1.html"><a href="load2013-1.html#fit-the-null-model-11"><i class="fa fa-check"></i><b>9.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="load2013-1.html"><a href="load2013-1.html#fit-the-enrichment-model-11"><i class="fa fa-check"></i><b>9.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="load2013-1.html"><a href="load2013-1.html#enrichment-analysis-in-gtex-5"><i class="fa fa-check"></i><b>9.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="load2013-2.html"><a href="load2013-2.html"><i class="fa fa-check"></i><b>9.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="load2013-2.html"><a href="load2013-2.html#fit-the-null-model-12"><i class="fa fa-check"></i><b>9.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="load2013-2.html"><a href="load2013-2.html#fit-the-enrichment-model-12"><i class="fa fa-check"></i><b>9.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="waist-to-hip-ratio-2015.html"><a href="waist-to-hip-ratio-2015.html"><i class="fa fa-check"></i><b>10</b> Waist-to-Hip Ratio 2015</a><ul>
+<li class="chapter" data-level="10.1" data-path="waist2015-1.html"><a href="waist2015-1.html"><i class="fa fa-check"></i><b>10.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="waist2015-1.html"><a href="waist2015-1.html#fit-the-null-model-13"><i class="fa fa-check"></i><b>10.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="10.1.2" data-path="waist2015-1.html"><a href="waist2015-1.html#fit-the-enrichment-model-13"><i class="fa fa-check"></i><b>10.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="10.1.3" data-path="waist2015-1.html"><a href="waist2015-1.html#enrichment-analysis-in-gtex-6"><i class="fa fa-check"></i><b>10.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="waist2015-2.html"><a href="waist2015-2.html"><i class="fa fa-check"></i><b>10.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="waist2015-2.html"><a href="waist2015-2.html#fit-the-null-model-14"><i class="fa fa-check"></i><b>10.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="10.2.2" data-path="waist2015-2.html"><a href="waist2015-2.html#fit-the-enrichment-model-14"><i class="fa fa-check"></i><b>10.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="neu2016.html"><a href="neu2016.html"><i class="fa fa-check"></i><b>11</b> Neuroticism 2016</a><ul>
+<li class="chapter" data-level="11.1" data-path="neu2016-1.html"><a href="neu2016-1.html"><i class="fa fa-check"></i><b>11.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="neu2016-1.html"><a href="neu2016-1.html#fit-the-null-model-15"><i class="fa fa-check"></i><b>11.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="11.1.2" data-path="neu2016-1.html"><a href="neu2016-1.html#fit-the-enrichment-model-15"><i class="fa fa-check"></i><b>11.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="11.1.3" data-path="neu2016-1.html"><a href="neu2016-1.html#enrichment-analysis-in-gtex-7"><i class="fa fa-check"></i><b>11.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="neu2016-2.html"><a href="neu2016-2.html"><i class="fa fa-check"></i><b>11.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="neu2016-2.html"><a href="neu2016-2.html#fit-the-null-model-16"><i class="fa fa-check"></i><b>11.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="11.2.2" data-path="neu2016-2.html"><a href="neu2016-2.html#fit-the-enrichment-model-16"><i class="fa fa-check"></i><b>11.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="rheumatoid-arthritis-2014.html"><a href="rheumatoid-arthritis-2014.html"><i class="fa fa-check"></i><b>12</b> Rheumatoid Arthritis 2014</a><ul>
+<li class="chapter" data-level="12.1" data-path="ra2014-1.html"><a href="ra2014-1.html"><i class="fa fa-check"></i><b>12.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="ra2014-1.html"><a href="ra2014-1.html#fit-the-null-model-17"><i class="fa fa-check"></i><b>12.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="ra2014-1.html"><a href="ra2014-1.html#fit-the-enrichment-model-17"><i class="fa fa-check"></i><b>12.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="12.1.3" data-path="ra2014-1.html"><a href="ra2014-1.html#enrichment-analysis-in-gtex-8"><i class="fa fa-check"></i><b>12.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="ra2014-2.html"><a href="ra2014-2.html"><i class="fa fa-check"></i><b>12.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="ra2014-2.html"><a href="ra2014-2.html#fit-the-null-model-18"><i class="fa fa-check"></i><b>12.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="12.2.2" data-path="ra2014-2.html"><a href="ra2014-2.html#fit-the-enrichment-model-18"><i class="fa fa-check"></i><b>12.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="type-2-diabetes-2012.html"><a href="type-2-diabetes-2012.html"><i class="fa fa-check"></i><b>13</b> Type 2 Diabetes 2012</a><ul>
+<li class="chapter" data-level="13.1" data-path="t2d2012-1.html"><a href="t2d2012-1.html"><i class="fa fa-check"></i><b>13.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="t2d2012-1.html"><a href="t2d2012-1.html#fit-the-null-model-19"><i class="fa fa-check"></i><b>13.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="13.1.2" data-path="t2d2012-1.html"><a href="t2d2012-1.html#fit-the-enrichment-model-19"><i class="fa fa-check"></i><b>13.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="13.1.3" data-path="t2d2012-1.html"><a href="t2d2012-1.html#enrichment-analysis-in-gtex-9"><i class="fa fa-check"></i><b>13.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="t2d2012-2.html"><a href="t2d2012-2.html"><i class="fa fa-check"></i><b>13.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="t2d2012-2.html"><a href="t2d2012-2.html#fit-the-null-model-20"><i class="fa fa-check"></i><b>13.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="13.2.2" data-path="t2d2012-2.html"><a href="t2d2012-2.html#fit-the-enrichment-model-20"><i class="fa fa-check"></i><b>13.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="heart-rate-2013.html"><a href="heart-rate-2013.html"><i class="fa fa-check"></i><b>14</b> Heart Rate 2013</a><ul>
+<li class="chapter" data-level="14.1" data-path="hr2013-1.html"><a href="hr2013-1.html"><i class="fa fa-check"></i><b>14.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="hr2013-1.html"><a href="hr2013-1.html#fit-the-null-model-21"><i class="fa fa-check"></i><b>14.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="14.1.2" data-path="hr2013-1.html"><a href="hr2013-1.html#fit-the-enrichment-model-21"><i class="fa fa-check"></i><b>14.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="14.1.3" data-path="hr2013-1.html"><a href="hr2013-1.html#enrichment-analysis-in-gtex-10"><i class="fa fa-check"></i><b>14.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="hr2013-2.html"><a href="hr2013-2.html"><i class="fa fa-check"></i><b>14.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="hr2013-2.html"><a href="hr2013-2.html#fit-the-null-model-22"><i class="fa fa-check"></i><b>14.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="14.2.2" data-path="hr2013-2.html"><a href="hr2013-2.html#fit-the-enrichment-model-22"><i class="fa fa-check"></i><b>14.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="crohns-disease-2015.html"><a href="crohns-disease-2015.html"><i class="fa fa-check"></i><b>15</b> Crohn’s Disease 2015</a><ul>
+<li class="chapter" data-level="15.1" data-path="cd2015-1.html"><a href="cd2015-1.html"><i class="fa fa-check"></i><b>15.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="cd2015-1.html"><a href="cd2015-1.html#fit-the-null-model-23"><i class="fa fa-check"></i><b>15.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="15.1.2" data-path="cd2015-1.html"><a href="cd2015-1.html#fit-the-enrichment-model-23"><i class="fa fa-check"></i><b>15.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="15.1.3" data-path="cd2015-1.html"><a href="cd2015-1.html#enrichment-analysis-in-gtex-11"><i class="fa fa-check"></i><b>15.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="cd2015-2.html"><a href="cd2015-2.html"><i class="fa fa-check"></i><b>15.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="cd2015-2.html"><a href="cd2015-2.html#fit-the-null-model-24"><i class="fa fa-check"></i><b>15.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="15.2.2" data-path="cd2015-2.html"><a href="cd2015-2.html#fit-the-enrichment-model-24"><i class="fa fa-check"></i><b>15.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ulcerative-colitis-2015.html"><a href="ulcerative-colitis-2015.html"><i class="fa fa-check"></i><b>16</b> Ulcerative Colitis 2015</a><ul>
+<li class="chapter" data-level="16.1" data-path="uc2015-1.html"><a href="uc2015-1.html"><i class="fa fa-check"></i><b>16.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="uc2015-1.html"><a href="uc2015-1.html#fit-the-null-model-25"><i class="fa fa-check"></i><b>16.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="16.1.2" data-path="uc2015-1.html"><a href="uc2015-1.html#fit-the-enrichment-model-25"><i class="fa fa-check"></i><b>16.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="16.1.3" data-path="uc2015-1.html"><a href="uc2015-1.html#enrichment-analysis-in-gtex-12"><i class="fa fa-check"></i><b>16.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="uc2015-2.html"><a href="uc2015-2.html"><i class="fa fa-check"></i><b>16.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="uc2015-2.html"><a href="uc2015-2.html#fit-the-null-model-26"><i class="fa fa-check"></i><b>16.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="16.2.2" data-path="uc2015-2.html"><a href="uc2015-2.html#fit-the-enrichment-model-26"><i class="fa fa-check"></i><b>16.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="myocardial-infarction-2015.html"><a href="myocardial-infarction-2015.html"><i class="fa fa-check"></i><b>17</b> Myocardial Infarction 2015</a><ul>
+<li class="chapter" data-level="17.1" data-path="mi2015-1.html"><a href="mi2015-1.html"><i class="fa fa-check"></i><b>17.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="mi2015-1.html"><a href="mi2015-1.html#fit-the-null-model-27"><i class="fa fa-check"></i><b>17.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="17.1.2" data-path="mi2015-1.html"><a href="mi2015-1.html#fit-the-enrichment-model-27"><i class="fa fa-check"></i><b>17.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="17.1.3" data-path="mi2015-1.html"><a href="mi2015-1.html#enrichment-analysis-in-gtex-13"><i class="fa fa-check"></i><b>17.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="mi2015-2.html"><a href="mi2015-2.html"><i class="fa fa-check"></i><b>17.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="mi2015-2.html"><a href="mi2015-2.html#fit-the-null-model-28"><i class="fa fa-check"></i><b>17.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="17.2.2" data-path="mi2015-2.html"><a href="mi2015-2.html#fit-the-enrichment-model-28"><i class="fa fa-check"></i><b>17.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="depressive-symptoms-2016.html"><a href="depressive-symptoms-2016.html"><i class="fa fa-check"></i><b>18</b> Depressive Symptoms 2016</a><ul>
+<li class="chapter" data-level="18.1" data-path="ds2016-1.html"><a href="ds2016-1.html"><i class="fa fa-check"></i><b>18.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="ds2016-1.html"><a href="ds2016-1.html#fit-the-null-model-29"><i class="fa fa-check"></i><b>18.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="18.1.2" data-path="ds2016-1.html"><a href="ds2016-1.html#fit-the-enrichment-model-29"><i class="fa fa-check"></i><b>18.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="18.1.3" data-path="ds2016-1.html"><a href="ds2016-1.html#enrichment-analysis-in-gtex-14"><i class="fa fa-check"></i><b>18.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="ds2016-2.html"><a href="ds2016-2.html"><i class="fa fa-check"></i><b>18.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="ds2016-2.html"><a href="ds2016-2.html#fit-the-null-model-30"><i class="fa fa-check"></i><b>18.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="18.2.2" data-path="ds2016-2.html"><a href="ds2016-2.html#fit-the-enrichment-model-30"><i class="fa fa-check"></i><b>18.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="red-blood-cell-count-2012.html"><a href="red-blood-cell-count-2012.html"><i class="fa fa-check"></i><b>19</b> Red Blood Cell Count 2012</a><ul>
+<li class="chapter" data-level="19.1" data-path="rbc2012-1.html"><a href="rbc2012-1.html"><i class="fa fa-check"></i><b>19.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="rbc2012-1.html"><a href="rbc2012-1.html#fit-the-null-model-31"><i class="fa fa-check"></i><b>19.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="19.1.2" data-path="rbc2012-1.html"><a href="rbc2012-1.html#fit-the-enrichment-model-31"><i class="fa fa-check"></i><b>19.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="19.1.3" data-path="rbc2012-1.html"><a href="rbc2012-1.html#enrichment-analysis-in-gtex-15"><i class="fa fa-check"></i><b>19.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="rbc2012-2.html"><a href="rbc2012-2.html"><i class="fa fa-check"></i><b>19.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="rbc2012-2.html"><a href="rbc2012-2.html#fit-the-null-model-32"><i class="fa fa-check"></i><b>19.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="19.2.2" data-path="rbc2012-2.html"><a href="rbc2012-2.html#fit-the-enrichment-model-32"><i class="fa fa-check"></i><b>19.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="urate2013.html"><a href="urate2013.html"><i class="fa fa-check"></i><b>20</b> Serum Urate 2013</a><ul>
+<li class="chapter" data-level="20.1" data-path="urate2013-1.html"><a href="urate2013-1.html"><i class="fa fa-check"></i><b>20.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="20.1.1" data-path="urate2013-1.html"><a href="urate2013-1.html#fit-the-null-model-33"><i class="fa fa-check"></i><b>20.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="20.1.2" data-path="urate2013-1.html"><a href="urate2013-1.html#fit-the-enrichment-model-33"><i class="fa fa-check"></i><b>20.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="20.1.3" data-path="urate2013-1.html"><a href="urate2013-1.html#enrichment-analysis-in-gtex-16"><i class="fa fa-check"></i><b>20.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="urate2013-2.html"><a href="urate2013-2.html"><i class="fa fa-check"></i><b>20.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="urate2013-2.html"><a href="urate2013-2.html#fit-the-null-model-34"><i class="fa fa-check"></i><b>20.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="20.2.2" data-path="urate2013-2.html"><a href="urate2013-2.html#fit-the-enrichment-model-34"><i class="fa fa-check"></i><b>20.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="hdl2010.html"><a href="hdl2010.html"><i class="fa fa-check"></i><b>21</b> High-density Lipoprotein 2010</a><ul>
+<li class="chapter" data-level="21.1" data-path="hdl2010-1.html"><a href="hdl2010-1.html"><i class="fa fa-check"></i><b>21.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="hdl2010-1.html"><a href="hdl2010-1.html#fit-the-null-model-35"><i class="fa fa-check"></i><b>21.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="21.1.2" data-path="hdl2010-1.html"><a href="hdl2010-1.html#fit-the-enrichment-model-35"><i class="fa fa-check"></i><b>21.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="21.1.3" data-path="hdl2010-1.html"><a href="hdl2010-1.html#enrichment-analysis-in-gtex-17"><i class="fa fa-check"></i><b>21.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="21.2" data-path="hdl2010-2.html"><a href="hdl2010-2.html"><i class="fa fa-check"></i><b>21.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="21.2.1" data-path="hdl2010-2.html"><a href="hdl2010-2.html#fit-the-null-model-36"><i class="fa fa-check"></i><b>21.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="21.2.2" data-path="hdl2010-2.html"><a href="hdl2010-2.html#fit-the-enrichment-model-36"><i class="fa fa-check"></i><b>21.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="ligh-density-lipoprotein-2010.html"><a href="ligh-density-lipoprotein-2010.html"><i class="fa fa-check"></i><b>22</b> Ligh-density Lipoprotein 2010</a><ul>
+<li class="chapter" data-level="22.1" data-path="ldl2010-1.html"><a href="ldl2010-1.html"><i class="fa fa-check"></i><b>22.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="22.1.1" data-path="ldl2010-1.html"><a href="ldl2010-1.html#fit-the-null-model-37"><i class="fa fa-check"></i><b>22.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="22.1.2" data-path="ldl2010-1.html"><a href="ldl2010-1.html#fit-the-enrichment-model-37"><i class="fa fa-check"></i><b>22.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="22.1.3" data-path="ldl2010-1.html"><a href="ldl2010-1.html#enrichment-analysis-in-gtex-18"><i class="fa fa-check"></i><b>22.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="22.2" data-path="ldl2010-2.html"><a href="ldl2010-2.html"><i class="fa fa-check"></i><b>22.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="22.2.1" data-path="ldl2010-2.html"><a href="ldl2010-2.html#fit-the-null-model-38"><i class="fa fa-check"></i><b>22.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="22.2.2" data-path="ldl2010-2.html"><a href="ldl2010-2.html#fit-the-enrichment-model-38"><i class="fa fa-check"></i><b>22.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="age-at-natural-menopause-2015.html"><a href="age-at-natural-menopause-2015.html"><i class="fa fa-check"></i><b>23</b> Age at Natural Menopause 2015</a><ul>
+<li class="chapter" data-level="23.1" data-path="anm2015-1.html"><a href="anm2015-1.html"><i class="fa fa-check"></i><b>23.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="anm2015-1.html"><a href="anm2015-1.html#fit-the-null-model-39"><i class="fa fa-check"></i><b>23.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="23.1.2" data-path="anm2015-1.html"><a href="anm2015-1.html#fit-the-enrichment-model-39"><i class="fa fa-check"></i><b>23.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="23.1.3" data-path="anm2015-1.html"><a href="anm2015-1.html#enrichment-analysis-in-gtex-19"><i class="fa fa-check"></i><b>23.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="anm2015-2.html"><a href="anm2015-2.html"><i class="fa fa-check"></i><b>23.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="anm2015-2.html"><a href="anm2015-2.html#fit-the-null-model-40"><i class="fa fa-check"></i><b>23.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="23.2.2" data-path="anm2015-2.html"><a href="anm2015-2.html#fit-the-enrichment-model-40"><i class="fa fa-check"></i><b>23.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="total-cholesterol-2010.html"><a href="total-cholesterol-2010.html"><i class="fa fa-check"></i><b>24</b> Total Cholesterol 2010</a><ul>
+<li class="chapter" data-level="24.1" data-path="tc2010-1.html"><a href="tc2010-1.html"><i class="fa fa-check"></i><b>24.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="tc2010-1.html"><a href="tc2010-1.html#fit-the-null-model-41"><i class="fa fa-check"></i><b>24.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="24.1.2" data-path="tc2010-1.html"><a href="tc2010-1.html#fit-the-enrichment-model-41"><i class="fa fa-check"></i><b>24.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="24.1.3" data-path="tc2010-1.html"><a href="tc2010-1.html#enrichment-analysis-in-gtex-20"><i class="fa fa-check"></i><b>24.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="tc2010-2.html"><a href="tc2010-2.html"><i class="fa fa-check"></i><b>24.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="24.2.1" data-path="tc2010-2.html"><a href="tc2010-2.html#fit-the-null-model-42"><i class="fa fa-check"></i><b>24.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="24.2.2" data-path="tc2010-2.html"><a href="tc2010-2.html#fit-the-enrichment-model-42"><i class="fa fa-check"></i><b>24.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="mean-cell-haemoglobin-2012.html"><a href="mean-cell-haemoglobin-2012.html"><i class="fa fa-check"></i><b>25</b> Mean Cell Haemoglobin 2012</a><ul>
+<li class="chapter" data-level="25.1" data-path="mch2012-1.html"><a href="mch2012-1.html"><i class="fa fa-check"></i><b>25.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="25.1.1" data-path="mch2012-1.html"><a href="mch2012-1.html#fit-the-null-model-43"><i class="fa fa-check"></i><b>25.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="25.1.2" data-path="mch2012-1.html"><a href="mch2012-1.html#fit-the-enrichment-model-43"><i class="fa fa-check"></i><b>25.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="25.1.3" data-path="mch2012-1.html"><a href="mch2012-1.html#enrichment-analysis-in-gtex-21"><i class="fa fa-check"></i><b>25.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="25.2" data-path="mch2012-2.html"><a href="mch2012-2.html"><i class="fa fa-check"></i><b>25.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="25.2.1" data-path="mch2012-2.html"><a href="mch2012-2.html#fit-the-null-model-44"><i class="fa fa-check"></i><b>25.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="25.2.2" data-path="mch2012-2.html"><a href="mch2012-2.html#fit-the-enrichment-model-44"><i class="fa fa-check"></i><b>25.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="triglycerides-2010.html"><a href="triglycerides-2010.html"><i class="fa fa-check"></i><b>26</b> Triglycerides 2010</a><ul>
+<li class="chapter" data-level="26.1" data-path="tg2010-1.html"><a href="tg2010-1.html"><i class="fa fa-check"></i><b>26.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="26.1.1" data-path="tg2010-1.html"><a href="tg2010-1.html#fit-the-null-model-45"><i class="fa fa-check"></i><b>26.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="26.1.2" data-path="tg2010-1.html"><a href="tg2010-1.html#fit-the-enrichment-model-45"><i class="fa fa-check"></i><b>26.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="26.1.3" data-path="tg2010-1.html"><a href="tg2010-1.html#enrichment-analysis-in-gtex-22"><i class="fa fa-check"></i><b>26.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="26.2" data-path="tg2010-2.html"><a href="tg2010-2.html"><i class="fa fa-check"></i><b>26.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="26.2.1" data-path="tg2010-2.html"><a href="tg2010-2.html#fit-the-null-model-46"><i class="fa fa-check"></i><b>26.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="26.2.2" data-path="tg2010-2.html"><a href="tg2010-2.html#fit-the-enrichment-model-46"><i class="fa fa-check"></i><b>26.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="mean-cell-volume-2012.html"><a href="mean-cell-volume-2012.html"><i class="fa fa-check"></i><b>27</b> Mean Cell Volume 2012</a><ul>
+<li class="chapter" data-level="27.1" data-path="mcv2012-1.html"><a href="mcv2012-1.html"><i class="fa fa-check"></i><b>27.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="27.1.1" data-path="mcv2012-1.html"><a href="mcv2012-1.html#fit-the-null-model-47"><i class="fa fa-check"></i><b>27.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="27.1.2" data-path="mcv2012-1.html"><a href="mcv2012-1.html#fit-the-enrichment-model-47"><i class="fa fa-check"></i><b>27.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="27.1.3" data-path="mcv2012-1.html"><a href="mcv2012-1.html#enrichment-analysis-in-gtex-23"><i class="fa fa-check"></i><b>27.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="27.2" data-path="mcv2012-2.html"><a href="mcv2012-2.html"><i class="fa fa-check"></i><b>27.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="mcv2012-2.html"><a href="mcv2012-2.html#fit-the-null-model-48"><i class="fa fa-check"></i><b>27.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="27.2.2" data-path="mcv2012-2.html"><a href="mcv2012-2.html#fit-the-enrichment-model-48"><i class="fa fa-check"></i><b>27.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="fg2012.html"><a href="fg2012.html"><i class="fa fa-check"></i><b>28</b> Fasting Glucose 2012</a><ul>
+<li class="chapter" data-level="28.1" data-path="fg2012-1.html"><a href="fg2012-1.html"><i class="fa fa-check"></i><b>28.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="28.1.1" data-path="fg2012-1.html"><a href="fg2012-1.html#fit-the-null-model-49"><i class="fa fa-check"></i><b>28.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="28.1.2" data-path="fg2012-1.html"><a href="fg2012-1.html#fit-the-enrichment-model-49"><i class="fa fa-check"></i><b>28.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="28.1.3" data-path="fg2012-1.html"><a href="fg2012-1.html#enrichment-analysis-in-gtex-24"><i class="fa fa-check"></i><b>28.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="28.2" data-path="fg2012-2.html"><a href="fg2012-2.html"><i class="fa fa-check"></i><b>28.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="28.2.1" data-path="fg2012-2.html"><a href="fg2012-2.html#fit-the-null-model-50"><i class="fa fa-check"></i><b>28.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="28.2.2" data-path="fg2012-2.html"><a href="fg2012-2.html#fit-the-enrichment-model-50"><i class="fa fa-check"></i><b>28.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="fasting-insulin-2012.html"><a href="fasting-insulin-2012.html"><i class="fa fa-check"></i><b>29</b> Fasting Insulin 2012</a><ul>
+<li class="chapter" data-level="29.1" data-path="lfi2012-1.html"><a href="lfi2012-1.html"><i class="fa fa-check"></i><b>29.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="29.1.1" data-path="lfi2012-1.html"><a href="lfi2012-1.html#fit-the-null-model-51"><i class="fa fa-check"></i><b>29.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="29.1.2" data-path="lfi2012-1.html"><a href="lfi2012-1.html#fit-the-enrichment-model-51"><i class="fa fa-check"></i><b>29.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="29.1.3" data-path="lfi2012-1.html"><a href="lfi2012-1.html#enrichment-analysis-in-gtex-25"><i class="fa fa-check"></i><b>29.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="lfi2012-2.html"><a href="lfi2012-2.html"><i class="fa fa-check"></i><b>29.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="29.2.1" data-path="lfi2012-2.html"><a href="lfi2012-2.html#fit-the-null-model-52"><i class="fa fa-check"></i><b>29.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="29.2.2" data-path="lfi2012-2.html"><a href="lfi2012-2.html#fit-the-enrichment-model-52"><i class="fa fa-check"></i><b>29.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="mean-cell-haemoglobin-concentration-2012.html"><a href="mean-cell-haemoglobin-concentration-2012.html"><i class="fa fa-check"></i><b>30</b> Mean Cell Haemoglobin Concentration 2012</a><ul>
+<li class="chapter" data-level="30.1" data-path="mchc2012-1.html"><a href="mchc2012-1.html"><i class="fa fa-check"></i><b>30.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="30.1.1" data-path="mchc2012-1.html"><a href="mchc2012-1.html#fit-the-null-model-53"><i class="fa fa-check"></i><b>30.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="30.1.2" data-path="mchc2012-1.html"><a href="mchc2012-1.html#fit-the-enrichment-model-53"><i class="fa fa-check"></i><b>30.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="30.1.3" data-path="mchc2012-1.html"><a href="mchc2012-1.html#enrichment-analysis-in-gtex-26"><i class="fa fa-check"></i><b>30.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="30.2" data-path="mchc2012-2.html"><a href="mchc2012-2.html"><i class="fa fa-check"></i><b>30.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="30.2.1" data-path="mchc2012-2.html"><a href="mchc2012-2.html#fit-the-null-model-54"><i class="fa fa-check"></i><b>30.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="30.2.2" data-path="mchc2012-2.html"><a href="mchc2012-2.html#fit-the-enrichment-model-54"><i class="fa fa-check"></i><b>30.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="gout-2013.html"><a href="gout-2013.html"><i class="fa fa-check"></i><b>31</b> Gout 2013</a><ul>
+<li class="chapter" data-level="31.1" data-path="gout2013-1.html"><a href="gout2013-1.html"><i class="fa fa-check"></i><b>31.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="31.1.1" data-path="gout2013-1.html"><a href="gout2013-1.html#fit-the-null-model-55"><i class="fa fa-check"></i><b>31.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="31.1.2" data-path="gout2013-1.html"><a href="gout2013-1.html#fit-the-enrichment-model-55"><i class="fa fa-check"></i><b>31.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="31.1.3" data-path="gout2013-1.html"><a href="gout2013-1.html#enrichment-analysis-in-gtex-27"><i class="fa fa-check"></i><b>31.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="31.2" data-path="gout2013-2.html"><a href="gout2013-2.html"><i class="fa fa-check"></i><b>31.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="31.2.1" data-path="gout2013-2.html"><a href="gout2013-2.html#fit-the-null-model-56"><i class="fa fa-check"></i><b>31.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="31.2.2" data-path="gout2013-2.html"><a href="gout2013-2.html#fit-the-enrichment-model-56"><i class="fa fa-check"></i><b>31.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="haemoglobin-2012.html"><a href="haemoglobin-2012.html"><i class="fa fa-check"></i><b>32</b> Haemoglobin 2012</a><ul>
+<li class="chapter" data-level="32.1" data-path="hb2012-1.html"><a href="hb2012-1.html"><i class="fa fa-check"></i><b>32.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="32.1.1" data-path="hb2012-1.html"><a href="hb2012-1.html#fit-the-null-model-57"><i class="fa fa-check"></i><b>32.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="32.1.2" data-path="hb2012-1.html"><a href="hb2012-1.html#fit-the-enrichment-model-57"><i class="fa fa-check"></i><b>32.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="32.1.3" data-path="hb2012-1.html"><a href="hb2012-1.html#enrichment-analysis-in-gtex-28"><i class="fa fa-check"></i><b>32.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="32.2" data-path="hb2012-2.html"><a href="hb2012-2.html"><i class="fa fa-check"></i><b>32.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="32.2.1" data-path="hb2012-2.html"><a href="hb2012-2.html#fit-the-null-model-58"><i class="fa fa-check"></i><b>32.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="32.2.2" data-path="hb2012-2.html"><a href="hb2012-2.html#fit-the-enrichment-model-58"><i class="fa fa-check"></i><b>32.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="packed-cell-volume-2012.html"><a href="packed-cell-volume-2012.html"><i class="fa fa-check"></i><b>33</b> Packed Cell Volume 2012</a><ul>
+<li class="chapter" data-level="33.1" data-path="pcv2012-1.html"><a href="pcv2012-1.html"><i class="fa fa-check"></i><b>33.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="33.1.1" data-path="pcv2012-1.html"><a href="pcv2012-1.html#fit-the-null-model-59"><i class="fa fa-check"></i><b>33.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="33.1.2" data-path="pcv2012-1.html"><a href="pcv2012-1.html#fit-the-enrichment-model-59"><i class="fa fa-check"></i><b>33.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="33.1.3" data-path="pcv2012-1.html"><a href="pcv2012-1.html#enrichment-analysis-in-gtex-29"><i class="fa fa-check"></i><b>33.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="33.2" data-path="pcv2012-2.html"><a href="pcv2012-2.html"><i class="fa fa-check"></i><b>33.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="33.2.1" data-path="pcv2012-2.html"><a href="pcv2012-2.html#fit-the-null-model-60"><i class="fa fa-check"></i><b>33.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="33.2.2" data-path="pcv2012-2.html"><a href="pcv2012-2.html#fit-the-enrichment-model-60"><i class="fa fa-check"></i><b>33.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="amyotrophic-lateral-sclerosis-2016.html"><a href="amyotrophic-lateral-sclerosis-2016.html"><i class="fa fa-check"></i><b>34</b> Amyotrophic Lateral Sclerosis 2016</a><ul>
+<li class="chapter" data-level="34.1" data-path="als2016-1.html"><a href="als2016-1.html"><i class="fa fa-check"></i><b>34.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="34.1.1" data-path="als2016-1.html"><a href="als2016-1.html#fit-the-null-model-61"><i class="fa fa-check"></i><b>34.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="34.1.2" data-path="als2016-1.html"><a href="als2016-1.html#fit-the-enrichment-model-61"><i class="fa fa-check"></i><b>34.1.2</b> Fit the enrichment model</a></li>
+<li class="chapter" data-level="34.1.3" data-path="als2016-1.html"><a href="als2016-1.html#enrichment-analysis-in-gtex-30"><i class="fa fa-check"></i><b>34.1.3</b> Enrichment analysis in GTEx</a></li>
+</ul></li>
+<li class="chapter" data-level="34.2" data-path="als2016-2.html"><a href="als2016-2.html"><i class="fa fa-check"></i><b>34.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="34.2.1" data-path="als2016-2.html"><a href="als2016-2.html#fit-the-null-model-62"><i class="fa fa-check"></i><b>34.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="34.2.2" data-path="als2016-2.html"><a href="als2016-2.html#fit-the-enrichment-model-62"><i class="fa fa-check"></i><b>34.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>35</b> Acknowledgement</a></li>
+<li class="chapter" data-level="36" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html"><i class="fa fa-check"></i><b>36</b> Add a new chapter</a><ul>
+<li class="chapter" data-level="36.1" data-path="section-title.html"><a href="section-title.html"><i class="fa fa-check"></i><b>36.1</b> Section title</a></li>
+<li class="chapter" data-level="36.2" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>36.2</b> Session information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/xiangzhu/rss-gsea" target="blank">GitHub Repository</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="height2014-3" class="section level2">
+<h2><span class="header-section-number">4.3</span> GSEA Round 2</h2>
+<p><strong>Last updated:</strong> 2016-11-22</p>
+<p><strong>Code version:</strong> 546477680dfe783105f9a81706df4cdf42e197db</p>
+<div id="fit-the-null-model-2" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Fit the null model</h3>
+<p>From the Round 1 null analysis (Section <a href="height2014-2.html#height2014-2">4.2</a>), I found that almost 100% posterior mass is concentrated on the setting <code>(h=0.3, theta0=-2)</code>. In Round 2, I used a finer grid. Specifically, I used the grids <code>theta0=(-2.25:0.025:-1.75)'</code> and <code>h=(0.3:0.1:0.4)'</code> when fitting the null model. I estimated the (unnormalized) log importance weights (“pseudo-likelihoods”) for all 42 sets of <code>(h,theta0)</code> under null.</p>
+<p><img src="images/height2014_null_round2.png" /><!-- --></p>
+<p>After normalizing the log “pseudo-likelihoods” (<code>logw.step*</code>) to posterior probabilities (<code>posp.step*</code>), we can see that almost 100% posterior mass is concentrated on the settings <code>h=0.3</code> and <code>theta0=(-2.075:0.025:-1.925)'</code>.</p>
+<div id="htmlwidget-819c72d20e299a6c9030" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-819c72d20e299a6c9030">{"x":{"filter":"none","extensions":["KeyTable"],"data":[[-2.25,-2.225,-2.2,-2.175,-2.15,-2.125,-2.1,-2.075,-2.05,-2.025,-2,-1.975,-1.95,-1.925,-1.9,-1.875,-1.85,-1.825,-1.8,-1.775,-1.75,-2.25,-2.225,-2.2,-2.175,-2.15,-2.125,-2.1,-2.075,-2.05,-2.025,-2,-1.975,-1.95,-1.925,-1.9,-1.875,-1.85,-1.825,-1.8,-1.775,-1.75],[0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4],[18573.7746506355,18601.0701566799,18645.4563106098,18678.0845461279,18695.6448348376,18711.4464645358,18724.9388410816,18755.6594876207,18763.2724366358,18754.3597151527,18763.0129370975,18758.1159959943,18766.3678695051,18746.3595039602,18734.6006840855,18705.8635279631,18666.2061718963,18626.7882500439,18596.1038480144,18550.2691991237,18497.4680224442,18631.8292366205,18661.2608080009,18675.0593565987,18700.6041841563,18709.3876814282,18684.8715926929,18712.59320272,18731.7149141664,18734.2340800072,18730.5642417155,18743.9334029915,18746.3839166011,18714.1101282845,18708.5467826003,18674.9286465304,18658.9166481129,18601.430107318,18572.9652129403,18529.790285336,18461.8697789372,18386.3240508614],[18573.7746506355,18601.0701566801,18645.4563106067,18678.0845461279,18695.6448348385,18711.4464645359,18724.9388410816,18755.6594876207,18763.2724366366,18754.3597151527,18763.0129370974,18758.1159959941,18766.3678695048,18746.359503958,18734.6006840856,18705.863527962,18666.2061718963,18626.7882500439,18596.1038480144,18550.2691991224,18497.4680224447,18631.8292366204,18661.260808001,18675.0593565986,18700.6041841562,18709.3876814264,18684.871592693,18712.59320272,18731.7149141615,18734.2340800071,18730.5642417155,18743.9334029918,18746.3839166011,18714.1101282847,18708.5467826004,18674.9286465288,18658.9166481129,18606.3215327338,18572.9652129439,18529.7902853361,18461.8697789369,18386.4293393935],[2.10969929283663e-84,1.50837113571707e-72,2.85213407872767e-53,4.22116742071435e-39,1.78553786624804e-31,1.3011568361551e-24,9.41877298356223e-19,2.06919586487546e-05,0.0418854658572116,5.64049984031466e-06,0.0323120217567333,0.000241351294902173,0.925534824635135,1.89177732784634e-09,1.47937893690463e-14,4.89430580641993e-27,2.92900555129882e-44,2.2270719408388e-61,1.05115742965853e-74,1.30596840749791e-94,1.52993507466566e-117,3.44355401589404e-59,2.08437542445815e-46,2.04931848921777e-40,2.5444100820319e-29,1.66039533578424e-25,3.74118728068893e-36,4.09592233743832e-24,8.25668049270583e-16,1.02533386772875e-14,2.61261119365902e-16,1.67196719878001e-10,1.93852895177254e-09,1.8669991298268e-23,7.16166140083374e-26,1.79821988946031e-40,1.9994946202766e-47,2.16188599954852e-72,9.39044628607166e-85,1.66745229464413e-103,5.3033743112434e-133,8.2311297176373e-166],[2.10969929352532e-84,1.50837113656614e-72,2.85213407066274e-53,4.22116742186198e-39,1.78553786844186e-31,1.30115683663192e-24,9.41877298578029e-19,2.06919586543802e-05,0.0418854659037985,5.64049984172504e-06,0.0323120217615214,0.000241351294929157,0.925534824583726,1.8917773241969e-09,1.47937893754364e-14,4.89430580249797e-27,2.92900555218039e-44,2.22707194135516e-61,1.05115742995961e-74,1.30596840615208e-94,1.52993507574952e-117,3.44355401651706e-59,2.08437542515375e-46,2.04931848952144e-40,2.54441008237191e-29,1.66039533334831e-25,3.74118728199188e-36,4.09592233858169e-24,8.25668045476025e-16,1.02533386798513e-14,2.61261119434081e-16,1.67196719977592e-10,1.93852895228547e-09,1.86699913067399e-23,7.16166140296318e-26,1.79821988705114e-40,1.99949462078383e-47,2.87840470495038e-70,9.3904463226161e-85,1.66745229521879e-103,5.30337431137328e-133,9.14504137251338e-166]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>theta0\u003c/th>\n      <th>h\u003c/th>\n      <th>logw.step1\u003c/th>\n      <th>logw.step2\u003c/th>\n      <th>posp.step1\u003c/th>\n      <th>posp.step2\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"keys":true,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4,5]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 4, 4);\nDTWidget.formatRound(this, row, data, 5, 4);\nDTWidget.formatRound(this, row, data, 2, 2);\nDTWidget.formatRound(this, row, data, 3, 2);\n}"},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">h.index &lt;-<span class="st"> </span><span class="kw">as.character</span>(null.df$h) %in%<span class="st"> </span><span class="kw">as.character</span>(<span class="fl">0.3</span>) 
+theta0.index &lt;-<span class="st"> </span><span class="kw">as.character</span>(null.df$theta0[h.index]) %in%<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">seq</span>(-<span class="fl">2.075</span>,-<span class="fl">1.925</span>,<span class="dt">by=</span><span class="fl">0.025</span>)) 
+<span class="kw">sum</span>(null.df$posp.step2[theta0.index]) </code></pre></div>
+<pre><code>## [1] 1</code></pre>
+</div>
+<div id="fit-the-enrichment-model-2" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Fit the enrichment model</h3>
+<p>To perform GSEA, I set <code>h=0.3</code> and <code>theta0=(-2.075:0.025:-1.925)'</code>, since the null analysis suggests that almost 100% posterior mass is placed on these settings. For the log-fold enrichment parameter, I use the grid <code>theta  = (0:0.01:1)'</code>. The following table lists the GSEA results.</p>
+<div id="htmlwidget-c7dcbc89bbf34ac723f8" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c7dcbc89bbf34ac723f8">{"x":{"filter":"bottom","filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"2038\" data-max=\"3916\">\u003c/div>\n      <span style=\"float: left;\">\u003c/span>\n      <span style=\"float: right;\">\u003c/span>\n    \u003c/div>\n  \u003c/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n  \u003c/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;kegg&quot;,&quot;pid&quot;,&quot;reactome&quot;,&quot;wiki&quot;]\">\u003c/select>\n    \u003c/div>\n  \u003c/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;BioSystems&quot;,&quot;PC&quot;]\">\u003c/select>\n    \u003c/div>\n  \u003c/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"22\" data-max=\"496\">\u003c/div>\n      <span style=\"float: left;\">\u003c/span>\n      <span style=\"float: right;\">\u003c/span>\n    \u003c/div>\n  \u003c/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"1800\" data-max=\"58142\">\u003c/div>\n      <span style=\"float: left;\">\u003c/span>\n      <span style=\"float: right;\">\u003c/span>\n    \u003c/div>\n  \u003c/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"25.3671081181942\" data-max=\"68.8862016133663\" data-scale=\"15\">\u003c/div>\n      <span style=\"float: left;\">\u003c/span>\n      <span style=\"float: right;\">\u003c/span>\n    \u003c/div>\n  \u003c/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n  \u003c/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\">\u003c/span>\n    \u003c/div>\n  \u003c/td>\n\u003c/tr>","extensions":["FixedColumns"],"data":[[3208,3901,3911,3912,3907,3861,3851,3900,3859,3725,3720,3904,3856,3846,3848,3783,3839,3897,3398,3893,3898,3844,3868,3677,3760,3865,2978,3667,3874,2743,3880,3886,3810,3064,3805,3791,3879,3702,3883,3797,3873,3896,3890,3913,3888,3885,3866,3895,3444,3793,3468,3871,3872,3908,3790,3891,3909,3855,3892,3881,3817,3878,3887,3914,3863,3862,3882,3869,3916,3832,3854,3842,3420,3669,3836,3661,3906,3441,3746,3750,3889,2067,3799,2045,3812,3709,2380,3910,3731,3903,3840,3630,3639,3378,3692,3699,3608,3710,2038,3894],["Endochondral Ossification","Cellular responses to stress","Cell Cycle, Mitotic","Cell Cycle, Mitotic","Signalling by NGF","Extracellular matrix organization","Extracellular matrix organization","Infectious disease","Cellular responses to stress","TGF-beta Receptor Signaling Pathway","Integrated Breast Cancer Pathway","Pathways in cancer","Metabolism of RNA","HTLV-I infection","Endocytosis","Cellular Senescence","Chromatin modifying enzymes","PI3K-Akt signaling pathway","Hedgehog 'on' state","Fc epsilon receptor (FCERI) signaling","NGF signalling via TRKA from the plasma membrane","MAPK signaling pathway","Signaling by NGF","Signaling by Hedgehog","Transcriptional misregulation in cancer","IRS-related events triggered by IGF1R","Hedgehog signaling pathway","Adipogenesis","Signaling by SCF-KIT","Elastic fibre formation","Signaling by ERBB4","Organelle biogenesis and maintenance","Metabolism of mRNA","Basal cell carcinoma","Chromatin modifying enzymes","Integrated Pancreatic Cancer Pathway","VEGFA-VEGFR2 Pathway","Signaling pathways regulating pluripotency of stem cells","Signaling by VEGF","Proteoglycans in cancer","Signaling by Insulin receptor","Signaling by PDGF","Mitotic M-M/G1 phases","Developmental Biology","Downstream signal transduction","Signaling by ERBB2","Insulin receptor signalling cascade","Post-translational protein modification","IRS-related events triggered by IGF1R","Signaling by the B Cell Receptor (BCR)","IGF1R signaling cascade","M Phase","M Phase","GPCR ligand binding","B Cell Activation","Signaling by Wnt","GPCR ligand binding","Diseases of signal transduction","Signaling by EGFR","Signaling by FGFR4","Ras signaling pathway","Downstream signaling of activated FGFR4","Signaling by Wnt","Hemostasis","IRS-mediated signalling","MAPK family signaling cascades","Signaling by FGFR2","RHO GTPase Effectors","Hemostasis","Signalling to RAS","Class I MHC mediated antigen processing &amp; presentation","Signaling by WNT in cancer","Androgen receptor signaling pathway","Mitotic G1-G1/S phases","Signalling to ERKs","FoxO signaling pathway","Gastrin-CREB signalling pathway via PKC and MAPK","Prostate cancer","Downstream signaling events of B Cell Receptor (BCR)","Downstream signaling events of B Cell Receptor (BCR)","DAP12 signaling","Signaling events mediated by the Hedgehog family","Viral carcinogenesis","Signaling events mediated by the Hedgehog family","Antigen processing: Ubiquitination &amp; Proteasome degradation","Hepatitis B","Molecules associated with elastic fibres","Generic Transcription Pathway","B Cell Receptor Signaling Pathway","Signaling by Rho GTPases","Class I MHC mediated antigen processing &amp; presentation","S Phase","S Phase","TGF-beta signaling pathway","Translation","Translation","Signaling by Insulin receptor","Organelle biogenesis and maintenance","Hedgehog Signaling Pathway","DAP12 interactions"],["wiki","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","wiki","wiki","kegg","reactome","kegg","kegg","reactome","reactome","kegg","reactome","reactome","reactome","kegg","reactome","reactome","kegg","reactome","kegg","wiki","reactome","reactome","reactome","reactome","reactome","kegg","reactome","wiki","reactome","kegg","reactome","kegg","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","kegg","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","reactome","wiki","reactome","reactome","kegg","reactome","kegg","reactome","reactome","reactome","pid","kegg","pid","reactome","kegg","reactome","reactome","wiki","reactome","reactome","reactome","reactome","kegg","reactome","reactome","reactome","reactome","wiki","reactome"],["BioSystems","BioSystems","PC","BioSystems","BioSystems","BioSystems","PC","BioSystems","PC","BioSystems","BioSystems","BioSystems","PC","BioSystems","BioSystems","PC","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","PC","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","PC","BioSystems","BioSystems","PC","BioSystems","PC","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","PC","PC","BioSystems","BioSystems","BioSystems","BioSystems","PC","BioSystems","PC","PC","BioSystems","PC","PC","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","PC","PC","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","BioSystems","PC","BioSystems","PC","BioSystems","BioSystems","BioSystems","BioSystems","PC","BioSystems","BioSystems","PC","BioSystems","BioSystems","BioSystems","BioSystems","PC","PC","BioSystems","BioSystems","PC","PC","BioSystems","BioSystems","PC","BioSystems","PC","PC","BioSystems","BioSystems"],[65,366,457,463,410,259,254,359,258,149,147,385,257,250,252,183,241,335,83,330,344,246,273,132,170,271,50,130,298,41,303,311,211,55,203,190,302,138,309,195,292,335,316,476,313,311,271,333,87,191,90,284,288,421,188,318,426,256,325,304,220,301,312,490,268,264,307,274,496,231,256,244,84,131,238,128,406,86,163,164,315,23,197,22,213,142,30,442,153,375,242,118,121,80,136,137,112,143,22,330],[7573,24387,31432,31834,42783,28019,27448,26162,16444,13241,13140,40147,17586,18860,22581,10005,15037,32932,6283,32021,34905,25117,30785,11887,15096,25621,4377,12469,27961,4603,29159,25500,14412,4767,11365,17485,29800,11496,30780,19385,27268,33892,20814,58142,31128,30840,25586,33101,7471,18262,7756,18629,18845,32984,18077,23655,33335,24103,32798,30364,22366,30105,23116,46399,25136,25128,30590,19097,46672,22070,20181,15362,7137,9246,22881,11400,41928,8149,15125,15131,31730,2495,13863,2490,17825,11920,3418,24029,16173,32907,19274,8468,8643,6621,9416,9419,9498,11198,1800,32565],[68.8862016133663,64.3610613582384,60.2486186803681,59.7100882117568,46.863880362955,48.4292324810719,48.4813176388026,47.192881516199,54.5693688973819,48.8143837349395,48.7957551697753,45.8613924008229,43.9000313025381,42.1230163323821,45.3633885191687,49.4832435204049,45.3314209001459,41.2758073371355,40.2865720861261,39.8676031706658,37.7048561004853,46.2020160320493,35.4031770948915,37.9308648214284,39.293539326958,39.7317215182171,35.6699503888098,38.9067746763615,36.5421494109434,35.691951898713,37.2290254647025,35.4015455357779,35.0779728766463,34.1098987487604,36.1243642163309,38.8330085774341,37.1321013568989,32.363661299432,36.8005485343511,35.5601492569533,38.2571331725315,36.6512280778931,33.8440226420421,34.510292642504,35.9139861083397,32.0226565400787,36.5418282905122,35.8346989503635,34.6767843113591,31.0951313721818,33.9766099235721,31.344773316669,31.0033669151105,31.2214666052147,30.9596070122248,33.6091472904146,30.7320757901699,31.2228382549267,30.0550614338482,30.1086231869801,33.4806555041672,30.015879257638,32.807225307214,36.8071205148252,33.9267429111293,32.8187556034526,29.7269944288292,32.7699488899132,36.4444980069655,28.5356640553806,30.3703097939564,31.0215374517961,29.5801385574068,29.7145183065645,27.204816359787,28.1838851097996,34.7330358824933,26.7235892532488,26.7128310592725,26.6876590302971,27.8226497645863,30.4185498318495,29.9131798631345,30.6150775428271,28.3756661437539,27.4532392299086,27.4576273365842,35.0145369654243,33.4340670155549,32.2686409299567,28.2032100157037,27.7156163354568,27.6633229414919,26.3651920404217,26.5796551424261,26.7443321225499,28.2776635415764,25.3671081181942,26.7002508207139,26.2743797248527],["-2.050, [-2.075, -2.050]","-2.056, [-2.075, -2.050]","-2.050, [-2.075, -2.050]","-2.050, [-2.075, -2.050]","-2.028, [-2.050, -2.000]","-2.050, [-2.075, -2.050]","-2.050, [-2.075, -2.050]","-2.070, [-2.075, -2.050]","-2.053, [-2.075, -2.050]","-2.075, [-2.075, -2.050]","-2.052, [-2.075, -2.050]","-2.030, [-2.050, -2.000]","-2.049, [-2.050, -2.025]","-2.021, [-2.050, -2.000]","-2.050, [-2.075, -2.050]","-2.052, [-2.075, -2.050]","-2.051, [-2.075, -2.050]","-2.018, [-2.050, -1.950]","-1.952, [-1.975, -1.950]","-2.069, [-2.075, -2.050]","-1.958, [-2.050, -1.950]","-2.060, [-2.075, -2.050]","-2.003, [-2.050, -2.000]","-1.950, [-1.975, -1.950]","-2.050, [-2.075, -2.050]","-2.050, [-2.075, -2.050]","-1.955, [-2.000, -1.950]","-2.050, [-2.075, -2.050]","-2.061, [-2.075, -2.050]","-2.049, [-2.050, -2.025]","-2.075, [-2.075, -2.050]","-1.975, [-2.050, -1.950]","-2.050, [-2.050, -2.025]","-1.952, [-1.975, -1.950]","-2.050, [-2.075, -2.050]","-2.063, [-2.075, -2.050]","-2.066, [-2.075, -2.050]","-1.997, [-2.050, -1.950]","-2.068, [-2.075, -2.050]","-2.054, [-2.075, -2.050]","-2.067, [-2.075, -2.050]","-2.065, [-2.075, -2.050]","-2.051, [-2.075, -2.050]","-2.056, [-2.075, -2.050]","-2.063, [-2.075, -2.050]","-2.048, [-2.075, -1.950]","-2.068, [-2.075, -2.050]","-2.050, [-2.075, -2.050]","-2.050, [-2.075, -2.050]","-2.046, [-2.050, -2.000]","-2.050, [-2.075, -2.050]","-2.050, [-2.075, -2.050]","-2.051, [-2.075, -2.050]","-2.050, [-2.050, -2.025]","-2.046, [-2.050, -2.025]","-2.050, [-2.075, -2.050]","-2.050, [-2.050, -2.025]","-2.049, [-2.050, -2.025]","-1.996, [-2.075, -1.950]","-1.965, [-2.075, -1.950]","-2.056, [-2.075, -2.050]","-1.963, [-2.075, -1.950]","-2.050, [-2.075, -2.050]","-2.075, [-2.075, -2.050]","-2.068, [-2.075, -2.050]","-2.067, [-2.075, -2.050]","-1.967, [-2.075, -1.950]","-2.074, [-2.075, -2.050]","-2.075, [-2.075, -2.050]","-2.040, [-2.075, -1.950]","-2.052, [-2.075, -2.050]","-2.050, [-2.050, -2.025]","-2.050, [-2.050, -2.025]","-2.027, [-2.050, -1.950]","-2.044, [-2.075, -1.950]","-1.997, [-2.050, -1.950]","-2.051, [-2.075, -2.050]","-1.966, [-2.000, -1.950]","-1.985, [-2.050, -1.950]","-1.985, [-2.050, -1.950]","-1.976, [-2.075, -1.950]","-1.950, [-1.975, -1.950]","-2.059, [-2.075, -2.050]","-1.950, [-1.975, -1.950]","-2.051, [-2.075, -2.050]","-1.953, [-1.975, -1.950]","-2.045, [-2.050, -2.000]","-2.074, [-2.075, -2.050]","-2.051, [-2.075, -2.050]","-2.075, [-2.075, -2.050]","-2.052, [-2.075, -2.050]","-2.050, [-2.050, -2.025]","-2.050, [-2.050, -2.025]","-2.047, [-2.050, -2.000]","-1.964, [-2.050, -1.950]","-1.959, [-2.050, -1.950]","-2.050, [-2.050, -2.025]","-2.033, [-2.050, -2.000]","-1.951, [-1.975, -1.950]","-1.983, [-2.075, -1.950]"],["0.804, [0.740, 0.860]","0.577, [0.540, 0.610]","0.523, [0.490, 0.540]","0.522, [0.500, 0.540]","0.415, [0.370, 0.470]","0.507, [0.500, 0.540]","0.507, [0.500, 0.540]","0.519, [0.450, 0.570]","0.583, [0.550, 0.610]","0.645, [0.590, 0.710]","0.659, [0.610, 0.710]","0.495, [0.460, 0.540]","0.593, [0.500, 0.630]","0.550, [0.490, 0.600]","0.594, [0.590, 0.610]","0.595, [0.580, 0.630]","0.609, [0.540, 0.650]","0.470, [0.360, 0.530]","0.671, [0.600, 0.760]","0.483, [0.440, 0.530]","0.405, [0.340, 0.440]","0.482, [0.370, 0.580]","0.376, [0.320, 0.480]","0.519, [0.510, 0.560]","0.609, [0.600, 0.630]","0.590, [0.590, 0.600]","0.729, [0.660, 0.800]","0.582, [0.540, 0.650]","0.507, [0.460, 0.580]","0.731, [0.640, 0.800]","0.487, [0.420, 0.530]","0.417, [0.370, 0.490]","0.565, [0.490, 0.620]","0.694, [0.650, 0.730]","0.610, [0.530, 0.660]","0.558, [0.460, 0.620]","0.459, [0.400, 0.490]","0.572, [0.500, 0.650]","0.455, [0.400, 0.490]","0.601, [0.590, 0.640]","0.459, [0.410, 0.530]","0.455, [0.390, 0.500]","0.464, [0.400, 0.540]","0.322, [0.270, 0.380]","0.461, [0.410, 0.490]","0.437, [0.380, 0.480]","0.463, [0.400, 0.530]","0.366, [0.350, 0.400]","0.684, [0.620, 0.750]","0.489, [0.470, 0.530]","0.674, [0.620, 0.740]","0.423, [0.360, 0.520]","0.443, [0.350, 0.530]","0.365, [0.320, 0.420]","0.494, [0.470, 0.520]","0.462, [0.400, 0.510]","0.361, [0.320, 0.410]","0.480, [0.440, 0.510]","0.412, [0.340, 0.460]","0.417, [0.370, 0.460]","0.472, [0.410, 0.510]","0.416, [0.370, 0.460]","0.462, [0.400, 0.510]","0.366, [0.330, 0.420]","0.454, [0.400, 0.510]","0.463, [0.400, 0.520]","0.414, [0.360, 0.460]","0.453, [0.380, 0.510]","0.382, [0.320, 0.420]","0.503, [0.400, 0.590]","0.471, [0.400, 0.520]","0.484, [0.430, 0.550]","0.664, [0.560, 0.740]","0.604, [0.510, 0.690]","0.439, [0.370, 0.510]","0.577, [0.450, 0.670]","0.365, [0.310, 0.410]","0.601, [0.520, 0.680]","0.523, [0.470, 0.590]","0.524, [0.460, 0.580]","0.402, [0.320, 0.450]","0.734, [0.640, 0.870]","0.535, [0.460, 0.600]","0.738, [0.660, 0.840]","0.479, [0.410, 0.530]","0.491, [0.430, 0.590]","0.719, [0.630, 0.800]","0.467, [0.420, 0.500]","0.504, [0.440, 0.560]","0.364, [0.320, 0.420]","0.467, [0.400, 0.520]","0.641, [0.570, 0.710]","0.638, [0.550, 0.700]","0.668, [0.580, 0.730]","0.589, [0.490, 0.650]","0.584, [0.510, 0.650]","0.585, [0.500, 0.650]","0.508, [0.430, 0.590]","0.737, [0.670, 0.760]","0.388, [0.290, 0.440]"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>id\u003c/th>\n      <th>name\u003c/th>\n      <th>source\u003c/th>\n      <th>database\u003c/th>\n      <th>gene\u003c/th>\n      <th>snp\u003c/th>\n      <th>log10.bf\u003c/th>\n      <th>theta0\u003c/th>\n      <th>theta\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"dom":"lftp","scrollX":true,"fixedColumns":true,"columnDefs":[{"className":"dt-right","targets":[0,4,5,6]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 6, 3);\n}"},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<p>Now we compare the enrichment Bayes factors from Round 1 and 2 analyses.</p>
+<div id="htmlwidget-efa5542f7961ad8c2bd7" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-efa5542f7961ad8c2bd7">{"x":{"data":[{"type":"scatter","inherit":false,"x":[25.9318573395714,26.8980410063525,27.0947480324346,26.7715187933458,34.4995140515917,35.8263889569556,33.8463076399446,63.4810959671033,26.2820935434852,40.127720656865,28.2459800795001,27.3414460695034,31.1107872390224,30.4780725433363,26.0321607123365,26.3197161057583,26.2892369860008,27.4762612413946,35.8051484358921,27.9419591625625,36.3770318747409,26.2748151348187,26.2514086434754,33.3023339732832,26.7817901124663,26.003423632759,45.4441804461584,45.9818310187945,26.6811711767759,27.2565777805213,27.2485657459055,36.0510989537419,41.2570659920797,30.2510263304278,33.564503344269,30.515901861022,32.9363365139848,27.0833111173398,33.5980795526183,34.2991983957755,26.8041800043406,29.2613966129871,28.6724575448554,27.494125916206,41.0405467564238,26.45607710962,28.4706101274606,36.920460438448,43.0286161960691,41.5237031457436,47.0018532996707,28.4715391664094,29.5641499428892,43.3213870392447,46.1433031106113,47.1623727264231,28.9334932552963,29.0282529847313,36.0365709572731,31.5167328381691,36.5673885136937,28.8229209198049,30.472236289689,30.3186369251919,32.9042414346644,34.6431861322705,29.1659766387948,33.4796171900821,34.4642500341077,29.2886270744203,28.8989300256585,33.1556346247257,31.7996039565271,34.3111236353625,29.0807485296519,32.1443929027287,27.1360630989386,32.7618540708647,29.8186127389451,29.4148931252516,38.8059668200792,25.7117522463066,31.4839150486619,32.7969701564861,40.2840001305257,37.4051625908476,46.7518141665402,58.4737763562767,26.4581959521798,45.1144461601194,27.4223825622778,47.7080175575448,30.2665443309284,29.7995218824345,26.7119053928717,56.7685136347482,56.2908194576798,32.1510519660571,29.0708674248622,28.7735536458695],"y":[26.7002508207139,30.6150775428271,30.4185498318495,27.4576273365842,35.691951898713,35.6699503888098,34.1098987487604,68.8862016133663,26.3651920404217,40.2865720861261,29.5801385574068,26.7235892532488,34.6767843113591,33.9766099235721,28.2776635415764,27.7156163354568,27.6633229414919,28.1838851097996,38.9067746763615,29.7145183065645,37.9308648214284,26.5796551424261,26.7443321225499,32.363661299432,27.4532392299086,25.3671081181942,48.7957551697753,48.8143837349395,33.4340670155549,26.7128310592725,26.6876590302971,39.293539326958,49.4832435204049,30.9596070122248,38.8330085774341,31.0951313721818,35.5601492569533,29.9131798631345,36.1243642163309,35.0779728766463,28.3756661437539,33.4806555041672,28.5356640553806,27.204816359787,45.3314209001459,28.2032100157037,31.0215374517961,46.2020160320493,42.1230163323821,45.3633885191687,48.4813176388026,30.3703097939564,31.2228382549267,43.9000313025381,54.5693688973819,48.4292324810719,32.8187556034526,33.9267429111293,39.7317215182171,36.5418282905122,35.4031770948915,32.7699488899132,31.344773316669,31.0033669151105,38.2571331725315,36.5421494109434,30.015879257638,37.1321013568989,37.2290254647025,30.1086231869801,29.7269944288292,36.8005485343511,32.0226565400787,35.4015455357779,32.807225307214,35.9139861083397,27.8226497645863,33.8440226420421,33.6091472904146,30.0550614338482,39.8676031706658,26.2743797248527,35.8346989503635,36.6512280778931,41.2758073371355,37.7048561004853,47.192881516199,64.3610613582384,32.2686409299567,45.8613924008229,34.7330358824933,46.863880362955,31.2214666052147,30.7320757901699,35.0145369654243,60.2486186803681,59.7100882117568,34.510292642504,36.8071205148252,36.4444980069655],"mode":"markers","text":["ID: 2038; Name: Hedgehog Signaling Pathway<br>numgene (size): 22","ID: 2045; Name: Signaling events mediated by the Hedgehog family<br>numgene (size): 22","ID: 2067; Name: Signaling events mediated by the Hedgehog family<br>numgene (size): 23","ID: 2380; Name: Molecules associated with elastic fibres<br>numgene (size): 30","ID: 2743; Name: Elastic fibre formation<br>numgene (size): 41","ID: 2978; Name: Hedgehog signaling pathway<br>numgene (size): 50","ID: 3064; Name: Basal cell carcinoma<br>numgene (size): 55","ID: 3208; Name: Endochondral Ossification<br>numgene (size): 65","ID: 3378; Name: TGF-beta signaling pathway<br>numgene (size): 80","ID: 3398; Name: Hedgehog 'on' state<br>numgene (size): 83","ID: 3420; Name: Androgen receptor signaling pathway<br>numgene (size): 84","ID: 3441; Name: Prostate cancer<br>numgene (size): 86","ID: 3444; Name: IRS-related events triggered by IGF1R<br>numgene (size): 87","ID: 3468; Name: IGF1R signaling cascade<br>numgene (size): 90","ID: 3608; Name: Signaling by Insulin receptor<br>numgene (size): 112","ID: 3630; Name: S Phase<br>numgene (size): 118","ID: 3639; Name: S Phase<br>numgene (size): 121","ID: 3661; Name: FoxO signaling pathway<br>numgene (size): 128","ID: 3667; Name: Adipogenesis<br>numgene (size): 130","ID: 3669; Name: Mitotic G1-G1/S phases<br>numgene (size): 131","ID: 3677; Name: Signaling by Hedgehog<br>numgene (size): 132","ID: 3692; Name: Translation<br>numgene (size): 136","ID: 3699; Name: Translation<br>numgene (size): 137","ID: 3702; Name: Signaling pathways regulating pluripotency of stem cells<br>numgene (size): 138","ID: 3709; Name: Hepatitis B<br>numgene (size): 142","ID: 3710; Name: Organelle biogenesis and maintenance<br>numgene (size): 143","ID: 3720; Name: Integrated Breast Cancer Pathway<br>numgene (size): 147","ID: 3725; Name: TGF-beta Receptor Signaling Pathway<br>numgene (size): 149","ID: 3731; Name: B Cell Receptor Signaling Pathway<br>numgene (size): 153","ID: 3746; Name: Downstream signaling events of B Cell Receptor (BCR)<br>numgene (size): 163","ID: 3750; Name: Downstream signaling events of B Cell Receptor (BCR)<br>numgene (size): 164","ID: 3760; Name: Transcriptional misregulation in cancer<br>numgene (size): 170","ID: 3783; Name: Cellular Senescence<br>numgene (size): 183","ID: 3790; Name: B Cell Activation<br>numgene (size): 188","ID: 3791; Name: Integrated Pancreatic Cancer Pathway<br>numgene (size): 190","ID: 3793; Name: Signaling by the B Cell Receptor (BCR)<br>numgene (size): 191","ID: 3797; Name: Proteoglycans in cancer<br>numgene (size): 195","ID: 3799; Name: Viral carcinogenesis<br>numgene (size): 197","ID: 3805; Name: Chromatin modifying enzymes<br>numgene (size): 203","ID: 3810; Name: Metabolism of mRNA<br>numgene (size): 211","ID: 3812; Name: Antigen processing: Ubiquitination & Proteasome degradation<br>numgene (size): 213","ID: 3817; Name: Ras signaling pathway<br>numgene (size): 220","ID: 3832; Name: Signalling to RAS<br>numgene (size): 231","ID: 3836; Name: Signalling to ERKs<br>numgene (size): 238","ID: 3839; Name: Chromatin modifying enzymes<br>numgene (size): 241","ID: 3840; Name: Class I MHC mediated antigen processing & presentation<br>numgene (size): 242","ID: 3842; Name: Signaling by WNT in cancer<br>numgene (size): 244","ID: 3844; Name: MAPK signaling pathway<br>numgene (size): 246","ID: 3846; Name: HTLV-I infection<br>numgene (size): 250","ID: 3848; Name: Endocytosis<br>numgene (size): 252","ID: 3851; Name: Extracellular matrix organization<br>numgene (size): 254","ID: 3854; Name: Class I MHC mediated antigen processing & presentation<br>numgene (size): 256","ID: 3855; Name: Diseases of signal transduction<br>numgene (size): 256","ID: 3856; Name: Metabolism of RNA<br>numgene (size): 257","ID: 3859; Name: Cellular responses to stress<br>numgene (size): 258","ID: 3861; Name: Extracellular matrix organization<br>numgene (size): 259","ID: 3862; Name: MAPK family signaling cascades<br>numgene (size): 264","ID: 3863; Name: IRS-mediated signalling<br>numgene (size): 268","ID: 3865; Name: IRS-related events triggered by IGF1R<br>numgene (size): 271","ID: 3866; Name: Insulin receptor signalling cascade<br>numgene (size): 271","ID: 3868; Name: Signaling by NGF<br>numgene (size): 273","ID: 3869; Name: RHO GTPase Effectors<br>numgene (size): 274","ID: 3871; Name: M Phase<br>numgene (size): 284","ID: 3872; Name: M Phase<br>numgene (size): 288","ID: 3873; Name: Signaling by Insulin receptor<br>numgene (size): 292","ID: 3874; Name: Signaling by SCF-KIT<br>numgene (size): 298","ID: 3878; Name: Downstream signaling of activated FGFR4<br>numgene (size): 301","ID: 3879; Name: VEGFA-VEGFR2 Pathway<br>numgene (size): 302","ID: 3880; Name: Signaling by ERBB4<br>numgene (size): 303","ID: 3881; Name: Signaling by FGFR4<br>numgene (size): 304","ID: 3882; Name: Signaling by FGFR2<br>numgene (size): 307","ID: 3883; Name: Signaling by VEGF<br>numgene (size): 309","ID: 3885; Name: Signaling by ERBB2<br>numgene (size): 311","ID: 3886; Name: Organelle biogenesis and maintenance<br>numgene (size): 311","ID: 3887; Name: Signaling by Wnt<br>numgene (size): 312","ID: 3888; Name: Downstream signal transduction<br>numgene (size): 313","ID: 3889; Name: DAP12 signaling<br>numgene (size): 315","ID: 3890; Name: Mitotic M-M/G1 phases<br>numgene (size): 316","ID: 3891; Name: Signaling by Wnt<br>numgene (size): 318","ID: 3892; Name: Signaling by EGFR<br>numgene (size): 325","ID: 3893; Name: Fc epsilon receptor (FCERI) signaling<br>numgene (size): 330","ID: 3894; Name: DAP12 interactions<br>numgene (size): 330","ID: 3895; Name: Post-translational protein modification<br>numgene (size): 333","ID: 3896; Name: Signaling by PDGF<br>numgene (size): 335","ID: 3897; Name: PI3K-Akt signaling pathway<br>numgene (size): 335","ID: 3898; Name: NGF signalling via TRKA from the plasma membrane<br>numgene (size): 344","ID: 3900; Name: Infectious disease<br>numgene (size): 359","ID: 3901; Name: Cellular responses to stress<br>numgene (size): 366","ID: 3903; Name: Signaling by Rho GTPases<br>numgene (size): 375","ID: 3904; Name: Pathways in cancer<br>numgene (size): 385","ID: 3906; Name: Gastrin-CREB signalling pathway via PKC and MAPK<br>numgene (size): 406","ID: 3907; Name: Signalling by NGF<br>numgene (size): 410","ID: 3908; Name: GPCR ligand binding<br>numgene (size): 421","ID: 3909; Name: GPCR ligand binding<br>numgene (size): 426","ID: 3910; Name: Generic Transcription Pathway<br>numgene (size): 442","ID: 3911; Name: Cell Cycle, Mitotic<br>numgene (size): 457","ID: 3912; Name: Cell Cycle, Mitotic<br>numgene (size): 463","ID: 3913; Name: Developmental Biology<br>numgene (size): 476","ID: 3914; Name: Hemostasis<br>numgene (size): 490","ID: 3916; Name: Hemostasis<br>numgene (size): 496"],"size":[22,22,23,30,41,50,55,65,80,83,84,86,87,90,112,118,121,128,130,131,132,136,137,138,142,143,147,149,153,163,164,170,183,188,190,191,195,197,203,211,213,220,231,238,241,242,244,246,250,252,254,256,256,257,258,259,264,268,271,271,273,274,284,288,292,298,301,302,303,304,307,309,311,311,312,313,315,316,318,325,330,330,333,335,335,344,359,366,375,385,406,410,421,426,442,457,463,476,490,496],"marker":{"colorbar":{"title":"numsnps"},"colorscale":[[0,"#440154"],[0.111111111111111,"#482878"],[0.222222222222222,"#3E4A89"],[0.333333333333333,"#31688E"],[0.444444444444444,"#26828E"],[0.555555555555556,"#1F9E89"],[0.666666666666667,"#35B779"],[0.777777777777778,"#6DCD59"],[0.888888888888889,"#B4DE2C"],[1,"#FDE725"]],"color":[1800,2490,2495,3418,4603,4377,4767,7573,6621,6283,7137,8149,7471,7756,9498,8468,8643,11400,12469,9246,11887,9416,9419,11496,11920,11198,13140,13241,16173,15125,15131,15096,10005,18077,17485,18262,19385,13863,11365,14412,17825,22366,22070,22881,15037,19274,15362,25117,18860,22581,27448,20181,24103,17586,16444,28019,25128,25136,25621,25586,30785,19097,18629,18845,27268,27961,30105,29800,29159,30364,30590,30780,30840,25500,23116,31128,31730,20814,23655,32798,32021,32565,33101,33892,32932,34905,26162,24387,32907,40147,41928,42783,32984,33335,24029,31432,31834,58142,46399,46672],"size":[49.6738585047667,49.6738585047667,51.9317611640743,67.7370797792273,92.5740090316106,112.895132965379,124.184646261917,146.763672854992,180.632212744606,187.405920722529,189.663823381836,194.179628700452,196.437531359759,203.211239337682,252.885097842449,266.432513798294,273.206221776217,289.01154039137,293.527345709985,295.785248369293,298.0431510286,307.07476166583,309.332664325138,311.590566984446,320.622177621676,322.880080280983,331.911690918214,336.427496236829,345.459106874059,368.038133467135,370.296036126443,383.843452082288,413.196186653287,424.485699949824,429.00150526844,431.259407927747,440.291018564977,444.806823883593,458.354239839438,476.417461113899,480.933266432514,496.738585047667,521.57551430005,537.380832915203,544.154540893126,546.412443552434,550.928248871049,555.444054189664,564.475664826894,568.991470145509,573.507275464124,578.023080782739,578.023080782739,580.280983442047,582.538886101355,584.796788760662,596.0863020572,605.117912694431,611.891620672353,611.891620672353,616.407425990968,618.665328650276,641.244355243352,650.275965880582,659.307576517812,672.854992473658,679.62870045158,681.886603110888,684.144505770196,686.402408429503,693.176116407426,697.691921726041,702.207727044656,702.207727044656,704.465629703964,706.723532363271,711.239337681887,713.497240341194,718.013045659809,733.818364274962,745.1078775715,745.1078775715,751.881585549423,756.397390868038,756.397390868038,776.718514801806,810.58705469142,826.392373306573,846.713497240341,869.292523833417,916.708479678876,925.740090316106,950.57701956849,961.866532865028,997.992975413949,1031.86151530356,1045.40893125941,1074.76166583041,1106.37230306071,1119.91971901656],"sizemode":"area"}},{"x":[0,70],"y":[0,70],"mode":"lines"},{"x":[25.9318573395714,26.8980410063525,27.0947480324346,26.7715187933458,34.4995140515917,35.8263889569556,33.8463076399446,63.4810959671033,26.2820935434852,40.127720656865,28.2459800795001,27.3414460695034,31.1107872390224,30.4780725433363,26.0321607123365,26.3197161057583,26.2892369860008,27.4762612413946,35.8051484358921,27.9419591625625,36.3770318747409,26.2748151348187,26.2514086434754,33.3023339732832,26.7817901124663,26.003423632759,45.4441804461584,45.9818310187945,26.6811711767759,27.2565777805213,27.2485657459055,36.0510989537419,41.2570659920797,30.2510263304278,33.564503344269,30.515901861022,32.9363365139848,27.0833111173398,33.5980795526183,34.2991983957755,26.8041800043406,29.2613966129871,28.6724575448554,27.494125916206,41.0405467564238,26.45607710962,28.4706101274606,36.920460438448,43.0286161960691,41.5237031457436,47.0018532996707,28.4715391664094,29.5641499428892,43.3213870392447,46.1433031106113,47.1623727264231,28.9334932552963,29.0282529847313,36.0365709572731,31.5167328381691,36.5673885136937,28.8229209198049,30.472236289689,30.3186369251919,32.9042414346644,34.6431861322705,29.1659766387948,33.4796171900821,34.4642500341077,29.2886270744203,28.8989300256585,33.1556346247257,31.7996039565271,34.3111236353625,29.0807485296519,32.1443929027287,27.1360630989386,32.7618540708647,29.8186127389451,29.4148931252516,38.8059668200792,25.7117522463066,31.4839150486619,32.7969701564861,40.2840001305257,37.4051625908476,46.7518141665402,58.4737763562767,26.4581959521798,45.1144461601194,27.4223825622778,47.7080175575448,30.2665443309284,29.7995218824345,26.7119053928717,56.7685136347482,56.2908194576798,32.1510519660571,29.0708674248622,28.7735536458695],"y":[27.7314533804411,28.7646874045771,28.9750453304275,28.6293849152243,36.8936807356894,38.3126369291444,36.1951436847102,67.8865007738829,28.1059949658662,42.9124686322067,30.2061695582532,29.238863499116,33.2697860646966,32.5931627956119,27.8387175177266,28.1462284253545,28.1136341426711,29.3830344547603,38.2899223772349,29.8810504673091,38.9014928758617,28.0982114566491,28.073180622375,35.6134198158923,28.6403690342411,27.8079861677828,48.5978753836468,49.1728373539671,28.5327674348744,29.1481055958712,29.1395375491817,38.5529411510286,44.1201872735604,32.3503602309507,35.8937829844101,32.6336173587417,35.2220231894576,28.9628147264405,35.9296892846931,36.6794637516184,28.6643127199777,31.292053067922,30.6622433285752,29.402138886433,43.8886422279845,28.2920524892456,30.446388283094,39.4826338131538,46.0146779477041,44.4053282759768,50.2636462365983,30.4473817946638,31.6158166049495,46.3277662422432,49.3455151428282,50.4353052481896,30.9413941637788,31.04272994489,38.5374049535434,33.7039031165652,39.1050597160479,30.8231484273977,32.5869215228092,32.4226628058173,35.1877008042825,37.0473232440235,31.1900112229733,35.8030059761668,36.8559694971899,31.3211732447714,30.9044323457791,35.4565399560276,34.0064046739623,36.6922165684077,31.0988685290871,34.3751209777146,29.019227543281,35.0354321684703,31.8879383844841,31.4562017950333,41.4989888947059,27.4960736290897,33.6688078672026,35.0729852090627,43.0795934502015,40.0009728957215,49.9962551094262,62.5316876368884,28.2943183733626,48.2452584900134,29.3254167508465,51.0188162554571,32.3669551358896,31.8675226776419,28.5656345168455,60.7080846051337,60.197239831155,34.382242160815,31.0883017041492,30.7703552071616],"mode":"lines"}],"layout":{"showlegend":false,"xaxis":{"title":"round1.log10.bf"},"yaxis":{"title":"round2.log10.bf"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="height2014-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="schizophrenia-2014.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/xiangzhu/rss-gsea/edit/master/03-04-height2014.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
