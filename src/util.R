@@ -72,6 +72,10 @@ gsea.mat2df <- function(gsea.path){
   gsea.df$name <- as.character(gsea.df$name)
   gsea.df$name <- iconv(gsea.df$name, from = "latin1", to = "UTF-8")
   
+  # remove gene sets whose source and database are 'NA'
+  keep.index <- (gsea.df$database!="NA") & (gsea.df$source!="NA")
+  gsea.df <- gsea.df[keep.index, ]
+  
   return(gsea.df)
 }
 
@@ -148,6 +152,11 @@ gsea.mat2df.round2 <- function(gsea.path){
   gsea.df$theta <- paste0(printed.theta.mean,", [",printed.theta.95lb,", ",printed.theta.95ub,"]")
   
   gsea.df.output <- gsea.df[, c("id","name","source","database","numgene","numsnps","log10.bf","theta0","theta")]
+  
+  # remove gene sets whose source and database are 'NA'
+  keep.index <- (gsea.df$database!="NA") & (gsea.df$source!="NA")
+  gsea.df <- gsea.df[keep.index, ]
+  
   return(gsea.df.output)
 }
 
