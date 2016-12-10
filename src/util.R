@@ -154,8 +154,8 @@ gsea.mat2df.round2 <- function(gsea.path){
   gsea.df.output <- gsea.df[, c("id","name","source","database","numgene","numsnps","log10.bf","theta0","theta")]
   
   # remove gene sets whose source and database are 'NA'
-  keep.index <- (gsea.df$database!="NA") & (gsea.df$source!="NA")
-  gsea.df <- gsea.df[keep.index, ]
+  keep.index <- (gsea.df.output$database!="NA") & (gsea.df.output$source!="NA")
+  gsea.df.output <- gsea.df.output[keep.index, ]
   
   return(gsea.df.output)
 }
