@@ -76,6 +76,9 @@ gsea.mat2df <- function(gsea.path){
   keep.index <- (gsea.df$database!="NA") & (gsea.df$source!="NA")
   gsea.df <- gsea.df[keep.index, ]
   
+  # sort rows by BF values, from largest to smallest
+  gsea.df <- plyr::arrange(gsea.df, -log10.bf)
+  
   return(gsea.df)
 }
 
@@ -156,6 +159,9 @@ gsea.mat2df.round2 <- function(gsea.path){
   # remove gene sets whose source and database are 'NA'
   keep.index <- (gsea.df.output$database!="NA") & (gsea.df.output$source!="NA")
   gsea.df.output <- gsea.df.output[keep.index, ]
+  
+  # sort rows by BF values, from largest to smallest
+  gsea.df.output <- plyr::arrange(gsea.df.output, -log10.bf)
   
   return(gsea.df.output)
 }
