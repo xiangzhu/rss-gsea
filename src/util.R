@@ -107,6 +107,59 @@ gtex.mat2df <- function(gtex.path){
   return(gtex.df)
 }
 
+gtex.mat2df.round2 <- function(gtex.path){
+  gtex.data <- R.matlab::readMat(gtex.path)
+  
+  # extract log 10 BFs of gene set enrichment
+  log10.bf <- c(gtex.data$path.lbf) / log(10)
+  
+  # create gene set id
+  if ("path.id" %in% names(gtex.data)) {
+    path.id <- as.character(c(gtex.data$path.id))
+  }
+  
+  if ("path.ts" %in% names(gtex.data)) {
+    path.ts <- unlist(gtex.data$path.ts)
+    path.id <- gsub("^.*?_","",path.ts) 
+  }
+  
+  # create output data frame
+  gtex.df <- data.frame(
+    id <- path.id,
+    numsnps <- c(gtex.data$path.nums),
+    log10.bf <- log10.bf,
+    theta0.mean <- gtex.data$theta0.est[, 1],
+    theta0.95lb <- gtex.data$theta0.est[, 3],
+    theta0.95ub <- gtex.data$theta0.est[, 4],
+    theta.mean <- gtex.data$theta.est[, 1],
+    theta.95lb <- gtex.data$theta.est[, 3],
+    theta.95ub <- gtex.data$theta.est[, 4]
+  )
+  names(gtex.df) <- c("id","numsnps","log10.bf",
+                      "theta0.mean","theta0.95lb","theta0.95ub",
+                      "theta.mean","theta.95lb","theta.95ub")
+  
+  # combine mean with 95 C.I.
+  printed.theta0.mean <- sprintf("%.3f", round(gtex.df$theta0.mean,digits=3))
+  printed.theta0.95lb <- sprintf("%.3f", round(gtex.df$theta0.95lb,digits=3))
+  printed.theta0.95ub <- sprintf("%.3f", round(gtex.df$theta0.95ub,digits=3))
+  
+  printed.theta.mean <- sprintf("%.3f", round(gtex.df$theta.mean,digits=3))
+  printed.theta.95lb <- sprintf("%.3f", round(gtex.df$theta.95lb,digits=3))
+  printed.theta.95ub <- sprintf("%.3f", round(gtex.df$theta.95ub,digits=3))
+  
+  gtex.df$theta0 <- paste0(printed.theta0.mean,", [",printed.theta0.95lb,", ",printed.theta0.95ub,"]")
+  gtex.df$theta <- paste0(printed.theta.mean,", [",printed.theta.95lb,", ",printed.theta.95ub,"]")
+  
+  gtex.df.output <- gtex.df[, c("id","numsnps","log10.bf","theta0","theta")]
+  
+  # sort rows by BF values, from largest to smallest
+  gtex.df.output <- plyr::arrange(gtex.df.output, -log10.bf)
+  
+  return(gtex.df.output)
+  
+}
+
 gsea.mat2df.round2 <- function(gsea.path){
   gsea.data <- R.matlab::readMat(gsea.path)
   
