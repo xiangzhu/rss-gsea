@@ -1,4 +1,4 @@
-## Pilot Analysis {#height2014-1}
+## GSEA Round 1 {#height2014-2}
 
 **Last updated:** `r Sys.Date()`
 
@@ -6,303 +6,65 @@
 
 ### Fit the null model
 
+I used the grids `theta0 = (-4:0.25:-1)'` and `h = (0.3:0.1:0.6)'` when fitting the null model. I estimated the (unnormalized) log importance weights ("pseudo-likelihoods") for all 52 sets of `(h,theta0)` under null. 
+
+```{r,echo=FALSE}
+knitr::include_graphics("images/height2014_null_round1.png", dpi=NA)
+```
+
+After normalizing the log "pseudo-likelihoods" (`logw.step*`) to posterior probabilities (`posp.step*`), we can see that almost 100% posterior mass is concentrated on the setting `(h=0.3, theta0=-2)`.
+```{r, include=FALSE}
+null.path <- "~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_null_201603.mat"
+null.df <- null.mat2df(null.path)
+```
+
+```{r, echo=FALSE}
+source("src/null_dt.R")
+null.dt
+```
+
 ### Fit the enrichment model
 
+To perform GSEA, I set `(h=0.3, theta0=-2)`, since the null analysis suggests that almost 100% posterior mass is placed on this setting. For the log-fold enrichment parameter, I use the grid `theta  = (0:0.01:2)'`. The following table lists the GSEA results. 
 ```{r, include=FALSE}
-gsea.path <- "~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_pathway_201602.mat"
-gsea.data <- R.matlab::readMat(gsea.path)
-
-gsea.df <- data.frame(
-  id <- c(gsea.data$path.id),
-  bf <- c(gsea.data$path.bf),
-  name <- unlist(gsea.data$path.name),
-  source <- unlist(gsea.data$path.sr),
-  database <- unlist(gsea.data$path.base),
-  numgene <- c(gsea.data$path.numg),
-  numsnps <- c(gsea.data$path.nums)
-)
-names(gsea.df) <- c("id","bf","name","source","database","numgene","numsnps")
-
-theta.est <- gsea.data$theta.est
-gsea.df$theta.mean <- theta.est[, 1]
-gsea.df$theta.sd <- theta.est[, 2]
-
-theta0.est <- gsea.data$theta0.est
-gsea.df$theta0.mean <- theta0.est[, 1]
-gsea.df$theta0.sd <- theta0.est[, 2]
+gsea.path <- "~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_pathway_201604.mat"
+gsea.df <- gsea.mat2df(gsea.path) 
 ```
 
-```{r,include=FALSE}
-gene.path.data <- R.matlab::readMat("~/Dropbox/rss/Data/pathway_database/gene_path.mat",sparseMatrixClass="matrix")
-
-entrezid <- c(gene.path.data$entrezid)
-label <- unlist(gene.path.data$label)
-database <- unlist(gene.path.data$database)
-source <- unlist(gene.path.data$source)
-genes <- as.data.frame(gene.path.data$genes)
-
-rm(gene.path.data)
-
-names(genes) <- paste0("Path",1:dim(genes)[2])
-genes$entrezid <- entrezid
-genes <- genes[,c(dim(genes)[2], 1:dim(genes)[2]-1)]
-```
-
-#### Example 1: Top enrichments
-
-Tabulate the top six enriched pathways for height.
 ```{r, echo=FALSE}
-knitr::kable(head(plyr::arrange(gsea.df, -bf)))
+source("src/gsea_dt.R")
+gsea.dt
 ```
 
-Plot the gene sharing pattern among these six top pathways.
-```{r,echo=FALSE,fig.width=11,fig.height=6,fig.cap="Gene sharing of the top enriched pathways"}
-UpSetR::upset(genes, sets=paste0("Path",head(plyr::arrange(gsea.df, -bf))$id), 
-              number.angles=0, point.size=5, name.size=12, line.size=2, 
-              mainbar.y.label="Genes Intersections", sets.x.label="Genes Per Pathway", 
-              queries=list(list(query=intersects, params=list("Path3208"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path3725"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path3856"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path3859"), color="orange", active=T)))
+To help decide the grid for `theta` in Round 2 enrichment analysis (Section \@ref(height2014-3)), I visualized the posterior mean, 95% lower and upper bound of `theta` for the top 100 enriched pathways identified in Round 1 analysis.
+
+```{r}
+gsea.df.sorted <- plyr::arrange(gsea.df, -log10.bf)
+gsea.df.top100 <- gsea.df.sorted[1:100, ]
+
+summary(gsea.df.top100[, c("theta.mean","theta.95lb","theta.95ub")])
+summary(gsea.df.top100[, c("numgene","numsnps")])
 ```
 
-#### Example 2: Hedgehog signaling pathway
+```{r, echo=FALSE}
+plot.df <- reshape2::melt(gsea.df.top100, id.vars=c("id", "name"), measure.vars=c("theta.mean","theta.95lb","theta.95ub"), variable.name="parameter", value.name="estimate")
 
-Retrieve all the pathways whose names contain the word "Hedgehog".
+plot_ly(plot.df, x=estimate, color=parameter, type="box")
+```
+
+### Enrichment analysis in GTEx
+
+I also ran the GSEA using the clustering results of GTEx gene expression V6 data (20 clusters, each with 100 genes).
 ```{r, include=FALSE}
-hedgehog.pathway <- grep('Hedgehog', as.character(gsea.df$name), value=TRUE)
-hedgehog.index <- as.character(gsea.df$name) %in% hedgehog.pathway
-hedgehog.df <- gsea.df[hedgehog.index, ]
+gtex.path <- "~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_gtexclust_201604.mat"
+gtex.df <- gtex.mat2df(gtex.path) 
 ```
 
-Tabulate the ones with the largest BFs.
 ```{r, echo=FALSE}
-knitr::kable(head(plyr::arrange(hedgehog.df, -bf)))
+source("src/gtex_dt.R")
+gtex.dt
 ```
 
-Plot the gene sharing pattern.
-```{r,echo=FALSE,fig.width=11,fig.height=6,fig.cap="Gene sharing of Hedgehog pathways"}
-UpSetR::upset(genes, sets=c("Path3208", paste0("Path",head(plyr::arrange(hedgehog.df, -bf))$id)), 
-              number.angles=0, point.size=5, name.size=12, line.size=2, 
-              mainbar.y.label="Genes Intersections", sets.x.label="Genes Per Pathway",
-              queries=list(list(query=intersects, params=list("Path3208"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path2067","Path2045"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path3598","Path3677"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path3598","Path3677","Path2978"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path3598","Path3677","Path3398"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path3598","Path3677","Path3398","Path2978"), color="orange", active=T),
-                           list(query=intersects, params=list("Path3208","Path3598","Path3677","Path3398","Path2978","Path2045","Path2067"), color="orange", active=T)))
-```
-
-#### Example 3: GTEx tissue specific eQTL
-
-```{r,include=FALSE}
-results.path <- "~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_gtex_tissue_specific.mat"
-results <- R.matlab::readMat(results.path)
-
-num.genes <- c(3,2,4,3,2,3,2,2,58,136,87,48,48,101,79,4,2,6,31,2,36,3,207,162,176) - 1
-
-df <- data.frame(
-  tissue.name <- unlist(results$tissue),
-  bayes.factor <- c(results$tissue.bf),
-  num.snps <- c(results$num.snps),
-  num.genes <- num.genes
-)
-names(df) <- c("tissue.name","bayes.factor","num.snps","num.genes")
-
-theta.est <- results$theta.est
-theta0.est <- results$theta0.est
-
-df$theta.mean <- theta.est[, 1]
-df$theta.sd <- theta.est[, 2]
-df$theta0.mean <- theta0.est[, 1]
-df$theta0.sd <- theta0.est[, 2]
-```
-
-```{r,echo=FALSE,fig.width=11,fig.height=7,fig.cap="Enrichment of height associations in GTEx tissues"}
-bp <- ggplot(df, aes(x=reorder(tissue.name, bayes.factor), y=log10(bayes.factor))) 
-bp <- bp + geom_bar(position=position_dodge(), stat="identity", fill="#D6D6CE")
-bp <- bp + geom_text(aes(label=tissue.name, y=1.5), vjust=0.5, angle=0)
-bp <- bp + geom_text(aes(label=num.genes, y=-0.7), vjust=0, angle=0)
-bp <- bp + xlab("Number of Genes & Tissue Name") + ylab("Log 10 Bayes Factor") + ggtitle("") 
-bp <- bp + scale_y_continuous(breaks=seq(0:5)*2)
-bp <- bp + geom_hline(yintercept=2, color="#800000", size=2, alpha=0.5)
-bp <- bp + theme_classic() + scale_x_discrete(breaks=NULL) + coord_flip()
-print(bp)
-```
-
-### Prioritize variants in the enriched pathway
-
-```{r,include=FALSE,message=FALSE,warning=FALSE,echo=FALSE}
-suppressPackageStartupMessages(library(GenomicRanges))
-suppressPackageStartupMessages(library(TxDb.Hsapiens.UCSC.hg19.knownGene))
-suppressPackageStartupMessages(library(bumphunter))
-suppressPackageStartupMessages(library(org.Hs.eg.db))
-```
-
-```{r,message=FALSE,warning=FALSE}
-eo.data <- R.matlab::readMat("~/Dropbox/rss/Data/height_2014/pathway/jobscripts_201601/height2014_eo_201602.mat")
-
-eo.df <- data.frame(
-  seg.chr <- c(eo.data$segchr),
-  seg.start <- c(eo.data$segpos),
-  p1.null <- c(eo.data$P1null),
-  p2.null <- c(eo.data$P2null),
-  p1.gsea <- c(eo.data$P1),
-  p2.gsea <- c(eo.data$P2)
-)
-names(eo.df) <- c("seg.chr","seg.start","p1.null","p2.null","p1.gsea","p2.gsea")
-
-snp.df <- data.frame(
-  chr <- c(eo.data$chr),
-  pos <- c(eo.data$pos)
-)
-names(snp.df) <- c("chr","pos")
-```
-
-Find the start and end of each chromosome.
-```{r}
-chr.start = chr.end = NULL
-for (i in 1:22) {
-  snp.df.chr <- snp.df[snp.df$chr == i, ]
-  chr.start[i] <- min(snp.df.chr$pos)
-  chr.end[i] <- max(snp.df.chr$pos)
-}
-```
-
-Find the end of each 50-SNP segment.
-```{r}
-num.seg <- dim(eo.df)[1]
-seg.end <- NULL
-for (i in 1:(num.seg-2)) {
-  chr.id <- eo.df$seg.chr[i]
-  if (eo.df$seg.chr[i+2] > chr.id) {
-    seg.end[i] <- chr.end[chr.id]
-  } else {
-    seg.end[i] <- eo.df$seg.start[i+2]
-  }
-}
-seg.end[num.seg-1] <- chr.end[22]
-seg.end[num.seg] <- chr.end[22]
-
-eo.df$seg.end <- seg.end
-eo.df <- eo.df[c(1:2,7,3:6)]
-```
-
-Load the GWAS hits reported in Wood et al (2014).
-```{r,message=FALSE,warning=FALSE}
-cojo.results <- read.table("~/Dropbox/rss/Data/height_2014/height2014.cojo.txt", header=TRUE)
-
-# Note that the published GWAS hits were based on a different assembly (NCBI build 36 / hg18).
-# See height_2014_40kb.Rmd for a detail description.
-cojo.mart.hg19 <- as.character(unlist(read.table("~/Dropbox/rss/Data/height_2014/cojo.mart.hg19.bed", header=FALSE)))
-cojo.mart.hg19.tmp <- matrix(unlist(strsplit(cojo.mart.hg19, "-")), ncol=2, byrow=TRUE)
-cojo.mart.hg19.pos <- as.numeric(cojo.mart.hg19.tmp[, 2])
-cojo.results$pos19 <- cojo.mart.hg19.pos
-```
-
-Find the nearest GWAS hits and the absolute distance for each segment (unit: bp).
-```{r,message=FALSE,warning=FALSE}
-distance <- NULL
-nearhits <- NULL
-
-for (j in 1:num.seg) {
-    # specify the chromosome and region
-    chr <- eo.df$seg.chr[j]
-    start <- eo.df$seg.start[j]
-    end <- eo.df$seg.end[j]
-    # find the GWAS hits on the chromosome
-    chr.index <- which(cojo.results$chr == chr)
-    # find the GWAS hits inside the region
-    ins.index <- which(cojo.results$chr == chr & cojo.results$pos19 >= start & cojo.results$pos19 <= end)
-    hit.ins <- cojo.results[ins.index, ]
-    if (dim(hit.ins)[1]>0) {
-      # distance b/t hit and region is zero if hit is inside the region
-      distance[j] <- 0
-      nearhits[j] <- paste0(as.character(hit.ins$snp), collapse="-")
-    } else {
-      # find the GWAS hits outside the region
-      out.index <- setdiff(chr.index, ins.index)
-      hit.out <- cojo.results[out.index, ]  
-      # compute the distance b/t each hit and the region
-      start.absdiff <- abs(hit.out$pos19 - start)
-      end.absdiff <- abs(hit.out$pos19 - end)
-      # find the GWAS hits with smallest absolute distance
-      start.min.index <- which.min(start.absdiff)
-      end.min.index <- which.min(end.absdiff)
-      # compare up and down stream distances
-      if (start.absdiff[start.min.index] <= end.absdiff[end.min.index]) {
-        distance[j] <- start.absdiff[start.min.index]
-        nearhits[j] <- as.character(hit.out$snp[start.min.index])
-      } else {
-        distance[j] <- end.absdiff[end.min.index]
-        nearhits[j] <- as.character(hit.out$snp[end.min.index])
-      }
-    }
-}
-
-eo.df$hit.distance <- distance
-eo.df$nearest.hit <- nearhits
-
-eo.df.all <- eo.df
-rm(eo.df)
-
-eo.df <- eo.df.all[(eo.df.all$p1.gsea>eo.df.all$p1.null) & (eo.df.all$p1.gsea>=0.5), ]
-```
-
-Find and annotate closest genes to genomic regions.
-```{r,message=FALSE,warning=FALSE}
-# minor re-format the data frame eo.df for the makeGRangesFromDataFrame function
-names(eo.df)[1:3] <- c("chr","start","end")
-eo.df$chr <- paste0("chr",eo.df$chr)
-
-# create a GRanges for the safe.df
-eo.df.GRanges <- GenomicRanges::makeGRangesFromDataFrame(eo.df)
-
-# prepare a GRanges for the matchGenes function
-genes <- bumphunter::annotateTranscripts(TxDb.Hsapiens.UCSC.hg19.knownGene,annotation="org.Hs.eg.db")
-
-# find and annotate the closest genes to the regions
-eo.df.annotation <- bumphunter::matchGenes(eo.df.GRanges, genes) # NB: this step may take some time
-
-# add annotations to the data frame
-eo.df$nearest.gene <- eo.df.annotation$name
-eo.df$description <- eo.df.annotation$description
-eo.df$entrez.id <- eo.df.annotation$Entrez
-```
-
-Check whether the enrichment of Endochondral Ossification pathway informs additional associations.
-```{r,message=FALSE,warning=FALSE}
-index <- (eo.df$p1.gsea>eo.df$p1.null) & (eo.df$p1.gsea>=0.5) & (eo.df$hit.distance>1e6)
-eo.df.gsea <- eo.df[index, ]
-
-# compute the difference of P1 between null and gsea
-eo.df.gsea$p1.diff <- eo.df.gsea$p1.gsea - eo.df.gsea$p1.null
-
-# sort the data frame
-head(plyr::arrange(eo.df.gsea, -p1.diff, p1.gsea, hit.distance))
-```
-
-Check whether the findings are novel.
-```{r}
-intersect(as.character(cojo.results$nearest.gene), "CAMK2G")
-intersect(as.character(cojo.results$nearest.gene), "PTH1R")
-```
-
-Visualize the association results informed by the enrichment.
-```{r, echo=FALSE}
-plotly::plot_ly(data=eo.df.gsea, x=p1.null, y=p1.gsea, type="scatter", mode="markers",
-                text=paste0("Locus: ",chr,": ",start,"-",end,"; Nearest gene:",nearest.gene), color=p1.null, size=hit.distance) %>% add_trace(x=c(0.5,1), y=c(0.5,1), mode="lines") %>% layout(showlegend=F) 
-```
-
-Validate the findings via literature review.
-
-- *CAMK2G*
-  - skeletal muscle function during exercise: https://www.ncbi.nlm.nih.gov/pubmed/16690701
-  
-- *PTH1R*
-  - bone formation: http://www.ncbi.nlm.nih.gov/pubmed/20929987
-  - osteocyte survival: http://www.ncbi.nlm.nih.gov/pubmed/25529820
 
 
 
