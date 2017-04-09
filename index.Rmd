@@ -1,5 +1,5 @@
 --- 
-title: "Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data"
+title: "Integrated Enrichment Analysis of Genetic Variants, Biological Pathways and Tissues Across 31 Human Phenotypes"
 author: "Xiang Zhu"
 date: "`r Sys.Date()`"
 knit: bookdown::render_book
@@ -12,21 +12,12 @@ github-repo: xiangzhu/rss-gsea
 ---
 
 ```{r,include=FALSE}
-# DO NOT RUN  
-#suppressPackageStartupMessages(library(devtools))
-#install_version("plotly", version = "3.6.0", repos = "http://cran.us.r-project.org")
-#packageVersion('plotly')
-#install_version("UpSetR", version = "1.2.0", repos = "http://cran.us.r-project.org")
-#packageVersion('UpSetR')
-
 # load packages
 suppressPackageStartupMessages(library(R.matlab))
 suppressPackageStartupMessages(library(DT))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(plyr))
-suppressPackageStartupMessages(library(UpSetR)) # UpSetR_1.2.0
-suppressPackageStartupMessages(library(plotly)) # plotly_3.6.0
 suppressPackageStartupMessages(library(reshape2))
 
 # load self-defined subroutines
@@ -41,13 +32,12 @@ source("src/util.R")
 
 **What**
 
-This is my notebook for a research project, the aim of which is to develop statistical methods for integrated enrichment analysis of genome-wide association studies (GWAS) summary data and biological pathways.
-Specifically, I combine the likelihood function from @rss_2016 with the prior distribution from @integrated_plos_2013, and then perform Bayesian analysis. 
+This is my online notebook for sharing large-scale analysis **results**^[Details of analysis methods can be found in the corresponding manuscript and supplementary materials.] from a research project, the aim of which is to develop statistical methods for integrated enrichment analysis of genome-wide association studies (GWAS) summary data and biological pathways or tissue-based gene sets.
 
 **How**
 
 I make this notebook using many wonderful publicly available tools,
-including [`rmarkdown`][rmarkdown], [`knitr`][knitr], [`bookdown`][bookdown], [`pandoc`][pandoc] and [`plotly`][plotly].
+including [`rmarkdown`][rmarkdown], [`knitr`][knitr], [`bookdown`][bookdown], [`pandoc`][pandoc] and [`DT`][dt].
 This notebook is largely motivated by the idea from the [singleCellseq][scs] project at the [Gilad Lab](http://giladlab.uchicago.edu/).
 To host the notebook, I use [GitHub Pages][gh-pages].
 
@@ -55,10 +45,9 @@ To host the notebook, I use [GitHub Pages][gh-pages].
 [knitr]: http://yihui.name/knitr/
 [bookdown]: https://bookdown.org/
 [pandoc]: http://pandoc.org/
-[rmd-site]: https://github.com/rstudio/rmarkdown/tree/gh-pages
+[dt]: https://rstudio.github.io/DT/
 [gh-pages]: https://pages.github.com/
 [scs]: https://github.com/jdblischak/singleCellSeq
-[plotly]: https://plot.ly/
 
 **Contact**
 
@@ -67,7 +56,7 @@ If you have any question about this notebook, please feel free to contact me.
 - Create a new [issue](https://github.com/xiangzhu/rss-gsea/issues) in GitHub.
 - Send an email to `xiangzhu@uchicago.edu`.
 
-## License & Cite 
+**License & Cite** 
 
 Currently the notebook is licensed under the [Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)][site-license].
 This means you are free to include content from this site in your presentation, blog, or social media posts, as long you cite it.
@@ -79,14 +68,9 @@ The source code in the notebook is licensed under the [GNU General Public Licens
 If you use any results from this notebook, please cite it by including the following text:
 
 ```{block, note-text, type='rmdcite'}
-Zhu, X. (2016). Integrated Enrichment Analysis of Genetic Variants and Biological Pathways using GWAS Summary Data. *Stephens Laboratory Notebook at the University of Chicago*. Retrieved from https://github.com/xiangzhu/rss-gsea
+Zhu, X. (2016). Integrated Enrichment Analysis of Genetic Variants, Biological Pathways and Tissues Across 31 Human Phenotypes. *Stephens Laboratory Notebook at the University of Chicago*. Retrieved from https://github.com/xiangzhu/rss-gsea
 ```
 
 [code-license]: https://www.gnu.org/licenses/gpl-3.0.txt
 [site-license]: https://creativecommons.org/licenses/by-nd/4.0/
 
-## News
-
-- **10/20/2016**: Xiang presented this work at the 2016 American Society of Human Genetics Annual Meeting (ASHG2016), Vancouver, BC, Canada. [[Poster]](http://www.stat.uchicago.edu/~xiangzhu/ASHG_2016.pdf) 
-- **03/04/2016**: Xiang presented this work at the 2016 Novembre-He-Stephens meeting, Chicago. IL. [[Slides]](http://www.stat.uchicago.edu/~xiangzhu/NHS_20160304.pdf)
-- **10/15/2015**: Xiang presented this work at the 2015 Probabilistic Modeling in Genomics Conference (ProbGen15), Cold Spring Harbor Laboratory, NY. [[Poster]](http://www.stat.uchicago.edu/~xiangzhu/CSHL_2015.pdf) 
