@@ -1,0 +1,45 @@
+## GTEx Analysis {#hb2012-3}
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+```{r, include=FALSE}
+topexpr.path <- "~/Dropbox/rss/Data/gwas_gtex_topexpr/aggregate_results/"
+toptssc.path <- "~/Dropbox/rss/Data/gwas_gtex_toptssc/aggregate_results/"
+gtexclust.path <- "~/Dropbox/rss/Data/gwas_gtexclust/round2_results/"
+
+data.name <- "hb2012"
+```
+
+### Tissue highly expressed genes
+
+```{r, echo=FALSE}
+gtex.path <- paste0(topexpr.path, data.name, "_gtextop100expr_201609.mat")
+gtex.df <- gtex.mat2df.round2(gtex.path)
+
+gtex.df <- merge(gtex.df, tissue.df, by="id")
+gtex.df$id <- as.character(gtex.df$tissue)
+gtex.df <- plyr::arrange(gtex.df, -log10.bf)
+
+source("src/gtex_dt_round2.R")
+gtex.dt
+```
+
+### Tissue selectively expressed genes
+
+```{r, echo=FALSE}
+gtex.path <- paste0(toptssc.path, data.name, "_gtextop100tssc_201609.mat")
+gtex.df <- gtex.mat2df.round2(gtex.path) 
+source("src/gtex_dt_round2.R")
+gtex.dt
+```
+
+### Cluster distinctively expressed genes
+
+```{r, echo=FALSE}
+gtex.path <- paste0(gtexclust.path, data.name, "_gtexclust_201609.mat")
+gtex.df <- gtex.mat2df.round2(gtex.path) 
+source("src/gtex_dt_round2.R")
+gtex.dt
+```
