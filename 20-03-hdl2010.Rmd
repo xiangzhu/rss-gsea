@@ -40,27 +40,3 @@ gsea.df <- gsea.mat2df.round2(gsea.path)
 source("src/gsea_dt_round2.R")
 gsea.dt
 ```
-
-Now we compare the enrichment Bayes factors from Round 1 and 2 analyses.
-
-```{r, include=FALSE}
-gsea.path <- "~/Dropbox/rss/Data/hdl_2010/pathway/hdl2010_pathway_201604.mat"
-gsea.df.round1 <- gsea.mat2df(gsea.path) 
-
-bf.round1 <- gsea.df.round1[, c("id","name","source","database","numgene","numsnps","log10.bf")]
-bf.round2 <- gsea.df[, c("id","name","source","database","numgene","numsnps","log10.bf")]
-bf.df <- merge(bf.round1, bf.round2, by=c("id","name","source","database","numgene","numsnps"))
-names(bf.df)[7:8] <- c("round1.log10.bf", "round2.log10.bf")
-```
-
-```{r, echo=FALSE}
-fit <- lm(round2.log10.bf~round1.log10.bf-1, data=bf.df)
-
-plotly::plot_ly(data=bf.df, x=round1.log10.bf, y=round2.log10.bf, mode="markers",
-                text=paste0("ID: ",id,"; Name: ",name), color=numsnps, size=numgene) %>% add_trace(x=c(0,115), y=c(0,115), mode="lines") %>% add_trace(x=round1.log10.bf, y=fitted(fit), mode="lines") %>% layout(showlegend = F) 
-```
-
-
-
-
-
