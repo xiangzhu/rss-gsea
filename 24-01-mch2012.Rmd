@@ -4,6 +4,10 @@
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
+The GWAS summary statistics corresponding to @rbc_nature_2012 are available from the European Genome–Phenome Archive (EGA, http://www.ebi.ac.uk/ega) under accession number EGAS00000000132.
+
 The following analyses have been performed on Mean Cell Haemoglobin (MCH) 2012 dataset.
 
 - GSEA Round 1 (Section \@ref(mch2012-1))
+- GSEA Round 2 (Section \@ref(mch2012-2))
+- GTEx Analysis (Section \@ref(mch2012-3))

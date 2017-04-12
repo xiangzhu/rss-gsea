@@ -40,3 +40,5 @@ The following analyses have been performed on Inflammatory Bowel Disease (IBD) 2
 
 - GSEA Round 1 (Section \@ref(ibd2015-1))
 - GSEA Round 2 (Section \@ref(ibd2015-2))
+- GTEx Analysis (Section \@ref(ibd2015-3))
+

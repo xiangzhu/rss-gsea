@@ -12,3 +12,4 @@ The following analyses have been performed on Type 2 Diabetes 2012 dataset.
 
 - GSEA Round 1 (Section \@ref(t2d2012-1))
 - GSEA Round 2 (Section \@ref(t2d2012-2))
+- GTEx Analysis (Section \@ref(t2d2012-3))

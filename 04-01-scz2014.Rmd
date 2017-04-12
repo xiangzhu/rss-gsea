@@ -12,3 +12,4 @@ The following analyses have been performed on Schizophrenia (SCZ) 2014 dataset.
 
 - GSEA Round 1 (Section \@ref(scz2014-1))
 - GSEA Round 2 (Section \@ref(scz2014-2))
+- GTEx Analysis (Section \@ref(scz2014-3))
