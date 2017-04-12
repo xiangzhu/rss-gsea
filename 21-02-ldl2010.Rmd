@@ -36,7 +36,7 @@ source("src/gsea_dt.R")
 gsea.dt
 ```
 
-To help decide the grid for `theta` in Round 2 enrichment analysis (Section \@ref(ldl2010-2)), I visualized the posterior mean, 95% lower and upper bound of `theta` for the top 100 enriched pathways identified in Round 1 analysis.
+To help decide the grid for `theta` in Round 2 enrichment analysis (Section \@ref(ldl2010-2)), I looked at the posterior mean, 95% lower and upper bound of `theta` for the top 100 enriched pathways identified in Round 1 analysis.
 
 ```{r}
 gsea.df.sorted <- plyr::arrange(gsea.df, -log10.bf)
@@ -45,25 +45,3 @@ gsea.df.top100 <- gsea.df.sorted[1:100, ]
 summary(gsea.df.top100[, c("theta.mean","theta.95lb","theta.95ub")])
 summary(gsea.df.top100[, c("numgene","numsnps")])
 ```
-
-```{r, echo=FALSE}
-plot.df <- reshape2::melt(gsea.df.top100, id.vars=c("id", "name"), measure.vars=c("theta.mean","theta.95lb","theta.95ub"), variable.name="parameter", value.name="estimate")
-
-plot_ly(plot.df, x=estimate, color=parameter, type="box")
-```
-
-### Enrichment analysis in GTEx
-
-I also ran the GSEA using the clustering results of GTEx gene expression V6 data (20 clusters, each with 100 genes).
-```{r, include=FALSE}
-gtex.path <- "~/Dropbox/rss/Data/ldl_2010/pathway/ldl2010_gtexclust_201604.mat"
-gtex.df <- gtex.mat2df(gtex.path) 
-```
-
-```{r, echo=FALSE}
-source("src/gtex_dt.R")
-gtex.dt
-```
-
-
-

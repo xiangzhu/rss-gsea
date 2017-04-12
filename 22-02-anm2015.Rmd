@@ -35,18 +35,3 @@ gsea.df <- gsea.mat2df(gsea.path)
 source("src/gsea_dt.R")
 gsea.dt
 ```
-
-### Enrichment analysis in GTEx
-
-I also ran the GSEA using the clustering results of GTEx gene expression V6 data (20 clusters, each with 100 genes).
-```{r, include=FALSE}
-gtex.path <- "~/Dropbox/rss/Data/anm_2015/pathway/anm2015_gtexclust_201604.mat"
-gtex.df <- gtex.mat2df(gtex.path) 
-```
-
-```{r, echo=FALSE}
-source("src/gtex_dt.R")
-gtex.dt
-```
-
-
