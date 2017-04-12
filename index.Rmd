@@ -12,16 +12,22 @@ github-repo: xiangzhu/rss-gsea
 ---
 
 ```{r,include=FALSE}
+# ulimit -s 32768 
+
 # load packages
 suppressPackageStartupMessages(library(R.matlab))
 suppressPackageStartupMessages(library(DT))
-suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(plyr))
 suppressPackageStartupMessages(library(reshape2))
 
 # load self-defined subroutines
 source("src/util.R")
+
+# load gtex tissue names
+source("~/Dropbox/rss/Data/gtex_database/color/load_gtex_color.R")
+tissue.df <- color.dat[, c("tissue.name","tissue.abbr")]
+names(tissue.df) <- c("tissue","id")
 ```
 
 # Basic Information
