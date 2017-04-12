@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Integrated Enrichment Analysis of Genetic Variants, Biological Pathways and Tissues Across 31 Human Phenotypes</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Integrated Enrichment Analysis of Genetic Variants, Biological Pathways and Tissues Across 31 Human Phenotypes">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Integrated Enrichment Analysis of Genetic Variants, Biological Pathways and Tissues Across 31 Human Phenotypes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="xiangzhu/rss-gsea" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Integrated Enrichment Analysis of Genetic Variants, Biological Pathways and Tissues Across 31 Human Phenotypes" />
+  
+  
+  
+
+<meta name="author" content="Xiang Zhu">
+
+
+<meta name="date" content="2017-04-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="ds2016-2.html">
+<link rel="next" href="red-blood-cell-count-2012.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-keytable-1.10.12/css/keyTable.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-keytable-1.10.12/js/dataTables.keyTable.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.10.12/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.10.12/js/dataTables.fixedColumns.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">RSS-GSEA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Basic Information</a></li>
+<li class="chapter" data-level="2" data-path="height-2014.html"><a href="height-2014.html"><i class="fa fa-check"></i><b>2</b> Height 2014</a><ul>
+<li class="chapter" data-level="2.1" data-path="height2014-1.html"><a href="height2014-1.html"><i class="fa fa-check"></i><b>2.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-null-model"><i class="fa fa-check"></i><b>2.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="2.1.2" data-path="height2014-1.html"><a href="height2014-1.html#fit-the-enrichment-model"><i class="fa fa-check"></i><b>2.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="height2014-2.html"><a href="height2014-2.html"><i class="fa fa-check"></i><b>2.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="height2014-2.html"><a href="height2014-2.html#fit-the-null-model-1"><i class="fa fa-check"></i><b>2.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="2.2.2" data-path="height2014-2.html"><a href="height2014-2.html#fit-the-enrichment-model-1"><i class="fa fa-check"></i><b>2.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="height2014-3.html"><a href="height2014-3.html"><i class="fa fa-check"></i><b>2.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="height2014-3.html"><a href="height2014-3.html#tissue-highly-expressed-genes"><i class="fa fa-check"></i><b>2.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="2.3.2" data-path="height2014-3.html"><a href="height2014-3.html#tissue-selectively-expressed-genes"><i class="fa fa-check"></i><b>2.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="2.3.3" data-path="height2014-3.html"><a href="height2014-3.html#cluster-distinctively-expressed-genes"><i class="fa fa-check"></i><b>2.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="schizophrenia-2014.html"><a href="schizophrenia-2014.html"><i class="fa fa-check"></i><b>3</b> Schizophrenia 2014</a><ul>
+<li class="chapter" data-level="3.1" data-path="scz2014-1.html"><a href="scz2014-1.html"><i class="fa fa-check"></i><b>3.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="scz2014-1.html"><a href="scz2014-1.html#fit-the-null-model-2"><i class="fa fa-check"></i><b>3.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="3.1.2" data-path="scz2014-1.html"><a href="scz2014-1.html#fit-the-enrichment-model-2"><i class="fa fa-check"></i><b>3.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="scz2014-2.html"><a href="scz2014-2.html"><i class="fa fa-check"></i><b>3.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="scz2014-2.html"><a href="scz2014-2.html#fit-the-null-model-3"><i class="fa fa-check"></i><b>3.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="3.2.2" data-path="scz2014-2.html"><a href="scz2014-2.html#fit-the-enrichment-model-3"><i class="fa fa-check"></i><b>3.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="scz2014-3.html"><a href="scz2014-3.html"><i class="fa fa-check"></i><b>3.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="scz2014-3.html"><a href="scz2014-3.html#tissue-highly-expressed-genes-1"><i class="fa fa-check"></i><b>3.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="3.3.2" data-path="scz2014-3.html"><a href="scz2014-3.html#tissue-selectively-expressed-genes-1"><i class="fa fa-check"></i><b>3.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="3.3.3" data-path="scz2014-3.html"><a href="scz2014-3.html#cluster-distinctively-expressed-genes-1"><i class="fa fa-check"></i><b>3.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bmi2015.html"><a href="bmi2015.html"><i class="fa fa-check"></i><b>4</b> Body Mass Index 2015</a><ul>
+<li class="chapter" data-level="4.1" data-path="bmi2015-1.html"><a href="bmi2015-1.html"><i class="fa fa-check"></i><b>4.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="bmi2015-1.html"><a href="bmi2015-1.html#fit-the-null-model-4"><i class="fa fa-check"></i><b>4.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="4.1.2" data-path="bmi2015-1.html"><a href="bmi2015-1.html#fit-the-enrichment-model-4"><i class="fa fa-check"></i><b>4.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="bmi2015-2.html"><a href="bmi2015-2.html"><i class="fa fa-check"></i><b>4.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="bmi2015-2.html"><a href="bmi2015-2.html#fit-the-null-model-5"><i class="fa fa-check"></i><b>4.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="bmi2015-2.html"><a href="bmi2015-2.html#fit-the-enrichment-model-5"><i class="fa fa-check"></i><b>4.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="bmi2015-3.html"><a href="bmi2015-3.html"><i class="fa fa-check"></i><b>4.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="bmi2015-3.html"><a href="bmi2015-3.html#tissue-highly-expressed-genes-2"><i class="fa fa-check"></i><b>4.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="4.3.2" data-path="bmi2015-3.html"><a href="bmi2015-3.html#tissue-selectively-expressed-genes-2"><i class="fa fa-check"></i><b>4.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="4.3.3" data-path="bmi2015-3.html"><a href="bmi2015-3.html#cluster-distinctively-expressed-genes-2"><i class="fa fa-check"></i><b>4.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ibd2015.html"><a href="ibd2015.html"><i class="fa fa-check"></i><b>5</b> Inflammatory Bowel Disease 2015</a><ul>
+<li class="chapter" data-level="5.1" data-path="ibd2015-1.html"><a href="ibd2015-1.html"><i class="fa fa-check"></i><b>5.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="ibd2015-1.html"><a href="ibd2015-1.html#fit-the-null-model-6"><i class="fa fa-check"></i><b>5.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="5.1.2" data-path="ibd2015-1.html"><a href="ibd2015-1.html#fit-the-enrichment-model-6"><i class="fa fa-check"></i><b>5.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="ibd2015-2.html"><a href="ibd2015-2.html"><i class="fa fa-check"></i><b>5.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="ibd2015-2.html"><a href="ibd2015-2.html#fit-the-null-model-7"><i class="fa fa-check"></i><b>5.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ibd2015-2.html"><a href="ibd2015-2.html#fit-the-enrichment-model-7"><i class="fa fa-check"></i><b>5.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="ibd2015-3.html"><a href="ibd2015-3.html"><i class="fa fa-check"></i><b>5.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="ibd2015-3.html"><a href="ibd2015-3.html#tissue-highly-expressed-genes-3"><i class="fa fa-check"></i><b>5.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="5.3.2" data-path="ibd2015-3.html"><a href="ibd2015-3.html#tissue-selectively-expressed-genes-3"><i class="fa fa-check"></i><b>5.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="5.3.3" data-path="ibd2015-3.html"><a href="ibd2015-3.html#cluster-distinctively-expressed-genes-3"><i class="fa fa-check"></i><b>5.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="cad2015.html"><a href="cad2015.html"><i class="fa fa-check"></i><b>6</b> Coronary Artery Disease 2015</a><ul>
+<li class="chapter" data-level="6.1" data-path="cad2015-1.html"><a href="cad2015-1.html"><i class="fa fa-check"></i><b>6.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="cad2015-1.html"><a href="cad2015-1.html#fit-the-null-model-8"><i class="fa fa-check"></i><b>6.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="6.1.2" data-path="cad2015-1.html"><a href="cad2015-1.html#fit-the-enrichment-model-8"><i class="fa fa-check"></i><b>6.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="cad2015-2.html"><a href="cad2015-2.html"><i class="fa fa-check"></i><b>6.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="cad2015-2.html"><a href="cad2015-2.html#fit-the-null-model-9"><i class="fa fa-check"></i><b>6.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="6.2.2" data-path="cad2015-2.html"><a href="cad2015-2.html#fit-the-enrichment-model-9"><i class="fa fa-check"></i><b>6.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="cad2015-3.html"><a href="cad2015-3.html"><i class="fa fa-check"></i><b>6.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="cad2015-3.html"><a href="cad2015-3.html#tissue-highly-expressed-genes-4"><i class="fa fa-check"></i><b>6.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="6.3.2" data-path="cad2015-3.html"><a href="cad2015-3.html#tissue-selectively-expressed-genes-4"><i class="fa fa-check"></i><b>6.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="6.3.3" data-path="cad2015-3.html"><a href="cad2015-3.html#cluster-distinctively-expressed-genes-4"><i class="fa fa-check"></i><b>6.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="alzheimers-disease-2013.html"><a href="alzheimers-disease-2013.html"><i class="fa fa-check"></i><b>7</b> Alzheimer’s Disease 2013</a><ul>
+<li class="chapter" data-level="7.1" data-path="load2013-1.html"><a href="load2013-1.html"><i class="fa fa-check"></i><b>7.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="load2013-1.html"><a href="load2013-1.html#fit-the-null-model-10"><i class="fa fa-check"></i><b>7.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="7.1.2" data-path="load2013-1.html"><a href="load2013-1.html#fit-the-enrichment-model-10"><i class="fa fa-check"></i><b>7.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="load2013-2.html"><a href="load2013-2.html"><i class="fa fa-check"></i><b>7.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="load2013-2.html"><a href="load2013-2.html#fit-the-null-model-11"><i class="fa fa-check"></i><b>7.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="7.2.2" data-path="load2013-2.html"><a href="load2013-2.html#fit-the-enrichment-model-11"><i class="fa fa-check"></i><b>7.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="load2013-3.html"><a href="load2013-3.html"><i class="fa fa-check"></i><b>7.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="load2013-3.html"><a href="load2013-3.html#tissue-highly-expressed-genes-5"><i class="fa fa-check"></i><b>7.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="7.3.2" data-path="load2013-3.html"><a href="load2013-3.html#tissue-selectively-expressed-genes-5"><i class="fa fa-check"></i><b>7.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="7.3.3" data-path="load2013-3.html"><a href="load2013-3.html#cluster-distinctively-expressed-genes-5"><i class="fa fa-check"></i><b>7.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="waist-to-hip-ratio-2015.html"><a href="waist-to-hip-ratio-2015.html"><i class="fa fa-check"></i><b>8</b> Waist-to-Hip Ratio 2015</a><ul>
+<li class="chapter" data-level="8.1" data-path="waist2015-1.html"><a href="waist2015-1.html"><i class="fa fa-check"></i><b>8.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="waist2015-1.html"><a href="waist2015-1.html#fit-the-null-model-12"><i class="fa fa-check"></i><b>8.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="8.1.2" data-path="waist2015-1.html"><a href="waist2015-1.html#fit-the-enrichment-model-12"><i class="fa fa-check"></i><b>8.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="waist2015-2.html"><a href="waist2015-2.html"><i class="fa fa-check"></i><b>8.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="waist2015-2.html"><a href="waist2015-2.html#fit-the-null-model-13"><i class="fa fa-check"></i><b>8.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="8.2.2" data-path="waist2015-2.html"><a href="waist2015-2.html#fit-the-enrichment-model-13"><i class="fa fa-check"></i><b>8.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="waist2015-3.html"><a href="waist2015-3.html"><i class="fa fa-check"></i><b>8.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="waist2015-3.html"><a href="waist2015-3.html#tissue-highly-expressed-genes-6"><i class="fa fa-check"></i><b>8.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="waist2015-3.html"><a href="waist2015-3.html#tissue-selectively-expressed-genes-6"><i class="fa fa-check"></i><b>8.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="8.3.3" data-path="waist2015-3.html"><a href="waist2015-3.html#cluster-distinctively-expressed-genes-6"><i class="fa fa-check"></i><b>8.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="neu2016.html"><a href="neu2016.html"><i class="fa fa-check"></i><b>9</b> Neuroticism 2016</a><ul>
+<li class="chapter" data-level="9.1" data-path="neu2016-1.html"><a href="neu2016-1.html"><i class="fa fa-check"></i><b>9.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="neu2016-1.html"><a href="neu2016-1.html#fit-the-null-model-14"><i class="fa fa-check"></i><b>9.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="neu2016-1.html"><a href="neu2016-1.html#fit-the-enrichment-model-14"><i class="fa fa-check"></i><b>9.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="neu2016-2.html"><a href="neu2016-2.html"><i class="fa fa-check"></i><b>9.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="neu2016-2.html"><a href="neu2016-2.html#fit-the-null-model-15"><i class="fa fa-check"></i><b>9.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="neu2016-2.html"><a href="neu2016-2.html#fit-the-enrichment-model-15"><i class="fa fa-check"></i><b>9.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="neu2016-3.html"><a href="neu2016-3.html"><i class="fa fa-check"></i><b>9.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="neu2016-3.html"><a href="neu2016-3.html#tissue-highly-expressed-genes-7"><i class="fa fa-check"></i><b>9.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="9.3.2" data-path="neu2016-3.html"><a href="neu2016-3.html#tissue-selectively-expressed-genes-7"><i class="fa fa-check"></i><b>9.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="9.3.3" data-path="neu2016-3.html"><a href="neu2016-3.html#cluster-distinctively-expressed-genes-7"><i class="fa fa-check"></i><b>9.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="rheumatoid-arthritis-2014.html"><a href="rheumatoid-arthritis-2014.html"><i class="fa fa-check"></i><b>10</b> Rheumatoid Arthritis 2014</a><ul>
+<li class="chapter" data-level="10.1" data-path="ra2014-1.html"><a href="ra2014-1.html"><i class="fa fa-check"></i><b>10.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="ra2014-1.html"><a href="ra2014-1.html#fit-the-null-model-16"><i class="fa fa-check"></i><b>10.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="10.1.2" data-path="ra2014-1.html"><a href="ra2014-1.html#fit-the-enrichment-model-16"><i class="fa fa-check"></i><b>10.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ra2014-2.html"><a href="ra2014-2.html"><i class="fa fa-check"></i><b>10.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="ra2014-2.html"><a href="ra2014-2.html#fit-the-null-model-17"><i class="fa fa-check"></i><b>10.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="10.2.2" data-path="ra2014-2.html"><a href="ra2014-2.html#fit-the-enrichment-model-17"><i class="fa fa-check"></i><b>10.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="ra2014-3.html"><a href="ra2014-3.html"><i class="fa fa-check"></i><b>10.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="ra2014-3.html"><a href="ra2014-3.html#tissue-highly-expressed-genes-8"><i class="fa fa-check"></i><b>10.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ra2014-3.html"><a href="ra2014-3.html#tissue-selectively-expressed-genes-8"><i class="fa fa-check"></i><b>10.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="10.3.3" data-path="ra2014-3.html"><a href="ra2014-3.html#cluster-distinctively-expressed-genes-8"><i class="fa fa-check"></i><b>10.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="type-2-diabetes-2012.html"><a href="type-2-diabetes-2012.html"><i class="fa fa-check"></i><b>11</b> Type 2 Diabetes 2012</a><ul>
+<li class="chapter" data-level="11.1" data-path="t2d2012-1.html"><a href="t2d2012-1.html"><i class="fa fa-check"></i><b>11.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="t2d2012-1.html"><a href="t2d2012-1.html#fit-the-null-model-18"><i class="fa fa-check"></i><b>11.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="11.1.2" data-path="t2d2012-1.html"><a href="t2d2012-1.html#fit-the-enrichment-model-18"><i class="fa fa-check"></i><b>11.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="t2d2012-2.html"><a href="t2d2012-2.html"><i class="fa fa-check"></i><b>11.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="t2d2012-2.html"><a href="t2d2012-2.html#fit-the-null-model-19"><i class="fa fa-check"></i><b>11.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="11.2.2" data-path="t2d2012-2.html"><a href="t2d2012-2.html#fit-the-enrichment-model-19"><i class="fa fa-check"></i><b>11.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="t2d2012-3.html"><a href="t2d2012-3.html"><i class="fa fa-check"></i><b>11.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="t2d2012-3.html"><a href="t2d2012-3.html#tissue-highly-expressed-genes-9"><i class="fa fa-check"></i><b>11.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="11.3.2" data-path="t2d2012-3.html"><a href="t2d2012-3.html#tissue-selectively-expressed-genes-9"><i class="fa fa-check"></i><b>11.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="11.3.3" data-path="t2d2012-3.html"><a href="t2d2012-3.html#cluster-distinctively-expressed-genes-9"><i class="fa fa-check"></i><b>11.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="heart-rate-2013.html"><a href="heart-rate-2013.html"><i class="fa fa-check"></i><b>12</b> Heart Rate 2013</a><ul>
+<li class="chapter" data-level="12.1" data-path="hr2013-1.html"><a href="hr2013-1.html"><i class="fa fa-check"></i><b>12.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="hr2013-1.html"><a href="hr2013-1.html#fit-the-null-model-20"><i class="fa fa-check"></i><b>12.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="hr2013-1.html"><a href="hr2013-1.html#fit-the-enrichment-model-20"><i class="fa fa-check"></i><b>12.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="hr2013-2.html"><a href="hr2013-2.html"><i class="fa fa-check"></i><b>12.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="hr2013-2.html"><a href="hr2013-2.html#fit-the-null-model-21"><i class="fa fa-check"></i><b>12.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="12.2.2" data-path="hr2013-2.html"><a href="hr2013-2.html#fit-the-enrichment-model-21"><i class="fa fa-check"></i><b>12.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="hr2013-3.html"><a href="hr2013-3.html"><i class="fa fa-check"></i><b>12.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="hr2013-3.html"><a href="hr2013-3.html#tissue-highly-expressed-genes-10"><i class="fa fa-check"></i><b>12.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="12.3.2" data-path="hr2013-3.html"><a href="hr2013-3.html#tissue-selectively-expressed-genes-10"><i class="fa fa-check"></i><b>12.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="12.3.3" data-path="hr2013-3.html"><a href="hr2013-3.html#cluster-distinctively-expressed-genes-10"><i class="fa fa-check"></i><b>12.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="crohns-disease-2015.html"><a href="crohns-disease-2015.html"><i class="fa fa-check"></i><b>13</b> Crohn’s Disease 2015</a><ul>
+<li class="chapter" data-level="13.1" data-path="cd2015-1.html"><a href="cd2015-1.html"><i class="fa fa-check"></i><b>13.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="cd2015-1.html"><a href="cd2015-1.html#fit-the-null-model-22"><i class="fa fa-check"></i><b>13.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="13.1.2" data-path="cd2015-1.html"><a href="cd2015-1.html#fit-the-enrichment-model-22"><i class="fa fa-check"></i><b>13.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="cd2015-2.html"><a href="cd2015-2.html"><i class="fa fa-check"></i><b>13.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="cd2015-2.html"><a href="cd2015-2.html#fit-the-null-model-23"><i class="fa fa-check"></i><b>13.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="13.2.2" data-path="cd2015-2.html"><a href="cd2015-2.html#fit-the-enrichment-model-23"><i class="fa fa-check"></i><b>13.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="cd2015-3.html"><a href="cd2015-3.html"><i class="fa fa-check"></i><b>13.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="cd2015-3.html"><a href="cd2015-3.html#tissue-highly-expressed-genes-11"><i class="fa fa-check"></i><b>13.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="13.3.2" data-path="cd2015-3.html"><a href="cd2015-3.html#tissue-selectively-expressed-genes-11"><i class="fa fa-check"></i><b>13.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="13.3.3" data-path="cd2015-3.html"><a href="cd2015-3.html#cluster-distinctively-expressed-genes-11"><i class="fa fa-check"></i><b>13.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="ulcerative-colitis-2015.html"><a href="ulcerative-colitis-2015.html"><i class="fa fa-check"></i><b>14</b> Ulcerative Colitis 2015</a><ul>
+<li class="chapter" data-level="14.1" data-path="uc2015-1.html"><a href="uc2015-1.html"><i class="fa fa-check"></i><b>14.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="uc2015-1.html"><a href="uc2015-1.html#fit-the-null-model-24"><i class="fa fa-check"></i><b>14.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="14.1.2" data-path="uc2015-1.html"><a href="uc2015-1.html#fit-the-enrichment-model-24"><i class="fa fa-check"></i><b>14.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="uc2015-2.html"><a href="uc2015-2.html"><i class="fa fa-check"></i><b>14.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="uc2015-2.html"><a href="uc2015-2.html#fit-the-null-model-25"><i class="fa fa-check"></i><b>14.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="14.2.2" data-path="uc2015-2.html"><a href="uc2015-2.html#fit-the-enrichment-model-25"><i class="fa fa-check"></i><b>14.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="uc2015-3.html"><a href="uc2015-3.html"><i class="fa fa-check"></i><b>14.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="uc2015-3.html"><a href="uc2015-3.html#tissue-highly-expressed-genes-12"><i class="fa fa-check"></i><b>14.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="14.3.2" data-path="uc2015-3.html"><a href="uc2015-3.html#tissue-selectively-expressed-genes-12"><i class="fa fa-check"></i><b>14.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="14.3.3" data-path="uc2015-3.html"><a href="uc2015-3.html#cluster-distinctively-expressed-genes-12"><i class="fa fa-check"></i><b>14.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="myocardial-infarction-2015.html"><a href="myocardial-infarction-2015.html"><i class="fa fa-check"></i><b>15</b> Myocardial Infarction 2015</a><ul>
+<li class="chapter" data-level="15.1" data-path="mi2015-1.html"><a href="mi2015-1.html"><i class="fa fa-check"></i><b>15.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="mi2015-1.html"><a href="mi2015-1.html#fit-the-null-model-26"><i class="fa fa-check"></i><b>15.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="15.1.2" data-path="mi2015-1.html"><a href="mi2015-1.html#fit-the-enrichment-model-26"><i class="fa fa-check"></i><b>15.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="mi2015-2.html"><a href="mi2015-2.html"><i class="fa fa-check"></i><b>15.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="mi2015-2.html"><a href="mi2015-2.html#fit-the-null-model-27"><i class="fa fa-check"></i><b>15.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="15.2.2" data-path="mi2015-2.html"><a href="mi2015-2.html#fit-the-enrichment-model-27"><i class="fa fa-check"></i><b>15.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="mi2015-3.html"><a href="mi2015-3.html"><i class="fa fa-check"></i><b>15.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="mi2015-3.html"><a href="mi2015-3.html#tissue-highly-expressed-genes-13"><i class="fa fa-check"></i><b>15.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="15.3.2" data-path="mi2015-3.html"><a href="mi2015-3.html#tissue-selectively-expressed-genes-13"><i class="fa fa-check"></i><b>15.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="15.3.3" data-path="mi2015-3.html"><a href="mi2015-3.html#cluster-distinctively-expressed-genes-13"><i class="fa fa-check"></i><b>15.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="depressive-symptoms-2016.html"><a href="depressive-symptoms-2016.html"><i class="fa fa-check"></i><b>16</b> Depressive Symptoms 2016</a><ul>
+<li class="chapter" data-level="16.1" data-path="ds2016-1.html"><a href="ds2016-1.html"><i class="fa fa-check"></i><b>16.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="ds2016-1.html"><a href="ds2016-1.html#fit-the-null-model-28"><i class="fa fa-check"></i><b>16.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="16.1.2" data-path="ds2016-1.html"><a href="ds2016-1.html#fit-the-enrichment-model-28"><i class="fa fa-check"></i><b>16.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="ds2016-2.html"><a href="ds2016-2.html"><i class="fa fa-check"></i><b>16.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="ds2016-2.html"><a href="ds2016-2.html#fit-the-null-model-29"><i class="fa fa-check"></i><b>16.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="16.2.2" data-path="ds2016-2.html"><a href="ds2016-2.html#fit-the-enrichment-model-29"><i class="fa fa-check"></i><b>16.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="ds2016-3.html"><a href="ds2016-3.html"><i class="fa fa-check"></i><b>16.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="ds2016-3.html"><a href="ds2016-3.html#tissue-highly-expressed-genes-14"><i class="fa fa-check"></i><b>16.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="16.3.2" data-path="ds2016-3.html"><a href="ds2016-3.html#tissue-selectively-expressed-genes-14"><i class="fa fa-check"></i><b>16.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="16.3.3" data-path="ds2016-3.html"><a href="ds2016-3.html#cluster-distinctively-expressed-genes-14"><i class="fa fa-check"></i><b>16.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="red-blood-cell-count-2012.html"><a href="red-blood-cell-count-2012.html"><i class="fa fa-check"></i><b>17</b> Red Blood Cell Count 2012</a><ul>
+<li class="chapter" data-level="17.1" data-path="rbc2012-1.html"><a href="rbc2012-1.html"><i class="fa fa-check"></i><b>17.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="rbc2012-1.html"><a href="rbc2012-1.html#fit-the-null-model-30"><i class="fa fa-check"></i><b>17.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="17.1.2" data-path="rbc2012-1.html"><a href="rbc2012-1.html#fit-the-enrichment-model-30"><i class="fa fa-check"></i><b>17.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="rbc2012-2.html"><a href="rbc2012-2.html"><i class="fa fa-check"></i><b>17.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="rbc2012-2.html"><a href="rbc2012-2.html#fit-the-null-model-31"><i class="fa fa-check"></i><b>17.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="17.2.2" data-path="rbc2012-2.html"><a href="rbc2012-2.html#fit-the-enrichment-model-31"><i class="fa fa-check"></i><b>17.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="rbc2012-3.html"><a href="rbc2012-3.html"><i class="fa fa-check"></i><b>17.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="rbc2012-3.html"><a href="rbc2012-3.html#tissue-highly-expressed-genes-15"><i class="fa fa-check"></i><b>17.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="17.3.2" data-path="rbc2012-3.html"><a href="rbc2012-3.html#tissue-selectively-expressed-genes-15"><i class="fa fa-check"></i><b>17.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="17.3.3" data-path="rbc2012-3.html"><a href="rbc2012-3.html#cluster-distinctively-expressed-genes-15"><i class="fa fa-check"></i><b>17.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="urate2013.html"><a href="urate2013.html"><i class="fa fa-check"></i><b>18</b> Serum Urate 2013</a><ul>
+<li class="chapter" data-level="18.1" data-path="urate2013-1.html"><a href="urate2013-1.html"><i class="fa fa-check"></i><b>18.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="urate2013-1.html"><a href="urate2013-1.html#fit-the-null-model-32"><i class="fa fa-check"></i><b>18.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="18.1.2" data-path="urate2013-1.html"><a href="urate2013-1.html#fit-the-enrichment-model-32"><i class="fa fa-check"></i><b>18.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="urate2013-2.html"><a href="urate2013-2.html"><i class="fa fa-check"></i><b>18.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="urate2013-2.html"><a href="urate2013-2.html#fit-the-null-model-33"><i class="fa fa-check"></i><b>18.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="18.2.2" data-path="urate2013-2.html"><a href="urate2013-2.html#fit-the-enrichment-model-33"><i class="fa fa-check"></i><b>18.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="urate2013-3.html"><a href="urate2013-3.html"><i class="fa fa-check"></i><b>18.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="urate2013-3.html"><a href="urate2013-3.html#tissue-highly-expressed-genes-16"><i class="fa fa-check"></i><b>18.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="18.3.2" data-path="urate2013-3.html"><a href="urate2013-3.html#tissue-selectively-expressed-genes-16"><i class="fa fa-check"></i><b>18.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="18.3.3" data-path="urate2013-3.html"><a href="urate2013-3.html#cluster-distinctively-expressed-genes-16"><i class="fa fa-check"></i><b>18.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="hdl2010.html"><a href="hdl2010.html"><i class="fa fa-check"></i><b>19</b> High-density Lipoprotein 2010</a><ul>
+<li class="chapter" data-level="19.1" data-path="hdl2010-1.html"><a href="hdl2010-1.html"><i class="fa fa-check"></i><b>19.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="hdl2010-1.html"><a href="hdl2010-1.html#fit-the-null-model-34"><i class="fa fa-check"></i><b>19.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="19.1.2" data-path="hdl2010-1.html"><a href="hdl2010-1.html#fit-the-enrichment-model-34"><i class="fa fa-check"></i><b>19.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="hdl2010-2.html"><a href="hdl2010-2.html"><i class="fa fa-check"></i><b>19.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="hdl2010-2.html"><a href="hdl2010-2.html#fit-the-null-model-35"><i class="fa fa-check"></i><b>19.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="19.2.2" data-path="hdl2010-2.html"><a href="hdl2010-2.html#fit-the-enrichment-model-35"><i class="fa fa-check"></i><b>19.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="hdl2010-3.html"><a href="hdl2010-3.html"><i class="fa fa-check"></i><b>19.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="19.3.1" data-path="hdl2010-3.html"><a href="hdl2010-3.html#tissue-highly-expressed-genes-17"><i class="fa fa-check"></i><b>19.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="19.3.2" data-path="hdl2010-3.html"><a href="hdl2010-3.html#tissue-selectively-expressed-genes-17"><i class="fa fa-check"></i><b>19.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="19.3.3" data-path="hdl2010-3.html"><a href="hdl2010-3.html#cluster-distinctively-expressed-genes-17"><i class="fa fa-check"></i><b>19.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ligh-density-lipoprotein-2010.html"><a href="ligh-density-lipoprotein-2010.html"><i class="fa fa-check"></i><b>20</b> Ligh-density Lipoprotein 2010</a><ul>
+<li class="chapter" data-level="20.1" data-path="ldl2010-1.html"><a href="ldl2010-1.html"><i class="fa fa-check"></i><b>20.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="20.1.1" data-path="ldl2010-1.html"><a href="ldl2010-1.html#fit-the-null-model-36"><i class="fa fa-check"></i><b>20.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="20.1.2" data-path="ldl2010-1.html"><a href="ldl2010-1.html#fit-the-enrichment-model-36"><i class="fa fa-check"></i><b>20.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="ldl2010-2.html"><a href="ldl2010-2.html"><i class="fa fa-check"></i><b>20.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="ldl2010-2.html"><a href="ldl2010-2.html#fit-the-null-model-37"><i class="fa fa-check"></i><b>20.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="20.2.2" data-path="ldl2010-2.html"><a href="ldl2010-2.html#fit-the-enrichment-model-37"><i class="fa fa-check"></i><b>20.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="ldl2010-3.html"><a href="ldl2010-3.html"><i class="fa fa-check"></i><b>20.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="ldl2010-3.html"><a href="ldl2010-3.html#tissue-highly-expressed-genes-18"><i class="fa fa-check"></i><b>20.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="20.3.2" data-path="ldl2010-3.html"><a href="ldl2010-3.html#tissue-selectively-expressed-genes-18"><i class="fa fa-check"></i><b>20.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="20.3.3" data-path="ldl2010-3.html"><a href="ldl2010-3.html#cluster-distinctively-expressed-genes-18"><i class="fa fa-check"></i><b>20.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="age-at-natural-menopause-2015.html"><a href="age-at-natural-menopause-2015.html"><i class="fa fa-check"></i><b>21</b> Age at Natural Menopause 2015</a><ul>
+<li class="chapter" data-level="21.1" data-path="anm2015-1.html"><a href="anm2015-1.html"><i class="fa fa-check"></i><b>21.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="anm2015-1.html"><a href="anm2015-1.html#fit-the-null-model-38"><i class="fa fa-check"></i><b>21.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="21.1.2" data-path="anm2015-1.html"><a href="anm2015-1.html#fit-the-enrichment-model-38"><i class="fa fa-check"></i><b>21.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="21.2" data-path="anm2015-2.html"><a href="anm2015-2.html"><i class="fa fa-check"></i><b>21.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="21.2.1" data-path="anm2015-2.html"><a href="anm2015-2.html#fit-the-null-model-39"><i class="fa fa-check"></i><b>21.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="21.2.2" data-path="anm2015-2.html"><a href="anm2015-2.html#fit-the-enrichment-model-39"><i class="fa fa-check"></i><b>21.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="anm2015-3.html"><a href="anm2015-3.html"><i class="fa fa-check"></i><b>21.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="anm2015-3.html"><a href="anm2015-3.html#tissue-highly-expressed-genes-19"><i class="fa fa-check"></i><b>21.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="21.3.2" data-path="anm2015-3.html"><a href="anm2015-3.html#tissue-selectively-expressed-genes-19"><i class="fa fa-check"></i><b>21.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="21.3.3" data-path="anm2015-3.html"><a href="anm2015-3.html#cluster-distinctively-expressed-genes-19"><i class="fa fa-check"></i><b>21.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="total-cholesterol-2010.html"><a href="total-cholesterol-2010.html"><i class="fa fa-check"></i><b>22</b> Total Cholesterol 2010</a><ul>
+<li class="chapter" data-level="22.1" data-path="tc2010-1.html"><a href="tc2010-1.html"><i class="fa fa-check"></i><b>22.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="22.1.1" data-path="tc2010-1.html"><a href="tc2010-1.html#fit-the-null-model-40"><i class="fa fa-check"></i><b>22.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="22.1.2" data-path="tc2010-1.html"><a href="tc2010-1.html#fit-the-enrichment-model-40"><i class="fa fa-check"></i><b>22.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="22.2" data-path="tc2010-2.html"><a href="tc2010-2.html"><i class="fa fa-check"></i><b>22.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="22.2.1" data-path="tc2010-2.html"><a href="tc2010-2.html#fit-the-null-model-41"><i class="fa fa-check"></i><b>22.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="22.2.2" data-path="tc2010-2.html"><a href="tc2010-2.html#fit-the-enrichment-model-41"><i class="fa fa-check"></i><b>22.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="tc2010-3.html"><a href="tc2010-3.html"><i class="fa fa-check"></i><b>22.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="22.3.1" data-path="tc2010-3.html"><a href="tc2010-3.html#tissue-highly-expressed-genes-20"><i class="fa fa-check"></i><b>22.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="22.3.2" data-path="tc2010-3.html"><a href="tc2010-3.html#tissue-selectively-expressed-genes-20"><i class="fa fa-check"></i><b>22.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="22.3.3" data-path="tc2010-3.html"><a href="tc2010-3.html#cluster-distinctively-expressed-genes-20"><i class="fa fa-check"></i><b>22.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="mean-cell-haemoglobin-2012.html"><a href="mean-cell-haemoglobin-2012.html"><i class="fa fa-check"></i><b>23</b> Mean Cell Haemoglobin 2012</a><ul>
+<li class="chapter" data-level="23.1" data-path="mch2012-1.html"><a href="mch2012-1.html"><i class="fa fa-check"></i><b>23.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="mch2012-1.html"><a href="mch2012-1.html#fit-the-null-model-42"><i class="fa fa-check"></i><b>23.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="23.1.2" data-path="mch2012-1.html"><a href="mch2012-1.html#fit-the-enrichment-model-42"><i class="fa fa-check"></i><b>23.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="mch2012-2.html"><a href="mch2012-2.html"><i class="fa fa-check"></i><b>23.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="mch2012-2.html"><a href="mch2012-2.html#fit-the-null-model-43"><i class="fa fa-check"></i><b>23.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="23.2.2" data-path="mch2012-2.html"><a href="mch2012-2.html#fit-the-enrichment-model-43"><i class="fa fa-check"></i><b>23.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="23.3" data-path="mch2012-3.html"><a href="mch2012-3.html"><i class="fa fa-check"></i><b>23.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="23.3.1" data-path="mch2012-3.html"><a href="mch2012-3.html#tissue-highly-expressed-genes-21"><i class="fa fa-check"></i><b>23.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="23.3.2" data-path="mch2012-3.html"><a href="mch2012-3.html#tissue-selectively-expressed-genes-21"><i class="fa fa-check"></i><b>23.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="23.3.3" data-path="mch2012-3.html"><a href="mch2012-3.html#cluster-distinctively-expressed-genes-21"><i class="fa fa-check"></i><b>23.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="triglycerides-2010.html"><a href="triglycerides-2010.html"><i class="fa fa-check"></i><b>24</b> Triglycerides 2010</a><ul>
+<li class="chapter" data-level="24.1" data-path="tg2010-1.html"><a href="tg2010-1.html"><i class="fa fa-check"></i><b>24.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="tg2010-1.html"><a href="tg2010-1.html#fit-the-null-model-44"><i class="fa fa-check"></i><b>24.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="24.1.2" data-path="tg2010-1.html"><a href="tg2010-1.html#fit-the-enrichment-model-44"><i class="fa fa-check"></i><b>24.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="tg2010-2.html"><a href="tg2010-2.html"><i class="fa fa-check"></i><b>24.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="24.2.1" data-path="tg2010-2.html"><a href="tg2010-2.html#fit-the-null-model-45"><i class="fa fa-check"></i><b>24.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="24.2.2" data-path="tg2010-2.html"><a href="tg2010-2.html#fit-the-enrichment-model-45"><i class="fa fa-check"></i><b>24.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="tg2010-3.html"><a href="tg2010-3.html"><i class="fa fa-check"></i><b>24.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="24.3.1" data-path="tg2010-3.html"><a href="tg2010-3.html#tissue-highly-expressed-genes-22"><i class="fa fa-check"></i><b>24.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="24.3.2" data-path="tg2010-3.html"><a href="tg2010-3.html#tissue-selectively-expressed-genes-22"><i class="fa fa-check"></i><b>24.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="24.3.3" data-path="tg2010-3.html"><a href="tg2010-3.html#cluster-distinctively-expressed-genes-22"><i class="fa fa-check"></i><b>24.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="mean-cell-volume-2012.html"><a href="mean-cell-volume-2012.html"><i class="fa fa-check"></i><b>25</b> Mean Cell Volume 2012</a><ul>
+<li class="chapter" data-level="25.1" data-path="mcv2012-1.html"><a href="mcv2012-1.html"><i class="fa fa-check"></i><b>25.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="25.1.1" data-path="mcv2012-1.html"><a href="mcv2012-1.html#fit-the-null-model-46"><i class="fa fa-check"></i><b>25.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="25.1.2" data-path="mcv2012-1.html"><a href="mcv2012-1.html#fit-the-enrichment-model-46"><i class="fa fa-check"></i><b>25.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="25.2" data-path="mcv2012-2.html"><a href="mcv2012-2.html"><i class="fa fa-check"></i><b>25.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="25.2.1" data-path="mcv2012-2.html"><a href="mcv2012-2.html#fit-the-null-model-47"><i class="fa fa-check"></i><b>25.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="25.2.2" data-path="mcv2012-2.html"><a href="mcv2012-2.html#fit-the-enrichment-model-47"><i class="fa fa-check"></i><b>25.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="25.3" data-path="mcv2012-3.html"><a href="mcv2012-3.html"><i class="fa fa-check"></i><b>25.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="25.3.1" data-path="mcv2012-3.html"><a href="mcv2012-3.html#tissue-highly-expressed-genes-23"><i class="fa fa-check"></i><b>25.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="25.3.2" data-path="mcv2012-3.html"><a href="mcv2012-3.html#tissue-selectively-expressed-genes-23"><i class="fa fa-check"></i><b>25.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="25.3.3" data-path="mcv2012-3.html"><a href="mcv2012-3.html#cluster-distinctively-expressed-genes-23"><i class="fa fa-check"></i><b>25.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="fg2012.html"><a href="fg2012.html"><i class="fa fa-check"></i><b>26</b> Fasting Glucose 2012</a><ul>
+<li class="chapter" data-level="26.1" data-path="fg2012-1.html"><a href="fg2012-1.html"><i class="fa fa-check"></i><b>26.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="26.1.1" data-path="fg2012-1.html"><a href="fg2012-1.html#fit-the-null-model-48"><i class="fa fa-check"></i><b>26.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="26.1.2" data-path="fg2012-1.html"><a href="fg2012-1.html#fit-the-enrichment-model-48"><i class="fa fa-check"></i><b>26.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="26.2" data-path="fg2012-2.html"><a href="fg2012-2.html"><i class="fa fa-check"></i><b>26.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="26.2.1" data-path="fg2012-2.html"><a href="fg2012-2.html#fit-the-null-model-49"><i class="fa fa-check"></i><b>26.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="26.2.2" data-path="fg2012-2.html"><a href="fg2012-2.html#fit-the-enrichment-model-49"><i class="fa fa-check"></i><b>26.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="26.3" data-path="fg2012-3.html"><a href="fg2012-3.html"><i class="fa fa-check"></i><b>26.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="26.3.1" data-path="fg2012-3.html"><a href="fg2012-3.html#tissue-highly-expressed-genes-24"><i class="fa fa-check"></i><b>26.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="26.3.2" data-path="fg2012-3.html"><a href="fg2012-3.html#tissue-selectively-expressed-genes-24"><i class="fa fa-check"></i><b>26.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="26.3.3" data-path="fg2012-3.html"><a href="fg2012-3.html#cluster-distinctively-expressed-genes-24"><i class="fa fa-check"></i><b>26.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="fasting-insulin-2012.html"><a href="fasting-insulin-2012.html"><i class="fa fa-check"></i><b>27</b> Fasting Insulin 2012</a><ul>
+<li class="chapter" data-level="27.1" data-path="lfi2012-1.html"><a href="lfi2012-1.html"><i class="fa fa-check"></i><b>27.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="27.1.1" data-path="lfi2012-1.html"><a href="lfi2012-1.html#fit-the-null-model-50"><i class="fa fa-check"></i><b>27.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="27.1.2" data-path="lfi2012-1.html"><a href="lfi2012-1.html#fit-the-enrichment-model-50"><i class="fa fa-check"></i><b>27.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="27.2" data-path="lfi2012-2.html"><a href="lfi2012-2.html"><i class="fa fa-check"></i><b>27.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="27.2.1" data-path="lfi2012-2.html"><a href="lfi2012-2.html#fit-the-null-model-51"><i class="fa fa-check"></i><b>27.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="27.2.2" data-path="lfi2012-2.html"><a href="lfi2012-2.html#fit-the-enrichment-model-51"><i class="fa fa-check"></i><b>27.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="27.3" data-path="lfi2012-3.html"><a href="lfi2012-3.html"><i class="fa fa-check"></i><b>27.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="27.3.1" data-path="lfi2012-3.html"><a href="lfi2012-3.html#tissue-highly-expressed-genes-25"><i class="fa fa-check"></i><b>27.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="27.3.2" data-path="lfi2012-3.html"><a href="lfi2012-3.html#tissue-selectively-expressed-genes-25"><i class="fa fa-check"></i><b>27.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="27.3.3" data-path="lfi2012-3.html"><a href="lfi2012-3.html#cluster-distinctively-expressed-genes-25"><i class="fa fa-check"></i><b>27.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="mean-cell-haemoglobin-concentration-2012.html"><a href="mean-cell-haemoglobin-concentration-2012.html"><i class="fa fa-check"></i><b>28</b> Mean Cell Haemoglobin Concentration 2012</a><ul>
+<li class="chapter" data-level="28.1" data-path="mchc2012-1.html"><a href="mchc2012-1.html"><i class="fa fa-check"></i><b>28.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="28.1.1" data-path="mchc2012-1.html"><a href="mchc2012-1.html#fit-the-null-model-52"><i class="fa fa-check"></i><b>28.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="28.1.2" data-path="mchc2012-1.html"><a href="mchc2012-1.html#fit-the-enrichment-model-52"><i class="fa fa-check"></i><b>28.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="28.2" data-path="mchc2012-2.html"><a href="mchc2012-2.html"><i class="fa fa-check"></i><b>28.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="28.2.1" data-path="mchc2012-2.html"><a href="mchc2012-2.html#fit-the-null-model-53"><i class="fa fa-check"></i><b>28.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="28.2.2" data-path="mchc2012-2.html"><a href="mchc2012-2.html#fit-the-enrichment-model-53"><i class="fa fa-check"></i><b>28.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="28.3" data-path="mchc2012-3.html"><a href="mchc2012-3.html"><i class="fa fa-check"></i><b>28.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="28.3.1" data-path="mchc2012-3.html"><a href="mchc2012-3.html#tissue-highly-expressed-genes-26"><i class="fa fa-check"></i><b>28.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="28.3.2" data-path="mchc2012-3.html"><a href="mchc2012-3.html#tissue-selectively-expressed-genes-26"><i class="fa fa-check"></i><b>28.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="28.3.3" data-path="mchc2012-3.html"><a href="mchc2012-3.html#cluster-distinctively-expressed-genes-26"><i class="fa fa-check"></i><b>28.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="gout-2013.html"><a href="gout-2013.html"><i class="fa fa-check"></i><b>29</b> Gout 2013</a><ul>
+<li class="chapter" data-level="29.1" data-path="gout2013-1.html"><a href="gout2013-1.html"><i class="fa fa-check"></i><b>29.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="29.1.1" data-path="gout2013-1.html"><a href="gout2013-1.html#fit-the-null-model-54"><i class="fa fa-check"></i><b>29.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="29.1.2" data-path="gout2013-1.html"><a href="gout2013-1.html#fit-the-enrichment-model-54"><i class="fa fa-check"></i><b>29.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="gout2013-2.html"><a href="gout2013-2.html"><i class="fa fa-check"></i><b>29.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="29.2.1" data-path="gout2013-2.html"><a href="gout2013-2.html#fit-the-null-model-55"><i class="fa fa-check"></i><b>29.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="29.2.2" data-path="gout2013-2.html"><a href="gout2013-2.html#fit-the-enrichment-model-55"><i class="fa fa-check"></i><b>29.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="29.3" data-path="gout2013-3.html"><a href="gout2013-3.html"><i class="fa fa-check"></i><b>29.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="29.3.1" data-path="gout2013-3.html"><a href="gout2013-3.html#tissue-highly-expressed-genes-27"><i class="fa fa-check"></i><b>29.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="29.3.2" data-path="gout2013-3.html"><a href="gout2013-3.html#tissue-selectively-expressed-genes-27"><i class="fa fa-check"></i><b>29.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="29.3.3" data-path="gout2013-3.html"><a href="gout2013-3.html#cluster-distinctively-expressed-genes-27"><i class="fa fa-check"></i><b>29.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="haemoglobin-2012.html"><a href="haemoglobin-2012.html"><i class="fa fa-check"></i><b>30</b> Haemoglobin 2012</a><ul>
+<li class="chapter" data-level="30.1" data-path="hb2012-1.html"><a href="hb2012-1.html"><i class="fa fa-check"></i><b>30.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="30.1.1" data-path="hb2012-1.html"><a href="hb2012-1.html#fit-the-null-model-56"><i class="fa fa-check"></i><b>30.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="30.1.2" data-path="hb2012-1.html"><a href="hb2012-1.html#fit-the-enrichment-model-56"><i class="fa fa-check"></i><b>30.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="30.2" data-path="hb2012-2.html"><a href="hb2012-2.html"><i class="fa fa-check"></i><b>30.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="30.2.1" data-path="hb2012-2.html"><a href="hb2012-2.html#fit-the-null-model-57"><i class="fa fa-check"></i><b>30.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="30.2.2" data-path="hb2012-2.html"><a href="hb2012-2.html#fit-the-enrichment-model-57"><i class="fa fa-check"></i><b>30.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="30.3" data-path="hb2012-3.html"><a href="hb2012-3.html"><i class="fa fa-check"></i><b>30.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="30.3.1" data-path="hb2012-3.html"><a href="hb2012-3.html#tissue-highly-expressed-genes-28"><i class="fa fa-check"></i><b>30.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="30.3.2" data-path="hb2012-3.html"><a href="hb2012-3.html#tissue-selectively-expressed-genes-28"><i class="fa fa-check"></i><b>30.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="30.3.3" data-path="hb2012-3.html"><a href="hb2012-3.html#cluster-distinctively-expressed-genes-28"><i class="fa fa-check"></i><b>30.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="packed-cell-volume-2012.html"><a href="packed-cell-volume-2012.html"><i class="fa fa-check"></i><b>31</b> Packed Cell Volume 2012</a><ul>
+<li class="chapter" data-level="31.1" data-path="pcv2012-1.html"><a href="pcv2012-1.html"><i class="fa fa-check"></i><b>31.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="31.1.1" data-path="pcv2012-1.html"><a href="pcv2012-1.html#fit-the-null-model-58"><i class="fa fa-check"></i><b>31.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="31.1.2" data-path="pcv2012-1.html"><a href="pcv2012-1.html#fit-the-enrichment-model-58"><i class="fa fa-check"></i><b>31.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="31.2" data-path="pcv2012-2.html"><a href="pcv2012-2.html"><i class="fa fa-check"></i><b>31.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="31.2.1" data-path="pcv2012-2.html"><a href="pcv2012-2.html#fit-the-null-model-59"><i class="fa fa-check"></i><b>31.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="31.2.2" data-path="pcv2012-2.html"><a href="pcv2012-2.html#fit-the-enrichment-model-59"><i class="fa fa-check"></i><b>31.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="31.3" data-path="pcv2012-3.html"><a href="pcv2012-3.html"><i class="fa fa-check"></i><b>31.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="31.3.1" data-path="pcv2012-3.html"><a href="pcv2012-3.html#tissue-highly-expressed-genes-29"><i class="fa fa-check"></i><b>31.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="31.3.2" data-path="pcv2012-3.html"><a href="pcv2012-3.html#tissue-selectively-expressed-genes-29"><i class="fa fa-check"></i><b>31.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="31.3.3" data-path="pcv2012-3.html"><a href="pcv2012-3.html#cluster-distinctively-expressed-genes-29"><i class="fa fa-check"></i><b>31.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="amyotrophic-lateral-sclerosis-2016.html"><a href="amyotrophic-lateral-sclerosis-2016.html"><i class="fa fa-check"></i><b>32</b> Amyotrophic Lateral Sclerosis 2016</a><ul>
+<li class="chapter" data-level="32.1" data-path="als2016-1.html"><a href="als2016-1.html"><i class="fa fa-check"></i><b>32.1</b> GSEA Round 1</a><ul>
+<li class="chapter" data-level="32.1.1" data-path="als2016-1.html"><a href="als2016-1.html#fit-the-null-model-60"><i class="fa fa-check"></i><b>32.1.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="32.1.2" data-path="als2016-1.html"><a href="als2016-1.html#fit-the-enrichment-model-60"><i class="fa fa-check"></i><b>32.1.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="32.2" data-path="als2016-2.html"><a href="als2016-2.html"><i class="fa fa-check"></i><b>32.2</b> GSEA Round 2</a><ul>
+<li class="chapter" data-level="32.2.1" data-path="als2016-2.html"><a href="als2016-2.html#fit-the-null-model-61"><i class="fa fa-check"></i><b>32.2.1</b> Fit the null model</a></li>
+<li class="chapter" data-level="32.2.2" data-path="als2016-2.html"><a href="als2016-2.html#fit-the-enrichment-model-61"><i class="fa fa-check"></i><b>32.2.2</b> Fit the enrichment model</a></li>
+</ul></li>
+<li class="chapter" data-level="32.3" data-path="als2016-3.html"><a href="als2016-3.html"><i class="fa fa-check"></i><b>32.3</b> GTEx Analysis</a><ul>
+<li class="chapter" data-level="32.3.1" data-path="als2016-3.html"><a href="als2016-3.html#tissue-highly-expressed-genes-30"><i class="fa fa-check"></i><b>32.3.1</b> Tissue highly expressed genes</a></li>
+<li class="chapter" data-level="32.3.2" data-path="als2016-3.html"><a href="als2016-3.html#tissue-selectively-expressed-genes-30"><i class="fa fa-check"></i><b>32.3.2</b> Tissue selectively expressed genes</a></li>
+<li class="chapter" data-level="32.3.3" data-path="als2016-3.html"><a href="als2016-3.html#cluster-distinctively-expressed-genes-30"><i class="fa fa-check"></i><b>32.3.3</b> Cluster distinctively expressed genes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>33</b> Acknowledgement</a></li>
+<li class="chapter" data-level="34" data-path="add-a-new-chapter.html"><a href="add-a-new-chapter.html"><i class="fa fa-check"></i><b>34</b> Add a new chapter</a><ul>
+<li class="chapter" data-level="34.1" data-path="section-title.html"><a href="section-title.html"><i class="fa fa-check"></i><b>34.1</b> Section title</a></li>
+<li class="chapter" data-level="34.2" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>34.2</b> Session information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/xiangzhu/rss-gsea" target="blank">GitHub Repository</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Integrated Enrichment Analysis of Genetic Variants, Biological Pathways and Tissues Across 31 Human Phenotypes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ds2016-3" class="section level2">
+<h2><span class="header-section-number">16.3</span> GTEx Analysis</h2>
+<p><strong>Last updated:</strong> 2017-04-12</p>
+<p><strong>Code version:</strong> 165dd72eeaecde46dbd09f1ee0d64c1b665f38fb</p>
+<div id="tissue-highly-expressed-genes-14" class="section level3">
+<h3><span class="header-section-number">16.3.1</span> Tissue highly expressed genes</h3>
+<div id="htmlwidget-3f221fbefe714d37a08a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3f221fbefe714d37a08a">{"x":{"filter":"none","extensions":["KeyTable"],"data":[["Spleen","Small Intestine - Terminal Ileum","Cells - EBV-transformed lymphocytes","Lung","Pancreas","Colon - Transverse","Stomach","Adrenal Gland","Esophagus - Mucosa","Breast - Mammary Tissue","Brain - Cerebellar Hemisphere","Prostate","Adipose - Subcutaneous","Uterus","Vagina","Nerve - Tibial","Brain - Hypothalamus","Brain - Hippocampus","Muscle - Skeletal","Brain - Cerebellum","Pituitary","Esophagus - Gastroesophageal Junction","Whole Blood","Skin - Sun Exposed (Lower leg)","Ovary","Heart - Left Ventricle","Adipose - Visceral (Omentum)","Brain - Anterior cingulate cortex (BA24)","Colon - Sigmoid","Skin - Not Sun Exposed (Suprapubic)","Brain - Cortex","Artery - Tibial","Esophagus - Muscularis","Thyroid","Cells - Transformed fibroblasts","Brain - Nucleus accumbens (basal ganglia)","Testis","Heart - Atrial Appendage","Artery - Coronary","Brain - Frontal Cortex (BA9)","Artery - Aorta","Liver","Brain - Caudate (basal ganglia)","Brain - Putamen (basal ganglia)"],[4665,5317,5603,5614,5783,5908,5957,6416,6242,6342,6397,6359,6374,6421,6483,6436,6566,6531,6460,6553,6618,6486,6615,6522,6683,6441,6586,6703,6605,6609,6666,6721,6696,6916,6797,6862,6807,6699,6892,6930,7005,7022,7294,7369],[-0.261312461270591,-0.27617633982261,-0.277151818427069,-0.28152771886962,-0.284872380236319,-0.288199674199491,-0.288943697105158,-0.29354989055355,-0.293850848399484,-0.294916702388208,-0.29502346990928,-0.295615753198895,-0.29561852770687,-0.295816048537127,-0.29636586477407,-0.296583930457208,-0.296841319138261,-0.297901241620168,-0.297929807016762,-0.297943009092416,-0.298147385593555,-0.298292965216574,-0.298385068790765,-0.299018085656008,-0.299183260840683,-0.299540484164338,-0.299809618399626,-0.299851673606608,-0.300428604339826,-0.300559005610248,-0.301063981493031,-0.301588256082702,-0.30199176963913,-0.302566065460181,-0.302696469435642,-0.302810410057299,-0.303144502849238,-0.303822300228082,-0.304339527688359,-0.305055180907321,-0.306534748954517,-0.306585058917436,-0.309841509564191,-0.312215060128982],["-5.547, [-6.000, -5.150]","-5.549, [-6.000, -5.150]","-5.548, [-6.000, -5.150]","-5.549, [-6.000, -5.150]","-5.549, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.549, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.551, [-6.000, -5.150]"],["0.903, [0.000, 2.000]","0.876, [0.000, 1.950]","0.874, [0.000, 1.950]","0.867, [0.000, 1.900]","0.861, [0.000, 1.900]","0.856, [0.000, 1.900]","0.854, [0.000, 1.900]","0.846, [0.000, 1.900]","0.846, [0.000, 1.900]","0.844, [0.000, 1.850]","0.844, [0.000, 1.850]","0.843, [0.000, 1.850]","0.843, [0.000, 1.850]","0.843, [0.000, 1.850]","0.842, [0.000, 1.850]","0.841, [0.000, 1.850]","0.841, [0.000, 1.850]","0.839, [0.000, 1.850]","0.839, [0.000, 1.850]","0.839, [0.000, 1.850]","0.838, [0.000, 1.850]","0.838, [0.000, 1.850]","0.838, [0.000, 1.850]","0.837, [0.000, 1.850]","0.837, [0.000, 1.850]","0.836, [0.000, 1.850]","0.836, [0.000, 1.850]","0.836, [0.000, 1.850]","0.835, [0.000, 1.850]","0.835, [0.000, 1.850]","0.834, [0.000, 1.850]","0.833, [0.000, 1.850]","0.832, [0.000, 1.850]","0.831, [0.000, 1.850]","0.831, [0.000, 1.850]","0.831, [0.000, 1.850]","0.830, [0.000, 1.850]","0.829, [0.000, 1.850]","0.828, [0.000, 1.850]","0.827, [0.000, 1.850]","0.825, [0.000, 1.850]","0.825, [0.000, 1.850]","0.819, [0.000, 1.850]","0.815, [0.000, 1.800]"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>id<\/th>\n      <th>numsnps<\/th>\n      <th>log10.bf<\/th>\n      <th>theta0<\/th>\n      <th>theta<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"keys":true,"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 3);\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="tissue-selectively-expressed-genes-14" class="section level3">
+<h3><span class="header-section-number">16.3.2</span> Tissue selectively expressed genes</h3>
+<div id="htmlwidget-3c1018253a79a3fbb47d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3c1018253a79a3fbb47d">{"x":{"filter":"none","extensions":["KeyTable"],"data":[["Pituitary","Spleen","Liver","Skin_Sun_Exposed_(Lower_leg)","Skin_Not_Sun_Exposed_(Suprapubic)","Vagina","Esophagus_Mucosa","Cells_EBV-transformed_lymphocytes","Whole_Blood","Kidney_Cortex","Colon_Transverse","Pancreas","Testis","Lung","Muscle_Skeletal","Minor_Salivary_Gland","Small_Intestine_Terminal_Ileum","Prostate","Stomach","Breast_Mammary_Tissue","Adipose_Visceral_(Omentum)","Adipose_Subcutaneous","Cells_Transformed_fibroblasts","Brain_Cerebellum","Colon_Sigmoid","Heart_Left_Ventricle","Heart_Atrial_Appendage","Brain_Hippocampus","Brain_Amygdala","Thyroid","Brain_Nucleus_accumbens_(basal_ganglia)","Ovary","Brain_Caudate_(basal_ganglia)","Brain_Putamen_(basal_ganglia)","Brain_Cortex","Uterus","Brain_Hypothalamus","Artery_Coronary","Adrenal_Gland","Nerve_Tibial","Artery_Tibial","Brain_Spinal_cord_(cervical_c-1)","Brain_Substantia_nigra","Brain_Cerebellar_Hemisphere","Brain_Anterior_cingulate_cortex_(BA24)","Brain_Frontal_Cortex_(BA9)","Esophagus_Muscularis","Esophagus_Gastroesophageal_Junction","Artery_Aorta"],[10361,7904,8932,7323,7387,7317,7436,8423,7915,9630,8352,8210,8422,9030,9430,9186,9522,9853,10052,10535,10632,10833,11217,11729,11586,11687,11778,11876,12065,12782,12200,12344,12444,12568,12759,13203,13013,13113,13121,13280,13231,13385,13454,14306,13904,14414,14840,14710,15021],[0.699026152786999,-0.29088704557465,-0.297004105871294,-0.312851602753609,-0.313827070599076,-0.313864158268405,-0.315483723777224,-0.316700075806313,-0.31794078966025,-0.318816735974098,-0.327608309854585,-0.327700882912484,-0.330130471489163,-0.337714461199159,-0.340473204335334,-0.340834875369971,-0.344392252851179,-0.347375418855097,-0.350648244787213,-0.356613896445558,-0.357954807310607,-0.36069568253424,-0.365062820791894,-0.367992222057443,-0.368403609246369,-0.370230652833556,-0.371216766758179,-0.373040842998823,-0.375102640256718,-0.375828793131468,-0.376125710606779,-0.377122450829452,-0.378323087232389,-0.37917119594477,-0.382116258647516,-0.383284630092241,-0.383370579544014,-0.385017462900749,-0.386265370194157,-0.387714387255502,-0.38813831933341,-0.388450085258062,-0.389498059338882,-0.392536685494804,-0.393452875456124,-0.398574410463878,-0.399152640840942,-0.399545451524121,-0.403804362486595],["-5.631, [-6.000, -5.200]","-5.545, [-6.000, -5.100]","-5.546, [-6.000, -5.100]","-5.551, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.552, [-6.000, -5.150]","-5.552, [-6.000, -5.150]","-5.550, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.549, [-6.000, -5.150]","-5.552, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.555, [-6.000, -5.150]","-5.555, [-6.000, -5.150]","-5.555, [-6.000, -5.150]","-5.555, [-6.000, -5.150]","-5.555, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.555, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.556, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.558, [-6.000, -5.150]","-5.557, [-6.000, -5.150]","-5.558, [-6.000, -5.150]","-5.558, [-6.000, -5.150]"],["1.476, [0.300, 2.400]","0.847, [0.000, 1.850]","0.831, [0.000, 1.850]","0.815, [0.000, 1.800]","0.813, [0.000, 1.800]","0.813, [0.000, 1.800]","0.810, [0.000, 1.800]","0.805, [0.000, 1.800]","0.806, [0.000, 1.800]","0.798, [0.000, 1.750]","0.791, [0.000, 1.750]","0.791, [0.000, 1.750]","0.787, [0.000, 1.750]","0.775, [0.000, 1.750]","0.771, [0.000, 1.750]","0.771, [0.000, 1.750]","0.765, [0.000, 1.700]","0.761, [0.000, 1.700]","0.756, [0.000, 1.700]","0.747, [0.000, 1.700]","0.745, [0.000, 1.700]","0.741, [0.000, 1.700]","0.735, [0.000, 1.650]","0.730, [0.000, 1.650]","0.730, [0.000, 1.650]","0.727, [0.000, 1.650]","0.726, [0.000, 1.650]","0.723, [0.000, 1.650]","0.720, [0.000, 1.650]","0.718, [0.000, 1.650]","0.719, [0.000, 1.650]","0.717, [0.000, 1.650]","0.716, [0.000, 1.650]","0.715, [0.000, 1.650]","0.711, [0.000, 1.600]","0.709, [0.000, 1.600]","0.709, [0.000, 1.600]","0.706, [0.000, 1.600]","0.705, [0.000, 1.600]","0.703, [0.000, 1.600]","0.702, [0.000, 1.600]","0.702, [0.000, 1.600]","0.700, [0.000, 1.600]","0.696, [0.000, 1.600]","0.695, [0.000, 1.600]","0.688, [0.000, 1.600]","0.687, [0.000, 1.600]","0.687, [0.000, 1.600]","0.681, [0.000, 1.550]"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>id<\/th>\n      <th>numsnps<\/th>\n      <th>log10.bf<\/th>\n      <th>theta0<\/th>\n      <th>theta<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"keys":true,"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 3);\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="cluster-distinctively-expressed-genes-14" class="section level3">
+<h3><span class="header-section-number">16.3.3</span> Cluster distinctively expressed genes</h3>
+<div id="htmlwidget-9f6188d23561fcfeeb90" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9f6188d23561fcfeeb90">{"x":{"filter":"none","extensions":["KeyTable"],"data":[["19","12","18","1","13","15","20","7","17","10","6","14","2","11","9","3","8","16","4","5"],[6541,7719,7966,8494,8480,8556,8977,9060,9336,9212,9648,10060,10154,11103,10233,10846,10754,10894,12973,12195],[-0.250872830040795,-0.261902264903014,-0.273450257045087,-0.282809213548035,-0.286245076506903,-0.286588757656899,-0.290938112233648,-0.292883109796289,-0.294077867219248,-0.295857223246821,-0.299163140817415,-0.305053674623454,-0.305247986593833,-0.307885538147853,-0.30876310789527,-0.311188178146649,-0.312607524868716,-0.316491153559136,-0.318813021387052,-0.331220732798152],["-5.549, [-6.000, -5.150]","-5.549, [-6.000, -5.150]","-5.551, [-6.000, -5.150]","-5.552, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.554, [-6.000, -5.150]","-5.555, [-6.000, -5.150]","-5.553, [-6.000, -5.150]","-5.556, [-6.000, -5.150]"],["0.841, [0.000, 1.890]","0.822, [0.000, 1.836]","0.804, [0.000, 1.782]","0.789, [0.000, 1.782]","0.784, [0.000, 1.782]","0.784, [0.000, 1.782]","0.777, [0.000, 1.728]","0.774, [0.000, 1.728]","0.772, [0.000, 1.728]","0.769, [0.000, 1.728]","0.764, [0.000, 1.728]","0.755, [0.000, 1.728]","0.755, [0.000, 1.728]","0.749, [0.000, 1.674]","0.750, [0.000, 1.674]","0.746, [0.000, 1.674]","0.744, [0.000, 1.674]","0.739, [0.000, 1.674]","0.733, [0.000, 1.674]","0.718, [0.000, 1.620]"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>id<\/th>\n      <th>numsnps<\/th>\n      <th>log10.bf<\/th>\n      <th>theta0<\/th>\n      <th>theta<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"keys":true,"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 3);\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ds2016-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="red-blood-cell-count-2012.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/xiangzhu/rss-gsea/edit/master/17-04-ds2016.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
