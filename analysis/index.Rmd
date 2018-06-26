@@ -22,5 +22,5 @@ If you find results shown in this notebook and/or
 methods implemented in the software useful for your work,
 please cite the manuscript listed above, [Zhu and Stephens (2017)](https://doi.org/10.1101/160770).
 
-If you have any question about this project, please feel free to contact me:
+If you have any question about this notebook, please feel free to contact me:
 [Xiang Zhu](https://github.com/xiangzhu), `xiangzhu@uchicago.edu` or `xiangzhu@stanford.edu`.
