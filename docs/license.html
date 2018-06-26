@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>License</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
 <script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
@@ -155,101 +152,6 @@ $(document).ready(function () {
 
 
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -294,7 +196,7 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">License</h1>
 
 </div>
 
@@ -350,7 +252,7 @@ Message
 Rmd
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/xiangzhu/rss-gsea/blob/bf31edf7399b4528d58a2cc7700bcb79724d604b/analysis/index.Rmd" target="_blank">bf31edf</a>
+<a href="https://github.com/xiangzhu/rss-gsea/blob/bf31edf7399b4528d58a2cc7700bcb79724d604b/analysis/license.Rmd" target="_blank">bf31edf</a>
 </td>
 <td style="text-align:left;">
 Xiang Zhu
@@ -364,44 +266,10 @@ wflow_publish(files = c(“analysis/index.Rmd”, “analysis/license.Rmd”))
 </tr>
 <tr>
 <td style="text-align:left;">
-html
-</td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/33aa5b386ec7c6975848c7418c9da30e3cfdef51/docs/index.html" target="_blank">33aa5b3</a>
-</td>
-<td style="text-align:left;">
-Xiang Zhu
-</td>
-<td style="text-align:left;">
-2018-06-26
-</td>
-<td style="text-align:left;">
-Build site.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 Rmd
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/xiangzhu/rss-gsea/blob/02b392f1f926e36540994949f178d074e464988e/analysis/index.Rmd" target="_blank">02b392f</a>
-</td>
-<td style="text-align:left;">
-Xiang Zhu
-</td>
-<td style="text-align:left;">
-2018-06-26
-</td>
-<td style="text-align:left;">
-wflow_publish(“analysis/index.Rmd”)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Rmd
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/xiangzhu/rss-gsea/blob/cee1a927d6f181bac1305b4fdd1fe984707b9346/analysis/index.Rmd" target="_blank">cee1a92</a>
+<a href="https://github.com/xiangzhu/rss-gsea/blob/cee1a927d6f181bac1305b4fdd1fe984707b9346/analysis/license.Rmd" target="_blank">cee1a92</a>
 </td>
 <td style="text-align:left;">
 Xiang Zhu
@@ -418,16 +286,12 @@ Start workflowr project.
 </ul>
 </details>
 <hr />
-<div id="overview" class="section level2">
-<h2>Overview</h2>
-<p>This is my online notebook to document and share the full results of genome-wide enrichment analyses described in the manuscript:</p>
+<p>Currently the project website is licensed under the <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)</a>. This means you are free to include content from this site in your presentation, blog, or social media posts, as long you cite it. The “no derivatives” (ND) clause means you cannot modify the results and distribute them. Once the results are published (manuscript under review), I will remove “no derivatives” clause.</p>
+<p>The source code in the notebook is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.txt">GNU General Public License, version 3.0 (GPLv3)</a>.</p>
+<p>If you use any results from this site, please explicitly acknowledge that the results are retrieved from <a href="https://github.com/xiangzhu/rss-gsea" class="uri">https://github.com/xiangzhu/rss-gsea</a>, and cite the following preprint:</p>
 <blockquote>
 <p>Xiang Zhu and Matthew Stephens (2017). A large-scale genome-wide enrichment analysis identifies new trait-associated genes, pathways and tissues across 31 human phenotypes. <em>bioRxiv.</em> <a href="https://doi.org/10.1101/160770" class="uri">https://doi.org/10.1101/160770</a>.</p>
 </blockquote>
-<p>The software that was used to generate these results is available at <a href="https://github.com/stephenslab/rss/tree/master/src_vb" class="uri">https://github.com/stephenslab/rss/tree/master/src_vb</a>. Here is an <a href="http://stephenslab.github.io/rss/Example-5">example</a> illustrating how to use the software in enrichment analyses.</p>
-<p>If you find results shown in this notebook and/or methods implemented in the software useful for your work, please cite the manuscript listed above, <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2017)</a>.</p>
-<p>If you have any question about this notebook, please feel free to contact me: <a href="https://github.com/xiangzhu">Xiang Zhu</a>, <code>xiangzhu@uchicago.edu</code> or <code>xiangzhu@stanford.edu</code>.</p>
-</div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
@@ -450,8 +314,6 @@ footer is added to webpages before the MathJax javascript. -->
 <hr>
 
 
-</div>
-</div>
 
 </div>
 
