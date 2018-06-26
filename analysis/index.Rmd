@@ -3,7 +3,24 @@ title: "Home"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
-    toc: false
+    toc: true
 ---
 
-Welcome to my research website.
+## Overview
+
+This is my online notebook to document and share the full results
+of genome-wide enrichment analyses described in the manuscript:
+
+> Xiang Zhu and Matthew Stephens (2017). A large-scale genome-wide enrichment analysis identifies new trait-associated genes, pathways and tissues across 31 human phenotypes. *bioRxiv.* [https://doi.org/10.1101/160770](https://doi.org/10.1101/160770).
+
+The software that was used to generate these results is available at
+https://github.com/stephenslab/rss/tree/master/src_vb.
+Here is an [example](http://stephenslab.github.io/rss/Example-5)
+illustrating how to use the software in enrichment analyses.
+
+If you find results shown in this notebook and/or
+methods implemented in the software useful for your work,
+please cite the manuscript listed above, [Zhu and Stephens (2017)](https://doi.org/10.1101/160770).
+
+If you have any question about this project, please feel free to contact me:
+[Xiang Zhu](https://github.com/xiangzhu), `xiangzhu@uchicago.edu` or `xiangzhu@stanford.edu`.
