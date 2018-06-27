@@ -1,2 +1,0 @@
-gtex.df <- gtex.df[, c("id", "numsnps", "log10.bf", "theta0", "theta")]
-gtex.dt <- DT::datatable(gtex.df,rownames=FALSE,class="display",extensions="KeyTable",options=list(keys=TRUE)) %>% DT::formatRound(c("log10.bf"), 3) 
