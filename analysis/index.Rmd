@@ -16,11 +16,16 @@ of genome-wide enrichment analyses described in the manuscript:
 The software that was used to generate these results is available at
 https://github.com/stephenslab/rss/tree/master/src_vb.
 Here is an [example](http://stephenslab.github.io/rss/Example-5)
-illustrating how to use the software in enrichment analyses.
+illustrating how to use this software in enrichment analyses of GWAS summary statistics.
 
 If you find results shown in this notebook and/or
 methods implemented in the software useful for your work,
-please cite the manuscript listed above, [Zhu and Stephens (2017)](https://doi.org/10.1101/160770).
+please cite the manuscript listed above,
+[Zhu and Stephens (2017)](https://doi.org/10.1101/160770).
 
-If you have any question about this notebook, please feel free to contact me:
+If you have any question about this notebook or the software, please feel free to contact me:
 [Xiang Zhu](https://github.com/xiangzhu), `xiangzhu@uchicago.edu` or `xiangzhu@stanford.edu`.
+
+## Results
+
+- [Adult human height (Wood et al. 2014)](height_2014.html)
