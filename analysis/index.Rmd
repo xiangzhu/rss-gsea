@@ -28,4 +28,20 @@ If you have any question about this notebook or the software, please feel free t
 
 ## Results
 
+#### Anthropometric phenotypes
+
 - [Adult human height (Wood et al. 2014)](height_2014.html)
+- [Body mass index (Locke et al. 2015)](bmi_2015.html)
+
+#### Immune-related phenotypes
+
+- [Inflammatory bowel disease (Liu et al. 2015)](ibd_2015.html)
+
+#### Metabolic phenotypes
+
+- [Coronary artery disease (Nikpay et al. 2015)](cad_2015.html)
+
+#### Neurological phenotypes
+
+- [Schizophrenia (Ripke et al. 2014)](scz_2014.html)
+
