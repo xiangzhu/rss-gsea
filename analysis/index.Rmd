@@ -32,6 +32,7 @@ If you have any question about this notebook or the software, please feel free t
 
 - [Adult human height (Wood et al. 2014)](height_2014.html)
 - [Body mass index (Locke et al. 2015)](bmi_2015.html)
+- [Waist-to-hip ratio (Shungin et al. 2015)](waist_2015.html)
 
 #### Immune-related phenotypes
 
@@ -43,5 +44,7 @@ If you have any question about this notebook or the software, please feel free t
 
 #### Neurological phenotypes
 
+- [Alzheimer's disease (Lambert et al. 2013)](load_2013.html)
 - [Schizophrenia (Ripke et al. 2014)](scz_2014.html)
+- [Neuroticism (Okbay et al. 2016)](neu_2016.html)
 
