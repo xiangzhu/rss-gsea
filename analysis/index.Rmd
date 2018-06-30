@@ -36,10 +36,12 @@ If you have any question about this notebook or the software, please feel free t
 
 #### Immune-related phenotypes
 
+- [Rheumatoid arthritis (Okada et al. 2014)][ra_2014.html]
 - [Inflammatory bowel disease (Liu et al. 2015)](ibd_2015.html)
 
 #### Metabolic phenotypes
 
+- [Type 2 diabetes (Morris et al. 2012)](t2d_2012.html)
 - [Coronary artery disease (Nikpay et al. 2015)](cad_2015.html)
 
 #### Neurological phenotypes
@@ -48,3 +50,8 @@ If you have any question about this notebook or the software, please feel free t
 - [Schizophrenia (Ripke et al. 2014)](scz_2014.html)
 - [Neuroticism (Okbay et al. 2016)](neu_2016.html)
 
+## Resources
+
+#### dd
+
+#### dd
