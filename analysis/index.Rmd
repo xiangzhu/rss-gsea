@@ -1,5 +1,7 @@
 ---
-title: "Home"
+title: "Full results of Zhu and Stephens (2017)"
+author: "Xiang Zhu"
+date: 2017-04-12
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -79,6 +81,14 @@ If you have any question about this notebook or the software, please feel free t
 - [Neuroticism (Okbay et al. 2016)](neu_2016.html)
 
 ## Additional resources
+
+- How can I perform similar analyses on a new dataset of GWAS summary statistics?
+
+The software that was used to generate these results is available at
+https://github.com/stephenslab/rss/tree/master/src_vb.
+I also write a step-by-step tutorial illustrating how to use this software
+to perform genome-wide enrichment and prioritization analyses on GWAS summary statistics.
+The tutorial is available at http://stephenslab.github.io/rss/Example-5.
 
 - Where can I find "baseline" model fitting results of all 31 traits?
 
