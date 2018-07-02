@@ -100,7 +100,8 @@ to share the baseline summary results.
 Currently you need to contact me directly to view our "Round 1" results of all 3913 pathways.
 When this work was under review, one referee pointed out that our online results, especially our
 "Round 1" analysis results, were "needlessly complicated" and did not have "any obvious benefit".
-Hence, I removed the "Round 1" analysis results from this notebook to simplify the presentation. 
+Hence, I removed the "Round 1" analysis results from this notebook to simplify the presentation.
+I hope that this change can address the referee's comment.
 
 - Where can I find the gene prioritization results?
 
