@@ -30,7 +30,7 @@ names(tissue.df) <- c("tissue","id")
 ## Input data
 
 Results below were generated from the GWAS summary statistics published in the paper
-["Seventy-Five Genetic Loci Influencing the Human Red Blood Cell" (*Nature*, 2012)](https://www.ncbi.nlm.nih.gov/pubmed/25282103).
+["Seventy-Five Genetic Loci Influencing the Human Red Blood Cell" (*Nature*, 2012)](https://www.ncbi.nlm.nih.gov/pubmed/23222517).
 The summary data file is available from the European Genome–Phenome Archive (EGA, http://www.ebi.ac.uk/ega) under accession number EGAS00000000132.
 
 ## Analysis results
