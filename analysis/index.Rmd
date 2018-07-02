@@ -11,12 +11,16 @@ output:
 This is my online notebook to document and share the full results
 of genome-wide enrichment analyses described in the manuscript:
 
-> Xiang Zhu and Matthew Stephens (2017). A large-scale genome-wide enrichment analysis identifies new trait-associated genes, pathways and tissues across 31 human phenotypes. *bioRxiv.* [https://doi.org/10.1101/160770](https://doi.org/10.1101/160770).
+> Xiang Zhu and Matthew Stephens (2017).
+> A large-scale genome-wide enrichment analysis identifies new
+> trait-associated genes, pathways and tissues across 31 human phenotypes.
+> *bioRxiv.* [https://doi.org/10.1101/160770](https://doi.org/10.1101/160770).
 
 The software that was used to generate these results is available at
 https://github.com/stephenslab/rss/tree/master/src_vb.
 Here is an [example](http://stephenslab.github.io/rss/Example-5)
-illustrating how to use this software in enrichment analyses of GWAS summary statistics.
+illustrating how to use this software to perform
+genome-wide enrichment analyses of GWAS summary statistics.
 
 If you find results shown in this notebook and/or
 methods implemented in the software useful for your work,
@@ -34,6 +38,10 @@ If you have any question about this notebook or the software, please feel free t
 - [Body mass index (Locke et al. 2015)](bmi_2015.html)
 - [Waist-to-hip ratio (Shungin et al. 2015)](waist_2015.html)
 
+#### Hematopoietic phenotypes
+
+- [Red blood cell count (Harst et al. 2012)](rbc_2012.html)
+
 #### Immune-related phenotypes
 
 - [Rheumatoid arthritis (Okada et al. 2014)][ra_2014.html]
@@ -45,13 +53,16 @@ If you have any question about this notebook or the software, please feel free t
 
 - [Type 2 diabetes (Morris et al. 2012)](t2d_2012.html)
 - [Heart rate (Den Hoed et al. 2013)](hr_2013.html)
+- [Serum urate (Köttgen et al. 2013)](urate_2013.html)
 - [Coronary artery disease (Nikpay et al. 2015)](cad_2015.html)
+- [Myocardial infarction (Nikpay et al. 2015)](mi_2015.html)
 
 #### Neurological phenotypes
 
 - [Alzheimer's disease (Lambert et al. 2013)](load_2013.html)
 - [Schizophrenia (Ripke et al. 2014)](scz_2014.html)
 - [Neuroticism (Okbay et al. 2016)](neu_2016.html)
+- [Depressive symptoms (Okbay et al. 2016)](ds_2016.html)
 
 ## Additional resources
 
