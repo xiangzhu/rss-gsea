@@ -40,20 +40,33 @@ If you have any question about this notebook or the software, please feel free t
 
 #### Hematopoietic phenotypes
 
+- [Haemoglobin (Harst et al. 2012)](hb_2012.html)
+- [Mean cell haemoglobin (Harst et al. 2012)](mch_2012.html)
+- [Mean cell haemoglobin concentration (Harst et al. 2012)](mchc_2012.html)
+- [Mean cell volume (Harst et al. 2012)](mcv_2012.html)
+- [Packed cell volume (Harst et al. 2012)](pcv_2012.html)
 - [Red blood cell count (Harst et al. 2012)](rbc_2012.html)
 
 #### Immune-related phenotypes
 
-- [Rheumatoid arthritis (Okada et al. 2014)][ra_2014.html]
-- [Crohn's disease (Liu et al. 2015)](ibd_2015.html)
+- [Rheumatoid arthritis (Okada et al. 2014)](ra_2014.html)
+- [Crohn's disease (Liu et al. 2015)](cd_2015.html)
 - [Inflammatory bowel disease (Liu et al. 2015)](ibd_2015.html)
-- [Ulcerative colitis (Liu et al. 2015)](ibd_2015.html)
+- [Ulcerative colitis (Liu et al. 2015)](uc_2015.html)
 
 #### Metabolic phenotypes
 
+- [High-density lipoprotein (Teslovich et al. 2010)](hdl_2010.html)
+- [Low-density lipoprotein (Teslovich et al. 2010)](ldl_2010.html)
+- [Total cholesterol (Teslovich et al. 2010)](tc_2010.html)
+- [Triglycerides (Teslovich et al. 2010)](tg_2010.html)
 - [Type 2 diabetes (Morris et al. 2012)](t2d_2012.html)
+- [Fasting glucose (Manning et al. 2012)](fg_2012.html)
+- [Fasting insulin (Manning et al. 2012)](fi_2012.html)
 - [Heart rate (Den Hoed et al. 2013)](hr_2013.html)
+- [Gout (Köttgen et al. 2013)](gout_2013.html)
 - [Serum urate (Köttgen et al. 2013)](urate_2013.html)
+- [Age at natural menopause (Day et al. 2015)](anm_2015.html)
 - [Coronary artery disease (Nikpay et al. 2015)](cad_2015.html)
 - [Myocardial infarction (Nikpay et al. 2015)](mi_2015.html)
 
@@ -61,10 +74,13 @@ If you have any question about this notebook or the software, please feel free t
 
 - [Alzheimer's disease (Lambert et al. 2013)](load_2013.html)
 - [Schizophrenia (Ripke et al. 2014)](scz_2014.html)
-- [Neuroticism (Okbay et al. 2016)](neu_2016.html)
+- [Amyotrophic lateral sclerosis (Rheenen et al. 2016)](als_2016.html)
 - [Depressive symptoms (Okbay et al. 2016)](ds_2016.html)
+- [Neuroticism (Okbay et al. 2016)](neu_2016.html)
 
 ## Additional resources
+
+#### Where can I find "baseline" model fitting results of all 31 traits?
 
 #### Where can I find "Round 1" results of all 3913 pathways?
 
