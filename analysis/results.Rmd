@@ -1,0 +1,110 @@
+---
+title: "Home"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: true
+---
+
+## Overview
+
+This is my online notebook to document and share the full results
+of genome-wide enrichment analyses described in the manuscript:
+
+> Xiang Zhu and Matthew Stephens (2017).
+> A large-scale genome-wide enrichment analysis identifies new
+> trait-associated genes, pathways and tissues across 31 human phenotypes.
+> *bioRxiv.* [https://doi.org/10.1101/160770](https://doi.org/10.1101/160770).
+
+The software that was used to generate these results is available at
+https://github.com/stephenslab/rss/tree/master/src_vb.
+Here is an [example](http://stephenslab.github.io/rss/Example-5)
+illustrating how to use this software to perform
+genome-wide enrichment analyses of GWAS summary statistics.
+
+If you find results shown in this notebook and/or
+methods implemented in the software useful for your work,
+please cite the manuscript listed above,
+[Zhu and Stephens (2017)](https://doi.org/10.1101/160770).
+
+If you have any question about this notebook or the software, please feel free to contact me:
+[Xiang Zhu](https://github.com/xiangzhu), `xiangzhu@uchicago.edu` or `xiangzhu@stanford.edu`.
+
+## Main results
+
+#### Anthropometric phenotypes
+
+- [Adult human height (Wood et al. 2014)](height_2014.html)
+- [Body mass index (Locke et al. 2015)](bmi_2015.html)
+- [Waist-to-hip ratio (Shungin et al. 2015)](waist_2015.html)
+
+#### Hematopoietic phenotypes
+
+- [Haemoglobin (Harst et al. 2012)](hb_2012.html)
+- [Mean cell haemoglobin (Harst et al. 2012)](mch_2012.html)
+- [Mean cell haemoglobin concentration (Harst et al. 2012)](mchc_2012.html)
+- [Mean cell volume (Harst et al. 2012)](mcv_2012.html)
+- [Packed cell volume (Harst et al. 2012)](pcv_2012.html)
+- [Red blood cell count (Harst et al. 2012)](rbc_2012.html)
+
+#### Immune-related phenotypes
+
+- [Rheumatoid arthritis (Okada et al. 2014)](ra_2014.html)
+- [Crohn's disease (Liu et al. 2015)](cd_2015.html)
+- [Inflammatory bowel disease (Liu et al. 2015)](ibd_2015.html)
+- [Ulcerative colitis (Liu et al. 2015)](uc_2015.html)
+
+#### Metabolic phenotypes
+
+- [High-density lipoprotein (Teslovich et al. 2010)](hdl_2010.html)
+- [Low-density lipoprotein (Teslovich et al. 2010)](ldl_2010.html)
+- [Total cholesterol (Teslovich et al. 2010)](tc_2010.html)
+- [Triglycerides (Teslovich et al. 2010)](tg_2010.html)
+- [Type 2 diabetes (Morris et al. 2012)](t2d_2012.html)
+- [Fasting glucose (Manning et al. 2012)](fg_2012.html)
+- [Fasting insulin (Manning et al. 2012)](fi_2012.html)
+- [Heart rate (Den Hoed et al. 2013)](hr_2013.html)
+- [Gout (Köttgen et al. 2013)](gout_2013.html)
+- [Serum urate (Köttgen et al. 2013)](urate_2013.html)
+- [Age at natural menopause (Day et al. 2015)](anm_2015.html)
+- [Coronary artery disease (Nikpay et al. 2015)](cad_2015.html)
+- [Myocardial infarction (Nikpay et al. 2015)](mi_2015.html)
+
+#### Neurological phenotypes
+
+- [Alzheimer's disease (Lambert et al. 2013)](load_2013.html)
+- [Schizophrenia (Ripke et al. 2014)](scz_2014.html)
+- [Amyotrophic lateral sclerosis (Rheenen et al. 2016)](als_2016.html)
+- [Depressive symptoms (Okbay et al. 2016)](ds_2016.html)
+- [Neuroticism (Okbay et al. 2016)](neu_2016.html)
+
+## Additional resources
+
+- Where can I find "baseline" model fitting results of all 31 traits?
+
+You can find summary results of "baseline" model fitting at
+https://xiangzhu.github.io/rss-gsea-baseline.
+For me, the baseline model fitting results are merely inferential "bases" for the
+enrichment model fitting results shown in the "Main results" section above.
+However, when I was presenting the enrichment results during my Ph.D.
+[thesis defense](http://www.stat.uchicago.edu/~xiangzhu/THESIS_20170630.html),
+[Prof. John Novembre](http://jnpopgen.org/) and
+[Prof. Xin He](http://xinhelab.org/) both pointed out these baseline results
+might be useful for other on-going projects on the "fourth floor".
+Their comments motivated me to create a separate
+[online notebook](https://xiangzhu.github.io/rss-gsea-baseline)
+to share the baseline summary results.
+
+- Where can I find "Round 1" results of all 3913 pathways?
+
+Currently you need to contact me directly to view our "Round 1" results of all 3913 pathways.
+When this work was under review, one referee pointed out that our online results, especially our
+"Round 1" analysis results, were "needlessly complicated" and did not have "any obvious benefit".
+Hence, I removed the "Round 1" analysis results from this notebook to simplify the presentation.
+I hope that this change can address the referee's comment.
+
+- Where can I find the gene prioritization results?
+
+Currently you need to contact me directly to view our full prioritization results. 
+Unlike the gene set enrichment results, the gene prioritization results
+cannot be easily tabulated, and thus I have not displayed them in this notebook yet.
