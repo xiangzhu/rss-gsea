@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Xiang Zhu" />
+
+<meta name="date" content="2017-04-12" />
+
+<title>Enrichment results of serum urate</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.4/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">rss-gsea</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xiangzhu/rss-gsea">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Enrichment results of serum urate</h1>
+<h4 class="author"><em>Xiang Zhu</em></h4>
+<h4 class="date"><em>2017-04-12</em></h4>
+
+</div>
+
+
+<p><strong>Last updated:</strong> 2018-07-01</p>
+<strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
+<ul>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</details>
+</li>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Environment:</strong> empty </summary></p>
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</details>
+</li>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Seed:</strong> <code>set.seed(20180626)</code> </summary></p>
+<p>The command <code>set.seed(20180626)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</details>
+</li>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Session information:</strong> recorded </summary></p>
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</details>
+</li>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/c61fb1a357f6abcfd3b2e67f142ad7756bf191cf" target="_blank">c61fb1a</a> </summary></p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+<pre><code>
+Ignored files:
+    Ignored:    .Rproj.user/
+
+Unstaged changes:
+    Modified:   analysis/index.Rmd
+
+</code></pre>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</details>
+</li>
+</ul>
+<details>
+<summary> <small><strong>Expand here to see past versions:</strong></small> </summary>
+<ul>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+File
+</th>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:left;">
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/xiangzhu/rss-gsea/blob/c61fb1a357f6abcfd3b2e67f142ad7756bf191cf/analysis/urate_2013.Rmd" target="_blank">c61fb1a</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-07-01
+</td>
+<td style="text-align:left;">
+wflow_publish(“urate_2013.Rmd”)
+</td>
+</tr>
+</tbody>
+</table>
+</ul>
+</details>
+<hr />
+<div id="input-data" class="section level2">
+<h2>Input data</h2>
+<p>Results below were generated from the GWAS summary statistics published in the paper <a href="https://www.ncbi.nlm.nih.gov/pubmed/23263486">“Genome-Wide Association Analyses Identify 18 New Loci Associated with Serum Urate Concentrations” (<em>Nature Genetics</em>, 2013)</a>. The summary data file is available at <a href="http://metabolomics.helmholtz-muenchen.de/gugc" class="uri">http://metabolomics.helmholtz-muenchen.de/gugc</a>.</p>
+</div>
+<div id="analysis-results" class="section level2">
+<h2>Analysis results</h2>
+<p>Enrichment analyses are summarized by the following three quantities.</p>
+<ul>
+<li><strong>BF:</strong> Bayes factor comparing the enrichment model against the baseline model;</li>
+<li><strong>Outside <span class="math inline">\(\pi\)</span>:</strong> proportion of trait-associated SNPs that are “outside” the gene set;</li>
+<li><strong>Inside <span class="math inline">\(\pi\)</span>:</strong> proportion of trait-associated SNPs that are “inside” the gene set.</li>
+</ul>
+<p>The first quantity reflects the significance of enrichment, whereas the last two capture the magnitude of enrichment. For each gene set, we report these three quantities in the last three columns of tables below, on log 10 scale.</p>
+<div id="biological-pathways" class="section level3">
+<h3>Biological pathways</h3>
+<div id="htmlwidget-983860bb2d7d6ad3a872" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-983860bb2d7d6ad3a872">{"x":{"filter":"none","data":[["Class II GLUTs<br/>(reactome, PC)","Facilitative Na+-independent glucose transporters<br/>(reactome, BioSystems)","Facilitative Na+-independent glucose transporters<br/>(reactome, PC)","Transport of glucose and other sugars, bile salts and organic acids, metal ions and amine compounds<br/>(reactome, PC)","SLC-mediated transmembrane transport<br/>(reactome, PC)","SLC-mediated transmembrane transport<br/>(reactome, BioSystems)","Transport of glucose and other sugars, bile salts and organic acids, metal ions and amine compounds<br/>(reactome, BioSystems)","Hypertrophy Model<br/>(wiki, BioSystems)","Platelet activation, signaling and aggregation<br/>(reactome, BioSystems)","Platelet activation, signaling and aggregation<br/>(reactome, PC)","Platelet degranulation<br/>(reactome, PC)","Response to elevated platelet cytosolic Ca2+<br/>(reactome, PC)","Hemostasis<br/>(reactome, PC)","Hemostasis<br/>(reactome, BioSystems)","proline biosynthesis<br/>(biocyc, BioSystems)","PI3K-Akt signaling pathway<br/>(kegg, BioSystems)","pentose phosphate pathway (oxidative branch)<br/>(humancyc, PC)","Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P<br/>(kegg, BioSystems)","Abacavir transmembrane transport<br/>(reactome, PC)","Abacavir transport and metabolism<br/>(reactome, PC)","VxPx cargo-targeting to cilium<br/>(reactome, BioSystems)","Signaling by PDGF<br/>(reactome, BioSystems)","Irinotecan Pathway<br/>(wiki, BioSystems)","HIF-2-alpha transcription factor network<br/>(pid, PC)","Fluoropyrimidine Activity<br/>(wiki, BioSystems)","IRAK4 deficiency (TLR5)<br/>(reactome, BioSystems)","ABC transporters<br/>(kegg, BioSystems)","Cargo trafficking to the periciliary membrane<br/>(reactome, BioSystems)","Iron uptake and transport<br/>(reactome, PC)","ornithine de novo biosynthesis<br/>(biocyc, BioSystems)","Proline biosynthesis, glutamate => proline<br/>(kegg, BioSystems)","ornithine de novo biosynthesis<br/>(humancyc, PC)","HIF-1-alpha transcription factor network<br/>(pid, BioSystems)","Post-transcriptional silencing by small RNAs<br/>(reactome, PC)","HIF-1-alpha transcription factor network<br/>(pid, PC)","Ketone body catabolism<br/>(reactome, PC)","Type II diabetes mellitus<br/>(wiki, BioSystems)","Bile secretion<br/>(kegg, BioSystems)","ketolysis<br/>(humancyc, PC)","Integrins in angiogenesis<br/>(pid, PC)","Integrins in angiogenesis<br/>(pid, BioSystems)","HATs acetylate histones<br/>(reactome, PC)","HATs acetylate histones<br/>(reactome, BioSystems)","Signaling by PDGF<br/>(reactome, PC)","Chromatin modifying enzymes<br/>(reactome, BioSystems)","Chromatin modifying enzymes<br/>(reactome, PC)","Alpha9 beta1 integrin signaling events<br/>(pid, PC)","Endochondral Ossification<br/>(wiki, BioSystems)","Osteopontin Signaling<br/>(wiki, BioSystems)","Beta3 integrin cell surface interactions<br/>(pid, PC)","FGF signaling pathway<br/>(pid, PC)","FGF signaling pathway<br/>(pid, BioSystems)","Osteopontin-mediated events<br/>(pid, PC)","Osteopontin-mediated events<br/>(pid, BioSystems)","Osteoclast Signaling<br/>(wiki, BioSystems)","Ketone body metabolism<br/>(reactome, PC)","glycine/serine biosynthesis<br/>(humancyc, PC)","Direct p53 effectors<br/>(pid, BioSystems)","Regulation of toll-like receptor signaling pathway<br/>(wiki, BioSystems)","Toll-like receptor signaling pathway<br/>(kegg, BioSystems)","Toll-like receptor signaling pathway<br/>(wiki, BioSystems)","Direct p53 effectors<br/>(pid, PC)","Alpha4 beta1 integrin signaling events<br/>(pid, PC)","Beta1 integrin cell surface interactions<br/>(pid, PC)","BDNF signaling pathway<br/>(wiki, BioSystems)","Degradation of the extracellular matrix<br/>(reactome, PC)","TGF Beta Signaling Pathway<br/>(wiki, BioSystems)","Extracellular matrix organization<br/>(reactome, BioSystems)","Interleukin-11 Signaling Pathway<br/>(wiki, BioSystems)","Focal Adhesion<br/>(wiki, BioSystems)","ECM-receptor interaction<br/>(kegg, BioSystems)","Integrin cell surface interactions<br/>(reactome, PC)","DNA polymerase alpha / primase complex<br/>(kegg, BioSystems)","Osteoblast Signaling<br/>(wiki, BioSystems)","Focal adhesion<br/>(kegg, BioSystems)","C-MYC pathway<br/>(pid, BioSystems)","Extracellular matrix organization<br/>(reactome, PC)","C-MYC pathway<br/>(pid, PC)","ECM proteoglycans<br/>(reactome, PC)","Carbohydrate metabolism<br/>(reactome, PC)","Metabolism of carbohydrates<br/>(reactome, BioSystems)","Trk receptor signaling mediated by the MAPK pathway<br/>(pid, BioSystems)","Validated targets of C-MYC transcriptional activation<br/>(pid, PC)","Validated targets of C-MYC transcriptional activation<br/>(pid, BioSystems)","dTMP de novo biosynthesis (mitochondrial)<br/>(humancyc, PC)","HuR stabilizes mRNA<br/>(reactome, PC)","Regulation of Glucokinase by Glucokinase Regulatory Protein<br/>(reactome, PC)","Regulation of Glucokinase by Glucokinase Regulatory Protein<br/>(reactome, BioSystems)","Glucose transport<br/>(reactome, PC)","Glucose transport<br/>(reactome, BioSystems)","Hexose uptake<br/>(reactome, PC)","Hexose transport<br/>(reactome, BioSystems)","pentose phosphate pathway<br/>(biocyc, BioSystems)","Pentose Phosphate Pathway<br/>(wiki, BioSystems)","4-hydroxyproline degradation<br/>(humancyc, PC)","Salvage pyrimidine deoxyribonucleotides<br/>(panther, PC)","Rho-Selective Guanine Exchange Factor AKAP13 Mediates Stress Fiber Formation<br/>(biocarta, BioCarta)","Ascorbate degradation<br/>(panther, PANTHER)","proline biosynthesis<br/>(humancyc, PC)","Small interfering RNA (siRNA) biogenesis<br/>(reactome, PC)"],[4,13,11,95,251,254,98,20,217,211,74,79,490,496,2,335,2,3,5,10,20,335,13,32,33,4,42,49,39,2,4,3,64,7,65,3,20,70,4,60,46,132,136,179,241,203,22,65,11,40,54,47,31,32,16,5,2,133,98,102,98,139,33,64,136,87,53,259,40,177,85,66,3,13,200,22,254,25,54,244,253,28,78,79,3,8,28,29,39,41,45,47,5,7,4,2,12,2,3,9],[500,1110,953,8823,24228,24715,9230,1832,22410,22066,7024,7898,47497,47869,164,33164,146,248,623,1050,2384,34087,1193,2761,3870,227,4448,4890,3260,271,307,318,6123,484,6719,219,1737,7558,289,6317,4670,5987,6394,20136,15750,12183,2675,7547,848,4340,5067,4457,3285,3362,1526,349,85,11597,6824,6902,6919,11932,3359,7558,14875,9054,5412,27794,3449,19437,10730,6892,159,1334,23092,1800,27313,2020,6295,23294,23886,2591,5877,5877,184,928,2229,2315,3141,3298,3642,3799,331,429,328,235,1424,149,234,555],[1817.89845800669,1651.62572507552,1642.59936330357,1558.06453422305,1329.77651783828,1308.42850954472,1156.24215988784,592.828131164867,456.594733092567,372.934320692021,348.816255387585,307.956072079312,301.832831593335,256.675860001671,152.29315657259,140.695740400675,117.948503564619,117.512209450842,108.158050154849,104.979008736472,101.457528154516,93.3519615385732,89.94443313813,87.813847402431,85.165899635258,84.1458872725785,79.7934681864938,78.4284480902917,68.3678770698379,67.1793662393149,67.1704000494425,67.0452119862637,61.6492134137296,61.5760741950695,58.1666557854421,57.5222212075324,54.9197757079143,46.2347287628912,26.3233902728442,24.3052213072101,23.6918169429454,22.7584948453202,22.7514256424472,22.2300404250068,22.0590664837759,21.5722945434359,21.4721658110781,20.4835097987597,19.7715019857095,19.1015187559938,15.6706117886245,15.6038281004842,15.5292877152512,15.3113256086119,15.2716327055267,14.2965303281866,14.1250160310289,12.5206797260345,12.494715004255,12.4288103158703,12.3539390998349,12.321667589956,11.545787768065,11.4116797213819,10.8963340340215,10.8492964759357,10.7570599274623,10.2973624080663,9.76478695909727,9.64080949763798,9.41924368192264,9.30079710523734,8.53294107484469,7.27771419029026,7.03531111408428,4.31757331943377,4.24985885240922,4.2396597618757,4.03402551067865,3.75429325851124,3.41801555820694,3.02779847708123,2.72123227081455,2.72123227081455,2.24059368339981,1.59990596932395,0.996170003989344,0.993785435937189,0.902424723366022,0.864665408938197,0.841079344780971,0.838724546545098,0.160333360598707,0.0843136380284455,-0.104428906759509,-0.113254113119857,-0.113555553582551,-0.121934836911678,-0.139713606086331,-0.209190121613317],["-4.2689<br/>[-4.2689, -4.2689]","-4.2687<br/>[-4.2687, -4.2687]","-4.2688<br/>[-4.2688, -4.2688]","-4.2812<br/>[-4.2812, -4.2812]","-4.2915<br/>[-4.2915, -4.2915]","-4.2913<br/>[-4.2913, -4.2913]","-4.2810<br/>[-4.2810, -4.2810]","-4.2316<br/>[-4.2316, -4.2316]","-4.2231<br/>[-4.2231, -4.2231]","-4.2232<br/>[-4.2232, -4.2232]","-4.2294<br/>[-4.2294, -4.2294]","-4.2291<br/>[-4.2291, -4.2291]","-4.2197<br/>[-4.2197, -4.2197]","-4.2195<br/>[-4.2195, -4.2195]","-4.0321<br/>[-4.0321, -4.0321]","-4.0422<br/>[-4.0422, -4.0422]","-4.0322<br/>[-4.0322, -4.0322]","-4.0321<br/>[-4.0321, -4.0321]","-4.0456<br/>[-4.0456, -4.0456]","-4.0455<br/>[-4.0455, -4.0455]","-4.0450<br/>[-4.0450, -4.0450]","-4.0365<br/>[-4.0365, -4.0365]","-4.0454<br/>[-4.0454, -4.0454]","-4.0541<br/>[-4.0541, -4.0541]","-4.0443<br/>[-4.0443, -4.0443]","-4.0321<br/>[-4.0321, -4.0321]","-4.0441<br/>[-4.0441, -4.0441]","-4.0442<br/>[-4.0442, -4.0442]","-4.0445<br/>[-4.0445, -4.0445]","-4.0321<br/>[-4.0321, -4.0321]","-4.0321<br/>[-4.0321, -4.0321]","-4.0321<br/>[-4.0321, -4.0321]","-4.0482<br/>[-4.0482, -4.0482]","-4.0320<br/>[-4.0320, -4.0320]","-4.0479<br/>[-4.0479, -4.0479]","-4.0321<br/>[-4.0321, -4.0321]","-4.0321<br/>[-4.0321, -4.0321]","-4.0428<br/>[-4.0428, -4.0428]","-4.0321<br/>[-4.0321, -4.0321]","-4.0437<br/>[-4.0437, -4.0437]","-4.0444<br/>[-4.0444, -4.0444]","-4.0344<br/>[-4.0344, -4.0344]","-4.0343<br/>[-4.0343, -4.0343]","-4.0378<br/>[-4.0378, -4.0378]","-4.0304<br/>[-4.0304, -4.0304]","-4.0319<br/>[-4.0319, -4.0319]","-4.0403<br/>[-4.0403, -4.0403]","-4.0428<br/>[-4.0428, -4.0428]","-4.0411<br/>[-4.0411, -4.0411]","-4.0401<br/>[-4.0401, -4.0401]","-4.0352<br/>[-4.0352, -4.0352]","-4.0354<br/>[-4.0354, -4.0354]","-4.0401<br/>[-4.0401, -4.0401]","-4.0400<br/>[-4.0400, -4.0400]","-4.0363<br/>[-4.0363, -4.0363]","-4.0321<br/>[-4.0321, -4.0321]","-4.0367<br/>[-4.0367, -4.0367]","-4.0322<br/>[-4.0322, -4.0322]","-4.0386<br/>[-4.0386, -4.0386]","-4.0386<br/>[-4.0386, -4.0386]","-4.0385<br/>[-4.0385, -4.0385]","-4.0320<br/>[-4.0320, -4.0320]","-4.0355<br/>[-4.0355, -4.0355]","-4.0383<br/>[-4.0383, -4.0383]","-4.0353<br/>[-4.0353, -4.0353]","-4.0332<br/>[-4.0332, -4.0332]","-4.0347<br/>[-4.0347, -4.0347]","-4.0253<br/>[-4.0253, -4.0253]","-4.0353<br/>[-4.0353, -4.0353]","-4.0379<br/>[-4.0379, -4.0379]","-4.0370<br/>[-4.0370, -4.0370]","-4.0340<br/>[-4.0340, -4.0340]","-4.0322<br/>[-4.0322, -4.0322]","-4.0363<br/>[-4.0363, -4.0363]","-4.0410<br/>[-4.0410, -4.0410]","-4.0359<br/>[-4.0359, -4.0359]","-4.0255<br/>[-4.0255, -4.0255]","-4.0359<br/>[-4.0359, -4.0359]","-4.0296<br/>[-4.0296, -4.0296]","-4.0273<br/>[-4.0273, -4.0273]","-4.0271<br/>[-4.0271, -4.0271]","-4.0311<br/>[-4.0311, -4.0311]","-4.0343<br/>[-4.0343, -4.0343]","-4.0343<br/>[-4.0343, -4.0343]","-4.0366<br/>[-4.0366, -4.0366]","-4.0318<br/>[-4.0318, -4.0318]","-4.0358<br/>[-4.0358, -4.0358]","-4.0358<br/>[-4.0358, -4.0358]","-4.0354<br/>[-4.0354, -4.0354]","-4.0354<br/>[-4.0354, -4.0354]","-4.0352<br/>[-4.0352, -4.0352]","-4.0352<br/>[-4.0352, -4.0352]","-4.0321<br/>[-4.0321, -4.0321]","-4.0320<br/>[-4.0320, -4.0320]","-4.0321<br/>[-4.0321, -4.0321]","-4.0321<br/>[-4.0321, -4.0321]","-4.0316<br/>[-4.0316, -4.0316]","-4.0322<br/>[-4.0322, -4.0322]","-4.0321<br/>[-4.0321, -4.0321]","-4.0320<br/>[-4.0320, -4.0320]"],["-1.0641<br/>[-1.0641, -1.0641]","-1.4100<br/>[-1.4100, -1.4100]","-1.3226<br/>[-1.3226, -1.3226]","-2.2960<br/>[-2.2960, -2.2960]","-2.6958<br/>[-2.6983, -2.6958]","-2.7894<br/>[-2.7894, -2.7894]","-2.3737<br/>[-2.3834, -2.3737]","-1.6305<br/>[-1.6305, -1.6305]","-2.8002<br/>[-2.8002, -2.8002]","-2.8208<br/>[-2.8208, -2.8208]","-2.3522<br/>[-2.3522, -2.3522]","-2.4491<br/>[-2.4497, -2.4491]","-3.1179<br/>[-3.1179, -3.1130]","-3.1338<br/>[-3.1338, -3.1338]","-1.9066<br/>[-1.9135, -1.8964]","-2.8017<br/>[-2.8017, -2.7996]","-1.8607<br/>[-1.8632, -1.8568]","-2.0910<br/>[-2.0933, -2.0873]","-1.4878<br/>[-1.4891, -1.4844]","-1.7334<br/>[-1.7367, -1.7173]","-1.8435<br/>[-1.8435, -1.8435]","-2.6882<br/>[-2.6882, -2.6778]","-1.7278<br/>[-1.7287, -1.7219]","-1.9300<br/>[-1.9320, -1.9300]","-2.1124<br/>[-2.1349, -2.0968]","-2.0520<br/>[-2.0549, -2.0478]","-2.1564<br/>[-2.1640, -2.1258]","-2.2111<br/>[-2.2115, -2.2111]","-2.1949<br/>[-2.1950, -2.1853]","-2.1175<br/>[-2.1316, -2.0968]","-2.1408<br/>[-2.1798, -2.0982]","-2.1559<br/>[-2.1970, -2.1107]","-2.3010<br/>[-2.3013, -2.3010]","-1.9473<br/>[-1.9707, -1.9190]","-2.4014<br/>[-2.4018, -2.4014]","-2.0351<br/>[-2.0392, -2.0291]","-1.8561<br/>[-1.8562, -1.8550]","-2.6348<br/>[-2.6349, -2.6348]","-1.9754<br/>[-1.9822, -1.9683]","-2.8299<br/>[-2.8438, -2.8238]","-2.6824<br/>[-2.7284, -2.6713]","-3.1521<br/>[-3.1679, -3.0707]","-3.1806<br/>[-3.1964, -3.0991]","-3.2627<br/>[-3.2821, -3.2546]","-3.5667<br/>[-3.5765, -3.5616]","-3.4753<br/>[-3.4786, -3.4735]","-2.4963<br/>[-2.5103, -2.4866]","-3.0299<br/>[-3.0381, -3.0259]","-2.1170<br/>[-2.1387, -2.0684]","-2.6794<br/>[-2.7213, -2.6450]","-2.7782<br/>[-2.8129, -2.7629]","-2.7305<br/>[-2.7624, -2.7166]","-2.7203<br/>[-2.7293, -2.7162]","-2.7371<br/>[-2.7463, -2.7327]","-2.3988<br/>[-2.4471, -2.3341]","-1.9326<br/>[-1.9355, -1.9302]","-1.4425<br/>[-1.4516, -1.4353]","-3.3731<br/>[-3.4196, -3.3626]","-3.0588<br/>[-3.1007, -3.0537]","-3.0646<br/>[-3.0871, -3.0546]","-3.0741<br/>[-3.0951, -3.0641]","-3.3958<br/>[-3.4337, -3.3742]","-2.8541<br/>[-2.8777, -2.8443]","-3.0883<br/>[-3.0964, -3.0847]","-3.3577<br/>[-3.3685, -3.3532]","-3.1595<br/>[-3.1713, -3.1543]","-3.0640<br/>[-3.0828, -3.0542]","-3.3799<br/>[-3.3968, -3.3555]","-2.7618<br/>[-2.8030, -2.7395]","-3.3549<br/>[-3.3981, -3.3151]","-3.0419<br/>[-3.0851, -2.9579]","-3.0032<br/>[-3.0434, -2.9709]","-1.8819<br/>[-1.9001, -1.8588]","-2.5318<br/>[-2.6271, -2.4198]","-3.4698<br/>[-3.4974, -3.4597]","-2.7759<br/>[-2.7771, -2.7752]","-3.4817<br/>[-3.5178, -3.4545]","-2.8260<br/>[-2.8272, -2.8252]","-3.4593<br/>[-3.4938, -3.4138]","-3.7132<br/>[-3.7785, -3.6803]","-3.7527<br/>[-3.8058, -3.7243]","-3.0649<br/>[-3.1162, -3.0040]","-3.2853<br/>[-3.2892, -3.2827]","-3.2853<br/>[-3.2892, -3.2827]","-2.2376<br/>[-2.2647, -2.1831]","-2.9304<br/>[-2.9674, -2.8639]","-3.3024<br/>[-3.3384, -3.2733]","-3.3189<br/>[-3.3549, -3.2896]","-3.4580<br/>[-3.4888, -3.4319]","-3.4819<br/>[-3.5103, -3.4574]","-3.5267<br/>[-3.5538, -3.5030]","-3.5446<br/>[-3.5721, -3.5204]","-2.5295<br/>[-4.9754, -2.1630]","-2.5541<br/>[-5.1864, -2.2720]","-4.9285<br/>[-7.0496, -4.2485]","-4.4549<br/>[-6.7174, -3.7406]","-4.7343<br/>[-6.2333, -4.0996]","-3.5804<br/>[-5.9630, -2.8642]","-4.6284<br/>[-6.8896, -3.8549]","-4.3710<br/>[-6.2789, -3.6984]"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>Pathway name<br/>(database, repository)<\/th>\n      <th># of genes<\/th>\n      <th># of SNPs<\/th>\n      <th>Log10 BF<\/th>\n      <th>Log10 outside &pi;<br/>(mean, 95% CI)<\/th>\n      <th>Log10 inside &pi;<br/>(mean, 95% CI)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 3, 3, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="tissue-highly-expressed-genes" class="section level3">
+<h3>Tissue highly expressed genes</h3>
+<div id="htmlwidget-0aaad034f4771159c3b9" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0aaad034f4771159c3b9">{"x":{"filter":"none","data":[["Liver","Muscle - Skeletal","Brain - Cortex","Brain - Frontal Cortex (BA9)","Testis","Stomach","Brain - Hippocampus","Brain - Anterior cingulate cortex (BA24)","Artery - Tibial","Cells - EBV-transformed lymphocytes","Brain - Cerebellum","Adrenal Gland","Esophagus - Mucosa","Spleen","Heart - Left Ventricle","Small Intestine - Terminal Ileum","Lung","Colon - Transverse","Pancreas","Brain - Cerebellar Hemisphere","Skin - Not Sun Exposed (Suprapubic)","Breast - Mammary Tissue","Adipose - Subcutaneous","Whole Blood","Nerve - Tibial","Uterus","Skin - Sun Exposed (Lower leg)","Vagina","Esophagus - Gastroesophageal Junction","Adipose - Visceral (Omentum)","Colon - Sigmoid","Prostate","Esophagus - Muscularis","Brain - Hypothalamus","Pituitary","Thyroid","Heart - Atrial Appendage","Ovary","Brain - Nucleus accumbens (basal ganglia)","Cells - Transformed fibroblasts","Artery - Coronary","Artery - Aorta","Brain - Caudate (basal ganglia)","Brain - Putamen (basal ganglia)"],[6290,5654,5833,6179,5835,5260,5735,5899,6023,4961,5681,5620,5579,4024,5631,4680,4997,5216,5096,5630,5771,5555,5611,5828,5674,5667,5701,5765,5789,5820,5892,5573,5974,5871,5881,6146,5838,5863,6089,6091,6148,6318,6456,6530],[3.01389963839463,2.81166469512691,2.28596298021791,2.21961272613556,0.899947461810266,0.812159645438472,0.757918711652163,0.738617091151374,-0.150431550007836,-0.210397076337356,-0.222331702305397,-0.349224589154315,-0.383819710181851,-0.388263188607427,-0.396817458590821,-0.406790611460211,-0.41260505790288,-0.413261838128897,-0.415983694150125,-0.422866844812558,-0.424049595269862,-0.428043350579104,-0.428677041767963,-0.429687471236414,-0.429718440253674,-0.429926310325591,-0.430251576306838,-0.432396379712153,-0.432581157283651,-0.433436348772291,-0.434887873875401,-0.435952040545928,-0.436644587926597,-0.439109338650403,-0.440246189111634,-0.440453314901923,-0.440521526000505,-0.442212368726137,-0.443962917946447,-0.4468832450284,-0.447805633544189,-0.451501052689335,-0.451904015571975,-0.452373106815017],["-4.0296<br/>[-4.0296, -4.0296]","-4.0344<br/>[-4.0344, -4.0344]","-4.0302<br/>[-4.0302, -4.0302]","-4.0301<br/>[-4.0301, -4.0301]","-4.0343<br/>[-4.0343, -4.0343]","-4.0345<br/>[-4.0345, -4.0345]","-4.0298<br/>[-4.0298, -4.0298]","-4.0298<br/>[-4.0298, -4.0298]","-4.0300<br/>[-4.0300, -4.0300]","-4.0303<br/>[-4.0303, -4.0303]","-4.0300<br/>[-4.0300, -4.0300]","-4.0299<br/>[-4.0299, -4.0299]","-4.0299<br/>[-4.0299, -4.0299]","-4.0306<br/>[-4.0306, -4.0306]","-4.0299<br/>[-4.0299, -4.0299]","-4.0303<br/>[-4.0303, -4.0303]","-4.0301<br/>[-4.0301, -4.0301]","-4.0301<br/>[-4.0301, -4.0301]","-4.0301<br/>[-4.0301, -4.0301]","-4.0299<br/>[-4.0299, -4.0299]","-4.0298<br/>[-4.0298, -4.0298]","-4.0299<br/>[-4.0299, -4.0299]","-4.0299<br/>[-4.0299, -4.0299]","-4.0298<br/>[-4.0298, -4.0298]","-4.0299<br/>[-4.0299, -4.0299]","-4.0299<br/>[-4.0299, -4.0299]","-4.0299<br/>[-4.0299, -4.0299]","-4.0298<br/>[-4.0298, -4.0298]","-4.0298<br/>[-4.0298, -4.0298]","-4.0298<br/>[-4.0298, -4.0298]","-4.0298<br/>[-4.0298, -4.0298]","-4.0299<br/>[-4.0299, -4.0299]","-4.0297<br/>[-4.0297, -4.0297]","-4.0298<br/>[-4.0298, -4.0298]","-4.0298<br/>[-4.0298, -4.0298]","-4.0297<br/>[-4.0297, -4.0297]","-4.0298<br/>[-4.0298, -4.0298]","-4.0298<br/>[-4.0298, -4.0298]","-4.0297<br/>[-4.0297, -4.0297]","-4.0297<br/>[-4.0297, -4.0297]","-4.0297<br/>[-4.0297, -4.0297]","-4.0296<br/>[-4.0296, -4.0296]","-4.0295<br/>[-4.0295, -4.0295]","-4.0295<br/>[-4.0295, -4.0295]"],["-3.4634<br/>[-3.4959, -3.4130]","-3.3499<br/>[-3.4302, -3.2549]","-3.2882<br/>[-3.4034, -3.2030]","-3.3154<br/>[-3.4324, -3.2271]","-3.6109<br/>[-3.7587, -3.4255]","-3.6712<br/>[-3.7198, -3.5934]","-3.7206<br/>[-3.7577, -3.6513]","-3.7397<br/>[-3.7701, -3.6823]","-4.0276<br/>[-4.9218, -3.7569]","-4.0446<br/>[-4.9141, -3.6985]","-4.0660<br/>[-4.9592, -3.6935]","-4.3493<br/>[-5.6051, -3.7563]","-4.5914<br/>[-5.7432, -4.0041]","-5.0588<br/>[-6.2316, -4.4750]","-4.8124<br/>[-5.5328, -4.3623]","-5.1603<br/>[-6.2914, -4.5790]","-5.1253<br/>[-6.2611, -4.5402]","-5.0421<br/>[-6.1569, -4.4596]","-5.1614<br/>[-6.3077, -4.5770]","-5.0686<br/>[-6.2113, -4.4795]","-5.0591<br/>[-6.1366, -4.4886]","-5.2622<br/>[-6.3509, -4.6959]","-5.2449<br/>[-6.3378, -4.6751]","-5.1567<br/>[-6.2486, -4.5823]","-5.2384<br/>[-6.3314, -4.6649]","-5.2509<br/>[-6.3407, -4.6779]","-5.2392<br/>[-6.3323, -4.6641]","-5.2715<br/>[-6.3545, -4.6927]","-5.2618<br/>[-6.3470, -4.6816]","-5.2709<br/>[-6.3530, -4.7074]","-5.2745<br/>[-6.3547, -4.7067]","-5.6029<br/>[-6.7904, -5.0012]","-5.2823<br/>[-6.3589, -4.7100]","-5.4386<br/>[-6.5868, -4.8342]","-5.4911<br/>[-6.6326, -4.8842]","-5.3050<br/>[-6.3738, -4.7416]","-5.5470<br/>[-6.7209, -4.9319]","-5.6341<br/>[-6.8059, -5.0355]","-5.4750<br/>[-6.6111, -4.8778]","-5.6519<br/>[-6.8108, -5.0395]","-5.6379<br/>[-6.7947, -5.0449]","-5.6766<br/>[-6.8238, -5.0727]","-5.5396<br/>[-6.6558, -4.9414]","-5.4905<br/>[-6.6090, -4.8904]"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>Tissue name<\/th>\n      <th># of SNPs<\/th>\n      <th>Log10 BF<\/th>\n      <th>Log10 outside &pi;<br/>(mean, 95% CI)<\/th>\n      <th>Log10 inside &pi;<br/>(mean, 95% CI)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 3, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="tissue-selectively-expressed-genes" class="section level3">
+<h3>Tissue selectively expressed genes</h3>
+<div id="htmlwidget-9dd0ac780160f191cf9f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9dd0ac780160f191cf9f">{"x":{"filter":"none","data":[["Testis","Kidney_Cortex","Brain_Spinal_cord_(cervical_c-1)","Brain_Amygdala","Brain_Cortex","Brain_Anterior_cingulate_cortex_(BA24)","Brain_Frontal_Cortex_(BA9)","Muscle_Skeletal","Liver","Adrenal_Gland","Artery_Tibial","Artery_Coronary","Prostate","Pituitary","Thyroid","Cells_Transformed_fibroblasts","Heart_Left_Ventricle","Skin_Sun_Exposed_(Lower_leg)","Skin_Not_Sun_Exposed_(Suprapubic)","Stomach","Brain_Hippocampus","Brain_Nucleus_accumbens_(basal_ganglia)","Brain_Caudate_(basal_ganglia)","Brain_Putamen_(basal_ganglia)","Ovary","Nerve_Tibial","Uterus","Minor_Salivary_Gland","Lung","Artery_Aorta","Esophagus_Mucosa","Vagina","Colon_Transverse","Cells_EBV-transformed_lymphocytes","Small_Intestine_Terminal_Ileum","Spleen","Pancreas","Whole_Blood","Adipose_Subcutaneous","Adipose_Visceral_(Omentum)","Breast_Mammary_Tissue","Esophagus_Gastroesophageal_Junction","Esophagus_Muscularis","Colon_Sigmoid","Brain_Cerebellum","Heart_Atrial_Appendage","Brain_Hypothalamus","Brain_Substantia_nigra","Brain_Cerebellar_Hemisphere"],[7597,8840,12477,11042,11799,12784,13443,8535,8071,12023,12360,12156,9001,9362,11809,10553,10864,6704,6781,9126,10782,11175,11511,11581,11367,12250,12272,8245,8177,14043,6750,6670,7419,7681,8583,7050,7556,7046,9976,9695,9694,13866,14030,10766,10753,10955,12027,12484,13332],[692.16138746663,210.763742064473,197.731798530038,191.620356887782,191.489694394116,191.314919342645,191.19622875235,7.2832680439143,6.47250754209915,5.44850091254973,5.18452484962029,4.26485461758576,4.15756919770416,3.46265871275283,2.34478849173197,1.11392890783163,0.89052474263827,0.768133843319259,0.761307922794613,0.648878814913867,0.538718951320533,0.527896398104219,0.509593392740587,0.50656397238609,0.462889569877414,0.450237050328008,0.440233953284918,0.411402388832834,0.404172997438699,0.271645082664328,-0.379869245549171,-0.400480125200136,-0.4206905421795,-0.436220376861903,-0.444526292551943,-0.45470196080122,-0.455453099489651,-0.46104871137221,-0.46683914924442,-0.474852566689781,-0.492084249813331,-0.498630313298321,-0.501985367172473,-0.50228531224651,-0.507540085336346,-0.516343269504595,-0.530499855984858,-0.537519411262727,-0.540201632055604],["-4.0338<br/>[-4.0338, -4.0338]","-4.0555<br/>[-4.0555, -4.0555]","-4.0317<br/>[-4.0317, -4.0317]","-4.0276<br/>[-4.0276, -4.0276]","-4.0273<br/>[-4.0273, -4.0273]","-4.0269<br/>[-4.0269, -4.0269]","-4.0266<br/>[-4.0266, -4.0266]","-4.0332<br/>[-4.0332, -4.0332]","-4.0335<br/>[-4.0335, -4.0335]","-4.0354<br/>[-4.0354, -4.0354]","-4.0300<br/>[-4.0300, -4.0300]","-4.0275<br/>[-4.0275, -4.0275]","-4.0356<br/>[-4.0356, -4.0356]","-4.0283<br/>[-4.0283, -4.0283]","-4.0318<br/>[-4.0318, -4.0318]","-4.0281<br/>[-4.0281, -4.0281]","-4.0277<br/>[-4.0277, -4.0277]","-4.0339<br/>[-4.0339, -4.0339]","-4.0339<br/>[-4.0339, -4.0339]","-4.0330<br/>[-4.0330, -4.0330]","-4.0277<br/>[-4.0277, -4.0277]","-4.0276<br/>[-4.0276, -4.0276]","-4.0274<br/>[-4.0274, -4.0274]","-4.0274<br/>[-4.0274, -4.0274]","-4.0320<br/>[-4.0320, -4.0320]","-4.0271<br/>[-4.0271, -4.0271]","-4.0272<br/>[-4.0272, -4.0272]","-4.0309<br/>[-4.0309, -4.0309]","-4.0315<br/>[-4.0315, -4.0315]","-4.0264<br/>[-4.0264, -4.0264]","-4.0340<br/>[-4.0340, -4.0340]","-4.0340<br/>[-4.0340, -4.0340]","-4.0292<br/>[-4.0292, -4.0292]","-4.0290<br/>[-4.0290, -4.0290]","-4.0287<br/>[-4.0287, -4.0287]","-4.0293<br/>[-4.0293, -4.0293]","-4.0291<br/>[-4.0291, -4.0291]","-4.0293<br/>[-4.0293, -4.0293]","-4.0281<br/>[-4.0281, -4.0281]","-4.0282<br/>[-4.0282, -4.0282]","-4.0282<br/>[-4.0282, -4.0282]","-4.0265<br/>[-4.0265, -4.0265]","-4.0265<br/>[-4.0265, -4.0265]","-4.0278<br/>[-4.0278, -4.0278]","-4.0278<br/>[-4.0278, -4.0278]","-4.0277<br/>[-4.0277, -4.0277]","-4.0272<br/>[-4.0272, -4.0272]","-4.0270<br/>[-4.0270, -4.0270]","-4.0267<br/>[-4.0267, -4.0267]"],["-3.2607<br/>[-3.2705, -3.2516]","-2.8022<br/>[-2.8391, -2.7640]","-3.2651<br/>[-3.2918, -3.2521]","-3.3194<br/>[-3.3392, -3.3016]","-3.3475<br/>[-3.3652, -3.3268]","-3.3833<br/>[-3.4004, -3.3634]","-3.4062<br/>[-3.4240, -3.3886]","-3.2497<br/>[-3.3026, -3.1913]","-3.1970<br/>[-3.2730, -3.1196]","-3.3021<br/>[-3.4090, -3.2137]","-3.4279<br/>[-3.5060, -3.3567]","-3.4536<br/>[-3.5157, -3.3991]","-3.3655<br/>[-3.4668, -3.2531]","-3.6365<br/>[-3.6688, -3.5871]","-3.5388<br/>[-3.5710, -3.4455]","-3.6532<br/>[-3.9733, -3.5065]","-3.7594<br/>[-4.0081, -3.6097]","-3.7253<br/>[-3.8233, -3.5922]","-3.7317<br/>[-3.8280, -3.5978]","-3.8736<br/>[-3.9501, -3.7874]","-3.9458<br/>[-4.0292, -3.8177]","-3.9559<br/>[-4.0449, -3.8242]","-3.9734<br/>[-4.0573, -3.8398]","-3.9766<br/>[-4.0604, -3.8502]","-3.9731<br/>[-4.3031, -3.7946]","-4.0293<br/>[-4.0857, -3.9293]","-4.0028<br/>[-4.3432, -3.8293]","-3.9138<br/>[-4.1138, -3.8055]","-3.8918<br/>[-4.0686, -3.7719]","-4.1133<br/>[-4.2690, -4.0153]","-4.4769<br/>[-5.6047, -3.8900]","-4.6117<br/>[-5.7174, -4.0283]","-4.7764<br/>[-5.5326, -4.2136]","-4.8703<br/>[-5.7192, -4.3417]","-4.8780<br/>[-5.5953, -4.3377]","-5.2397<br/>[-6.3653, -4.6317]","-5.0930<br/>[-6.1815, -4.5133]","-5.4820<br/>[-6.5701, -4.9026]","-4.8700<br/>[-5.9134, -4.2897]","-4.9886<br/>[-6.0210, -4.4049]","-5.2641<br/>[-6.2887, -4.6879]","-4.9204<br/>[-5.8076, -4.3993]","-4.9370<br/>[-5.8181, -4.4108]","-5.2694<br/>[-6.1143, -4.7571]","-5.3455<br/>[-6.3038, -4.7844]","-5.5170<br/>[-6.4927, -4.9434]","-5.5976<br/>[-6.5193, -5.0410]","-5.6680<br/>[-6.6075, -5.1063]","-5.4777<br/>[-6.3768, -4.9229]"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>Tissue name<\/th>\n      <th># of SNPs<\/th>\n      <th>Log10 BF<\/th>\n      <th>Log10 outside &pi;<br/>(mean, 95% CI)<\/th>\n      <th>Log10 inside &pi;<br/>(mean, 95% CI)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 3, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="cluster-distinctively-expressed-genes" class="section level3">
+<h3>Cluster distinctively expressed genes</h3>
+<div id="htmlwidget-798b325e8770e69abc2e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-798b325e8770e69abc2e">{"x":{"filter":"none","data":[["4","9","5","19","10","14","2","6","20","13","1","7","8","17","11","18","12","16","15","3"],[12121,9353,11218,5789,8187,9229,8790,8666,7948,7466,7332,8091,9983,8294,10144,7142,7070,10028,7579,9834],[421.374672527825,198.705496298597,53.954843026619,9.58057958223768,8.02613302939063,4.87117276842511,4.14823908334188,4.00453028754862,2.81389047125993,2.71481037532356,2.37180109024519,2.2792069363858,2.19238098710727,0.731812120717259,0.516735799450908,-0.0188149464223183,-0.291164054676011,-0.336419116771202,-0.41921748634482,-0.480966262984015],["-4.2066<br/>[-4.2066, -4.2066]","-4.0330<br/>[-4.0330, -4.0330]","-4.0417<br/>[-4.0417, -4.0417]","-4.0343<br/>[-4.0343, -4.0343]","-4.0400<br/>[-4.0400, -4.0400]","-4.0286<br/>[-4.0286, -4.0286]","-4.0376<br/>[-4.0376, -4.0376]","-4.0334<br/>[-4.0334, -4.0334]","-4.0289<br/>[-4.0289, -4.0289]","-4.0336<br/>[-4.0336, -4.0336]","-4.0382<br/>[-4.0382, -4.0382]","-4.0333<br/>[-4.0333, -4.0333]","-4.0326<br/>[-4.0326, -4.0326]","-4.0288<br/>[-4.0288, -4.0288]","-4.0280<br/>[-4.0280, -4.0280]","-4.0299<br/>[-4.0299, -4.0299]","-4.0294<br/>[-4.0294, -4.0294]","-4.0283<br/>[-4.0283, -4.0283]","-4.0291<br/>[-4.0291, -4.0291]","-4.0281<br/>[-4.0281, -4.0281]"],["-2.5129<br/>[-2.5129, -2.5129]","-3.1093<br/>[-3.1380, -3.0975]","-2.4804<br/>[-2.4804, -2.4804]","-2.8906<br/>[-2.9569, -2.8331]","-3.0217<br/>[-3.1060, -2.9474]","-3.2519<br/>[-3.4095, -3.1372]","-3.4344<br/>[-3.4623, -3.3919]","-3.1491<br/>[-3.3080, -3.0300]","-3.5531<br/>[-3.5958, -3.4874]","-3.3852<br/>[-3.5486, -3.2433]","-3.5137<br/>[-3.5600, -3.4460]","-3.5613<br/>[-3.6025, -3.4976]","-3.6230<br/>[-3.6895, -3.5463]","-3.7783<br/>[-3.9101, -3.6328]","-3.9487<br/>[-4.0043, -3.8502]","-3.8424<br/>[-4.6501, -3.4927]","-4.2112<br/>[-5.0555, -3.8082]","-4.3027<br/>[-5.3012, -3.8443]","-4.6123<br/>[-5.7086, -4.0442]","-4.9908<br/>[-5.8279, -4.5126]"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>Cluster ID<\/th>\n      <th># of SNPs<\/th>\n      <th>Log10 BF<\/th>\n      <th>Log10 outside &pi;<br/>(mean, 95% CI)<\/th>\n      <th>Log10 inside &pi;<br/>(mean, 95% CI)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 3, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<p>The relationship between tissues and clusters is shown in Figure 1 of <a href="http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006599">Dey et al. (2017)</a>; see below.</p>
+<p><img src="http://journals.plos.org/plosgenetics/article/figure/image?size=large&amp;id=10.1371/journal.pgen.1006599.g001" /></p>
+</div>
+</div>
+<div id="session-information" class="section level2">
+<h2>Session information</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<pre><code>R version 3.5.0 (2018-04-23)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS High Sierra 10.13.5
+
+Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] DT_0.4         plyr_1.8.4     dplyr_0.7.5    R.matlab_3.6.1
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.12.17      compiler_3.5.0    pillar_1.2.3     
+ [4] later_0.7.3       git2r_0.21.0      workflowr_1.0.1  
+ [7] bindr_0.1.1       R.methodsS3_1.7.1 R.utils_2.6.0    
+[10] tools_3.5.0       digest_0.6.15     jsonlite_1.5     
+[13] evaluate_0.10.1   tibble_1.4.2      pkgconfig_2.0.1  
+[16] rlang_0.2.1       shiny_1.1.0       crosstalk_1.0.0  
+[19] yaml_2.1.19       bindrcpp_0.2.2    stringr_1.3.1    
+[22] knitr_1.20        htmlwidgets_1.2   rprojroot_1.3-2  
+[25] tidyselect_0.2.4  glue_1.2.0        R6_2.2.2         
+[28] rmarkdown_1.10    purrr_0.2.5       magrittr_1.5     
+[31] whisker_0.3-2     backports_1.1.2   promises_1.0.1   
+[34] htmltools_0.3.6   assertthat_0.2.0  mime_0.5         
+[37] xtable_1.8-2      httpuv_1.4.4.1    stringi_1.2.3    
+[40] R.oo_1.22.0      </code></pre>
+</div>
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<hr>
+<p>
+  This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
+  analysis was created with
+  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.0.1
+</p>
+<hr>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
