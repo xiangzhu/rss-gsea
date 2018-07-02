@@ -1,0 +1,112 @@
+---
+title: "Enrichment results of mean cell volume"
+author: "Xiang Zhu"
+date: 2017-04-12
+output: workflowr::wflow_html
+---
+
+```{r, echo=FALSE}
+data.name <- "mcv2012"
+
+# DO NOT MODIFY THE CODES BELOW
+source("~/Dropbox/rss/Data/gwas_gsea/notebook_util.R")
+
+# specify file paths
+gsea.path <- "~/Dropbox/rss/Data/gwas_gsea/summarize_enrichment/round2_pathway/"
+innout.path <- "~/Dropbox/rss/Data/gwas_gsea/summarize_enrichment/round2_pathway_innout/"
+topexpr.path <- "~/Dropbox/rss/Data/gwas_gtex_topexpr/aggregate_results/"
+toptssc.path <- "~/Dropbox/rss/Data/gwas_gtex_toptssc/aggregate_results/"
+gtexclust.path <- "~/Dropbox/rss/Data/gwas_gtexclust/round2_results/"
+topexpr.innout.path <- "~/Dropbox/rss/Data/gwas_gtex_topexpr/aggregate_results_innout/"
+toptssc.innout.path <- "~/Dropbox/rss/Data/gwas_gtex_toptssc/aggregate_results_innout/"
+gtexclust.innout.path <- "~/Dropbox/rss/Data/gwas_gtexclust/aggregate_results_innout/"
+
+# load gtex tissue names
+source("~/Dropbox/rss/Data/gtex_database/color/load_gtex_color.R")
+tissue.df <- color.dat[, c("tissue.name","tissue.abbr")]
+names(tissue.df) <- c("tissue","id")
+```
+
+## Input data
+
+Results below were generated from the GWAS summary statistics published in the paper
+["Seventy-Five Genetic Loci Influencing the Human Red Blood Cell" (*Nature*, 2012)](https://www.ncbi.nlm.nih.gov/pubmed/23222517).
+The summary data file is available from the European Genome–Phenome Archive (EGA, http://www.ebi.ac.uk/ega) under accession number EGAS00000000132.
+
+## Analysis results
+
+Enrichment analyses are summarized by the following three quantities.
+
+- **BF:** Bayes factor comparing the enrichment model against the baseline model;
+- **Outside $\pi$:** proportion of trait-associated SNPs that are "outside" the gene set;
+- **Inside $\pi$:** proportion of trait-associated SNPs that are "inside" the gene set.
+
+The first quantity reflects the significance of enrichment,
+whereas the last two capture the magnitude of enrichment.
+For each gene set, we report these three quantities in the
+last three columns of tables below, on log 10 scale.
+
+### Biological pathways
+
+```{r, echo=FALSE}
+# load results and create an output data frame
+gsea.path <- paste0(gsea.path,data.name,"_pathway_201609.mat")
+prop.path <- paste0(innout.path,data.name,"_pathway_201609_innout.mat")
+gsea.df <- gsea.mat2df(gsea.path, prop.path)
+
+# display the data table
+gsea.dt <- DT::datatable(gsea.df, rownames=FALSE, class="white-space: nowrap", escape=FALSE) %>% DT::formatRound(c("Log10 BF"), 3)
+gsea.dt
+```
+
+### Tissue highly expressed genes
+
+```{r, echo=FALSE}
+# load results and create an output data frame
+gtex.path <- paste0(topexpr.path, data.name, "_gtextop100expr_201609.mat")
+prop.path <- paste0(topexpr.innout.path,data.name,"_gtextop100expr_201609_innout.mat")
+gtex.df <- gtex.mat2df(gtex.path, prop.path)
+
+# clean the tissue name
+gtex.df <- merge(gtex.df, tissue.df, by="id")
+gtex.df$id <- as.character(gtex.df$tissue)
+gtex.df$tissue <- NULL
+gtex.df <- plyr::arrange(gtex.df, -log10.bf)
+
+# display the data table
+gtex.dt <- DT::datatable(gtex.df, rownames=FALSE, class="white-space: nowrap", escape=FALSE, colnames=c("Tissue name"="id","Log10 BF"="log10.bf")) %>% DT::formatRound(c("Log10 BF"), 3)
+gtex.dt
+```
+
+### Tissue selectively expressed genes
+
+```{r, echo=FALSE}
+# load results and create an output data frame
+gtex.path <- paste0(toptssc.path, data.name, "_gtextop100tssc_201609.mat")
+prop.path <- paste0(toptssc.innout.path,data.name,"_gtextop100tssc_201609_innout.mat")
+gtex.df <- gtex.mat2df(gtex.path, prop.path)
+
+# display the data table
+gtex.dt <- DT::datatable(gtex.df, rownames=FALSE, class="white-space: nowrap", escape=FALSE, colnames=c("Tissue name"="id","Log10 BF"="log10.bf")) %>% DT::formatRound(c("Log10 BF"), 3)
+gtex.dt
+```
+
+### Cluster distinctively expressed genes
+
+```{r, echo=FALSE}
+# load results and create an output data frame
+gtex.path <- paste0(gtexclust.path, data.name, "_gtexclust_201609.mat")
+prop.path <- paste0(gtexclust.innout.path,data.name,"_gtexclust_201609_innout.mat")
+gtex.df <- gtex.mat2df(gtex.path, prop.path)
+
+# display the data table
+gtex.dt <- DT::datatable(gtex.df, rownames=FALSE, class="white-space: nowrap", escape=FALSE, colnames=c("Cluster ID"="id","Log10 BF"="log10.bf")) %>% DT::formatRound(c("Log10 BF"), 3)
+gtex.dt
+```
+
+The relationship between tissues and clusters is shown in
+Figure 1 of [Dey et al. (2017)](http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006599);
+see below.
+
+![](http://journals.plos.org/plosgenetics/article/figure/image?size=large&id=10.1371/journal.pgen.1006599.g001)
+
