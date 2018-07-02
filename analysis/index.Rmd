@@ -30,7 +30,7 @@ please cite the manuscript listed above,
 If you have any question about this notebook or the software, please feel free to contact me:
 [Xiang Zhu](https://github.com/xiangzhu), `xiangzhu@uchicago.edu` or `xiangzhu@stanford.edu`.
 
-## Results
+## Main results
 
 #### Anthropometric phenotypes
 
@@ -80,8 +80,30 @@ If you have any question about this notebook or the software, please feel free t
 
 ## Additional resources
 
-#### Where can I find "baseline" model fitting results of all 31 traits?
+- Where can I find "baseline" model fitting results of all 31 traits?
 
-#### Where can I find "Round 1" results of all 3913 pathways?
+You can find summary results of "baseline" model fitting at
+https://xiangzhu.github.io/rss-gsea-baseline.
+For me, the baseline model fitting results are merely inferential "bases" for the
+enrichment model fitting results shown in the "Main results" section above.
+However, when I was presenting the enrichment results during my Ph.D.
+[thesis defense](http://www.stat.uchicago.edu/~xiangzhu/THESIS_20170630.html),
+[Prof. John Novembre](http://jnpopgen.org/) and
+[Prof. Xin He](http://xinhelab.org/) both pointed out these baseline results
+might be useful for other on-going projects on the "fourth floor".
+Their comments motivated me to create a separate
+[online notebook](https://xiangzhu.github.io/rss-gsea-baseline)
+to share the baseline summary results.
 
-#### Where can I find the gene prioritization results?
+- Where can I find "Round 1" results of all 3913 pathways?
+
+Currently you need to contact me directly to view our "Round 1" results of all 3913 pathways.
+When this work was under review, one referee pointed out that our online results, especially our
+"Round 1" analysis results, were "needlessly complicated" and did not have "any obvious benefit".
+Hence, I removed the "Round 1" analysis results from this notebook to simplify the presentation. 
+
+- Where can I find the gene prioritization results?
+
+Currently you need to contact me directly to view our full prioritization results. 
+Unlike the gene set enrichment results, the gene prioritization results
+cannot be easily tabulated, and thus I have not displayed them in this notebook yet.
