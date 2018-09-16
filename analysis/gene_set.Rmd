@@ -1,0 +1,45 @@
+---
+title: "Overview of 4,026 pre-processed gene sets"
+author: "Xiang Zhu"
+date: "2018-09-16"
+output: workflowr::wflow_html
+---
+
+[Zhu and Stephens (2017)]: https://doi.org/10.1101/160770
+[`xiangzhu/rss-gsea`]: https://github.com/xiangzhu/rss-gsea/tree/master/data
+[`biological_pathway`]: https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway
+[`tissue_set`]: https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set
+
+```{r,engine='bash'}
+tree -L 2 data/
+```
+
+## Biological pathways
+
+## Tissue-based gene sets
+
+The 113 GTEx tissue-based gene sets used in [Zhu and Stephens (2017)][]
+are available in the folder [`tissue_set`][].
+There are 44 "highly expressed" (HE) gene sets, 49 "selectively expressed" (SE) gene sets
+and 20 "distincttively expressed" (DE) gene sets.
+The creation of SE sets uses a method described in [Yang et al (2018)](https://doi.org/10.1101/311563).
+The creation of DE sets uses a method described in [Dey et al (2017)](https://www.ncbi.nlm.nih.gov/pubmed/28333934).
+
+```{r, engine='bash'}
+ls data/tissue_set/he_genes | wc -l
+```
+
+```{r, engine='bash'}
+ls data/tissue_set/se_genes | wc -l
+```
+
+```{r, engine='bash'}
+ls data/tissue_set/de_genes | wc -l
+```
+
+Each of the tissue-based gene sets has the following format.
+
+```{r, engine='bash'}
+head -n 5 data/tissue_set/he_genes/gene_names_expr_LIVER.txt
+```
+
