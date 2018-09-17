@@ -16,6 +16,95 @@ tree -L 2 data/
 
 ## Biological pathways
 
+The 3,913 GTEx biological pathway used in [Zhu and Stephens (2017)][]
+are available in the folder [`biological_pathway`][],
+which are represented by two files `gene_37.3.mat` and `pathway.mat`.
+
+The file `gene_37.3.mat` contains basic information of genes.
+
+```
+>> load gene_37.3.mat
+>> gene
+gene =
+  struct with fields:
+        id: [18732x1 double]
+    symbol: {18732x1 cell}
+       chr: [18732x1 double]
+      desc: {18732x1 cell}
+     start: [18732x1 double]
+      stop: [18732x1 double]
+
+>> [gene.id(10) gene.chr(10) gene.start(10) gene.stop(10)]
+ans =
+          18          16     8768444     8878432
+
+>> gene.symbol(10)
+ans =
+  1x1 cell array
+    {'ABAT'}
+
+>> gene.desc(10)
+ans =
+  1x1 cell array
+    {'4-aminobutyrate aminotransferase'}
+```
+
+Note that only 18,313 genes mapped to reference sequence were used in our analyses.
+
+```
+>> [min(gene.start) min(gene.stop)]
+ans =
+    -1    -1
+
+>> inref_genes = ~(gene.start == -1 | gene.stop == -1);
+>> sum(inref_genes)
+ans =
+       18313
+```
+
+The file `pathway.mat` contains basic information of pathways.
+
+```
+>> load pathway.mat
+>> pathway
+pathway =
+  struct with fields:
+       label: {4076x1 cell}
+    database: {4076x1 cell}
+      source: {4076x1 cell}
+       genes: [18732x4076 double]
+    synonyms: {4076x1 cell}
+
+>> pathway.label(100)
+ans =
+  1x1 cell array
+    {'Activation of NOXA and translocation to mitochondria'}
+
+>> pathway.database(100)
+ans =
+  1x1 cell array
+    {'PC'}
+
+>> pathway.source(100)
+ans =
+  1x1 cell array
+    {'reactome'}
+```
+
+Note that only 3,913 pathways with 2-499 mapped genes
+
+```
+>> numgenes = pathway.genes' * inref_genes;
+>> size(numgenes)
+ans =
+        4076           1
+
+>> paths    = find(numgenes > 1 & numgenes < 500);
+>> size(paths)
+ans =
+        3916           1
+```
+
 ## Tissue-based gene sets
 
 The 113 GTEx tissue-based gene sets used in [Zhu and Stephens (2017)][]
@@ -42,4 +131,7 @@ Each of the tissue-based gene sets has the following format.
 ```{r, engine='bash'}
 head -n 5 data/tissue_set/he_genes/gene_names_expr_LIVER.txt
 ```
+
+Note that the gene information of tissue-based sets was provided by the GTEx project,
+which may not be the same as `gene_37.3.mat` above.
 
