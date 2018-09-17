@@ -373,7 +373,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-09-16</p>
+<p><strong>Last updated:</strong> 2018-09-17</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -402,7 +402,7 @@ div.section {
 </li>
 <li>
 <details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/8572f1a0008455bea10ad24e3a9c3fb70b4a60b4" target="_blank">8572f1a</a> </summary></p>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/decce81d337a7df15aa72274bb8871937eb64ee5" target="_blank">decce81</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -443,6 +443,40 @@ Message
 Rmd
 </td>
 <td style="text-align:left;">
+<a href="https://github.com/xiangzhu/rss-gsea/blob/decce81d337a7df15aa72274bb8871937eb64ee5/analysis/gene_set.Rmd" target="_blank">decce81</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-09-17
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/gene_set.Rmd”)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/32d3a605d73dd7ef14bf6dc0453b43343381cde2/docs/gene_set.html" target="_blank">32d3a60</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-09-16
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
 <a href="https://github.com/xiangzhu/rss-gsea/blob/8572f1a0008455bea10ad24e3a9c3fb70b4a60b4/analysis/gene_set.Rmd" target="_blank">8572f1a</a>
 </td>
 <td style="text-align:left;">
@@ -474,27 +508,98 @@ wflow_publish(“analysis/gene_set.Rmd”)
 5 directories, 3 files</code></pre>
 <div id="biological-pathways" class="section level2">
 <h2>Biological pathways</h2>
+<p>The 3,913 GTEx biological pathway used in <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2017)</a> are available in the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway"><code>biological_pathway</code></a>, which are represented by two files <code>gene_37.3.mat</code> and <code>pathway.mat</code>.</p>
+<p>The file <code>gene_37.3.mat</code> contains basic information of genes.</p>
+<pre><code>&gt;&gt; load gene_37.3.mat
+&gt;&gt; gene
+gene =
+  struct with fields:
+        id: [18732x1 double]
+    symbol: {18732x1 cell}
+       chr: [18732x1 double]
+      desc: {18732x1 cell}
+     start: [18732x1 double]
+      stop: [18732x1 double]
+
+&gt;&gt; [gene.id(10) gene.chr(10) gene.start(10) gene.stop(10)]
+ans =
+          18          16     8768444     8878432
+
+&gt;&gt; gene.symbol(10)
+ans =
+  1x1 cell array
+    {&#39;ABAT&#39;}
+
+&gt;&gt; gene.desc(10)
+ans =
+  1x1 cell array
+    {&#39;4-aminobutyrate aminotransferase&#39;}</code></pre>
+<p>Note that only 18,313 genes mapped to reference sequence were used in our analyses.</p>
+<pre><code>&gt;&gt; [min(gene.start) min(gene.stop)]
+ans =
+    -1    -1
+
+&gt;&gt; inref_genes = ~(gene.start == -1 | gene.stop == -1);
+&gt;&gt; sum(inref_genes)
+ans =
+       18313</code></pre>
+<p>The file <code>pathway.mat</code> contains basic information of pathways.</p>
+<pre><code>&gt;&gt; load pathway.mat
+&gt;&gt; pathway
+pathway =
+  struct with fields:
+       label: {4076x1 cell}
+    database: {4076x1 cell}
+      source: {4076x1 cell}
+       genes: [18732x4076 double]
+    synonyms: {4076x1 cell}
+
+&gt;&gt; pathway.label(100)
+ans =
+  1x1 cell array
+    {&#39;Activation of NOXA and translocation to mitochondria&#39;}
+
+&gt;&gt; pathway.database(100)
+ans =
+  1x1 cell array
+    {&#39;PC&#39;}
+
+&gt;&gt; pathway.source(100)
+ans =
+  1x1 cell array
+    {&#39;reactome&#39;}</code></pre>
+<p>Note that only 3,913 pathways with 2-499 mapped genes</p>
+<pre><code>&gt;&gt; numgenes = pathway.genes&#39; * inref_genes;
+&gt;&gt; size(numgenes)
+ans =
+        4076           1
+
+&gt;&gt; paths    = find(numgenes &gt; 1 &amp; numgenes &lt; 500);
+&gt;&gt; size(paths)
+ans =
+        3916           1</code></pre>
 </div>
 <div id="tissue-based-gene-sets" class="section level2">
 <h2>Tissue-based gene sets</h2>
 <p>The 113 GTEx tissue-based gene sets used in <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2017)</a> are available in the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set"><code>tissue_set</code></a>. There are 44 “highly expressed” (HE) gene sets, 49 “selectively expressed” (SE) gene sets and 20 “distincttively expressed” (DE) gene sets. The creation of SE sets uses a method described in <a href="https://doi.org/10.1101/311563">Yang et al (2018)</a>. The creation of DE sets uses a method described in <a href="https://www.ncbi.nlm.nih.gov/pubmed/28333934">Dey et al (2017)</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">ls</span> data/tissue_set/he_genes <span class="kw">|</span> <span class="fu">wc</span> -l</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu">ls</span> data/tissue_set/he_genes <span class="kw">|</span> <span class="fu">wc</span> -l</a></code></pre></div>
 <pre><code>      44</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">ls</span> data/tissue_set/se_genes <span class="kw">|</span> <span class="fu">wc</span> -l</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu">ls</span> data/tissue_set/se_genes <span class="kw">|</span> <span class="fu">wc</span> -l</a></code></pre></div>
 <pre><code>      49</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu">ls</span> data/tissue_set/de_genes <span class="kw">|</span> <span class="fu">wc</span> -l</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="fu">ls</span> data/tissue_set/de_genes <span class="kw">|</span> <span class="fu">wc</span> -l</a></code></pre></div>
 <pre><code>      20</code></pre>
 <p>Each of the tissue-based gene sets has the following format.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu">head</span> -n 5 data/tissue_set/he_genes/gene_names_expr_LIVER.txt</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="fu">head</span> -n 5 data/tissue_set/he_genes/gene_names_expr_LIVER.txt</a></code></pre></div>
 <pre><code>ensembl_gene_id chromosome_name start_position  end_position
 ENSG00000002933 7   150497491   150502208
 ENSG00000072778 17  7120444 7128592
 ENSG00000075624 7   5566782 5603415
 ENSG00000087086 19  49468558    49470135</code></pre>
+<p>Note that the gene information of tissue-based sets was provided by the GTEx project, which may not be the same as <code>gene_37.3.mat</code> above.</p>
 </div>
 <div id="session-information" class="section level2">
 <h2>Session information</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
 <pre><code>R version 3.5.1 (2018-07-02)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
 Running under: macOS High Sierra 10.13.6
