@@ -5,7 +5,7 @@
 [`tissue_set`]: https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set
 [zenodo-geneset]: https://zenodo.org/badge/latestdoi/55633948
 
-All 4,026 gene sets used in [Zhu and Stephens (2017)][] are freely available at here,
+All 4,026 gene sets used in [Zhu and Stephens (2017)][] are freely available here,
 where the folder [`biological_pathway`](https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway)
 contains 3,913 biological pathways,
 and the folder [`tissue_set`](https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set)
