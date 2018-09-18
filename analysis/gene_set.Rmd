@@ -9,8 +9,17 @@ output: workflowr::wflow_html
 [`xiangzhu/rss-gsea`]: https://github.com/xiangzhu/rss-gsea/tree/master/data
 [`biological_pathway`]: https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway
 [`tissue_set`]: https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set
+[zenodo-geneset]: https://zenodo.org/badge/latestdoi/55633948
 
-```{r,engine='bash'}
+All 4,026 gene sets used in [Zhu and Stephens (2017)][] are freely available at [`xiangzhu/rss-gsea`],
+where the folder [`biological_pathway`](https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway)
+contains 3,913 biological pathways,
+and the folder [`tissue_set`](https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set)
+contains 113 GTEx tissue-based gene sets.
+These gene sets can be referenced in a journal's "Data availability" section
+as [![DOI](https://zenodo.org/badge/55633948.svg)][zenodo-geneset].
+
+```{r,engine='bash',echo=FALSE}
 tree -L 2 data/
 ```
 
@@ -91,7 +100,29 @@ ans =
     {'reactome'}
 ```
 
-Note that only 3,913 pathways with 2-499 mapped genes
+The gene-pathway information is represented as a sparse zero-one matrix `pathway.genes`,
+where `genes(i,j)==1` if gene `i` is a member of pathway `j` and `genes(i,j)==0` otherwise. 
+
+```
+>> genes = pathway.genes;
+>> whos genes
+  Name           Size                Bytes  Class     Attributes
+  genes      18732x4076            3257512  double    sparse
+
+>> genes(:,100)
+
+ans =
+      (1243,1)              1
+      (3410,1)              1
+      (4567,1)              1
+      (4668,1)              1  
+```
+
+Finally, our analyses only used 3,913 of 4,076 pathways that 
+
+- include 2-499 RefSeq-mapped genes;
+- have clear `database` and `source` definitions;
+- exclude one pathway `Viral RNP Complexes in the Host Cell Nucleus (PC, reactome)` (because no HapMap3 SNP was mapped to this pathway).
 
 ```
 >> numgenes = pathway.genes' * inref_genes;
@@ -99,10 +130,37 @@ Note that only 3,913 pathways with 2-499 mapped genes
 ans =
         4076           1
 
->> paths    = find(numgenes > 1 & numgenes < 500);
+>> paths = find(numgenes > 1 & numgenes < 500);
 >> size(paths)
 ans =
         3916           1
+
+>> database = pathway.database;
+>> source = pathway.source;
+>> database_na = find(not(cellfun('isempty', strfind(database, 'NA'))));
+>> source_na = find(not(cellfun('isempty', strfind(source, 'NA'))));
+>> length(union(database_na, source_na))
+ans =
+     2
+
+>> label = pathway.label;
+>> pathway_exclude = 'Viral RNP Complexes in the Host Cell Nucleus';
+>> label_include = find(cellfun('isempty', strfind(label, pathway_exclude)));
+>> label_exclude = setdiff(1:4076, label_include);
+>> label(label_exclude)
+ans =
+  1x1 cell array
+    {'Viral RNP Complexes in the Host Cell Nucleus'}
+
+>> database(label_exclude)
+ans =
+  1x1 cell array
+    {'PC'}
+
+>> source(label_exclude)
+ans =
+  1x1 cell array
+    {'reactome'}
 ```
 
 ## Tissue-based gene sets
@@ -110,7 +168,7 @@ ans =
 The 113 GTEx tissue-based gene sets used in [Zhu and Stephens (2017)][]
 are available in the folder [`tissue_set`][].
 There are 44 "highly expressed" (HE) gene sets, 49 "selectively expressed" (SE) gene sets
-and 20 "distincttively expressed" (DE) gene sets.
+and 20 "distinctively expressed" (DE) gene sets.
 The creation of SE sets uses a method described in [Yang et al (2018)](https://doi.org/10.1101/311563).
 The creation of DE sets uses a method described in [Dey et al (2017)](https://www.ncbi.nlm.nih.gov/pubmed/28333934).
 
@@ -132,6 +190,6 @@ Each of the tissue-based gene sets has the following format.
 head -n 5 data/tissue_set/he_genes/gene_names_expr_LIVER.txt
 ```
 
-Note that the gene information of tissue-based sets was provided by the GTEx project,
+Note that the gene information of tissue-based sets was provided by GTEx,
 which may not be the same as `gene_37.3.mat` above.
 
