@@ -25,7 +25,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
 <script src="site_libs/datatables-binding-0.4/datatables.js"></script>
 <link href="site_libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -42,7 +42,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -55,13 +55,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -381,7 +379,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-07-01</p>
+<p><strong>Last updated:</strong> 2018-10-05</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -410,14 +408,12 @@ div.section {
 </li>
 <li>
 <details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/fd324a94964f43e01f1cadec8aebfcf7a5c50c9d" target="_blank">fd324a9</a> </summary></p>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/733308254bb7c84e59accb5a9243bddac34c6e2e" target="_blank">7333082</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -448,6 +444,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/efe5714c816059d8489ee88c9caf2dc640059751/docs/mi_2015.html" target="_blank">efe5714</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-07-01
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -508,39 +521,73 @@ wflow_publish(“mi_2015.Rmd”)
 </div>
 <div id="session-information" class="section level2">
 <h2>Session information</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
-<pre><code>R version 3.5.0 (2018-04-23)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS High Sierra 10.13.5
-
-Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
-
-locale:
-[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
-[1] DT_0.4         plyr_1.8.4     dplyr_0.7.5    R.matlab_3.6.1
-
-loaded via a namespace (and not attached):
- [1] Rcpp_0.12.17      compiler_3.5.0    pillar_1.2.3     
- [4] later_0.7.3       git2r_0.21.0      workflowr_1.0.1  
- [7] bindr_0.1.1       R.methodsS3_1.7.1 R.utils_2.6.0    
-[10] tools_3.5.0       digest_0.6.15     jsonlite_1.5     
-[13] evaluate_0.10.1   tibble_1.4.2      pkgconfig_2.0.1  
-[16] rlang_0.2.1       shiny_1.1.0       crosstalk_1.0.0  
-[19] yaml_2.1.19       bindrcpp_0.2.2    stringr_1.3.1    
-[22] knitr_1.20        htmlwidgets_1.2   rprojroot_1.3-2  
-[25] tidyselect_0.2.4  glue_1.2.0        R6_2.2.2         
-[28] rmarkdown_1.10    purrr_0.2.5       magrittr_1.5     
-[31] whisker_0.3-2     backports_1.1.2   promises_1.0.1   
-[34] htmltools_0.3.6   assertthat_0.2.0  mime_0.5         
-[37] xtable_1.8-2      httpuv_1.4.4.1    stringi_1.2.3    
-[40] R.oo_1.22.0      </code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
+<pre><code>Session info -------------------------------------------------------------</code></pre>
+<pre><code> setting  value                       
+ version  R version 3.5.1 (2018-07-02)
+ system   x86_64, darwin15.6.0        
+ ui       X11                         
+ language (EN)                        
+ collate  en_US.UTF-8                 
+ tz       America/Los_Angeles         
+ date     2018-10-05                  </code></pre>
+<pre><code>Packages -----------------------------------------------------------------</code></pre>
+<pre><code> package     * version date       source        
+ assertthat    0.2.0   2017-04-11 CRAN (R 3.5.0)
+ backports     1.1.2   2017-12-13 CRAN (R 3.5.0)
+ base        * 3.5.1   2018-07-05 local         
+ bindr         0.1.1   2018-03-13 CRAN (R 3.5.0)
+ bindrcpp      0.2.2   2018-03-29 CRAN (R 3.5.0)
+ compiler      3.5.1   2018-07-05 local         
+ crayon        1.3.4   2017-09-16 CRAN (R 3.5.0)
+ crosstalk     1.0.0   2016-12-21 CRAN (R 3.5.0)
+ datasets    * 3.5.1   2018-07-05 local         
+ devtools      1.13.6  2018-06-27 CRAN (R 3.5.0)
+ digest        0.6.17  2018-09-12 CRAN (R 3.5.0)
+ dplyr       * 0.7.6   2018-06-29 CRAN (R 3.5.1)
+ DT          * 0.4     2018-01-30 CRAN (R 3.5.0)
+ evaluate      0.11    2018-07-17 CRAN (R 3.5.0)
+ git2r         0.23.0  2018-07-17 CRAN (R 3.5.0)
+ glue          1.3.0   2018-07-17 CRAN (R 3.5.0)
+ graphics    * 3.5.1   2018-07-05 local         
+ grDevices   * 3.5.1   2018-07-05 local         
+ htmltools     0.3.6   2017-04-28 CRAN (R 3.5.0)
+ htmlwidgets   1.3     2018-09-30 CRAN (R 3.5.0)
+ httpuv        1.4.5   2018-07-19 CRAN (R 3.5.0)
+ jsonlite      1.5     2017-06-01 CRAN (R 3.5.0)
+ knitr         1.20    2018-02-20 CRAN (R 3.5.0)
+ later         0.7.5   2018-09-18 CRAN (R 3.5.0)
+ magrittr      1.5     2014-11-22 CRAN (R 3.5.0)
+ memoise       1.1.0   2017-04-21 CRAN (R 3.5.0)
+ methods     * 3.5.1   2018-07-05 local         
+ mime          0.5     2016-07-07 CRAN (R 3.5.0)
+ pillar        1.3.0   2018-07-14 CRAN (R 3.5.0)
+ pkgconfig     2.0.2   2018-08-16 CRAN (R 3.5.0)
+ plyr        * 1.8.4   2016-06-08 CRAN (R 3.5.0)
+ promises      1.0.1   2018-04-13 CRAN (R 3.5.0)
+ purrr         0.2.5   2018-05-29 CRAN (R 3.5.0)
+ R.matlab    * 3.6.2   2018-09-27 CRAN (R 3.5.0)
+ R.methodsS3   1.7.1   2016-02-16 CRAN (R 3.5.0)
+ R.oo          1.22.0  2018-04-22 CRAN (R 3.5.0)
+ R.utils       2.7.0   2018-08-27 CRAN (R 3.5.0)
+ R6            2.3.0   2018-10-04 CRAN (R 3.5.0)
+ Rcpp          0.12.19 2018-10-01 CRAN (R 3.5.0)
+ rlang         0.2.2   2018-08-16 CRAN (R 3.5.0)
+ rmarkdown     1.10    2018-06-11 CRAN (R 3.5.0)
+ rprojroot     1.3-2   2018-01-03 CRAN (R 3.5.0)
+ shiny         1.1.0   2018-05-17 CRAN (R 3.5.0)
+ stats       * 3.5.1   2018-07-05 local         
+ stringi       1.2.4   2018-07-20 CRAN (R 3.5.0)
+ stringr       1.3.1   2018-05-10 CRAN (R 3.5.0)
+ tibble        1.4.2   2018-01-22 CRAN (R 3.5.0)
+ tidyselect    0.2.4   2018-02-26 CRAN (R 3.5.0)
+ tools         3.5.1   2018-07-05 local         
+ utils       * 3.5.1   2018-07-05 local         
+ whisker       0.3-2   2013-04-28 CRAN (R 3.5.0)
+ withr         2.1.2   2018-03-15 CRAN (R 3.5.0)
+ workflowr     1.1.1   2018-07-06 CRAN (R 3.5.0)
+ xtable        1.8-3   2018-08-29 CRAN (R 3.5.0)
+ yaml          2.2.0   2018-07-25 CRAN (R 3.5.0)</code></pre>
 </div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
@@ -559,7 +606,7 @@ footer is added to webpages before the MathJax javascript. -->
 <p>
   This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
   analysis was created with
-  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.0.1
+  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.1.1
 </p>
 <hr>
 

@@ -34,7 +34,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -47,13 +47,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -373,7 +371,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-09-18</p>
+<p><strong>Last updated:</strong> 2018-10-05</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -402,7 +400,7 @@ div.section {
 </li>
 <li>
 <details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/bcd04240a676c6f2acedc470d885f6ea9dd5ca62" target="_blank">bcd0424</a> </summary></p>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/733308254bb7c84e59accb5a9243bddac34c6e2e" target="_blank">7333082</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -438,6 +436,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/0324740b5df4b7ed5ad5ae90510a14a1b85c4ec7/docs/gene_set.html" target="_blank">0324740</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-09-18
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -678,29 +693,48 @@ ENSG00000087086 19  49468558    49470135</code></pre>
 </div>
 <div id="session-information" class="section level2">
 <h2>Session information</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
-<pre><code>R version 3.5.1 (2018-07-02)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS High Sierra 10.13.6
-
-Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
-
-locale:
-[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-loaded via a namespace (and not attached):
- [1] workflowr_1.1.1   Rcpp_0.12.18      digest_0.6.17    
- [4] rprojroot_1.3-2   R.methodsS3_1.7.1 backports_1.1.2  
- [7] git2r_0.23.0      magrittr_1.5      evaluate_0.11    
-[10] stringi_1.2.4     whisker_0.3-2     R.oo_1.22.0      
-[13] R.utils_2.7.0     rmarkdown_1.10    tools_3.5.1      
-[16] stringr_1.3.1     yaml_2.2.0        compiler_3.5.1   
-[19] htmltools_0.3.6   knitr_1.20       </code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
+<pre><code>Session info -------------------------------------------------------------</code></pre>
+<pre><code> setting  value                       
+ version  R version 3.5.1 (2018-07-02)
+ system   x86_64, darwin15.6.0        
+ ui       X11                         
+ language (EN)                        
+ collate  en_US.UTF-8                 
+ tz       America/Los_Angeles         
+ date     2018-10-05                  </code></pre>
+<pre><code>Packages -----------------------------------------------------------------</code></pre>
+<pre><code> package     * version date       source        
+ backports     1.1.2   2017-12-13 CRAN (R 3.5.0)
+ base        * 3.5.1   2018-07-05 local         
+ compiler      3.5.1   2018-07-05 local         
+ datasets    * 3.5.1   2018-07-05 local         
+ devtools      1.13.6  2018-06-27 CRAN (R 3.5.0)
+ digest        0.6.17  2018-09-12 CRAN (R 3.5.0)
+ evaluate      0.11    2018-07-17 CRAN (R 3.5.0)
+ git2r         0.23.0  2018-07-17 CRAN (R 3.5.0)
+ graphics    * 3.5.1   2018-07-05 local         
+ grDevices   * 3.5.1   2018-07-05 local         
+ htmltools     0.3.6   2017-04-28 CRAN (R 3.5.0)
+ knitr         1.20    2018-02-20 CRAN (R 3.5.0)
+ magrittr      1.5     2014-11-22 CRAN (R 3.5.0)
+ memoise       1.1.0   2017-04-21 CRAN (R 3.5.0)
+ methods     * 3.5.1   2018-07-05 local         
+ R.methodsS3   1.7.1   2016-02-16 CRAN (R 3.5.0)
+ R.oo          1.22.0  2018-04-22 CRAN (R 3.5.0)
+ R.utils       2.7.0   2018-08-27 CRAN (R 3.5.0)
+ Rcpp          0.12.19 2018-10-01 CRAN (R 3.5.0)
+ rmarkdown     1.10    2018-06-11 CRAN (R 3.5.0)
+ rprojroot     1.3-2   2018-01-03 CRAN (R 3.5.0)
+ stats       * 3.5.1   2018-07-05 local         
+ stringi       1.2.4   2018-07-20 CRAN (R 3.5.0)
+ stringr       1.3.1   2018-05-10 CRAN (R 3.5.0)
+ tools         3.5.1   2018-07-05 local         
+ utils       * 3.5.1   2018-07-05 local         
+ whisker       0.3-2   2013-04-28 CRAN (R 3.5.0)
+ withr         2.1.2   2018-03-15 CRAN (R 3.5.0)
+ workflowr     1.1.1   2018-07-06 CRAN (R 3.5.0)
+ yaml          2.2.0   2018-07-25 CRAN (R 3.5.0)</code></pre>
 </div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
