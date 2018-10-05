@@ -10,13 +10,14 @@ output:
 
 [`stephenslab/rss`]: https://github.com/stephenslab/rss/tree/master/src_vb 
 [zenodo-geneset]: https://zenodo.org/badge/latestdoi/55633948
+[zenodo-software]: xxx
 [`xiangzhu/rss-gsea`]: https://github.com/xiangzhu/rss-gsea/tree/master/data
 [`xiangzhu/rss-gsea-baseline`]: https://xiangzhu.github.io/rss-gsea-baseline/ 
 
 ## Overview
 
-This is my online notebook to document and share the full results
-of genome-wide enrichment analyses described in the manuscript:
+This is my online notebook to document and share the full results of genome-wide
+enrichment and prioritization analyses described in the manuscript:
 
 > Xiang Zhu and Matthew Stephens (2017).
 > A large-scale genome-wide enrichment analysis identifies new
@@ -25,8 +26,8 @@ of genome-wide enrichment analyses described in the manuscript:
 
 The software that generated these results is freely available at [`stephenslab/rss`][].
 We also provide an end-to-end [example](http://stephenslab.github.io/rss/Example-5)
-illustrating how to use this software to perform
-genome-wide enrichment analyses of GWAS summary statistics.
+illustrating how to use this software to perform the reported genome-wide
+enrichment and prioritization analyses of GWAS summary statistics.
 This software can be referenced in a journal's "Code availability" section
 as [][zenodo-software].
 
@@ -37,7 +38,7 @@ These gene sets can be referenced in a journal's "Data availability" section
 as [![DOI](https://zenodo.org/badge/55633948.svg)][zenodo-geneset].
 
 If you find the analysis results, the pre-processed gene sets,
-the statistical methods, and/or the software useful for your work,
+the statistical methods, and/or the open-source software useful for your work,
 **please kindly cite our manuscript listed above,
 [Zhu and Stephens (2017)](https://doi.org/10.1101/160770)**.
 
@@ -93,6 +94,15 @@ please feel free to contact me: [Xiang Zhu](https://github.com/xiangzhu),
 - [Depressive symptoms (Okbay et al. 2016)](ds_2016.html)
 - [Neuroticism (Okbay et al. 2016)](neu_2016.html)
 
+#### Gene prioritization
+
+- [Low-density lipoprotein (Teslovich et al. 2010) & Chylomicron-mediated lipid transport](ldl2010_path1698.html)
+- [Adult human height (Wood et al. 2014) & Endochondral ossification]()
+- [Inflammatory bowel disease (Liu et al. 2015) & Cytokine-cytokine receptor interaction]()
+- [Rheumatoid arthritis (Okada et al. 2014) & Lymphocyte NFAT-dependent transcription]()
+- [Coronary artery disease (Nikpay et al. 2015) & p75(NTR)-mediated signaling]()
+- [High-density lipoprotein (Teslovich et al. 2010) & Lipid digestion, mobilization and transport]()
+
 ## Additional resources
 
 - How can I perform similar analyses on a new dataset of GWAS summary statistics?
@@ -120,8 +130,8 @@ However, when I was presenting the enrichment results during my
 [Ph.D. thesis defense](http://www.stat.uchicago.edu/~xiangzhu/THESIS_20170630.html),
 [Prof. John Novembre](http://jnpopgen.org/) and
 [Prof. Xin He](http://xinhelab.org/) both pointed out these baseline results
-might be useful for other on-going projects on the "fourth floor"
-(i.e. the great computational space shared with the labs of Matthew Stephens, John Novembre and Xin He).
+might be useful for other on-going research projects on the "fourth floor"
+(i.e. the **fantastic** computational space shared with the labs of Matthew Stephens, John Novembre and Xin He).
 Their comments motivated me to create a separate online notebook
 [`xiangzhu/rss-gsea-baseline`][] to share the baseline summary results.
 
@@ -131,7 +141,7 @@ Currently you need to contact me directly to view our "Round 1" results of all 3
 When this work was under review, one referee pointed out that our online results, especially our
 "Round 1" analysis results, were "needlessly complicated" and did not have "any obvious benefit".
 Hence, I removed the "Round 1" analysis results from this notebook to simplify the presentation.
-I hope that this change can address the referee's comment.
+I sincerely hope that this change can address the referee's comment.
 
 - Where can I find the gene prioritization results?
 
