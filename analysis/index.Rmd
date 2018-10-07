@@ -30,9 +30,10 @@ enrichment and prioritization analyses described in the manuscript:
 > trait-associated genes, pathways and tissues across 31 human phenotypes.
 > *bioRxiv.* [https://doi.org/10.1101/160770](https://doi.org/10.1101/160770).
 
-The software that generated these results is freely available at [`stephenslab/rss`][].
+We developed a new statistical method, RSS-E, to generate the results for this study. 
+The software that implements RSS-E is freely available at [`stephenslab/rss`][].
 We also provide an end-to-end [example](http://stephenslab.github.io/rss/Example-5)
-illustrating how to use this software to perform the reported genome-wide
+illustrating how to use RSS-E to perform the reported genome-wide
 enrichment and prioritization analyses of GWAS summary statistics.
 This software can be referenced in a journal's "Code availability" section
 as [][zenodo-software].
