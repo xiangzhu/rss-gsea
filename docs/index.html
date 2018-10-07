@@ -303,7 +303,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-10-05</p>
+<p><strong>Last updated:</strong> 2018-10-06</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -314,7 +314,7 @@ div.section {
 </li>
 <li>
 <details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/5c7ee1e666131480f28f7d1fa77607be416eae28" target="_blank">5c7ee1e</a> </summary></p>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/d63db43f50ed992b278049bb6ba174bdf4bdcd54" target="_blank">d63db43</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -350,6 +350,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/xiangzhu/rss-gsea/blob/d63db43f50ed992b278049bb6ba174bdf4bdcd54/analysis/index.Rmd" target="_blank">d63db43</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-10-06
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/index.Rmd”)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/32eb1dddef3fdc5ea528cbf5dbc7410e7b53dd10/docs/index.html" target="_blank">32eb1dd</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-10-05
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -890,7 +924,7 @@ Start workflowr project.
 </blockquote>
 <p>The software that generated these results is freely available at <a href="https://github.com/stephenslab/rss/tree/master/src_vb"><code>stephenslab/rss</code></a>. We also provide an end-to-end <a href="http://stephenslab.github.io/rss/Example-5">example</a> illustrating how to use this software to perform the reported genome-wide enrichment and prioritization analyses of GWAS summary statistics. This software can be referenced in a journal’s “Code availability” section as <a href="xxx"></a>.</p>
 <p>In addition, all 4,026 pre-processed gene sets used in this study (including 3,913 biological pathways and 113 tissue-based gene sets) are freely available at <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data"><code>xiangzhu/rss-gsea</code></a>. These gene sets can be referenced in a journal’s “Data availability” section as <a href="https://zenodo.org/badge/latestdoi/55633948"><img src="https://zenodo.org/badge/55633948.svg" alt="DOI" /></a>.</p>
-<p>If you find the analysis results, the pre-processed gene sets, the statistical methods, and/or the open-source software useful for your work, <strong>please kindly cite our manuscript listed above, <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2017)</a></strong>.</p>
+<p>If you find the analysis results, the pre-processed gene sets, the statistical methods, and/or the open-source software useful for your work, <strong>please kindly cite our manuscript listed above, <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2018)</a></strong>.</p>
 <p>If you have any question about the notebook and/or the manuscript, please feel free to contact me: <a href="https://github.com/xiangzhu">Xiang Zhu</a>, <code>xiangzhu@uchicago.edu</code> or <code>xiangzhu@stanford.edu</code>.</p>
 </div>
 <div id="main-results" class="section level2">
@@ -955,36 +989,41 @@ Start workflowr project.
 <h4>Gene prioritization</h4>
 <ul>
 <li><a href="ldl2010_path1698.html">Low-density lipoprotein (Teslovich et al. 2010) &amp; Chylomicron-mediated lipid transport</a></li>
-<li><a href="">Adult human height (Wood et al. 2014) &amp; Endochondral ossification</a></li>
-<li><a href="">Inflammatory bowel disease (Liu et al. 2015) &amp; Cytokine-cytokine receptor interaction</a></li>
-<li><a href="">Rheumatoid arthritis (Okada et al. 2014) &amp; Lymphocyte NFAT-dependent transcription</a></li>
-<li><a href="">Coronary artery disease (Nikpay et al. 2015) &amp; p75(NTR)-mediated signaling</a></li>
-<li><a href="">High-density lipoprotein (Teslovich et al. 2010) &amp; Lipid digestion, mobilization and transport</a></li>
+<li><a href="height2014_path3208.html">Adult human height (Wood et al. 2014) &amp; Endochondral ossification</a></li>
+<li><a href="ibd2015_path3850.html">Inflammatory bowel disease (Liu et al. 2015) &amp; Cytokine-cytokine receptor interaction</a></li>
+<li><a href="ra2014_path2858.html">Rheumatoid arthritis (Okada et al. 2014) &amp; Lymphocyte NFAT-dependent transcription</a></li>
+<li><a href="cad2015_path3059.html">Coronary artery disease (Nikpay et al. 2015) &amp; p75(NTR)-mediated signaling</a></li>
+<li><a href="hdl2010_path3093.html">High-density lipoprotein (Teslovich et al. 2010) &amp; Lipid digestion, mobilization and transport</a></li>
 </ul>
 </div>
 </div>
 <div id="additional-resources" class="section level2">
 <h2>Additional resources</h2>
 <ul>
-<li>How can I perform similar analyses on a new dataset of GWAS summary statistics?</li>
+<li>How can I perform similar analyses on a new dataset of GWAS summary statistics using RSS-E?</li>
 </ul>
-<p>The software that generated results of this study is available at <a href="https://github.com/stephenslab/rss/tree/master/src_vb"><code>stephenslab/rss</code></a>. I also write a step-by-step <a href="http://stephenslab.github.io/rss/Example-5">tutorial</a> illustrating how to use this software to perform genome-wide enrichment and prioritization analyses on GWAS summary statistics.</p>
+<p>The software that generated results of this study is freely available at <a href="https://github.com/stephenslab/rss/tree/master/src_vb"><code>stephenslab/rss</code></a>. I also write a step-by-step <a href="http://stephenslab.github.io/rss/Example-5">RSS-E tutorial</a> that illustrates how to use this software to perform genome-wide enrichment and prioritization analyses on GWAS summary statistics.</p>
+<ul>
+<li>Compared with most existing enrichment methods, the most appealing feature of RSS-E is the automatic gene prioritization in light of inferred enrichments. Is this gene prioritization feature available in your software?</li>
+</ul>
+<p>Yes. This feature is implemented as function [<code>compute_pip.m</code>][] in RSS-E. The step-by-step <a href="http://stephenslab.github.io/rss/Example-5">RSS-E tutorial</a> illustrates how to use this function.</p>
+<ul>
+<li>There are two sanity checks for the more sophisticated RSS-E analysis in <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2018)</a>: an eyeball test and a likelihood ratio calculation. Do you have software for these sanity checks?</li>
+</ul>
+<p>Yes. The eyeball test is simply plotting marginal distribution of GWAS z-scores, stratified by SNP-level annotations based on a given gene set. We used <a href="https://ggplot2.tidyverse.org/reference/geom_density.html"><code>ggplot2::geom_density</code></a> (default setting) in the present study.<br />
+Regarding the likelihood ratio check, I write a stand-alone script <a href="https://github.com/stephenslab/rss/blob/master/misc/ash_lrt_31traits.R"><code>ash_lrt_31traits.R</code></a>. Please carefully read the instruction in this script. For more details of these two sanity checks, please see the caption of <a href="https://www.biorxiv.org/content/biorxiv/suppl/2018/07/16/160770.DC2/160770-3.pdf">Supplementary Figure 17</a> in <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2018)</a>.</p>
 <ul>
 <li>Where can I download all 4,026 pre-processed gene sets?</li>
 </ul>
 <p>All 4,026 gene sets used in this study are freely available at <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data"><code>xiangzhu/rss-gsea</code></a>, where the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway"><code>biological_pathway</code></a> contains 3,913 biological pathways, and the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set"><code>tissue_set</code></a> contains 113 GTEx tissue-based gene sets. More details about these gene sets can be found <a href="gene_set.html">here</a>.</p>
 <ul>
-<li>Where can I find “baseline” model fitting results of all 31 traits?</li>
+<li>Where can I find RSS-E “baseline” model fitting results of all 31 traits?</li>
 </ul>
 <p>You can find summary results of “baseline” model fitting at <a href="https://xiangzhu.github.io/rss-gsea-baseline/"><code>xiangzhu/rss-gsea-baseline</code></a>. For me, the baseline model fitting results are merely inferential “bases” for the enrichment model fitting results shown in the “Main results” section above. However, when I was presenting the enrichment results during my <a href="http://www.stat.uchicago.edu/~xiangzhu/THESIS_20170630.html">Ph.D. thesis defense</a>, <a href="http://jnpopgen.org/">Prof. John Novembre</a> and <a href="http://xinhelab.org/">Prof. Xin He</a> both pointed out these baseline results might be useful for other on-going research projects on the “fourth floor” (i.e. the <strong>fantastic</strong> computational space shared with the labs of Matthew Stephens, John Novembre and Xin He). Their comments motivated me to create a separate online notebook <a href="https://xiangzhu.github.io/rss-gsea-baseline/"><code>xiangzhu/rss-gsea-baseline</code></a> to share the baseline summary results.</p>
 <ul>
-<li>Where can I find “Round 1” results of all 3,913 biological pathways?</li>
+<li>Where can I find “Round 1” RSS-E results of all 3,913 biological pathways?</li>
 </ul>
-<p>Currently you need to contact me directly to view our “Round 1” results of all 3913 pathways. When this work was under review, one referee pointed out that our online results, especially our “Round 1” analysis results, were “needlessly complicated” and did not have “any obvious benefit”. Hence, I removed the “Round 1” analysis results from this notebook to simplify the presentation. I sincerely hope that this change can address the referee’s comment.</p>
-<ul>
-<li>Where can I find the gene prioritization results?</li>
-</ul>
-<p>Currently you need to contact me directly to view our full prioritization results. Unlike the gene set enrichment results, the gene prioritization results cannot be easily tabulated, and thus I have not displayed them in this notebook yet.</p>
+<p>Currently you need to contact me directly to view our “Round 1” results of all 3913 pathways. When this work was under review, one referee pointed out that our previous online results, especially our “Round 1” analysis results, were “needlessly complicated” and did not have “any obvious benefit”. Hence, I removed the “Round 1” analysis results from this notebook to simplify the presentation. I sincerely hope that this change can address this referee’s comment.</p>
 </div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
