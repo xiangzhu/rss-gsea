@@ -12,7 +12,12 @@ output:
 [zenodo-geneset]: https://zenodo.org/badge/latestdoi/55633948
 [zenodo-software]: xxx
 [`xiangzhu/rss-gsea`]: https://github.com/xiangzhu/rss-gsea/tree/master/data
-[`xiangzhu/rss-gsea-baseline`]: https://xiangzhu.github.io/rss-gsea-baseline/ 
+[`xiangzhu/rss-gsea-baseline`]: https://xiangzhu.github.io/rss-gsea-baseline/
+[`ash_lrt_31traits.R`]: https://github.com/stephenslab/rss/blob/master/misc/ash_lrt_31traits.R
+[Zhu and Stephens (2018)]: https://doi.org/10.1101/160770
+[Supplementary Figure 17]: https://www.biorxiv.org/content/biorxiv/suppl/2018/07/16/160770.DC2/160770-3.pdf
+[`ggplot2::geom_density`]: https://ggplot2.tidyverse.org/reference/geom_density.html
+[RSS-E tutorial]: http://stephenslab.github.io/rss/Example-5
 
 ## Overview
 
@@ -39,8 +44,7 @@ as [![DOI](https://zenodo.org/badge/55633948.svg)][zenodo-geneset].
 
 If you find the analysis results, the pre-processed gene sets,
 the statistical methods, and/or the open-source software useful for your work,
-**please kindly cite our manuscript listed above,
-[Zhu and Stephens (2017)](https://doi.org/10.1101/160770)**.
+**please kindly cite our manuscript listed above, [Zhu and Stephens (2018)][]**.
 
 If you have any question about the notebook and/or the manuscript,
 please feel free to contact me: [Xiang Zhu](https://github.com/xiangzhu),
@@ -97,20 +101,39 @@ please feel free to contact me: [Xiang Zhu](https://github.com/xiangzhu),
 #### Gene prioritization
 
 - [Low-density lipoprotein (Teslovich et al. 2010) & Chylomicron-mediated lipid transport](ldl2010_path1698.html)
-- [Adult human height (Wood et al. 2014) & Endochondral ossification]()
-- [Inflammatory bowel disease (Liu et al. 2015) & Cytokine-cytokine receptor interaction]()
-- [Rheumatoid arthritis (Okada et al. 2014) & Lymphocyte NFAT-dependent transcription]()
-- [Coronary artery disease (Nikpay et al. 2015) & p75(NTR)-mediated signaling]()
-- [High-density lipoprotein (Teslovich et al. 2010) & Lipid digestion, mobilization and transport]()
+- [Adult human height (Wood et al. 2014) & Endochondral ossification](height2014_path3208.html)
+- [Inflammatory bowel disease (Liu et al. 2015) & Cytokine-cytokine receptor interaction](ibd2015_path3850.html)
+- [Rheumatoid arthritis (Okada et al. 2014) & Lymphocyte NFAT-dependent transcription](ra2014_path2858.html)
+- [Coronary artery disease (Nikpay et al. 2015) & p75(NTR)-mediated signaling](cad2015_path3059.html)
+- [High-density lipoprotein (Teslovich et al. 2010) & Lipid digestion, mobilization and transport](hdl2010_path3093.html)
 
 ## Additional resources
 
-- How can I perform similar analyses on a new dataset of GWAS summary statistics?
+- How can I perform similar analyses on a new dataset of GWAS summary statistics using RSS-E?
 
-The software that generated results of this study is available at [`stephenslab/rss`][].
-I also write a step-by-step [tutorial](http://stephenslab.github.io/rss/Example-5)
-illustrating how to use this software to perform genome-wide enrichment
+The software that generated results of this study is freely available at [`stephenslab/rss`][].
+I also write a step-by-step [RSS-E tutorial][] that illustrates
+how to use this software to perform genome-wide enrichment
 and prioritization analyses on GWAS summary statistics.
+
+- Compared with most existing enrichment methods, the most appealing feature of
+RSS-E is the automatic gene prioritization in light of inferred enrichments.
+Is this gene prioritization feature available in your software?
+
+Yes. This feature is implemented as function [`compute_pip.m`][] in RSS-E.
+The step-by-step [RSS-E tutorial][] illustrates how to use this function. 
+
+- There are two sanity checks for the more sophisticated RSS-E analysis in
+[Zhu and Stephens (2018)][]: an eyeball test and a likelihood ratio calculation.
+Do you have software for these sanity checks?
+
+Yes. The eyeball test is simply plotting marginal distribution of GWAS z-scores,
+stratified by SNP-level annotations based on a given gene set.
+We used [`ggplot2::geom_density`][] (default setting) in the present study.  
+Regarding the likelihood ratio check, I write a stand-alone script [`ash_lrt_31traits.R`][].
+Please carefully read the instruction in this script.
+For more details of these two sanity checks, please see the caption of
+[Supplementary Figure 17][] in [Zhu and Stephens (2018)][].
 
 - Where can I download all 4,026 pre-processed gene sets?
 
@@ -121,7 +144,7 @@ and the folder [`tissue_set`](https://github.com/xiangzhu/rss-gsea/tree/master/d
 contains 113 GTEx tissue-based gene sets.
 More details about these gene sets can be found [here](gene_set.html).
 
-- Where can I find "baseline" model fitting results of all 31 traits?
+- Where can I find RSS-E "baseline" model fitting results of all 31 traits?
 
 You can find summary results of "baseline" model fitting at [`xiangzhu/rss-gsea-baseline`][].
 For me, the baseline model fitting results are merely inferential "bases" for the
@@ -135,16 +158,10 @@ might be useful for other on-going research projects on the "fourth floor"
 Their comments motivated me to create a separate online notebook
 [`xiangzhu/rss-gsea-baseline`][] to share the baseline summary results.
 
-- Where can I find "Round 1" results of all 3,913 biological pathways?
+- Where can I find "Round 1" RSS-E results of all 3,913 biological pathways?
 
 Currently you need to contact me directly to view our "Round 1" results of all 3913 pathways.
-When this work was under review, one referee pointed out that our online results, especially our
+When this work was under review, one referee pointed out that our previous online results, especially our
 "Round 1" analysis results, were "needlessly complicated" and did not have "any obvious benefit".
 Hence, I removed the "Round 1" analysis results from this notebook to simplify the presentation.
-I sincerely hope that this change can address the referee's comment.
-
-- Where can I find the gene prioritization results?
-
-Currently you need to contact me directly to view our full prioritization results. 
-Unlike the gene set enrichment results, the gene prioritization results
-cannot be easily tabulated, and thus I have not displayed them in this notebook yet.
+I sincerely hope that this change can address this referee's comment.
