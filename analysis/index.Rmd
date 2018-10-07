@@ -18,6 +18,7 @@ output:
 [Supplementary Figure 17]: https://www.biorxiv.org/content/biorxiv/suppl/2018/07/16/160770.DC2/160770-3.pdf
 [`ggplot2::geom_density`]: https://ggplot2.tidyverse.org/reference/geom_density.html
 [RSS-E tutorial]: http://stephenslab.github.io/rss/Example-5
+[`compute_pip.m`]: https://github.com/stephenslab/rss/blob/master/src_vb/compute_pip.m
 
 ## Overview
 
