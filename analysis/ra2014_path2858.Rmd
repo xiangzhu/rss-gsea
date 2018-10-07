@@ -1,0 +1,69 @@
+---
+title: "Prioritization results of rheumatoid arthritis & Lymphocyte NFAT-dependent transcription"
+author: "Xiang Zhu"
+date: "2018-10-05"
+output: workflowr::wflow_html
+---
+
+```{r, echo=FALSE}
+# specify input data files
+pip.path <- "~/Dropbox/rss/Data/ra_2014/pathway/variant_prioritization/path/ra2014_pip_path2858_genes.mat"
+
+# load GWAS hit data frame
+source("~/Dropbox/rss/Data/ra_2014/pathway/variant_prioritization/load_gwas_hits.R")
+
+# DO NOT MODIFY THE CODES BELOW
+
+# load packages
+suppressPackageStartupMessages(library(R.matlab))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(kableExtra))
+
+# load scripts
+source("~/Dropbox/rss/Rcode/vp_util.R")
+
+# load prioritization results
+pip.results <- pip.genes.mat2df(pip.path) 
+
+pip.df <- pip.results$pip.df
+snp.df <- pip.results$snp.df
+
+# annotate each gene by the nearest GWAS hit and distance in bp
+pip.df <- add.nearhits(pip.df, hit.df)
+
+# remove P2-related columns
+pip.df <- pip.df[, !(names(pip.df) %in% c("p2.null","p2.gsea"))]
+
+# rank genes by hd, then ep1, then bp1
+pip.df <- dplyr::arrange(pip.df, -hit.distance, -p1.gsea, -p1.null)
+
+# tidy up column names
+names(pip.df) <- c("Gene","Chr.","Start","End","Baseline P1","Enrichment P1","H-distance","Nearest hit")
+```
+
+## Table legends
+
+Prioritization results are summarized by the following table.
+
+- **P1**: posterior probability that at least one SNP within 100 kb of the transcribed
+region of a given pathway gene (defined by **Chr.**, **Start** and **End** columns)
+has non-zero effect on the trait of interest;
+
+- **H-distance**: the physical distance, in base pair, between a given pathway gene and its nearest GWAS hit;
+
+- **Nearest hit**: the nearest GWAS hit to a given pathway gene,
+reported in the corresponding GWAS publication.
+
+The "Inf" values in column **H-distance** indicate that
+there is no GWAS hit on the same chromosome as the pathway gene.
+
+Differences between **Baseline P1** and **Enrichment P1** reflect
+the influence of enrichment on genetic associations,
+which can help identify putatively trait-associated genes. 
+
+## Analysis results
+
+```{r, echo=FALSE}
+kable(pip.df) %>% kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
