@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Xiang Zhu" />
+
+<meta name="date" content="2018-10-05" />
+
+<title>Prioritization results of adult human height &amp; Endochondral ossification</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">rss-gsea</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xiangzhu/rss-gsea">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Prioritization results of adult human height &amp; Endochondral ossification</h1>
+<h4 class="author"><em>Xiang Zhu</em></h4>
+<h4 class="date"><em>2018-10-05</em></h4>
+
+</div>
+
+
+<p><strong>Last updated:</strong> 2018-10-06</p>
+<strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
+<ul>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</details>
+</li>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Environment:</strong> empty </summary></p>
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</details>
+</li>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Seed:</strong> <code>set.seed(20180626)</code> </summary></p>
+<p>The command <code>set.seed(20180626)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</details>
+</li>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Session information:</strong> recorded </summary></p>
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</details>
+</li>
+<li>
+<details>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/0203b769b728d8d8cbf604289c1b71348f7a2838" target="_blank">0203b76</a> </summary></p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  analysis/cad2015_path3059.Rmd
+    Untracked:  analysis/hdl2010_path3093.Rmd
+    Untracked:  analysis/ibd2015_path3850.Rmd
+    Untracked:  analysis/ra2014_path2858.Rmd
+
+Unstaged changes:
+    Modified:   analysis/index.Rmd
+
+</code></pre>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</details>
+</li>
+</ul>
+<details>
+<summary> <small><strong>Expand here to see past versions:</strong></small> </summary>
+<ul>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+File
+</th>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:left;">
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/xiangzhu/rss-gsea/blob/0203b769b728d8d8cbf604289c1b71348f7a2838/analysis/height2014_path3208.Rmd" target="_blank">0203b76</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-10-06
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/height2014_path3208.Rmd”)
+</td>
+</tr>
+</tbody>
+</table>
+</ul>
+</details>
+<hr />
+<div id="table-legends" class="section level2">
+<h2>Table legends</h2>
+<p>Prioritization results are summarized by the following table.</p>
+<ul>
+<li><p><strong>P1</strong>: posterior probability that at least one SNP within 100 kb of the transcribed region of a given pathway gene (defined by <strong>Chr.</strong>, <strong>Start</strong> and <strong>End</strong> columns) has non-zero effect on the trait of interest;</p></li>
+<li><p><strong>H-distance</strong>: the physical distance, in base pair, between a given pathway gene and its nearest GWAS hit;</p></li>
+<li><p><strong>Nearest hit</strong>: the nearest GWAS hit to a given pathway gene, reported in the corresponding GWAS publication.</p></li>
+</ul>
+<p>The “Inf” values in column <strong>H-distance</strong> indicate that there is no GWAS hit on the same chromosome as the pathway gene.</p>
+<p>Differences between <strong>Baseline P1</strong> and <strong>Enrichment P1</strong> reflect the influence of enrichment on genetic associations, which can help identify putatively trait-associated genes.</p>
+</div>
+<div id="analysis-results" class="section level2">
+<h2>Analysis results</h2>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Gene
+</th>
+<th style="text-align:right;">
+Chr.
+</th>
+<th style="text-align:right;">
+Start
+</th>
+<th style="text-align:right;">
+End
+</th>
+<th style="text-align:right;">
+Baseline P1
+</th>
+<th style="text-align:right;">
+Enrichment P1
+</th>
+<th style="text-align:right;">
+H-distance
+</th>
+<th style="text-align:left;">
+Nearest hit
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MMP13
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+102813721
+</td>
+<td style="text-align:right;">
+102826463
+</td>
+<td style="text-align:right;">
+0.4475670
+</td>
+<td style="text-align:right;">
+0.9286314
+</td>
+<td style="text-align:right;">
+15786772
+</td>
+<td style="text-align:left;">
+rs632124
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FGFR1
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+38268656
+</td>
+<td style="text-align:right;">
+38326352
+</td>
+<td style="text-align:right;">
+0.6693504
+</td>
+<td style="text-align:right;">
+0.9673366
+</td>
+<td style="text-align:right;">
+10740661
+</td>
+<td style="text-align:left;">
+rs568610
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLAT
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+42032236
+</td>
+<td style="text-align:right;">
+42065194
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+7348586
+</td>
+<td style="text-align:left;">
+rs6988484
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLAU
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+75670862
+</td>
+<td style="text-align:right;">
+75677259
+</td>
+<td style="text-align:right;">
+0.3871728
+</td>
+<td style="text-align:right;">
+0.9962272
+</td>
+<td style="text-align:right;">
+5251534
+</td>
+<td style="text-align:left;">
+rs1815314
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMPR1A
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+88516396
+</td>
+<td style="text-align:right;">
+88684945
+</td>
+<td style="text-align:right;">
+0.8754327
+</td>
+<td style="text-align:right;">
+0.9988295
+</td>
+<td style="text-align:right;">
+4352464
+</td>
+<td style="text-align:left;">
+rs2631676
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PTH1R
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+46919236
+</td>
+<td style="text-align:right;">
+46945289
+</td>
+<td style="text-align:right;">
+0.9388569
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+4126424
+</td>
+<td style="text-align:left;">
+rs13088462
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GLI3
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+42000547
+</td>
+<td style="text-align:right;">
+42276618
+</td>
+<td style="text-align:right;">
+0.9981750
+</td>
+<td style="text-align:right;">
+0.9999999
+</td>
+<td style="text-align:right;">
+3890474
+</td>
+<td style="text-align:left;">
+rs6974574
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MMP9
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+44637547
+</td>
+<td style="text-align:right;">
+44645200
+</td>
+<td style="text-align:right;">
+0.5586571
+</td>
+<td style="text-align:right;">
+0.9586277
+</td>
+<td style="text-align:right;">
+3127064
+</td>
+<td style="text-align:left;">
+rs17450430
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CST5
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+23856572
+</td>
+<td style="text-align:right;">
+23860380
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+2676313
+</td>
+<td style="text-align:left;">
+rs6137287
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DDR2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+162602228
+</td>
+<td style="text-align:right;">
+162750255
+</td>
+<td style="text-align:right;">
+0.8775772
+</td>
+<td style="text-align:right;">
+0.9991192
+</td>
+<td style="text-align:right;">
+2202642
+</td>
+<td style="text-align:left;">
+rs6688100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PRKACA
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+14202500
+</td>
+<td style="text-align:right;">
+14228559
+</td>
+<td style="text-align:right;">
+0.9226463
+</td>
+<td style="text-align:right;">
+0.9884570
+</td>
+<td style="text-align:right;">
+2015889
+</td>
+<td style="text-align:left;">
+rs7259684
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CALM1
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+90863327
+</td>
+<td style="text-align:right;">
+90874619
+</td>
+<td style="text-align:right;">
+0.4427005
+</td>
+<td style="text-align:right;">
+0.9178998
+</td>
+<td style="text-align:right;">
+1552729
+</td>
+<td style="text-align:left;">
+rs7154721
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COL2A1
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+48366748
+</td>
+<td style="text-align:right;">
+48398285
+</td>
+<td style="text-align:right;">
+0.7436775
+</td>
+<td style="text-align:right;">
+0.9950522
+</td>
+<td style="text-align:right;">
+1539725
+</td>
+<td style="text-align:left;">
+rs10880969
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HDAC4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+239969864
+</td>
+<td style="text-align:right;">
+240322643
+</td>
+<td style="text-align:right;">
+0.9825446
+</td>
+<td style="text-align:right;">
+0.9999719
+</td>
+<td style="text-align:right;">
+1495884
+</td>
+<td style="text-align:left;">
+rs4344931
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AKT1
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+105235686
+</td>
+<td style="text-align:right;">
+105262080
+</td>
+<td style="text-align:right;">
+0.9936763
+</td>
+<td style="text-align:right;">
+0.9995562
+</td>
+<td style="text-align:right;">
+1356912
+</td>
+<td style="text-align:left;">
+rs12882130
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ADAMTS5
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+28290231
+</td>
+<td style="text-align:right;">
+28339439
+</td>
+<td style="text-align:right;">
+0.9315165
+</td>
+<td style="text-align:right;">
+0.9994099
+</td>
+<td style="text-align:right;">
+1081296
+</td>
+<td style="text-align:left;">
+rs2829941
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CALM3
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+47104512
+</td>
+<td style="text-align:right;">
+47114039
+</td>
+<td style="text-align:right;">
+0.4173754
+</td>
+<td style="text-align:right;">
+0.9094855
+</td>
+<td style="text-align:right;">
+1074770
+</td>
+<td style="text-align:left;">
+rs2059877
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ADAMTS1
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+28208606
+</td>
+<td style="text-align:right;">
+28217728
+</td>
+<td style="text-align:right;">
+0.9639698
+</td>
+<td style="text-align:right;">
+0.9999300
+</td>
+<td style="text-align:right;">
+999671
+</td>
+<td style="text-align:left;">
+rs2829941
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMP7
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+55743809
+</td>
+<td style="text-align:right;">
+55841707
+</td>
+<td style="text-align:right;">
+0.8105462
+</td>
+<td style="text-align:right;">
+0.9979101
+</td>
+<td style="text-align:right;">
+901431
+</td>
+<td style="text-align:left;">
+rs1326023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SOX6
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+15987995
+</td>
+<td style="text-align:right;">
+16497935
+</td>
+<td style="text-align:right;">
+0.9373336
+</td>
+<td style="text-align:right;">
+0.9997789
+</td>
+<td style="text-align:right;">
+853748
+</td>
+<td style="text-align:left;">
+rs757081
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HMGCS1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+43289493
+</td>
+<td style="text-align:right;">
+43313595
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+852577
+</td>
+<td style="text-align:left;">
+rs17574650
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VEGFA
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+43737946
+</td>
+<td style="text-align:right;">
+43754224
+</td>
+<td style="text-align:right;">
+0.9771801
+</td>
+<td style="text-align:right;">
+0.9998988
+</td>
+<td style="text-align:right;">
+785537
+</td>
+<td style="text-align:left;">
+rs1040941
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ADAMTS4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+161159538
+</td>
+<td style="text-align:right;">
+161168845
+</td>
+<td style="text-align:right;">
+0.3619263
+</td>
+<td style="text-align:right;">
+0.8765674
+</td>
+<td style="text-align:right;">
+759952
+</td>
+<td style="text-align:left;">
+rs6688100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CTSV
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+99791959
+</td>
+<td style="text-align:right;">
+99801925
+</td>
+<td style="text-align:right;">
+0.3825341
+</td>
+<td style="text-align:right;">
+0.9998142
+</td>
+<td style="text-align:right;">
+590374
+</td>
+<td style="text-align:left;">
+rs7870753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CAB39
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+231577557
+</td>
+<td style="text-align:right;">
+231685790
+</td>
+<td style="text-align:right;">
+0.7829306
+</td>
+<td style="text-align:right;">
+0.9989698
+</td>
+<td style="text-align:right;">
+582522
+</td>
+<td style="text-align:left;">
+rs6733349
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ENPP1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+132129156
+</td>
+<td style="text-align:right;">
+132216295
+</td>
+<td style="text-align:right;">
+0.9634009
+</td>
+<td style="text-align:right;">
+0.9997195
+</td>
+<td style="text-align:right;">
+514077
+</td>
+<td style="text-align:left;">
+rs7743622
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MGP
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+15034115
+</td>
+<td style="text-align:right;">
+15038853
+</td>
+<td style="text-align:right;">
+0.9907099
+</td>
+<td style="text-align:right;">
+0.9990710
+</td>
+<td style="text-align:right;">
+513414
+</td>
+<td style="text-align:left;">
+rs12228415
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CHST11
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+104850692
+</td>
+<td style="text-align:right;">
+105155792
+</td>
+<td style="text-align:right;">
+0.9939521
+</td>
+<td style="text-align:right;">
+0.9999999
+</td>
+<td style="text-align:right;">
+505856
+</td>
+<td style="text-align:left;">
+rs2164747
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRZB
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+183698002
+</td>
+<td style="text-align:right;">
+183731498
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+478901
+</td>
+<td style="text-align:left;">
+rs833152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CALM2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+47387221
+</td>
+<td style="text-align:right;">
+47403740
+</td>
+<td style="text-align:right;">
+0.9678946
+</td>
+<td style="text-align:right;">
+0.9999988
+</td>
+<td style="text-align:right;">
+465936
+</td>
+<td style="text-align:left;">
+rs12474201
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+STAT5B
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+40351195
+</td>
+<td style="text-align:right;">
+40428424
+</td>
+<td style="text-align:right;">
+0.5032175
+</td>
+<td style="text-align:right;">
+0.9929653
+</td>
+<td style="text-align:right;">
+424417
+</td>
+<td style="text-align:left;">
+rs9766
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+THRA
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+38218446
+</td>
+<td style="text-align:right;">
+38250120
+</td>
+<td style="text-align:right;">
+0.9467918
+</td>
+<td style="text-align:right;">
+0.9999999
+</td>
+<td style="text-align:right;">
+349110
+</td>
+<td style="text-align:left;">
+rs584828
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NKX3-2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+13542454
+</td>
+<td style="text-align:right;">
+13546114
+</td>
+<td style="text-align:right;">
+0.9586002
+</td>
+<td style="text-align:right;">
+0.9986497
+</td>
+<td style="text-align:right;">
+348363
+</td>
+<td style="text-align:left;">
+rs4834927
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SCIN
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+12610203
+</td>
+<td style="text-align:right;">
+12693228
+</td>
+<td style="text-align:right;">
+0.9726120
+</td>
+<td style="text-align:right;">
+0.9999799
+</td>
+<td style="text-align:right;">
+333681
+</td>
+<td style="text-align:left;">
+rs929637
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IFT88
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+21141208
+</td>
+<td style="text-align:right;">
+21265576
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+304670
+</td>
+<td style="text-align:left;">
+rs1199734
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KIF3A
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+132028323
+</td>
+<td style="text-align:right;">
+132073265
+</td>
+<td style="text-align:right;">
+0.9963992
+</td>
+<td style="text-align:right;">
+0.9999103
+</td>
+<td style="text-align:right;">
+286095
+</td>
+<td style="text-align:left;">
+rs6596075
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPP1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+88896802
+</td>
+<td style="text-align:right;">
+88904563
+</td>
+<td style="text-align:right;">
+0.9775060
+</td>
+<td style="text-align:right;">
+0.9995442
+</td>
+<td style="text-align:right;">
+266771
+</td>
+<td style="text-align:left;">
+rs6813055
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ALPL
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+21835858
+</td>
+<td style="text-align:right;">
+21904905
+</td>
+<td style="text-align:right;">
+0.9982074
+</td>
+<td style="text-align:right;">
+0.9999996
+</td>
+<td style="text-align:right;">
+252547
+</td>
+<td style="text-align:left;">
+rs212524
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PTH
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+13513601
+</td>
+<td style="text-align:right;">
+13517567
+</td>
+<td style="text-align:right;">
+0.4115143
+</td>
+<td style="text-align:right;">
+0.8479092
+</td>
+<td style="text-align:right;">
+235640
+</td>
+<td style="text-align:left;">
+rs10766065
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SOX9
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+70117161
+</td>
+<td style="text-align:right;">
+70122561
+</td>
+<td style="text-align:right;">
+0.9999354
+</td>
+<td style="text-align:right;">
+0.9999985
+</td>
+<td style="text-align:right;">
+193806
+</td>
+<td style="text-align:left;">
+rs10083886
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IGF1
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+102789645
+</td>
+<td style="text-align:right;">
+102874378
+</td>
+<td style="text-align:right;">
+0.9999071
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+188219
+</td>
+<td style="text-align:left;">
+rs833706
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RUNX3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+25226002
+</td>
+<td style="text-align:right;">
+25291501
+</td>
+<td style="text-align:right;">
+0.9999999
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+181891
+</td>
+<td style="text-align:left;">
+rs4601530
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TIMP3
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+33196802
+</td>
+<td style="text-align:right;">
+33259028
+</td>
+<td style="text-align:right;">
+0.9889742
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+139943
+</td>
+<td style="text-align:left;">
+rs2413143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MEF2C
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+88014058
+</td>
+<td style="text-align:right;">
+88199922
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+127860
+</td>
+<td style="text-align:left;">
+rs6894139
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FGFR3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1795039
+</td>
+<td style="text-align:right;">
+1810599
+</td>
+<td style="text-align:right;">
+0.9768451
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+101108
+</td>
+<td style="text-align:left;">
+rs3958122
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDKN1C
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+2904448
+</td>
+<td style="text-align:right;">
+2906995
+</td>
+<td style="text-align:right;">
+0.9999996
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+93717
+</td>
+<td style="text-align:left;">
+rs2237886
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TGFB1
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+41836812
+</td>
+<td style="text-align:right;">
+41859831
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+62521
+</td>
+<td style="text-align:left;">
+rs4803468
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SLC38A2
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+46751971
+</td>
+<td style="text-align:right;">
+46766645
+</td>
+<td style="text-align:right;">
+0.9999770
+</td>
+<td style="text-align:right;">
+0.9999999
+</td>
+<td style="text-align:right;">
+60378
+</td>
+<td style="text-align:left;">
+rs10880969
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RUNX2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+45296054
+</td>
+<td style="text-align:right;">
+45518819
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+51639
+</td>
+<td style="text-align:left;">
+rs10948222
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FGF2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+123747863
+</td>
+<td style="text-align:right;">
+123819390
+</td>
+<td style="text-align:right;">
+0.9998332
+</td>
+<td style="text-align:right;">
+0.9999999
+</td>
+<td style="text-align:right;">
+16266
+</td>
+<td style="text-align:left;">
+rs12513181
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GH1
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+61994563
+</td>
+<td style="text-align:right;">
+61996198
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+11300
+</td>
+<td style="text-align:left;">
+rs2070776
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IHH
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+219919142
+</td>
+<td style="text-align:right;">
+219925238
+</td>
+<td style="text-align:right;">
+0.9999998
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+10773
+</td>
+<td style="text-align:left;">
+rs12470505
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COL10A1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+116440085
+</td>
+<td style="text-align:right;">
+116447296
+</td>
+<td style="text-align:right;">
+0.7968700
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+4146
+</td>
+<td style="text-align:left;">
+rs2145357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+STAT1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+191833762
+</td>
+<td style="text-align:right;">
+191878976
+</td>
+<td style="text-align:right;">
+0.9995340
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1100
+</td>
+<td style="text-align:left;">
+rs12693589
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IGF2
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+2150347
+</td>
+<td style="text-align:right;">
+2170833
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+768
+</td>
+<td style="text-align:left;">
+rs4320932
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ACAN
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+89346674
+</td>
+<td style="text-align:right;">
+89418585
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs11633371-rs16942341-rs2280470-rs3817428
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMP6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+7727011
+</td>
+<td style="text-align:right;">
+7881961
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs9328445-rs9405356
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IGF1R
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+99192761
+</td>
+<td style="text-align:right;">
+99507759
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs2871865
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PTCH1
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+98205264
+</td>
+<td style="text-align:right;">
+98279247
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs4448343
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TGFB2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+218518676
+</td>
+<td style="text-align:right;">
+218617961
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs991967
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SOX5
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+23685231
+</td>
+<td style="text-align:right;">
+24715380
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs11047239
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SERPINH1
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+75273101
+</td>
+<td style="text-align:right;">
+75283849
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs606452
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PTHLH
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+28111017
+</td>
+<td style="text-align:right;">
+28124916
+</td>
+<td style="text-align:right;">
+0.9999768
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs10492364
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FGF18
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+170846667
+</td>
+<td style="text-align:right;">
+170884630
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs4620037
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GHR
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+42423877
+</td>
+<td style="text-align:right;">
+42721980
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+rs17574650
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="session-information" class="section level2">
+<h2>Session information</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
+<pre><code>Session info -------------------------------------------------------------</code></pre>
+<pre><code> setting  value                       
+ version  R version 3.5.1 (2018-07-02)
+ system   x86_64, darwin15.6.0        
+ ui       X11                         
+ language (EN)                        
+ collate  en_US.UTF-8                 
+ tz       America/Los_Angeles         
+ date     2018-10-06                  </code></pre>
+<pre><code>Packages -----------------------------------------------------------------</code></pre>
+<pre><code> package     * version date       source        
+ assertthat    0.2.0   2017-04-11 CRAN (R 3.5.0)
+ backports     1.1.2   2017-12-13 CRAN (R 3.5.0)
+ base        * 3.5.1   2018-07-05 local         
+ bindr         0.1.1   2018-03-13 CRAN (R 3.5.0)
+ bindrcpp    * 0.2.2   2018-03-29 CRAN (R 3.5.0)
+ colorspace    1.3-2   2016-12-14 CRAN (R 3.5.0)
+ compiler      3.5.1   2018-07-05 local         
+ crayon        1.3.4   2017-09-16 CRAN (R 3.5.0)
+ datasets    * 3.5.1   2018-07-05 local         
+ devtools      1.13.6  2018-06-27 CRAN (R 3.5.0)
+ digest        0.6.17  2018-09-12 CRAN (R 3.5.1)
+ dplyr       * 0.7.6   2018-06-29 CRAN (R 3.5.1)
+ evaluate      0.11    2018-07-17 CRAN (R 3.5.0)
+ git2r         0.23.0  2018-07-17 CRAN (R 3.5.0)
+ glue          1.3.0   2018-07-17 CRAN (R 3.5.0)
+ graphics    * 3.5.1   2018-07-05 local         
+ grDevices   * 3.5.1   2018-07-05 local         
+ highr         0.7     2018-06-09 CRAN (R 3.5.0)
+ hms           0.4.2   2018-03-10 CRAN (R 3.5.0)
+ htmltools     0.3.6   2017-04-28 CRAN (R 3.5.0)
+ httr          1.3.1   2017-08-20 CRAN (R 3.5.0)
+ kableExtra  * 0.9.0   2018-05-21 CRAN (R 3.5.0)
+ knitr         1.20    2018-02-20 CRAN (R 3.5.0)
+ magrittr      1.5     2014-11-22 CRAN (R 3.5.0)
+ memoise       1.1.0   2017-04-21 CRAN (R 3.5.0)
+ methods     * 3.5.1   2018-07-05 local         
+ munsell       0.5.0   2018-06-12 CRAN (R 3.5.0)
+ pillar        1.3.0   2018-07-14 CRAN (R 3.5.0)
+ pkgconfig     2.0.2   2018-08-16 CRAN (R 3.5.0)
+ purrr         0.2.5   2018-05-29 CRAN (R 3.5.0)
+ R.matlab    * 3.6.2   2018-09-27 CRAN (R 3.5.0)
+ R.methodsS3   1.7.1   2016-02-16 CRAN (R 3.5.0)
+ R.oo          1.22.0  2018-04-22 CRAN (R 3.5.0)
+ R.utils       2.7.0   2018-08-27 CRAN (R 3.5.0)
+ R6            2.3.0   2018-10-04 CRAN (R 3.5.1)
+ Rcpp          0.12.19 2018-10-01 CRAN (R 3.5.0)
+ readr         1.1.1   2017-05-16 CRAN (R 3.5.0)
+ rlang         0.2.2   2018-08-16 CRAN (R 3.5.0)
+ rmarkdown     1.10    2018-06-11 CRAN (R 3.5.0)
+ rprojroot     1.3-2   2018-01-03 CRAN (R 3.5.0)
+ rstudioapi    0.8     2018-10-02 CRAN (R 3.5.0)
+ rvest         0.3.2   2016-06-17 CRAN (R 3.5.0)
+ scales        1.0.0   2018-08-09 CRAN (R 3.5.0)
+ stats       * 3.5.1   2018-07-05 local         
+ stringi       1.2.4   2018-07-20 CRAN (R 3.5.0)
+ stringr       1.3.1   2018-05-10 CRAN (R 3.5.0)
+ tibble        1.4.2   2018-01-22 CRAN (R 3.5.0)
+ tidyselect    0.2.4   2018-02-26 CRAN (R 3.5.0)
+ tools         3.5.1   2018-07-05 local         
+ utils       * 3.5.1   2018-07-05 local         
+ viridisLite   0.3.0   2018-02-01 CRAN (R 3.5.0)
+ whisker       0.3-2   2013-04-28 CRAN (R 3.5.0)
+ withr         2.1.2   2018-03-15 CRAN (R 3.5.0)
+ workflowr     1.1.1   2018-07-06 CRAN (R 3.5.0)
+ xml2          1.2.0   2018-01-24 CRAN (R 3.5.0)
+ yaml          2.2.0   2018-07-25 CRAN (R 3.5.0)</code></pre>
+</div>
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<hr>
+<p>
+  This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
+  analysis was created with
+  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.1.1
+</p>
+<hr>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
