@@ -371,7 +371,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-10-05</p>
+<p><strong>Last updated:</strong> 2018-10-19</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -400,7 +400,7 @@ div.section {
 </li>
 <li>
 <details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/733308254bb7c84e59accb5a9243bddac34c6e2e" target="_blank">7333082</a> </summary></p>
+<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/0515710d2e5e392193030ff6a3bed77596befbb2" target="_blank">0515710</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -436,6 +436,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/xiangzhu/rss-gsea/blob/0515710d2e5e392193030ff6a3bed77596befbb2/analysis/gene_set.Rmd" target="_blank">0515710</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-10-19
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/gene_set.Rmd”)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/1c85967d82bd54d5e76573a2360750fc083cedc5/docs/gene_set.html" target="_blank">1c85967</a>
+</td>
+<td style="text-align:left;">
+Xiang Zhu
+</td>
+<td style="text-align:left;">
+2018-10-05
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 html
@@ -543,7 +577,7 @@ wflow_publish(“analysis/gene_set.Rmd”)
 </ul>
 </details>
 <hr />
-<p>All 4,026 gene sets used in <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2017)</a> are freely available at <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data"><code>xiangzhu/rss-gsea</code></a>, where the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway"><code>biological_pathway</code></a> contains 3,913 biological pathways, and the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set"><code>tissue_set</code></a> contains 113 GTEx tissue-based gene sets. These gene sets can be referenced in a journal’s “Data availability” section as <a href="https://zenodo.org/badge/latestdoi/55633948"><img src="https://zenodo.org/badge/55633948.svg" alt="DOI" /></a>.</p>
+<p>All 4,026 gene sets used in <a href="https://www.nature.com/articles/s41467-018-06805-x">Zhu and Stephens (2018)</a> are freely available at <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data"><code>xiangzhu/rss-gsea</code></a>, where the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway"><code>biological_pathway</code></a> contains 3,913 biological pathways, and the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set"><code>tissue_set</code></a> contains 113 GTEx tissue-based gene sets. These gene sets can be referenced in a journal’s “Data availability” section as <a href="https://zenodo.org/badge/latestdoi/55633948"><img src="https://zenodo.org/badge/55633948.svg" alt="DOI" /></a>.</p>
 <pre><code>data/
 ├── README.md
 ├── biological_pathway
@@ -557,7 +591,7 @@ wflow_publish(“analysis/gene_set.Rmd”)
 5 directories, 3 files</code></pre>
 <div id="biological-pathways" class="section level2">
 <h2>Biological pathways</h2>
-<p>The 3,913 GTEx biological pathway used in <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2017)</a> are available in the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway"><code>biological_pathway</code></a>, which are represented by two files <code>gene_37.3.mat</code> and <code>pathway.mat</code>.</p>
+<p>The 3,913 GTEx biological pathway used in <a href="https://www.nature.com/articles/s41467-018-06805-x">Zhu and Stephens (2018)</a> are available in the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway"><code>biological_pathway</code></a>, which are represented by two files <code>gene_37.3.mat</code> and <code>pathway.mat</code>.</p>
 <p>The file <code>gene_37.3.mat</code> contains basic information of genes.</p>
 <pre><code>&gt;&gt; load gene_37.3.mat
 &gt;&gt; gene
@@ -675,7 +709,7 @@ ans =
 </div>
 <div id="tissue-based-gene-sets" class="section level2">
 <h2>Tissue-based gene sets</h2>
-<p>The 113 GTEx tissue-based gene sets used in <a href="https://doi.org/10.1101/160770">Zhu and Stephens (2017)</a> are available in the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set"><code>tissue_set</code></a>. There are 44 “highly expressed” (HE) gene sets, 49 “selectively expressed” (SE) gene sets and 20 “distinctively expressed” (DE) gene sets. The creation of SE sets uses a method described in <a href="https://doi.org/10.1101/311563">Yang et al (2018)</a>. The creation of DE sets uses a method described in <a href="https://www.ncbi.nlm.nih.gov/pubmed/28333934">Dey et al (2017)</a>.</p>
+<p>The 113 GTEx tissue-based gene sets used in <a href="https://www.nature.com/articles/s41467-018-06805-x">Zhu and Stephens (2018)</a> are available in the folder <a href="https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set"><code>tissue_set</code></a>. There are 44 “highly expressed” (HE) gene sets, 49 “selectively expressed” (SE) gene sets and 20 “distinctively expressed” (DE) gene sets. The creation of SE sets uses a method described in <a href="https://doi.org/10.1101/311563">Yang et al (2018)</a>. The creation of DE sets uses a method described in <a href="https://www.ncbi.nlm.nih.gov/pubmed/28333934">Dey et al (2017)</a>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu">ls</span> data/tissue_set/he_genes <span class="kw">|</span> <span class="fu">wc</span> -l</a></code></pre></div>
 <pre><code>      44</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu">ls</span> data/tissue_set/se_genes <span class="kw">|</span> <span class="fu">wc</span> -l</a></code></pre></div>
@@ -702,7 +736,7 @@ ENSG00000087086 19  49468558    49470135</code></pre>
  language (EN)                        
  collate  en_US.UTF-8                 
  tz       America/Los_Angeles         
- date     2018-10-05                  </code></pre>
+ date     2018-10-19                  </code></pre>
 <pre><code>Packages -----------------------------------------------------------------</code></pre>
 <pre><code> package     * version date       source        
  backports     1.1.2   2017-12-13 CRAN (R 3.5.0)
