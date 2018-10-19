@@ -1,5 +1,5 @@
 ---
-title: "Full results of Zhu and Stephens (2017)"
+title: "Full results of Zhu and Stephens (2018)"
 author: "Xiang Zhu"
 date: 2017-04-12
 site: workflowr::wflow_site
@@ -8,29 +8,50 @@ output:
     toc: true
 ---
 
+[`stephenslab/rss`]: https://github.com/stephenslab/rss/tree/master/src_vb 
+[zenodo-geneset]: https://zenodo.org/badge/latestdoi/55633948
+[zenodo-software]: TBA
+[`xiangzhu/rss-gsea`]: https://github.com/xiangzhu/rss-gsea/tree/master/data
+[`xiangzhu/rss-gsea-baseline`]: https://xiangzhu.github.io/rss-gsea-baseline/
+[`ash_lrt_31traits.R`]: https://github.com/stephenslab/rss/blob/master/misc/ash_lrt_31traits.R
+[Zhu and Stephens (2018)]: https://www.nature.com/articles/s41467-018-06805-x
+[Supplementary Figure 17]: https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-06805-x/MediaObjects/41467_2018_6805_MOESM1_ESM.pdf
+[`ggplot2::geom_density`]: https://ggplot2.tidyverse.org/reference/geom_density.html
+[RSS-E tutorial]: http://stephenslab.github.io/rss/Example-5
+[`compute_pip.m`]: https://github.com/stephenslab/rss/blob/master/src_vb/compute_pip.m
+
 ## Overview
 
-This is my online notebook to document and share the full results
-of genome-wide enrichment analyses described in the manuscript:
+This is my online notebook to document and share the full results of genome-wide
+enrichment and prioritization analyses described in the article:
 
-> Xiang Zhu and Matthew Stephens (2017).
-> A large-scale genome-wide enrichment analysis identifies new
-> trait-associated genes, pathways and tissues across 31 human phenotypes.
-> *bioRxiv.* [https://doi.org/10.1101/160770](https://doi.org/10.1101/160770).
+> Xiang Zhu and Matthew Stephens (2018).
+> Large-scale genome-wide enrichment analyses identify new
+> trait-associated genes and pathways across 31 human phenotypes.
+> *Nature Communications* 9, 4361. 
+> [https://www.nature.com/articles/s41467-018-06805-x](https://www.nature.com/articles/s41467-018-06805-x).
 
-The software that was used to generate these results is available at
-https://github.com/stephenslab/rss/tree/master/src_vb.
-Here is an [example](http://stephenslab.github.io/rss/Example-5)
-illustrating how to use this software to perform
-genome-wide enrichment analyses of GWAS summary statistics.
+We developed a new statistical method, RSS-E, to generate the results for this study. 
+The software that implements RSS-E is freely available at [`stephenslab/rss`][].
+We also provide an end-to-end [example](http://stephenslab.github.io/rss/Example-5)
+illustrating how to use RSS-E to perform the reported genome-wide
+enrichment and prioritization analyses of GWAS summary statistics.
+This software can be referenced in a journal's "Code availability" section
+as [][zenodo-software].
 
-If you find results shown in this notebook and/or
-methods implemented in the software useful for your work,
-please cite the manuscript listed above,
-[Zhu and Stephens (2017)](https://doi.org/10.1101/160770).
+In addition, all 4,026 pre-processed gene sets used in this study
+(including 3,913 biological pathways and 113 tissue-based gene sets)
+are freely available at [`xiangzhu/rss-gsea`][].
+These gene sets can be referenced in a journal's "Data availability" section
+as [![DOI](https://zenodo.org/badge/55633948.svg)][zenodo-geneset].
 
-If you have any question about this notebook or the software, please feel free to contact me:
-[Xiang Zhu](https://github.com/xiangzhu), `xiangzhu@uchicago.edu` or `xiangzhu@stanford.edu`.
+If you find the analysis results, the pre-processed gene sets,
+the statistical methods, and/or the open-source software useful for your work,
+**please kindly cite our article listed above, [Zhu and Stephens (2018)][]**.
+
+If you have any question about the notebook and/or the article,
+please feel free to contact me: [Xiang Zhu](https://github.com/xiangzhu),
+`xiangzhu[at]uchicago[and/or]stanford.edu`.
 
 ## Main results
 
@@ -80,41 +101,70 @@ If you have any question about this notebook or the software, please feel free t
 - [Depressive symptoms (Okbay et al. 2016)](ds_2016.html)
 - [Neuroticism (Okbay et al. 2016)](neu_2016.html)
 
+#### Gene prioritization
+
+- [Low-density lipoprotein (Teslovich et al. 2010) & Chylomicron-mediated lipid transport](ldl2010_path1698.html)
+- [Adult human height (Wood et al. 2014) & Endochondral ossification](height2014_path3208.html)
+- [Inflammatory bowel disease (Liu et al. 2015) & Cytokine-cytokine receptor interaction](ibd2015_path3850.html)
+- [Rheumatoid arthritis (Okada et al. 2014) & Lymphocyte NFAT-dependent transcription](ra2014_path2858.html)
+- [Coronary artery disease (Nikpay et al. 2015) & p75(NTR)-mediated signaling](cad2015_path3059.html)
+- [High-density lipoprotein (Teslovich et al. 2010) & Lipid digestion, mobilization and transport](hdl2010_path3093.html)
+
 ## Additional resources
 
-- How can I perform similar analyses on a new dataset of GWAS summary statistics?
+> How can I perform similar analyses on a new GWAS summary dataset using RSS-E?
 
-The software that was used to generate these results is available at
-https://github.com/stephenslab/rss/tree/master/src_vb.
-I also write a step-by-step tutorial illustrating how to use this software
-to perform genome-wide enrichment and prioritization analyses on GWAS summary statistics.
-The tutorial is available at http://stephenslab.github.io/rss/Example-5.
+The software that generated results of this study is freely available at [`stephenslab/rss`][].
+I also write a step-by-step [RSS-E tutorial][] that illustrates
+how to use this software to perform genome-wide enrichment
+and prioritization analyses on GWAS summary statistics.
 
-- Where can I find "baseline" model fitting results of all 31 traits?
+> Compared with most existing enrichment methods, the most appealing feature of
+RSS-E is the automatic gene prioritization in light of inferred enrichments.
+Is this gene prioritization feature available in your software?
 
-You can find summary results of "baseline" model fitting at
-https://xiangzhu.github.io/rss-gsea-baseline.
+Yes. This feature is implemented as function [`compute_pip.m`][] in RSS-E.
+The step-by-step [RSS-E tutorial][] illustrates how to use this function. 
+
+> There are two sanity checks for the more sophisticated RSS-E analysis in
+[Zhu and Stephens (2018)][]: an eyeball test and a likelihood ratio calculation.
+Do you have software for these sanity checks?
+
+Yes. The eyeball test is simply plotting marginal distribution of GWAS z-scores,
+stratified by SNP-level annotations based on a given gene set.
+Here we used [`ggplot2::geom_density`][] (default setting).
+Regarding the likelihood ratio check, I write a stand-alone script [`ash_lrt_31traits.R`][].
+Please carefully read the instruction in this script.
+For more details of these two sanity checks, please see the caption of
+[Supplementary Figure 17][] in [Zhu and Stephens (2018)][].
+
+> Where can I download all 4,026 pre-processed gene sets used in this work?
+
+All 4,026 gene sets used in this study are freely available at [`xiangzhu/rss-gsea`],
+where the folder [`biological_pathway`](https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway)
+contains 3,913 biological pathways,
+and the folder [`tissue_set`](https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set)
+contains 113 GTEx tissue-based gene sets.
+More details about these gene sets can be found [here](gene_set.html).
+
+> Where can I find RSS-E "baseline" model fitting results of all 31 traits?
+
+You can find summary results of "baseline" model fitting at [`xiangzhu/rss-gsea-baseline`][].
 For me, the baseline model fitting results are merely inferential "bases" for the
 enrichment model fitting results shown in the "Main results" section above.
-However, when I was presenting the enrichment results during my Ph.D.
-[thesis defense](http://www.stat.uchicago.edu/~xiangzhu/THESIS_20170630.html),
+However, when I was presenting the enrichment results during my
+[Ph.D. thesis defense](http://www.stat.uchicago.edu/~xiangzhu/THESIS_20170630.html),
 [Prof. John Novembre](http://jnpopgen.org/) and
 [Prof. Xin He](http://xinhelab.org/) both pointed out these baseline results
-might be useful for other on-going projects on the "fourth floor".
-Their comments motivated me to create a separate
-[online notebook](https://xiangzhu.github.io/rss-gsea-baseline)
-to share the baseline summary results.
+might be useful for other on-going research projects on the "fourth floor"
+(i.e. the **fantastic** computational space shared with the labs of Matthew Stephens, John Novembre and Xin He).
+Their comments motivated me to create a separate online notebook
+[`xiangzhu/rss-gsea-baseline`][] to share the baseline summary results.
 
-- Where can I find "Round 1" results of all 3913 pathways?
+> Where can I find "Round 1" RSS-E results of all 3,913 biological pathways?
 
 Currently you need to contact me directly to view our "Round 1" results of all 3913 pathways.
-When this work was under review, one referee pointed out that our online results, especially our
+When this work was under review, one referee pointed out that our previous online results, especially our
 "Round 1" analysis results, were "needlessly complicated" and did not have "any obvious benefit".
 Hence, I removed the "Round 1" analysis results from this notebook to simplify the presentation.
-I hope that this change can address the referee's comment.
-
-- Where can I find the gene prioritization results?
-
-Currently you need to contact me directly to view our full prioritization results. 
-Unlike the gene set enrichment results, the gene prioritization results
-cannot be easily tabulated, and thus I have not displayed them in this notebook yet.
+I sincerely hope that this change can address this referee's comment.
