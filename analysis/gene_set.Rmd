@@ -5,13 +5,13 @@ date: "2018-09-16"
 output: workflowr::wflow_html
 ---
 
-[Zhu and Stephens (2017)]: https://doi.org/10.1101/160770
+[Zhu and Stephens (2018)]: https://www.nature.com/articles/s41467-018-06805-x
 [`xiangzhu/rss-gsea`]: https://github.com/xiangzhu/rss-gsea/tree/master/data
 [`biological_pathway`]: https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway
 [`tissue_set`]: https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set
 [zenodo-geneset]: https://zenodo.org/badge/latestdoi/55633948
 
-All 4,026 gene sets used in [Zhu and Stephens (2017)][] are freely available at [`xiangzhu/rss-gsea`],
+All 4,026 gene sets used in [Zhu and Stephens (2018)][] are freely available at [`xiangzhu/rss-gsea`],
 where the folder [`biological_pathway`](https://github.com/xiangzhu/rss-gsea/tree/master/data/biological_pathway)
 contains 3,913 biological pathways,
 and the folder [`tissue_set`](https://github.com/xiangzhu/rss-gsea/tree/master/data/tissue_set)
@@ -25,7 +25,7 @@ tree -L 2 data/
 
 ## Biological pathways
 
-The 3,913 GTEx biological pathway used in [Zhu and Stephens (2017)][]
+The 3,913 GTEx biological pathway used in [Zhu and Stephens (2018)][]
 are available in the folder [`biological_pathway`][],
 which are represented by two files `gene_37.3.mat` and `pathway.mat`.
 
@@ -165,7 +165,7 @@ ans =
 
 ## Tissue-based gene sets
 
-The 113 GTEx tissue-based gene sets used in [Zhu and Stephens (2017)][]
+The 113 GTEx tissue-based gene sets used in [Zhu and Stephens (2018)][]
 are available in the folder [`tissue_set`][].
 There are 44 "highly expressed" (HE) gene sets, 49 "selectively expressed" (SE) gene sets
 and 20 "distinctively expressed" (DE) gene sets.
