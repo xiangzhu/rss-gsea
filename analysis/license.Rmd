@@ -8,7 +8,7 @@ output:
 This notebook is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this notebook are included in the notebook’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the notebook’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
 If you use any results from this notebook, please explicitly acknowledge that
-the results are retrieved from http://doi.org/10.5281/zenodo.1412872,
+the results are retrieved from https://doi.org/10.5281/zenodo.1473807,
 and cite the following article:
 
 > Xiang Zhu and Matthew Stephens (2018).
