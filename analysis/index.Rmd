@@ -9,7 +9,7 @@ output:
 ---
 
 [`stephenslab/rss`]: https://github.com/stephenslab/rss/tree/master/src_vb 
-[zenodo-geneset]: https://doi.org/10.5281/zenodo.1412872
+[zenodo-geneset]: https://doi.org/10.5281/zenodo.1473807
 [zenodo-software]: https://doi.org/10.5281/zenodo.1473797
 [`xiangzhu/rss-gsea`]: https://github.com/xiangzhu/rss-gsea/tree/master/data
 [`xiangzhu/rss-gsea-baseline`]: https://xiangzhu.github.io/rss-gsea-baseline/
@@ -42,7 +42,7 @@ In addition, all 4,026 pre-processed gene sets used in this study
 (including 3,913 biological pathways and 113 tissue-based gene sets)
 are freely available at [`xiangzhu/rss-gsea`][].
 These gene sets can be referenced in a journal's "Data availability" section
-as [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1412872.svg)][zenodo-geneset].
+as [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1473807.svg)][zenodo-geneset].
 
 If you find the analysis results, the pre-processed gene sets,
 the statistical methods, and/or the open-source software useful for your work,
