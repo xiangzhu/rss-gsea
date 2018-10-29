@@ -1,6 +1,6 @@
 # rss-gsea
 
-[![DOI](https://zenodo.org/badge/55633948.svg)](https://zenodo.org/badge/latestdoi/55633948)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1473807.svg)](https://doi.org/10.5281/zenodo.1473807)
 
 This repository contains full results to accompany the following article:
 
