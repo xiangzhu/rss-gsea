@@ -18,6 +18,6 @@ and cite the following article:
 
 The source code in the notebook is licensed under the [GNU General Public License, version 3.0 (GPLv3)][code-license].
 
-Icons in this notebook are directly linked from the Noun Project <https://thenounproject.com>.
+Icons used in this notebook are credited to the Noun Project <https://thenounproject.com>.
 
 [code-license]: https://www.gnu.org/licenses/gpl-3.0.txt
