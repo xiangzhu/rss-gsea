@@ -20,7 +20,7 @@ output:
 [RSS-E tutorial]: http://stephenslab.github.io/rss/Example-5
 [`compute_pip.m`]: https://github.com/stephenslab/rss/blob/master/src_vb/compute_pip.m
 
-## Overview
+## <img src="https://static.thenounproject.com/png/568780-200.png" width="60"/> Overview
 
 This is my online notebook to document and share the full results of genome-wide
 enrichment and prioritization analyses described in the article:
@@ -52,7 +52,7 @@ If you have any question about the notebook and/or the article,
 please feel free to contact me: [Xiang Zhu](https://github.com/xiangzhu),
 `xiangzhu[at]uchicago[and/or]stanford.edu`.
 
-## Main results
+## <img src="https://static.thenounproject.com/png/808252-200.png" width="60"/> Main results
 
 #### Anthropometric phenotypes
 
@@ -109,7 +109,7 @@ please feel free to contact me: [Xiang Zhu](https://github.com/xiangzhu),
 - [Coronary artery disease (Nikpay et al. 2015) & p75(NTR)-mediated signaling](cad2015_path3059.html)
 - [High-density lipoprotein (Teslovich et al. 2010) & Lipid digestion, mobilization and transport](hdl2010_path3093.html)
 
-## Additional resources
+## <img src="https://static.thenounproject.com/png/824132-200.png" width="60"/> Additional resources
 
 > How can I perform similar analyses on a new GWAS summary dataset using RSS-E?
 
