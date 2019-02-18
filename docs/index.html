@@ -25,9 +25,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -87,6 +86,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -101,7 +103,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -121,6 +122,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -142,18 +180,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -303,823 +400,896 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-12-26</p>
-<strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
-<ul>
-<li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
-</details>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/7baf5f934cf88d108e23efb59dc06f9cfa60dde6" target="_blank">7baf5f9</a> </summary></p>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2019-02-18
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>rss-gsea/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.2.0). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="report" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxiangzhurssgseatree6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2ftargetblank6e12a0ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2f" target="_blank">6e12a0c</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxiangzhurssgseatree6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2ftargetblank6e12a0ca" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
 <pre><code>
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 </code></pre>
+<p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
-</details>
-</li>
-</ul>
-<details>
-<summary> <small><strong>Expand here to see past versions:</strong></small> </summary>
-<ul>
-<table style="border-collapse:separate; border-spacing:5px;">
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
 <thead>
 <tr>
-<th style="text-align:left;">
+<th>
 File
 </th>
-<th style="text-align:left;">
+<th>
 Version
 </th>
-<th style="text-align:left;">
+<th>
 Author
 </th>
-<th style="text-align:left;">
+<th>
 Date
 </th>
-<th style="text-align:left;">
+<th>
 Message
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-Rmd
+<td>
+html
 </td>
-<td style="text-align:left;">
-<a href="https://github.com/xiangzhu/rss-gsea/blob/7baf5f934cf88d108e23efb59dc06f9cfa60dde6/analysis/index.Rmd" target="_blank">7baf5f9</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/ba77842eb29e331acc4382a8779789165bb7d273/docs/index.html" target="_blank">ba77842</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-12-26
 </td>
-<td style="text-align:left;">
-wflow_publish(“analysis/index.Rmd”)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-html
-</td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/d526c1f1571a69748dd23769b9b4cb2a2eedbb13/docs/index.html" target="_blank">d526c1f</a>
-</td>
-<td style="text-align:left;">
-Xiang Zhu
-</td>
-<td style="text-align:left;">
-2018-10-29
-</td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
+<a href="https://github.com/xiangzhu/rss-gsea/blob/7baf5f934cf88d108e23efb59dc06f9cfa60dde6/analysis/index.Rmd" target="_blank">7baf5f9</a>
+</td>
+<td>
+Xiang Zhu
+</td>
+<td>
+2018-12-26
+</td>
+<td>
+wflow_publish(“analysis/index.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/d526c1f1571a69748dd23769b9b4cb2a2eedbb13/docs/index.html" target="_blank">d526c1f</a>
+</td>
+<td>
+Xiang Zhu
+</td>
+<td>
+2018-10-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/f1570dfbfbcba5b45edd8199a01861cf56c7e947/analysis/index.Rmd" target="_blank">f1570df</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-29
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/622097dff9efa60387d358c1599678399d74e661/docs/index.html" target="_blank">622097d</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/622097dff9efa60387d358c1599678399d74e661/docs/index.html" target="_blank">622097d</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-29
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/d5550b52214c2f4d9ec401c2cd10e4f1dafbcf4c/analysis/index.Rmd" target="_blank">d5550b5</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-29
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/fa4d9587c65f580ce81822736a2f3adea34cadc2/docs/index.html" target="_blank">fa4d958</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/fa4d9587c65f580ce81822736a2f3adea34cadc2/docs/index.html" target="_blank">fa4d958</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-19
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/bde68994ea1a4a6721709ef9141aff05e650f0db/analysis/index.Rmd" target="_blank">bde6899</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-19
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/4789ea4070d99bb25b7b2a7e77550a2cfff114b3/docs/index.html" target="_blank">4789ea4</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/4789ea4070d99bb25b7b2a7e77550a2cfff114b3/docs/index.html" target="_blank">4789ea4</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-06
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/956af9a7cec1ea4eaf65bab8d4badb5d3c9eb92c/analysis/index.Rmd" target="_blank">956af9a</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-06
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/da04234e1c4f81aaedc0343923f6e95311f8d8a5/docs/index.html" target="_blank">da04234</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/da04234e1c4f81aaedc0343923f6e95311f8d8a5/docs/index.html" target="_blank">da04234</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-06
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/6b08034e177ee02cc6f64c718d3f846bd6cae2bb/analysis/index.Rmd" target="_blank">6b08034</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-06
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/d1b708d41915f9f71f66f05a7944a55902538a8d/docs/index.html" target="_blank">d1b708d</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/d1b708d41915f9f71f66f05a7944a55902538a8d/docs/index.html" target="_blank">d1b708d</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-06
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/d63db43f50ed992b278049bb6ba174bdf4bdcd54/analysis/index.Rmd" target="_blank">d63db43</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-06
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/32eb1dddef3fdc5ea528cbf5dbc7410e7b53dd10/docs/index.html" target="_blank">32eb1dd</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/32eb1dddef3fdc5ea528cbf5dbc7410e7b53dd10/docs/index.html" target="_blank">32eb1dd</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-05
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/5c7ee1e666131480f28f7d1fa77607be416eae28/analysis/index.Rmd" target="_blank">5c7ee1e</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-05
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/1c85967d82bd54d5e76573a2360750fc083cedc5/docs/index.html" target="_blank">1c85967</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/1c85967d82bd54d5e76573a2360750fc083cedc5/docs/index.html" target="_blank">1c85967</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-05
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/810e15a892032529704da5592438cff4b8b5da9a/docs/index.html" target="_blank">810e15a</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/810e15a892032529704da5592438cff4b8b5da9a/docs/index.html" target="_blank">810e15a</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-09-16
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/ebd42203e7bea43d2896a355db6a694cad4913c3/analysis/index.Rmd" target="_blank">ebd4220</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-09-16
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/ecf07e13a2788bf0144d6999a355971cc7ada085/docs/index.html" target="_blank">ecf07e1</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/ecf07e13a2788bf0144d6999a355971cc7ada085/docs/index.html" target="_blank">ecf07e1</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-09-16
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/ec44ee063dc94abc188411676734ebc67b077323/analysis/index.Rmd" target="_blank">ec44ee0</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-09-16
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/8f27e6da53ba7e25860b380fe8107baaf6cc10b9/docs/index.html" target="_blank">8f27e6d</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/8f27e6da53ba7e25860b380fe8107baaf6cc10b9/docs/index.html" target="_blank">8f27e6d</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-02
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/c07c276af218dd70515756ede20af94359dd0c4f/analysis/index.Rmd" target="_blank">c07c276</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-02
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/c77f1e1e4fb23790eaf7f7c0d894503c631e9569/docs/index.html" target="_blank">c77f1e1</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/c77f1e1e4fb23790eaf7f7c0d894503c631e9569/docs/index.html" target="_blank">c77f1e1</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-02
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/acbdfcb99d70923f5ae548e3198d8d0783984ea8/analysis/index.Rmd" target="_blank">acbdfcb</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-02
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/c1e0aacf45e2aefd15384836b4a519e7a2dd5f59/docs/index.html" target="_blank">c1e0aac</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/c1e0aacf45e2aefd15384836b4a519e7a2dd5f59/docs/index.html" target="_blank">c1e0aac</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-02
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/16a82f8d862e461c3a2e3d6312491cfac5572b73/analysis/index.Rmd" target="_blank">16a82f8</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-02
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/835a6be1710efd5de16e254f9110b7e23f46fc6a/docs/index.html" target="_blank">835a6be</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/835a6be1710efd5de16e254f9110b7e23f46fc6a/docs/index.html" target="_blank">835a6be</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-02
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/447917ec2cdd654946d5a87236621515894f5bc7/analysis/index.Rmd" target="_blank">447917e</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-02
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/55087aeccdafb6f0eff926120889829b664ce1a7/docs/index.html" target="_blank">55087ae</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/55087aeccdafb6f0eff926120889829b664ce1a7/docs/index.html" target="_blank">55087ae</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-01
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/07473ff4d2486e334e710d8b9e6af666ecd06ac6/analysis/index.Rmd" target="_blank">07473ff</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-01
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/2b357393870c1af4614638eb9b4423b8d05d05eb/docs/index.html" target="_blank">2b35739</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/2b357393870c1af4614638eb9b4423b8d05d05eb/docs/index.html" target="_blank">2b35739</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-30
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/e364292a90d4fd54c9c956ca2fb3770b18d42c1d/analysis/index.Rmd" target="_blank">e364292</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-30
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/de49400e509e7d1db688fe94b52307210fe208a5/docs/index.html" target="_blank">de49400</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/de49400e509e7d1db688fe94b52307210fe208a5/docs/index.html" target="_blank">de49400</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-29
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/f80d46ea9d310f34ab2f6064e647c3a22ee8ec5b/analysis/index.Rmd" target="_blank">f80d46e</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-29
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/b30daba2887a6313b8f656cf57eee6c3086345fe/docs/index.html" target="_blank">b30daba</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/b30daba2887a6313b8f656cf57eee6c3086345fe/docs/index.html" target="_blank">b30daba</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-27
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/bc9746a9e817d6e677d5b256c8c759975d96229a/analysis/index.Rmd" target="_blank">bc9746a</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-27
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/c749ac73c66b895dc8f555a431e08160f17054db/docs/index.html" target="_blank">c749ac7</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/c749ac73c66b895dc8f555a431e08160f17054db/docs/index.html" target="_blank">c749ac7</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-27
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/6006659014276b35f67c330a718a6349cb82f7b6/analysis/index.Rmd" target="_blank">6006659</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-27
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/0852676bda1f16f5333f8dc713f06ee17541bdaf/docs/index.html" target="_blank">0852676</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/0852676bda1f16f5333f8dc713f06ee17541bdaf/docs/index.html" target="_blank">0852676</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-27
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/46603f37950862f3be5fcfd49e01cbd6ad33f6d6/analysis/index.Rmd" target="_blank">46603f3</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-27
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/ff6afd099209881334e83a9ee89642acaa830a53/docs/index.html" target="_blank">ff6afd0</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/ff6afd099209881334e83a9ee89642acaa830a53/docs/index.html" target="_blank">ff6afd0</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-26
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/bf31edf7399b4528d58a2cc7700bcb79724d604b/analysis/index.Rmd" target="_blank">bf31edf</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-26
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(files = c(“analysis/index.Rmd”, “analysis/license.Rmd”))
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/33aa5b386ec7c6975848c7418c9da30e3cfdef51/docs/index.html" target="_blank">33aa5b3</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/33aa5b386ec7c6975848c7418c9da30e3cfdef51/docs/index.html" target="_blank">33aa5b3</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-26
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/02b392f1f926e36540994949f178d074e464988e/analysis/index.Rmd" target="_blank">02b392f</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-26
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/cee1a927d6f181bac1305b4fdd1fe984707b9346/analysis/index.Rmd" target="_blank">cee1a92</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-26
 </td>
-<td style="text-align:left;">
+<td>
 Start workflowr project.
 </td>
 </tr>
 </tbody>
 </table>
-</ul>
-</details>
-<hr />
+</div>
+<hr>
+</div>
+</div>
+</div>
 <div id="overview" class="section level2">
 <h2><img src="https://static.thenounproject.com/png/568780-200.png" width="60"/> Overview</h2>
 <p>This is my online notebook to document and share the full results of genome-wide enrichment and prioritization analyses described in the article:</p>
@@ -1229,6 +1399,7 @@ Start workflowr project.
 <p>Currently you need to contact me directly to view our “Round 1” results of all 3913 pathways. When this work was under review, one referee pointed out that our previous online results, especially our “Round 1” analysis results, were “needlessly complicated” and did not have “any obvious benefit”. Hence, I removed the “Round 1” analysis results from this notebook to simplify the presentation. I sincerely hope that this change can address this referee’s comment.</p>
 </div>
 
+
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
 http://docs.mathjax.org/en/latest/configuration.html.  This will make
@@ -1240,14 +1411,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-<hr>
-<p>
-  This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
-  analysis was created with
-  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.1.1
-</p>
-<hr>
 
 
 </div>

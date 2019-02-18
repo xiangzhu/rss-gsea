@@ -27,19 +27,18 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="site_libs/datatables-binding-0.4/datatables.js"></script>
+<script src="site_libs/datatables-binding-0.5/datatables.js"></script>
 <link href="site_libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="site_libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="site_libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
 <link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
@@ -57,7 +56,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -100,7 +99,29 @@ code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
 code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -163,6 +184,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -177,7 +201,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -197,6 +220,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -218,18 +278,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -379,127 +498,230 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-10-05</p>
-<strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
-<ul>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
 <li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2019-02-18
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>rss-gsea/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.2.0). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="report" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
-</details>
-</li>
-<li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Environment:</strong> empty </summary></p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
 <p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
-</details>
-</li>
-<li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Seed:</strong> <code>set.seed(20180626)</code> </summary></p>
-<p>The command <code>set.seed(20180626)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
-</details>
-</li>
-<li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Session information:</strong> recorded </summary></p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20180626code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20180626)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20180626code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20180626)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
 <p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
-</details>
-</li>
-<li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/1c85967d82bd54d5e76573a2360750fc083cedc5" target="_blank">1c85967</a> </summary></p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxiangzhurssgseatree6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2ftargetblank6e12a0ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2f" target="_blank">6e12a0c</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxiangzhurssgseatree6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2ftargetblank6e12a0ca" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
 <pre><code>
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 </code></pre>
+<p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
-</details>
-</li>
-</ul>
-<details>
-<summary> <small><strong>Expand here to see past versions:</strong></small> </summary>
-<ul>
-<table style="border-collapse:separate; border-spacing:5px;">
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
 <thead>
 <tr>
-<th style="text-align:left;">
+<th>
 File
 </th>
-<th style="text-align:left;">
+<th>
 Version
 </th>
-<th style="text-align:left;">
+<th>
 Author
 </th>
-<th style="text-align:left;">
+<th>
 Date
 </th>
-<th style="text-align:left;">
+<th>
 Message
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/1c85967d82bd54d5e76573a2360750fc083cedc5/docs/mi_2015.html" target="_blank">1c85967</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/73f3c80eafd4669d84f817685bc7f2ded7510544/docs/mi_2015.html" target="_blank">73f3c80</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-05
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/efe5714c816059d8489ee88c9caf2dc640059751/docs/mi_2015.html" target="_blank">efe5714</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/1c85967d82bd54d5e76573a2360750fc083cedc5/docs/mi_2015.html" target="_blank">1c85967</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
-2018-07-01
+<td>
+2018-10-05
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Rmd
+<td>
+html
 </td>
-<td style="text-align:left;">
-<a href="https://github.com/xiangzhu/rss-gsea/blob/fd324a94964f43e01f1cadec8aebfcf7a5c50c9d/analysis/mi_2015.Rmd" target="_blank">fd324a9</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/efe5714c816059d8489ee88c9caf2dc640059751/docs/mi_2015.html" target="_blank">efe5714</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-07-01
 </td>
-<td style="text-align:left;">
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xiangzhu/rss-gsea/blob/fd324a94964f43e01f1cadec8aebfcf7a5c50c9d/analysis/mi_2015.Rmd" target="_blank">fd324a9</a>
+</td>
+<td>
+Xiang Zhu
+</td>
+<td>
+2018-07-01
+</td>
+<td>
 wflow_publish(“mi_2015.Rmd”)
 </td>
 </tr>
 </tbody>
 </table>
-</ul>
-</details>
-<hr />
+</div>
+<hr>
+</div>
+</div>
+</div>
 <div id="input-data" class="section level2">
 <h2>Input data</h2>
 <p>Results below were generated from the GWAS summary statistics published in the paper <a href="https://www.ncbi.nlm.nih.gov/pubmed/26343387">“A Comprehensive 1000 Genomes–based Genome-Wide Association Meta-Analysis of Coronary Artery Disease” (<em>Nature Genetics</em>, 2015)</a>. The summary data file is available at <a href="http://www.cardiogramplusc4d.org/data-downloads/" class="uri">http://www.cardiogramplusc4d.org/data-downloads/</a>.</p>
@@ -532,80 +754,94 @@ wflow_publish(“mi_2015.Rmd”)
 <h3>Cluster distinctively expressed genes</h3>
 <div id="htmlwidget-798b325e8770e69abc2e" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-798b325e8770e69abc2e">{"x":{"filter":"none","data":[["16","3","5","1","18","9","12","19","10","17","4","13","20","6","15","2","8","14","7","11"],[10442,10546,11878,7773,7652,9975,7516,6143,8786,8717,12696,7986,8495,9272,8036,9402,10633,9766,8786,10775],[2.48761462152164,1.08720170064812,0.000474032324683519,-0.0604300033272401,-0.0862538681759247,-0.139965272523913,-0.168228240169672,-0.177445664322204,-0.186052865391284,-0.348558324891973,-0.393793835946132,-0.447371629537207,-0.504864061965548,-0.557668830775662,-0.588272103527883,-0.609727810420209,-0.650652503640156,-0.652813047067861,-0.655683182087628,-0.692853154831111],["-4.3867<br/>[-4.4786, -4.3023]","-4.4014<br/>[-4.4927, -4.3166]","-4.3893<br/>[-4.4793, -4.3056]","-4.3845<br/>[-4.4752, -4.3007]","-4.3772<br/>[-4.4677, -4.2938]","-4.3859<br/>[-4.4785, -4.3009]","-4.3865<br/>[-4.4794, -4.3014]","-4.3767<br/>[-4.4674, -4.2931]","-4.3856<br/>[-4.4767, -4.3014]","-4.3827<br/>[-4.4734, -4.2989]","-4.3842<br/>[-4.4752, -4.3002]","-4.3784<br/>[-4.4686, -4.2952]","-4.3767<br/>[-4.4672, -4.2934]","-4.3778<br/>[-4.4679, -4.2946]","-4.3771<br/>[-4.4676, -4.2939]","-4.3774<br/>[-4.4680, -4.2938]","-4.3768<br/>[-4.4671, -4.2935]","-4.3761<br/>[-4.4666, -4.2927]","-4.3762<br/>[-4.4668, -4.2927]","-4.3758<br/>[-4.4663, -4.2924]"],["-3.2369<br/>[-3.3393, -3.1376]","-3.3251<br/>[-3.5078, -3.1901]","-3.6226<br/>[-3.8865, -3.4329]","-3.5891<br/>[-3.9389, -3.3958]","-3.7012<br/>[-3.8420, -3.5581]","-3.6876<br/>[-3.9029, -3.5012]","-3.7147<br/>[-3.8289, -3.5836]","-3.7148<br/>[-3.8111, -3.6017]","-3.7119<br/>[-3.9241, -3.5309]","-3.8525<br/>[-4.0888, -3.6721]","-3.8894<br/>[-4.1049, -3.7030]","-3.9372<br/>[-4.4548, -3.6352]","-4.0269<br/>[-4.5840, -3.7022]","-4.1243<br/>[-4.6995, -3.7913]","-4.3029<br/>[-4.8818, -3.9537]","-4.3040<br/>[-4.6544, -4.0395]","-4.3515<br/>[-4.8542, -4.0405]","-4.4349<br/>[-4.9872, -4.0989]","-4.6117<br/>[-5.1271, -4.2886]","-4.5458<br/>[-5.0994, -4.2114]"]],"container":"<table class=\"white-space: nowrap\">\n  <thead>\n    <tr>\n      <th>Cluster ID<\/th>\n      <th># of SNPs<\/th>\n      <th>Log10 BF<\/th>\n      <th>Log10 outside &pi;<br/>(mean, 95% CI)<\/th>\n      <th>Log10 inside &pi;<br/>(mean, 95% CI)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 3, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
-<p>The relationship between tissues and clusters is shown in Figure 1 of <a href="http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006599">Dey et al. (2017)</a>; see below.</p>
+<p>The relationship between tissues and clusters is shown in Figure 1 of <a href="http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006599">Dey et al. (2017)</a>; see below.</p>
 <p><img src="http://journals.plos.org/plosgenetics/article/figure/image?size=large&amp;id=10.1371/journal.pgen.1006599.g001" /></p>
-</div>
-</div>
-<div id="session-information" class="section level2">
-<h2>Session information</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
-<pre><code>Session info -------------------------------------------------------------</code></pre>
-<pre><code> setting  value                       
- version  R version 3.5.1 (2018-07-02)
+<br> <br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
+<pre><code>─ Session info ──────────────────────────────────────────────────────────
+ setting  value                       
+ version  R version 3.5.2 (2018-12-20)
+ os       macOS Mojave 10.14.3        
  system   x86_64, darwin15.6.0        
  ui       X11                         
  language (EN)                        
  collate  en_US.UTF-8                 
+ ctype    en_US.UTF-8                 
  tz       America/Los_Angeles         
- date     2018-10-05                  </code></pre>
-<pre><code>Packages -----------------------------------------------------------------</code></pre>
-<pre><code> package     * version date       source        
- assertthat    0.2.0   2017-04-11 CRAN (R 3.5.0)
- backports     1.1.2   2017-12-13 CRAN (R 3.5.0)
- base        * 3.5.1   2018-07-05 local         
- bindr         0.1.1   2018-03-13 CRAN (R 3.5.0)
- bindrcpp      0.2.2   2018-03-29 CRAN (R 3.5.0)
- compiler      3.5.1   2018-07-05 local         
- crayon        1.3.4   2017-09-16 CRAN (R 3.5.0)
- crosstalk     1.0.0   2016-12-21 CRAN (R 3.5.0)
- datasets    * 3.5.1   2018-07-05 local         
- devtools      1.13.6  2018-06-27 CRAN (R 3.5.0)
- digest        0.6.17  2018-09-12 CRAN (R 3.5.0)
- dplyr       * 0.7.6   2018-06-29 CRAN (R 3.5.1)
- DT          * 0.4     2018-01-30 CRAN (R 3.5.0)
- evaluate      0.11    2018-07-17 CRAN (R 3.5.0)
- git2r         0.23.0  2018-07-17 CRAN (R 3.5.0)
- glue          1.3.0   2018-07-17 CRAN (R 3.5.0)
- graphics    * 3.5.1   2018-07-05 local         
- grDevices   * 3.5.1   2018-07-05 local         
- htmltools     0.3.6   2017-04-28 CRAN (R 3.5.0)
- htmlwidgets   1.3     2018-09-30 CRAN (R 3.5.0)
- httpuv        1.4.5   2018-07-19 CRAN (R 3.5.0)
- jsonlite      1.5     2017-06-01 CRAN (R 3.5.0)
- knitr         1.20    2018-02-20 CRAN (R 3.5.0)
- later         0.7.5   2018-09-18 CRAN (R 3.5.0)
- magrittr      1.5     2014-11-22 CRAN (R 3.5.0)
- memoise       1.1.0   2017-04-21 CRAN (R 3.5.0)
- methods     * 3.5.1   2018-07-05 local         
- mime          0.5     2016-07-07 CRAN (R 3.5.0)
- pillar        1.3.0   2018-07-14 CRAN (R 3.5.0)
- pkgconfig     2.0.2   2018-08-16 CRAN (R 3.5.0)
- plyr        * 1.8.4   2016-06-08 CRAN (R 3.5.0)
- promises      1.0.1   2018-04-13 CRAN (R 3.5.0)
- purrr         0.2.5   2018-05-29 CRAN (R 3.5.0)
- R.matlab    * 3.6.2   2018-09-27 CRAN (R 3.5.0)
- R.methodsS3   1.7.1   2016-02-16 CRAN (R 3.5.0)
- R.oo          1.22.0  2018-04-22 CRAN (R 3.5.0)
- R.utils       2.7.0   2018-08-27 CRAN (R 3.5.0)
- R6            2.3.0   2018-10-04 CRAN (R 3.5.0)
- Rcpp          0.12.19 2018-10-01 CRAN (R 3.5.0)
- rlang         0.2.2   2018-08-16 CRAN (R 3.5.0)
- rmarkdown     1.10    2018-06-11 CRAN (R 3.5.0)
- rprojroot     1.3-2   2018-01-03 CRAN (R 3.5.0)
- shiny         1.1.0   2018-05-17 CRAN (R 3.5.0)
- stats       * 3.5.1   2018-07-05 local         
- stringi       1.2.4   2018-07-20 CRAN (R 3.5.0)
- stringr       1.3.1   2018-05-10 CRAN (R 3.5.0)
- tibble        1.4.2   2018-01-22 CRAN (R 3.5.0)
- tidyselect    0.2.4   2018-02-26 CRAN (R 3.5.0)
- tools         3.5.1   2018-07-05 local         
- utils       * 3.5.1   2018-07-05 local         
- whisker       0.3-2   2013-04-28 CRAN (R 3.5.0)
- withr         2.1.2   2018-03-15 CRAN (R 3.5.0)
- workflowr     1.1.1   2018-07-06 CRAN (R 3.5.0)
- xtable        1.8-3   2018-08-29 CRAN (R 3.5.0)
- yaml          2.2.0   2018-07-25 CRAN (R 3.5.0)</code></pre>
+ date     2019-02-18                  
+
+─ Packages ──────────────────────────────────────────────────────────────
+ package     * version date       lib source        
+ assertthat    0.2.0   2017-04-11 [1] CRAN (R 3.5.0)
+ backports     1.1.3   2018-12-14 [1] CRAN (R 3.5.0)
+ callr         3.1.1   2018-12-21 [1] CRAN (R 3.5.0)
+ cli           1.0.1   2018-09-25 [1] CRAN (R 3.5.0)
+ crayon        1.3.4   2017-09-16 [1] CRAN (R 3.5.0)
+ crosstalk     1.0.0   2016-12-21 [1] CRAN (R 3.5.0)
+ desc          1.2.0   2018-05-01 [1] CRAN (R 3.5.0)
+ devtools      2.0.1   2018-10-26 [1] CRAN (R 3.5.1)
+ digest        0.6.18  2018-10-10 [1] CRAN (R 3.5.0)
+ dplyr       * 0.8.0.1 2019-02-15 [1] CRAN (R 3.5.2)
+ DT          * 0.5     2018-11-05 [1] CRAN (R 3.5.0)
+ evaluate      0.13    2019-02-12 [1] CRAN (R 3.5.2)
+ fs            1.2.6   2018-08-23 [1] CRAN (R 3.5.0)
+ git2r         0.24.0  2019-01-07 [1] CRAN (R 3.5.2)
+ glue          1.3.0   2018-07-17 [1] CRAN (R 3.5.0)
+ htmltools     0.3.6   2017-04-28 [1] CRAN (R 3.5.0)
+ htmlwidgets   1.3     2018-09-30 [1] CRAN (R 3.5.0)
+ httpuv        1.4.5.1 2018-12-18 [1] CRAN (R 3.5.0)
+ jsonlite      1.6     2018-12-07 [1] CRAN (R 3.5.0)
+ knitr         1.21    2018-12-10 [1] CRAN (R 3.5.2)
+ later         0.8.0   2019-02-11 [1] CRAN (R 3.5.2)
+ magrittr      1.5     2014-11-22 [1] CRAN (R 3.5.0)
+ memoise       1.1.0   2017-04-21 [1] CRAN (R 3.5.0)
+ mime          0.6     2018-10-05 [1] CRAN (R 3.5.1)
+ pillar        1.3.1   2018-12-15 [1] CRAN (R 3.5.0)
+ pkgbuild      1.0.2   2018-10-16 [1] CRAN (R 3.5.0)
+ pkgconfig     2.0.2   2018-08-16 [1] CRAN (R 3.5.0)
+ pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.5.0)
+ plyr        * 1.8.4   2016-06-08 [1] CRAN (R 3.5.0)
+ prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.5.0)
+ processx      3.2.1   2018-12-05 [1] CRAN (R 3.5.0)
+ promises      1.0.1   2018-04-13 [1] CRAN (R 3.5.0)
+ ps            1.3.0   2018-12-21 [1] CRAN (R 3.5.0)
+ purrr         0.3.0   2019-01-27 [1] CRAN (R 3.5.2)
+ R.matlab    * 3.6.2   2018-09-27 [1] CRAN (R 3.5.0)
+ R.methodsS3   1.7.1   2016-02-16 [1] CRAN (R 3.5.0)
+ R.oo          1.22.0  2018-04-22 [1] CRAN (R 3.5.0)
+ R.utils       2.8.0   2019-02-14 [1] CRAN (R 3.5.2)
+ R6            2.4.0   2019-02-14 [1] CRAN (R 3.5.2)
+ Rcpp          1.0.0   2018-11-07 [1] CRAN (R 3.5.0)
+ remotes       2.0.2   2018-10-30 [1] CRAN (R 3.5.0)
+ rlang         0.3.1   2019-01-08 [1] CRAN (R 3.5.2)
+ rmarkdown     1.11    2018-12-08 [1] CRAN (R 3.5.0)
+ rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.5.0)
+ sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.5.0)
+ shiny         1.2.0   2018-11-02 [1] CRAN (R 3.5.0)
+ stringi       1.3.1   2019-02-13 [1] CRAN (R 3.5.2)
+ stringr       1.4.0   2019-02-10 [1] CRAN (R 3.5.2)
+ testthat      2.0.1   2018-10-13 [1] CRAN (R 3.5.0)
+ tibble        2.0.1   2019-01-12 [1] CRAN (R 3.5.2)
+ tidyselect    0.2.5   2018-10-11 [1] CRAN (R 3.5.0)
+ usethis       1.4.0   2018-08-14 [1] CRAN (R 3.5.0)
+ whisker       0.3-2   2013-04-28 [1] CRAN (R 3.5.0)
+ withr         2.1.2   2018-03-15 [1] CRAN (R 3.5.0)
+ workflowr     1.2.0   2019-02-14 [1] CRAN (R 3.5.2)
+ xfun          0.4     2018-10-23 [1] CRAN (R 3.5.0)
+ xtable        1.8-3   2018-08-29 [1] CRAN (R 3.5.0)
+ yaml          2.2.0   2018-07-25 [1] CRAN (R 3.5.0)
+
+[1] /Library/Frameworks/R.framework/Versions/3.5/Resources/library</code></pre>
 </div>
+</div>
+</div>
+
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
@@ -618,14 +854,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-<hr>
-<p>
-  This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
-  analysis was created with
-  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.1.1
-</p>
-<hr>
 
 
 </div>

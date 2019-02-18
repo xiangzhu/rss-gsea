@@ -20,9 +20,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -82,6 +81,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -96,7 +98,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -116,6 +117,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -137,18 +175,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -201,279 +298,352 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-12-26</p>
-<strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
-<ul>
-<li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
-</details>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<details>
-<p><summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/a0fe25cb193d0cb022dc312910bf32cf5f9b2d31" target="_blank">a0fe25c</a> </summary></p>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2019-02-18
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>rss-gsea/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.2.0). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="report" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxiangzhurssgseatree6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2ftargetblank6e12a0ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xiangzhu/rss-gsea/tree/6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2f" target="_blank">6e12a0c</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxiangzhurssgseatree6e12a0cfbfbbfea4a3991e6c49bde22ce9ab0b2ftargetblank6e12a0ca" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
 <pre><code>
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 </code></pre>
+<p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
-</details>
-</li>
-</ul>
-<details>
-<summary> <small><strong>Expand here to see past versions:</strong></small> </summary>
-<ul>
-<table style="border-collapse:separate; border-spacing:5px;">
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
 <thead>
 <tr>
-<th style="text-align:left;">
+<th>
 File
 </th>
-<th style="text-align:left;">
+<th>
 Version
 </th>
-<th style="text-align:left;">
+<th>
 Author
 </th>
-<th style="text-align:left;">
+<th>
 Date
 </th>
-<th style="text-align:left;">
+<th>
 Message
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/7e484b88c026935347001dbb2a9479131308e74b/docs/license.html" target="_blank">7e484b8</a>
+</td>
+<td>
+Xiang Zhu
+</td>
+<td>
+2018-12-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/a0fe25cb193d0cb022dc312910bf32cf5f9b2d31/analysis/license.Rmd" target="_blank">a0fe25c</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-12-26
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/license.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/6b9c441a95bc3e66cea544fd02005efeea032fbb/docs/license.html" target="_blank">6b9c441</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/6b9c441a95bc3e66cea544fd02005efeea032fbb/docs/license.html" target="_blank">6b9c441</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-12-26
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/221717895bcf63d69938237735e10335c810ca85/analysis/license.Rmd" target="_blank">2217178</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-12-26
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/license.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/db3c1343d75d36b4a43e303402bca8a06a8a169f/docs/license.html" target="_blank">db3c134</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/db3c1343d75d36b4a43e303402bca8a06a8a169f/docs/license.html" target="_blank">db3c134</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-29
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/cda0864c963539f1be50fe49983d7bc5c9c7d225/analysis/license.Rmd" target="_blank">cda0864</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-29
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/license.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/6fcb3cf3f14c2358d575328cd1c4d4a0e16f48b4/docs/license.html" target="_blank">6fcb3cf</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/6fcb3cf3f14c2358d575328cd1c4d4a0e16f48b4/docs/license.html" target="_blank">6fcb3cf</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-29
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/abed2b128e3133e74e4bb1259223450e48e847c0/analysis/license.Rmd" target="_blank">abed2b1</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-29
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/license.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/4cd1ff8b906a86289d95ad2aeab41a600fd78098/docs/license.html" target="_blank">4cd1ff8</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/4cd1ff8b906a86289d95ad2aeab41a600fd78098/docs/license.html" target="_blank">4cd1ff8</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-19
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/7d05b7812d47b702876f430b6a414456121b9cfd/analysis/license.Rmd" target="_blank">7d05b78</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-19
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(“analysis/license.Rmd”)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/1c85967d82bd54d5e76573a2360750fc083cedc5/docs/license.html" target="_blank">1c85967</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/1c85967d82bd54d5e76573a2360750fc083cedc5/docs/license.html" target="_blank">1c85967</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-10-05
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 html
 </td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/xiangzhu/rss-gsea/ff6afd099209881334e83a9ee89642acaa830a53/docs/license.html" target="_blank">ff6afd0</a>
+<td>
+<a href="https://rawcdn.githack.com/xiangzhu/rss-gsea/ff6afd099209881334e83a9ee89642acaa830a53/docs/license.html" target="_blank">ff6afd0</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-26
 </td>
-<td style="text-align:left;">
+<td>
 Build site.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/bf31edf7399b4528d58a2cc7700bcb79724d604b/analysis/license.Rmd" target="_blank">bf31edf</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-26
 </td>
-<td style="text-align:left;">
+<td>
 wflow_publish(files = c(“analysis/index.Rmd”, “analysis/license.Rmd”))
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td>
 Rmd
 </td>
-<td style="text-align:left;">
+<td>
 <a href="https://github.com/xiangzhu/rss-gsea/blob/cee1a927d6f181bac1305b4fdd1fe984707b9346/analysis/license.Rmd" target="_blank">cee1a92</a>
 </td>
-<td style="text-align:left;">
+<td>
 Xiang Zhu
 </td>
-<td style="text-align:left;">
+<td>
 2018-06-26
 </td>
-<td style="text-align:left;">
+<td>
 Start workflowr project.
 </td>
 </tr>
 </tbody>
 </table>
-</ul>
-</details>
-<hr />
+</div>
+<hr>
+</div>
+</div>
+</div>
 <p>This notebook is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this notebook are included in the notebook’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the notebook’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by/4.0/" class="uri">http://creativecommons.org/licenses/by/4.0/</a>.</p>
 <p>If you use any results from this notebook, please explicitly acknowledge that the results are retrieved from <a href="https://doi.org/10.5281/zenodo.1473807" class="uri">https://doi.org/10.5281/zenodo.1473807</a>, and cite the following article:</p>
 <blockquote>
@@ -481,6 +651,7 @@ Start workflowr project.
 </blockquote>
 <p>The source code in the notebook is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.txt">GNU General Public License, version 3.0 (GPLv3)</a>.</p>
 <p>Icons used in this notebook are credited to the Noun Project <a href="https://thenounproject.com" class="uri">https://thenounproject.com</a>.</p>
+
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
@@ -493,14 +664,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-<hr>
-<p>
-  This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
-  analysis was created with
-  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.1.1
-</p>
-<hr>
 
 
 
