@@ -19,13 +19,24 @@ contains 113 GTEx tissue-based gene sets.
 These gene sets can be referenced in a journal's "Data availability" section
 as [![DOI](https://zenodo.org/badge/55633948.svg)][zenodo-geneset].
 
-```{r,engine='bash',echo=FALSE}
-tree -L 2 data/
+```zsh
+$ tree -L 2 data/
+data/
+├── README.md
+├── biological_pathway
+│   ├── gene_37.3.mat
+│   └── pathway.mat
+└── tissue_set
+    ├── de_genes
+    ├── he_genes
+    └── se_genes
+
+5 directories, 3 files
 ```
 
 ## Biological pathways
 
-The 3,913 GTEx biological pathway used in [Zhu and Stephens (2018)][]
+The 3,913 public biological pathway used in [Zhu and Stephens (2018)][]
 are available in the folder [`biological_pathway`][],
 which are represented by two files `gene_37.3.mat` and `pathway.mat`.
 
