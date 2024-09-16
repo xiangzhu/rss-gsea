@@ -9,6 +9,8 @@ navbar:
       href: index.html
     - text: "License"
       href: license.html
+    - text: "News"
+      href: https://stephenslab.github.io/rss/news.html
   right:
     - icon: fa-github
       href: https://github.com/xiangzhu/rss-gsea
