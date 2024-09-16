@@ -19,4 +19,4 @@ output:
     toc: true
     toc_float: true
     theme: flatly
-    highlight: tango
+    highlight: pygments
